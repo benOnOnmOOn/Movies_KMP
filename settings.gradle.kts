@@ -1,14 +1,38 @@
 pluginManagement {
     repositories {
-        google()
+        google {
+            content {
+                includeGroupByRegex("com.android.*")
+                includeGroupByRegex("androidx.*")
+                includeGroupByRegex("com.google.*")
+            }
+        }
         gradlePluginPortal()
-        mavenCentral()
     }
 }
 
+plugins {
+    id("com.gradle.enterprise") version ("3.13.1")
+}
+
+gradleEnterprise {
+    buildScan {
+        termsOfServiceUrl = "https://gradle.com/terms-of-service"
+        termsOfServiceAgree = "yes"
+    }
+}
+
+@Suppress("UnstableApiUsage")
 dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
     repositories {
-        google()
+        google {
+            content {
+                includeGroupByRegex("com.android.*")
+                includeGroupByRegex("androidx.*")
+                includeGroupByRegex("com.google.*")
+            }
+        }
         mavenCentral()
     }
 }
