@@ -24,10 +24,10 @@ jobs:
 
       # Build debug app to improve pr check build speed by storing debug cache
       - name: Build debug apk
-        run: ./gradlew app:assembleDebug
+        run: ./gradlew androidApp:assembleDebug
 
       - name: Build release apk
-        run: ./gradlew app:assembleRelease
+        run: ./gradlew androidApp:assembleRelease
 
       - name: Run detket plugin
         run: ./gradlew detektAll
