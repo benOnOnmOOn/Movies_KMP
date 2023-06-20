@@ -5,45 +5,49 @@ plugins {
 
 android {
     namespace = "com.bz.movieskmp.android"
-    compileSdk = 33
+
     defaultConfig {
-        applicationId = "com.bz.movieskmp.android"
-        minSdk = 28
-        targetSdk = 33
+        applicationId = "com.bz.movies"
         versionCode = 1
         versionName = "1.0"
     }
+
+    buildTypes {
+        release {
+            isMinifyEnabled = true
+            isShrinkResources = true
+            @Suppress("UnstableApiUsage")
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro"
+            )
+            signingConfig = signingConfigs.getByName("debug")
+        }
+    }
+
+    @Suppress("UnstableApiUsage")
     buildFeatures {
         compose = true
     }
-    composeOptions {
-        kotlinCompilerExtensionVersion = "1.4.7"
-    }
-    packaging {
-        resources {
-            excludes += "/META-INF/{AL2.0,LGPL2.1}"
-        }
-    }
-    buildTypes {
-        getByName("release") {
-            isMinifyEnabled = false
-        }
-    }
-    compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
-    }
-    kotlinOptions {
-        jvmTarget = "1.8"
-    }
 }
+
 
 dependencies {
     implementation(project(":shared"))
-    implementation("androidx.compose.ui:ui:1.4.3")
-    implementation("androidx.compose.ui:ui-tooling:1.4.3")
-    implementation("androidx.compose.ui:ui-tooling-preview:1.4.3")
-    implementation("androidx.compose.foundation:foundation:1.4.3")
-    implementation("androidx.compose.material:material:1.4.3")
-    implementation("androidx.activity:activity-compose:1.7.1")
+    implementation(libs.androidx.ui)
+    runtimeOnly(libs.androidx.ui.tooling)
+    implementation(libs.androidx.ui.tooling.preview)
+    implementation(libs.androidx.foundation)
+    implementation(libs.androidx.material)
+    implementation(libs.androidx.activity.compose)
+
+    implementation(libs.androidx.activity)
+    implementation(libs.androidx.foundation.layout)
+    implementation(libs.androidx.runtime)
+    implementation(libs.androidx.ui.graphics)
+    implementation(libs.androidx.ui.text)
+    implementation(libs.androidx.ui.unit)
+    implementation(libs.androidx.core)
+    implementation(libs.androidx.lifecycle.common)
+    implementation(libs.androidx.lifecycle.viewmodel)
 }

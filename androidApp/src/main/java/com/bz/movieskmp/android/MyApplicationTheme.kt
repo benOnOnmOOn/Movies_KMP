@@ -1,3 +1,4 @@
+@file:Suppress("MagicNumber")
 package com.bz.movieskmp.android
 
 import androidx.compose.foundation.isSystemInDarkTheme
