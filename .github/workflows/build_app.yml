@@ -2,7 +2,7 @@ name: Build release app
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "main", "master" ]
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
