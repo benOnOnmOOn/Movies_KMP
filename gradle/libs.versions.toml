@@ -16,7 +16,6 @@ startup-runtime = "1.1.1"
 material = "1.4.3"
 moshi = "1.15.0"
 javax-inject = "1"
-appcompat = "1.6.1"
 ksp = "1.8.21-1.0.11"
 runtime = "1.4.3"
 kotlinx-coroutines = "1.7.1"
@@ -25,13 +24,10 @@ mockk = "1.13.5"
 monitor = "1.6.1"
 core-ktx = "1.10.1"
 junit = "5.9.3"
-androidx-test-ext-junit = "1.1.5"
-espresso-core = "3.5.1"
 compose = "1.4.3"
 room-runtime = "2.5.1"
 sqlite = "2.3.1"
 timber = "5.0.1"
-com-google-android-material-material = "1.9.0"
 hilt = "2.46.1"
 retrofit = "2.9.0"
 firebase-bom = "32.1.1"
@@ -42,7 +38,6 @@ hilt-navigation-compose = "1.0.0"
 [libraries]
 androidx-activity = { module = "androidx.activity:activity", version.ref = "activity-compose" }
 androidx-activity-compose = { module = "androidx.activity:activity-compose", version.ref = "activity-compose" }
-androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
 androidx-compose-ui = { module = "androidx.compose.ui:ui", version.ref = "ui" }
 androidx-compose-ui-text = { module = "androidx.compose.ui:ui-text", version.ref = "ui" }
 androidx-compose-ui-graphics = { module = "androidx.compose.ui:ui-graphics", version.ref = "ui" }
@@ -72,9 +67,6 @@ androidx-room-ktx = { module = "androidx.room:room-ktx", version.ref = "room-run
 androidx-room-runtime = { module = "androidx.room:room-runtime", version.ref = "room-runtime" }
 androidx-startup-runtime = { module = "androidx.startup:startup-runtime", version.ref = "startup-runtime" }
 androidx-sqlite = { module = "androidx.sqlite:sqlite", version.ref = "sqlite" }
-androidx-test-ext-junit = { group = "androidx.test.ext", name = "junit", version.ref = "androidx-test-ext-junit" }
-androidx-test-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espresso-core" }
-com-google-android-material = { group = "com.google.android.material", name = "material", version.ref = "com-google-android-material-material" }
 com-google-dagger = { module = "com.google.dagger:dagger", version.ref = "hilt" }
 com-google-dagger-compiler = { module = "com.google.dagger:dagger-compiler", version.ref = "hilt" }
 com-google-firebase-bom = { module = "com.google.firebase:firebase-bom", version.ref = "firebase-bom" }
@@ -95,7 +87,6 @@ io-mockk-dsl = { module = "io.mockk:mockk-dsl", version.ref = "mockk" }
 io-mockk = { group = "io.mockk", name = "mockk", version.ref = "mockk" }
 io-coil-compose = { module = "io.coil-kt:coil-compose", version.ref = "coil-compose" }
 javax-inject = { module = "javax.inject:javax.inject", version.ref = "javax-inject" }
-junit = { group = "junit", name = "junit", version.ref = "junit" }
 org-jetbrains-kotlinx-coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "kotlinx-coroutines" }
 org-jetbrains-kotlinx-coroutines-android = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-android", version.ref = "kotlinx-coroutines" }
 org-jetbrains-kotlinx-coroutines-test = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-test", version.ref = "kotlinx-coroutines" }
