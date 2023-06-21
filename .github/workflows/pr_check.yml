@@ -2,7 +2,7 @@ name: Verify PR before margin to main
 
 on:
   pull_request:
-    branches: [ "main" ]
+    branches: [ "main","master"]
 
 concurrency:
   group: ${{ github.event.pull_request.number }}
@@ -22,7 +22,7 @@ jobs:
         uses: gradle/gradle-build-action@v2.4.1
 
       - name: Build apk
-        run: ./gradlew androidApp:assembleDebug
+        run: ./gradlew :androidApp:assembleDebug
 
       - name: Run detket plugin
         run: ./gradlew detektAll

@@ -28,6 +28,7 @@ plugins {
     alias(libs.plugins.com.google.gms.google.services) apply false
     alias(libs.plugins.org.jetbrains.kotlinx.kover) apply false
     alias(libs.plugins.com.osacky.doctor) apply true
+    alias(libs.plugins.com.google.dagger.hilt.android) apply false
 }
 
 tasks.register("clean", Delete::class) {

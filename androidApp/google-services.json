@@ -1,0 +1,68 @@
+{
+  "project_info": {
+    "project_number": "97259782593",
+    "project_id": "movies-demo-app-e09d4",
+    "storage_bucket": "movies-demo-app-e09d4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:97259782593:android:86491b505124440f47ef40",
+        "android_client_info": {
+          "package_name": "com.bz.movies"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "97259782593-uhr53a6lj3eo396m78uabqprgojv32kc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCIEtvX4suwuEZfNSH_0HAZzd7U_KcsbuA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "97259782593-uhr53a6lj3eo396m78uabqprgojv32kc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:97259782593:android:f5df58d1dcea904b47ef40",
+        "android_client_info": {
+          "package_name": "com.bz.movies.kmp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "97259782593-uhr53a6lj3eo396m78uabqprgojv32kc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCIEtvX4suwuEZfNSH_0HAZzd7U_KcsbuA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "97259782593-uhr53a6lj3eo396m78uabqprgojv32kc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
