@@ -40,12 +40,13 @@ android {
 
 
 dependencyAnalysis {
-    issues { onUnusedDependencies { exclude(":presentation:core") } }
+    issues { onUnusedDependencies { exclude(":android:presentation:core") } }
+    issues { onUnusedDependencies { exclude(":shared") } }
 }
 
 dependencies {
     implementation(project(":shared"))
-    api(project(":android:presentation:core"))
+    implementation(project(":android:presentation:core"))
 
     kover(project(":shared"))
     kover(project(":android:presentation:core"))
@@ -53,23 +54,6 @@ dependencies {
     kover(project(":android:data:network"))
     kover(project(":android:data:database"))
     kover(project(":android:data:dto"))
-
-    implementation(libs.androidx.compose.ui)
-    runtimeOnly(libs.androidx.compose.ui.tooling)
-    implementation(libs.androidx.compose.ui.tooling.preview)
-    implementation(libs.androidx.compose.foundation)
-    implementation(libs.androidx.compose.material)
-    implementation(libs.androidx.activity.compose)
-
-    implementation(libs.androidx.activity)
-    implementation(libs.androidx.compose.foundation.layout)
-    implementation(libs.androidx.compose.runtime)
-    implementation(libs.androidx.compose.ui.graphics)
-    implementation(libs.androidx.compose.ui.text)
-    implementation(libs.androidx.compose.ui.unit)
-    implementation(libs.androidx.core)
-    implementation(libs.androidx.lifecycle.common)
-    implementation(libs.androidx.lifecycle.viewmodel)
 
     releaseImplementation(platform(libs.com.google.firebase.bom))
 
@@ -83,6 +67,7 @@ dependencies {
     //
 
     implementation(libs.androidx.startup.runtime)
+    implementation(libs.androidx.compose.runtime)
 
     implementation(libs.com.jakewharton.timber)
 
