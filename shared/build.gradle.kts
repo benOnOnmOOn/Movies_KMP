@@ -35,4 +35,4 @@ kotlin {
     android()
 }
 
-android { namespace = "com.bz.movieskmp" }
+android { namespace = "com.bz.movies.kmp" }

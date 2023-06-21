@@ -1,4 +1,4 @@
-package com.bz.movieskmp.android
+package com.bz.movies.kmp.android
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity

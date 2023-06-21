@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Filmy - przykład apki</string>
+    <string name="playing_now">Aktualne</string>
+    <string name="popular">Popularne</string>
+    <string name="favorite">Ulubione</string>
+    <string name="more">Więcej</string>
+    <string name="your_favorite_movies">Twoje ulubione</string>
+    <string name="playing_now_screen_title">Obecnie wyświetlane w kinach</string>
+    <string name="popular_now_screen_title">Popularne obecnie filmy</string>
+</resources>

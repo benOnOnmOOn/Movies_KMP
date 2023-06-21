@@ -4,10 +4,10 @@ plugins {
 }
 
 android {
-    namespace = "com.bz.movieskmp.android"
+    namespace = "com.bz.movies.kmp.android"
 
     defaultConfig {
-        applicationId = "com.bz.movies"
+        applicationId = "com.bz.movies.kmp"
         versionCode = 1
         versionName = "1.0"
     }
@@ -34,19 +34,19 @@ android {
 
 dependencies {
     implementation(project(":shared"))
-    implementation(libs.androidx.ui)
-    runtimeOnly(libs.androidx.ui.tooling)
-    implementation(libs.androidx.ui.tooling.preview)
-    implementation(libs.androidx.foundation)
-    implementation(libs.androidx.material)
+    implementation(libs.androidx.compose.ui)
+    runtimeOnly(libs.androidx.compose.ui.tooling)
+    implementation(libs.androidx.compose.ui.tooling.preview)
+    implementation(libs.androidx.compose.foundation)
+    implementation(libs.androidx.compose.material)
     implementation(libs.androidx.activity.compose)
 
     implementation(libs.androidx.activity)
-    implementation(libs.androidx.foundation.layout)
-    implementation(libs.androidx.runtime)
-    implementation(libs.androidx.ui.graphics)
-    implementation(libs.androidx.ui.text)
-    implementation(libs.androidx.ui.unit)
+    implementation(libs.androidx.compose.foundation.layout)
+    implementation(libs.androidx.compose.runtime)
+    implementation(libs.androidx.compose.ui.graphics)
+    implementation(libs.androidx.compose.ui.text)
+    implementation(libs.androidx.compose.ui.unit)
     implementation(libs.androidx.core)
     implementation(libs.androidx.lifecycle.common)
     implementation(libs.androidx.lifecycle.viewmodel)

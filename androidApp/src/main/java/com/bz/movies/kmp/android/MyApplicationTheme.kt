@@ -1,5 +1,5 @@
 @file:Suppress("MagicNumber")
-package com.bz.movieskmp.android
+package com.bz.movies.kmp.android
 
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.shape.RoundedCornerShape
