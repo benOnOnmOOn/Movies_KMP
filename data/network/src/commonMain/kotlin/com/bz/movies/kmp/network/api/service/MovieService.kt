@@ -44,7 +44,7 @@ internal class MovieService {
         language: String,
         page: String,
     ): PlayingNowMoviesApiResponse {
-        val url = BASE_URL.plus("movie/popular")
+        val url = BASE_URL.plus("movie/now_playing")
         return client.get(url) {
             url {
                 parameters.append("api_key", apiKey)

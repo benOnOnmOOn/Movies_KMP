@@ -51,7 +51,7 @@ dependencies {
     kover(project(":shared"))
     kover(project(":android:presentation:core"))
     kover(project(":android:presentation:screens"))
-    kover(project(":android:data:network"))
+    kover(project(":data:network"))
     kover(project(":android:data:database"))
     kover(project(":data:dto"))
 

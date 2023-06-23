@@ -15,7 +15,6 @@ internal class RepositoryModule {
 
     @Provides
     internal fun provideMovieRepository(
-        apiService: MovieService,
         internetConnection: InternetConnection,
-    ): MovieRepository = MovieRepositoryImpl(apiService, internetConnection)
+    ): MovieRepository = MovieRepositoryImpl(MovieService(), internetConnection)
 }

@@ -22,7 +22,7 @@ android {
 }
 
 dependencies {
-    api(project(":android:data:network"))
+    api(project(":data:network"))
     api(project(":android:data:database"))
     api(project(":data:dto"))
 
