@@ -2,8 +2,8 @@ package com.bz.movies.presentation.screens.popular
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.bz.dto.MovieDto
 import com.bz.movies.database.repository.LocalMovieRepository
+import com.bz.movies.kmp.dto.MovieDto
 import com.bz.movies.presentation.mappers.toDTO
 import com.bz.movies.presentation.mappers.toMovieItem
 import com.bz.movies.presentation.screens.common.MovieEffect

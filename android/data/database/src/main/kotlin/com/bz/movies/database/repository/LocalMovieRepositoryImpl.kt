@@ -1,6 +1,6 @@
 package com.bz.movies.database.repository
 
-import com.bz.dto.MovieDto
+
 import com.bz.movies.database.dao.MovieDAO
 import com.bz.movies.database.dao.PlayingNowMovieDAO
 import com.bz.movies.database.dao.PopularMovieDAO
@@ -11,6 +11,7 @@ import com.bz.movies.database.repository.mapper.toMovieDto
 import com.bz.movies.database.repository.mapper.toMovieEntity
 import com.bz.movies.database.repository.mapper.toPlayingNowMovieEntity
 import com.bz.movies.database.repository.mapper.toPopularMovieEntity
+import com.bz.movies.kmp.dto.MovieDto
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flowOn

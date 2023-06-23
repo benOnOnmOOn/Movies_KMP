@@ -1,6 +1,6 @@
 package com.bz.network.repository.mapper
 
-import com.bz.dto.MovieDto
+import com.bz.movies.kmp.dto.MovieDto
 import com.bz.network.api.model.MovieApiResponse
 import com.bz.network.api.model.MovieDetailsApiResponse
 import com.bz.network.api.model.PlayingNowMoviesApiResponse

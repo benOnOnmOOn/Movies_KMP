@@ -25,15 +25,16 @@ monitor = "1.6.1"
 core-ktx = "1.10.1"
 junit = "5.9.3"
 compose = "1.4.3"
-room-runtime = "2.5.1"
+room-runtime = "2.5.2"
 sqlite = "2.3.1"
 timber = "5.0.1"
 hilt = "2.46.1"
 retrofit = "2.9.0"
 firebase-bom = "32.1.1"
 okhttp = "4.11.0"
-material3 = "1.1.0"
+material3 = "1.1.1"
 hilt-navigation-compose = "1.0.0"
+ktor = "2.3.1"
 
 [libraries]
 androidx-activity = { module = "androidx.activity:activity", version.ref = "activity-compose" }
@@ -83,11 +84,18 @@ com-squareup-okhttp-logging-interceptor = { group = "com.squareup.okhttp3", name
 com-squareup-okhttp = { group = "com.squareup.okhttp3", name = "okhttp", version.ref = "okhttp" }
 com-squareup-okhttp-mockwebserver = { group = "com.squareup.okhttp3", name = "mockwebserver", version.ref = "okhttp" }
 com-squareup-retrofit = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = "retrofit" }
+io-ktor-bom = { module = "io.ktor:ktor-bom", version.ref = "ktor" }
+io-ktor-serialization-kotlinx-json = { group = "io.ktor", name = "ktor-serialization-kotlinx-json" }
+io-ktor-serialization-content-negotiation = { group = "io.ktor", name = "ktor-client-content-negotiation" }
+io-ktor-client-core = { group = "io.ktor", name = "ktor-client-core" }
+io-ktor-client-android = { group = "io.ktor", name = "ktor-client-android" }
+io-ktor-client-okhttp = { group = "io.ktor", name = "ktor-client-okhttp" }
+io-ktor-client-ios = { group = "io.ktor", name = "ktor-client-ios" }
 io-mockk-dsl = { module = "io.mockk:mockk-dsl", version.ref = "mockk" }
 io-mockk = { group = "io.mockk", name = "mockk", version.ref = "mockk" }
 io-coil-compose = { module = "io.coil-kt:coil-compose", version.ref = "coil-compose" }
 javax-inject = { module = "javax.inject:javax.inject", version.ref = "javax-inject" }
-org-jetbrains-kotlinx-coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "kotlinx-coroutines" }
+org-jetbrains-kotlinx-coroutines-core = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-core", version.ref = "kotlinx-coroutines" }
 org-jetbrains-kotlinx-coroutines-android = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-android", version.ref = "kotlinx-coroutines" }
 org-jetbrains-kotlinx-coroutines-test = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-test", version.ref = "kotlinx-coroutines" }
 org-junit-jupiter-api = { group = "org.junit.jupiter", name = "junit-jupiter-api", version.ref = "junit" }

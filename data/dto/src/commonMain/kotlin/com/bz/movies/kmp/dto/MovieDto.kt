@@ -1,4 +1,4 @@
-package com.bz.dto
+package com.bz.movies.kmp.dto
 
 data class MovieDto(
     val id: Int,

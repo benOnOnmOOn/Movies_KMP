@@ -29,6 +29,7 @@ plugins {
     alias(libs.plugins.org.jetbrains.kotlinx.kover) apply false
     alias(libs.plugins.com.osacky.doctor) apply true
     alias(libs.plugins.com.google.dagger.hilt.android) apply false
+    kotlin("plugin.serialization") version "1.8.21"
 }
 
 tasks.register("clean", Delete::class) {

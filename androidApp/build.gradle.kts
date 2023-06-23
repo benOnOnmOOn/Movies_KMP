@@ -53,7 +53,7 @@ dependencies {
     kover(project(":android:presentation:screens"))
     kover(project(":android:data:network"))
     kover(project(":android:data:database"))
-    kover(project(":android:data:dto"))
+    kover(project(":data:dto"))
 
     releaseImplementation(platform(libs.com.google.firebase.bom))
 

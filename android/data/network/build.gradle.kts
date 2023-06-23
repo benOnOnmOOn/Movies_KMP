@@ -12,7 +12,7 @@ android {
 }
 
 dependencies {
-    api(project(":android:data:dto"))
+    api(project(":data:dto"))
 
     ksp(libs.com.squareup.moshi.kotlin.codegen)
 

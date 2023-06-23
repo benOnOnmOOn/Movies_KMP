@@ -1,6 +1,6 @@
 package com.bz.network.repository.model
 
-import com.bz.dto.MovieDto
+import com.bz.movies.kmp.dto.MovieDto
 
 data class PopularMoviePageDto(
     val page: Int,

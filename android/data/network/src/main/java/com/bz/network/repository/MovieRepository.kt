@@ -1,6 +1,6 @@
 package com.bz.network.repository
 
-import com.bz.dto.MovieDto
+import com.bz.movies.kmp.dto.MovieDto
 import com.bz.network.repository.model.MoveDetailDto
 import com.bz.network.repository.model.PopularMoviePageDto
 

@@ -1,9 +1,9 @@
 package com.bz.movies.database.repository.mapper
 
-import com.bz.dto.MovieDto
 import com.bz.movies.database.entity.MovieEntity
 import com.bz.movies.database.entity.PlayingNowMovieEntity
 import com.bz.movies.database.entity.PopularMovieEntity
+import com.bz.movies.kmp.dto.MovieDto
 
 internal fun MovieEntity.toMovieDto() = MovieDto(
     id = id.toInt(),
