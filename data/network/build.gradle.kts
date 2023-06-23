@@ -3,7 +3,6 @@ import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
 plugins {
     kotlin("multiplatform")
     kotlin("plugin.serialization")
-    kotlin("kapt") apply false
     id("com.android.library")
 }
 
@@ -54,8 +53,8 @@ kotlin {
         }
 
         val androidMain by getting {
+            apply(plugin = "kotlin-kapt")
             dependencies {
-                apply(plugin = "kotlin-kapt")
 
                 // HILT
                 configurations.getByName("kapt").dependencies.apply {
@@ -80,6 +79,27 @@ kotlin {
             }
         }
     }
+}
+
+dependencyAnalysis {
+    // resolve false positive problems caused by using kotlin multiplatform
+    issues {
+        onUnusedAnnotationProcessors {
+            exclude(
+                "com.google.dagger:dagger-compiler:2.46.1",
+                "com.google.dagger:hilt-android-compiler:2.46.1"
+            )
+        }
+        onRedundantPlugins { exclude("kotlin-kapt") }
+        onUsedTransitiveDependencies {
+            exclude(
+                "com.google.dagger:dagger:2.46.1",
+                "javax.inject:javax.inject:1",
+                "com.google.dagger:hilt-core:2.46.1"
+            )
+        }
+    }
+
 }
 
 android { namespace = "com.bz.movies.kmp.network" }
