@@ -45,6 +45,7 @@ kotlin {
             }
         }
 
+        @Suppress("UnusedPrivateProperty")
         val androidMain by getting {
             apply(plugin = "kotlin-kapt")
             dependencies {
@@ -69,6 +70,7 @@ kotlin {
             }
         }
 
+        @Suppress("UnusedPrivateProperty")
         val iosMain by getting {
 
             dependencies {
@@ -93,8 +95,10 @@ dependencyAnalysis {
                 "com.google.dagger:dagger:2.46.1",
                 "javax.inject:javax.inject:1",
                 "com.google.dagger:hilt-core:2.46.1",
-                "com.squareup.okhttp3:logging-interceptor:4.11.0"
             )
+        }
+        onUnusedDependencies{
+            exclude("com.squareup.okhttp3:logging-interceptor:4.11.0")
         }
     }
 }
