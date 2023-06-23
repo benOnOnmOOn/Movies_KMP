@@ -59,9 +59,13 @@ kotlin {
                 api(libs.com.google.dagger)
                 api(libs.javax.inject)
                 //
+
                 implementation(libs.org.jetbrains.kotlinx.coroutines.android)
                 implementation(libs.io.ktor.client.android)
                 implementation(libs.io.ktor.client.okhttp)
+
+                // use debug impl to prevent from adding this deps to release version
+
             }
         }
 
@@ -92,7 +96,11 @@ dependencyAnalysis {
             )
         }
     }
-
 }
 
-android { namespace = "com.bz.movies.kmp.network" }
+android {
+    namespace = "com.bz.movies.kmp.network"
+    dependencies {
+        debugApi(libs.com.squareup.okhttp.logging.interceptor)
+    }
+}

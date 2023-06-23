@@ -12,6 +12,7 @@ actual fun httpClient(
     engine {
         config {
             retryOnConnectionFailure(false)
+            configureLoggingInterceptor()
         }
     }
 }
