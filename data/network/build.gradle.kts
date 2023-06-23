@@ -45,13 +45,6 @@ kotlin {
             }
         }
 
-        commonTest {
-            dependencies {
-                implementation(kotlin("test-common"))
-                implementation(kotlin("test-annotations-common"))
-            }
-        }
-
         val androidMain by getting {
             apply(plugin = "kotlin-kapt")
             dependencies {

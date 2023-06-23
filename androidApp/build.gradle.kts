@@ -45,10 +45,8 @@ dependencyAnalysis {
 }
 
 dependencies {
-    implementation(project(":shared"))
     implementation(project(":android:presentation:core"))
 
-    kover(project(":shared"))
     kover(project(":android:presentation:core"))
     kover(project(":android:presentation:screens"))
     kover(project(":data:network"))
