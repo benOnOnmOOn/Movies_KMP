@@ -49,9 +49,10 @@ dependencies {
 
     kover(project(":android:presentation:core"))
     kover(project(":android:presentation:screens"))
-    kover(project(":data:network"))
     kover(project(":android:data:database"))
-    kover(project(":data:dto"))
+    // TODO add unit test covrage with  kover
+    // kover(project(":data:network"))
+    // kover(project(":data:dto"))
 
     releaseImplementation(platform(libs.com.google.firebase.bom))
 
