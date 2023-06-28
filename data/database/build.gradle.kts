@@ -60,4 +60,9 @@ sqldelight {
     }
 }
 
-android { namespace = "com.bz.movies.kmp.database" }
+android {
+    namespace = "com.bz.movies.kmp.database"
+    lint {
+    this.checkDependencies = false
+    }
+}

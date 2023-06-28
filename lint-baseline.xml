@@ -2,10 +2,43 @@
 <issues format="6" by="lint 8.0.2" type="baseline" client="gradle" dependencies="false" name="AGP (8.0.2)" variant="all" version="8.0.2">
 
     <issue
+        id="GradleDependency"
+        message="A newer version of app.cash.sqldelight:coroutines-extensions than 2.0.0-rc01 is available: 2.0.0-rc02"
+        errorLine1="                //noinspection GradleDependency"
+        errorLine2="                                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="build.gradle.kts"
+            line="29"
+            column="33"/>
+    </issue>
+
+    <issue
+        id="GradleDependency"
+        message="A newer version of app.cash.sqldelight:android-driver than 2.0.0-rc01 is available: 2.0.0-rc02"
+        errorLine1="            dependencies {"
+        errorLine2="                                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="build.gradle.kts"
+            line="41"
+            column="33"/>
+    </issue>
+
+    <issue
+        id="GradleDependency"
+        message="A newer version of app.cash.sqldelight:native-driver than 2.0.0-rc01 is available: 2.0.0-rc02"
+        errorLine1="        val iosMain by getting {"
+        errorLine2="                                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="build.gradle.kts"
+            line="49"
+            column="33"/>
+    </issue>
+
+    <issue
         id="InvalidPackage"
         message="Invalid package reference in library; not included in Android: `java.lang.management`. Referenced from `io.ktor.util.debug.IntellijIdeaDebugDetector.isDebuggerConnected.2`.">
         <location
-            file="$GRADLE_USER_HOME/caches/modules-2/files-2.1/io.ktor/ktor-utils-jvm/2.3.1/7087b586df5ad99460221e98be8c9caa5db6c084/ktor-utils-jvm-2.3.1.jar"/>
+            file="../../../../../.gradle/caches/modules-2/files-2.1/io.ktor/ktor-utils-jvm/2.3.1/7087b586df5ad99460221e98be8c9caa5db6c084/ktor-utils-jvm-2.3.1.jar"/>
     </issue>
 
 </issues>
