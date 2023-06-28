@@ -1,3 +1,4 @@
+@file:Suppress("MatchingDeclarationName")
 package com.bz.movies.kmp.database
 
 import android.content.Context

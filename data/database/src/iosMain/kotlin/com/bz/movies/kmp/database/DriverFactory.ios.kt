@@ -1,3 +1,4 @@
+@file:Suppress("MatchingDeclarationName")
 package com.bz.movies.kmp.database
 
 import app.cash.sqldelight.db.SqlDriver
