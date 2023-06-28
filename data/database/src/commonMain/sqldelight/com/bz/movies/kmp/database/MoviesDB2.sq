@@ -1,0 +1,60 @@
+CREATE TABLE playingNow (
+    id INTEGER NOT NULL PRIMARY KEY,
+    posterUrl TEXT NOT NULL,
+    title TEXT NOT NULL,
+    publicationDate TEXT NOT NULL,
+    language TEXT NOT NULL,
+    rating INTEGER NOT NULL
+);
+
+CREATE TABLE popularNow (
+    id INTEGER NOT NULL PRIMARY KEY,
+    posterUrl TEXT NOT NULL,
+    title TEXT NOT NULL,
+    publicationDate TEXT NOT NULL,
+    language TEXT NOT NULL,
+    rating INTEGER NOT NULL
+);
+
+CREATE TABLE favaorite (
+    id INTEGER NOT NULL PRIMARY KEY,
+    posterUrl TEXT NOT NULL,
+    title TEXT NOT NULL,
+    publicationDate TEXT NOT NULL,
+    language TEXT NOT NULL,
+    rating INTEGER NOT NULL
+);
+
+selectAllPlayingNowMovies:
+SELECT *
+FROM playingNow;
+
+selectAllPopularNowMovies:
+SELECT *
+FROM popularNow;
+
+selectAllFavaoriteMovies:
+SELECT *
+FROM favaorite;
+
+insertPlayingNow:
+INSERT INTO playingNow
+VALUES ?;
+
+insertPopularNow:
+INSERT INTO popularNow
+VALUES ?;
+
+insertFavaorite:
+INSERT INTO favaorite
+VALUES ?;
+
+clearPlayingNow:
+DELETE FROM playingNow;
+
+clearPopularNow:
+DELETE FROM popularNow;
+
+deleteFavaorite:
+DELETE FROM favaorite
+WHERE id = ?;

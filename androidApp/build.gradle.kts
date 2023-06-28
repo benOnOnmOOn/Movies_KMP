@@ -44,6 +44,7 @@ dependencyAnalysis {
 
 dependencies {
     implementation(project(":android:presentation:core"))
+    implementation(project(":data:database"))
 
     kover(project(":android:presentation:core"))
     kover(project(":android:presentation:screens"))
