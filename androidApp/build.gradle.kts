@@ -48,8 +48,8 @@ dependencies {
 
     kover(project(":android:presentation:core"))
     kover(project(":android:presentation:screens"))
-    kover(project(":android:data:database"))
     // TODO add unit test covrage with  kover
+    // kover(project(":data:database"))
     // kover(project(":data:network"))
     // kover(project(":data:dto"))
 
