@@ -29,7 +29,7 @@ firebase-bom = "32.1.1"
 okhttp = "4.11.0"
 material3 = "1.1.1"
 ktor = "2.3.1"
-koin = "3.2.0"
+koin = "3.4.2"
 
 [libraries]
 androidx-activity = { module = "androidx.activity:activity", version.ref = "activity-compose" }
@@ -98,6 +98,6 @@ com_autonomousapps_dependency-analysis = { id = "com.autonomousapps.dependency-a
 org_jetbrains_kotlinx_kover = { id = "org.jetbrains.kotlinx.kover", version = "0.7.1" }
 com_osacky_doctor = { id = "com.osacky.doctor", version = "0.8.1" }
 com-google-devtools-ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
-com-google-firebase-crashlytics-gradle = { id = "com.google.firebase.crashlytics", version = "2.9.5" }
+com-google-firebase-crashlytics-gradle = { id = "com.google.firebase.crashlytics", version = "2.9.6" }
 [bundles]
 

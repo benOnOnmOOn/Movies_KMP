@@ -7,10 +7,6 @@ import org.koin.android.ext.koin.androidLogger
 import org.koin.core.context.GlobalContext.startKoin
 import org.koin.dsl.module
 
-val appModule = module {
-
-}
-
 class MoviesApp : Application() {
     override fun onCreate() {
         super.onCreate()
