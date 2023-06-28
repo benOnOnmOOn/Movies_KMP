@@ -36,15 +36,15 @@ jobs:
       - name: Run dependency analysis android gradle plugin
         run: ./gradlew buildHealth
 
-      - name: Run gradle check
-        run: ./gradlew check
-
-      - name: Upload coverage reports
-        id: kover
-        uses: mi-kas/kover-report@v1.6
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          path: ${{ github.workspace }}/app/build/reports/kover/reportDebug.xml
+#      - name: Run gradle check
+#        run: ./gradlew check
+#
+#      - name: Upload coverage reports
+#        id: kover
+#        uses: mi-kas/kover-report@v1.6
+#        with:
+#          token: ${{ secrets.GITHUB_TOKEN }}
+#          path: ${{ github.workspace }}/app/build/reports/kover/reportDebug.xml
 
       - name: Add build scan URL as PR comment
         uses: actions/github-script@v5

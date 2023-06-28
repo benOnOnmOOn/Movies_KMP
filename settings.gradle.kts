@@ -24,7 +24,7 @@ gradleEnterprise {
 
 @Suppress("UnstableApiUsage")
 dependencyResolutionManagement {
-    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositoriesMode.set(RepositoriesMode.PREFER_PROJECT)
     repositories {
         google {
             content {
@@ -39,9 +39,8 @@ dependencyResolutionManagement {
 
 rootProject.name = "Movies_KMP"
 include(":androidApp")
-include(":shared")
 include(":android:presentation:core")
 include(":android:presentation:screens")
-include(":android:data:network")
-include(":android:data:dto")
 include(":android:data:database")
+include(":data:network")
+include(":data:dto")

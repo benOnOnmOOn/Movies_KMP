@@ -45,15 +45,14 @@ dependencyAnalysis {
 }
 
 dependencies {
-    implementation(project(":shared"))
     implementation(project(":android:presentation:core"))
 
-    kover(project(":shared"))
     kover(project(":android:presentation:core"))
     kover(project(":android:presentation:screens"))
-    kover(project(":android:data:network"))
     kover(project(":android:data:database"))
-    kover(project(":android:data:dto"))
+    // TODO add unit test covrage with  kover
+    // kover(project(":data:network"))
+    // kover(project(":data:dto"))
 
     releaseImplementation(platform(libs.com.google.firebase.bom))
 

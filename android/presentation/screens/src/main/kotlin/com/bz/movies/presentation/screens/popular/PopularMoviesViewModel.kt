@@ -2,18 +2,16 @@ package com.bz.movies.presentation.screens.popular
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.bz.dto.MovieDto
 import com.bz.movies.database.repository.LocalMovieRepository
+import com.bz.movies.kmp.dto.MovieDto
+import com.bz.movies.kmp.network.repository.MovieRepository
+import com.bz.movies.kmp.network.repository.NoInternetException
 import com.bz.movies.presentation.mappers.toDTO
 import com.bz.movies.presentation.mappers.toMovieItem
 import com.bz.movies.presentation.screens.common.MovieEffect
 import com.bz.movies.presentation.screens.common.MovieEvent
 import com.bz.movies.presentation.screens.common.MoviesState
 import com.bz.movies.presentation.utils.launch
-import com.bz.network.repository.EmptyBodyException
-import com.bz.network.repository.HttpException
-import com.bz.network.repository.MovieRepository
-import com.bz.network.repository.NoInternetException
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableSharedFlow
@@ -86,8 +84,7 @@ class PopularMoviesViewModel @Inject constructor(
         }
         result.onFailure {
             val error = when (it) {
-                is NoInternetException, is HttpException, is EmptyBodyException ->
-                    MovieEffect.NetworkConnectionError
+                is NoInternetException,  ->                    MovieEffect.NetworkConnectionError
 
                 else -> MovieEffect.UnknownError
             }

@@ -22,9 +22,9 @@ android {
 }
 
 dependencies {
-    api(project(":android:data:network"))
+    api(project(":data:network"))
     api(project(":android:data:database"))
-    api(project(":android:data:dto"))
+    api(project(":data:dto"))
 
     releaseImplementation(platform(libs.com.google.firebase.bom))
 

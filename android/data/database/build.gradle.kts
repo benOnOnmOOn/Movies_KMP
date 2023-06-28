@@ -17,7 +17,7 @@ ksp {
 
 dependencies {
 
-    api(project(":android:data:dto"))
+    api(project(":data:dto"))
     // HILT
     implementation(libs.com.google.hilt.android)
     kapt(libs.com.google.hilt.android.compiler)

@@ -1,6 +1,7 @@
 package com.bz.movies.presentation.mappers
 
-import com.bz.dto.MovieDto
+
+import com.bz.movies.kmp.dto.MovieDto
 import com.bz.movies.presentation.screens.common.MovieItem
 
 fun MovieDto.toMovieItem() = MovieItem(

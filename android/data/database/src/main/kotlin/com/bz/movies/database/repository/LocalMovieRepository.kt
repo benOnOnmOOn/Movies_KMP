@@ -1,8 +1,7 @@
 package com.bz.movies.database.repository
 
-import com.bz.dto.MovieDto
+import com.bz.movies.kmp.dto.MovieDto
 import kotlinx.coroutines.flow.Flow
-
 
 interface LocalMovieRepository {
 
