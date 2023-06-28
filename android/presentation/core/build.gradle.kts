@@ -15,6 +15,8 @@ android {
 
 dependencies {
     implementation(project(":android:presentation:screens"))
+    implementation(project(":android:data:database"))
+    implementation(project(":data:network"))
 
     releaseImplementation(platform(libs.com.google.firebase.bom))
 
@@ -31,7 +33,7 @@ dependencies {
     implementation(libs.androidx.compose.material3)
 
     implementation(libs.androidx.lifecycle.common)
-    api(libs.androidx.lifecycle.viewmodel)
+    implementation(libs.androidx.lifecycle.viewmodel)
     implementation(libs.androidx.navigation.common)
     implementation(libs.androidx.navigation.runtime)
 

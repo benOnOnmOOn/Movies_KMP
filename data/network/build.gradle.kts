@@ -71,6 +71,14 @@ kotlin {
     }
 }
 
+dependencyAnalysis {
+    // resolve false positive problems caused by using kotlin multiplatform
+    issues {
+          onUnusedDependencies{
+            exclude("com.squareup.okhttp3:logging-interceptor:4.11.0")
+        }
+    }
+}
 
 android {
     namespace = "com.bz.movies.kmp.network"
