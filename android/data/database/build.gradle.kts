@@ -2,9 +2,7 @@ plugins {
     alias(libs.plugins.com.android.library)
     alias(libs.plugins.org.jetbrains.kotlin.android)
     alias(libs.plugins.com.google.devtools.ksp)
-    alias(libs.plugins.com.google.dagger.hilt.android) apply false
     alias(libs.plugins.org.jetbrains.kotlinx.kover)
-    kotlin("kapt")
 }
 
 android {
@@ -18,14 +16,8 @@ ksp {
 dependencies {
 
     api(project(":data:dto"))
-    // HILT
-    implementation(libs.com.google.hilt.android)
-    kapt(libs.com.google.hilt.android.compiler)
-    implementation(libs.com.google.hilt.core)
-    kapt(libs.com.google.dagger.compiler)
-    api(libs.com.google.dagger)
-    api(libs.javax.inject)
-    //
+    implementation(libs.io.insert.koin.core)
+    implementation(libs.io.insert.koin.android)
 
     implementation(libs.androidx.room.common)
     implementation(libs.androidx.sqlite)

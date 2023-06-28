@@ -28,7 +28,6 @@ plugins {
     alias(libs.plugins.com.google.gms.google.services) apply false
     alias(libs.plugins.org.jetbrains.kotlinx.kover) apply false
     alias(libs.plugins.com.osacky.doctor) apply true
-    alias(libs.plugins.com.google.dagger.hilt.android) apply false
     kotlin("plugin.serialization") version "1.8.21"
 }
 
@@ -143,20 +142,11 @@ fun PluginContainer.applyBaseConfig(project: Project) {
                 project.extensions.getByType<LibraryExtension>().baseConfig()
             }
 
-            is Kapt3GradleSubplugin -> {
-                project.extensions.getByType<KaptExtension>().baseConfig()
-            }
-
             is KoverGradlePlugin -> {
                 project.extensions.getByType<KoverReportExtension>().baseConfig()
             }
         }
     }
-}
-
-fun KaptExtension.baseConfig() {
-    correctErrorTypes = true
-    useBuildCache = true
 }
 
 //region Global android configuration

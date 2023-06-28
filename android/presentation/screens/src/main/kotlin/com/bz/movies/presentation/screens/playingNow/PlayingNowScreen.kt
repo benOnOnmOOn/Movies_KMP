@@ -8,16 +8,16 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.hilt.navigation.compose.hiltViewModel
 import com.bz.movies.presentation.screens.common.MovieEvent
 import com.bz.movies.presentation.screens.common.MoviesContentWithPullToRefresh
 import com.bz.movies.presentation.screens.common.MoviesState
 import com.bz.movies.presentation.theme.MoviesTheme
 import com.bz.presentation.screens.R
+import org.koin.androidx.compose.koinViewModel
 
 @Composable
 fun PlayingNowScreen(
-    playingNowViewModel: PlayingNowViewModel = hiltViewModel()
+    playingNowViewModel: PlayingNowViewModel = koinViewModel()
 ) {
     val playingNow by playingNowViewModel.state.collectAsState()
     PlayingNowScreen(playingNow, playingNowViewModel::sendEvent)
