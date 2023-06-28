@@ -1,9 +1,7 @@
 plugins {
     alias(libs.plugins.com.android.library)
     alias(libs.plugins.org.jetbrains.kotlin.android)
-    alias(libs.plugins.com.google.dagger.hilt.android)
     alias(libs.plugins.org.jetbrains.kotlinx.kover)
-    kotlin("kapt")
 }
 
 android {
@@ -17,17 +15,16 @@ android {
 
 dependencies {
     implementation(project(":android:presentation:screens"))
+    implementation(project(":android:data:database"))
+    implementation(project(":data:network"))
 
     releaseImplementation(platform(libs.com.google.firebase.bom))
 
     releaseImplementation(libs.com.google.firebase.analytics.ktx)
     releaseImplementation(libs.com.google.firebase.crashlytics.ktx)
 
-    //  HILT
-    kapt(libs.com.google.hilt.android.compiler)
-    api(libs.com.google.hilt.android)
-    api(libs.com.google.hilt.core)
-    //
+    implementation(libs.io.insert.koin.core)
+    implementation(libs.io.insert.koin.android)
 
     implementation(libs.androidx.activity.compose)
     implementation(libs.androidx.navigation.compose)
@@ -36,7 +33,7 @@ dependencies {
     implementation(libs.androidx.compose.material3)
 
     implementation(libs.androidx.lifecycle.common)
-    api(libs.androidx.lifecycle.viewmodel)
+    implementation(libs.androidx.lifecycle.viewmodel)
     implementation(libs.androidx.navigation.common)
     implementation(libs.androidx.navigation.runtime)
 

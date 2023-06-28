@@ -2,10 +2,8 @@ plugins {
     alias(libs.plugins.com.android.application)
     alias(libs.plugins.com.google.gms.google.services) apply false
     alias(libs.plugins.com.google.firebase.crashlytics.gradle) apply false
-    alias(libs.plugins.com.google.dagger.hilt.android)
     alias(libs.plugins.org.jetbrains.kotlinx.kover)
     kotlin("android")
-    kotlin("kapt")
 }
 
 android {
@@ -55,15 +53,11 @@ dependencies {
     // kover(project(":data:dto"))
 
     releaseImplementation(platform(libs.com.google.firebase.bom))
-
     releaseImplementation(libs.com.google.firebase.analytics.ktx)
     releaseImplementation(libs.com.google.firebase.crashlytics.ktx)
 
-    //  HILT
-    kapt(libs.com.google.hilt.android.compiler)
-    implementation(libs.com.google.hilt.android)
-    implementation(libs.com.google.hilt.core)
-    //
+    implementation(libs.io.insert.koin.core)
+    implementation(libs.io.insert.koin.android)
 
     implementation(libs.androidx.startup.runtime)
     implementation(libs.androidx.compose.runtime)

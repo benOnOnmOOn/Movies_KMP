@@ -18,9 +18,8 @@ import com.bz.movies.presentation.navigation.MoviesNavHost
 import com.bz.movies.presentation.navigation.currentRootRouteAsState
 import com.bz.movies.presentation.navigation.navigateToRootRoute
 import com.bz.movies.presentation.theme.MoviesTheme
-import dagger.hilt.android.AndroidEntryPoint
 
-@AndroidEntryPoint
+
 class MainActivity : ComponentActivity() {
 
 

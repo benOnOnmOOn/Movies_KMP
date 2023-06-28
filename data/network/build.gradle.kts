@@ -37,6 +37,9 @@ kotlin {
                 implementation(libs.io.ktor.serialization.content.negotiation)
                 implementation(libs.io.ktor.serialization.kotlinx.json)
                 implementation(libs.org.jetbrains.kotlinx.coroutines.core)
+                implementation(libs.io.insert.koin.core)
+                implementation(libs.androidx.core)
+                implementation(libs.androidx.core.ktx)
             }
         }
         commonTest {
@@ -47,19 +50,7 @@ kotlin {
 
         @Suppress("UnusedPrivateProperty")
         val androidMain by getting {
-            apply(plugin = "kotlin-kapt")
             dependencies {
-
-                // HILT
-                configurations.getByName("kapt").dependencies.apply {
-                    add(libs.com.google.hilt.android.compiler.get())
-                    add(libs.com.google.dagger.compiler.get())
-                }
-                implementation(libs.com.google.hilt.android)
-                implementation(libs.com.google.hilt.core)
-                api(libs.com.google.dagger)
-                api(libs.javax.inject)
-                //
 
                 implementation(libs.org.jetbrains.kotlinx.coroutines.android)
                 implementation(libs.io.ktor.client.android)
@@ -83,21 +74,7 @@ kotlin {
 dependencyAnalysis {
     // resolve false positive problems caused by using kotlin multiplatform
     issues {
-        onUnusedAnnotationProcessors {
-            exclude(
-                "com.google.dagger:dagger-compiler:2.46.1",
-                "com.google.dagger:hilt-android-compiler:2.46.1"
-            )
-        }
-        onRedundantPlugins { exclude("kotlin-kapt") }
-        onUsedTransitiveDependencies {
-            exclude(
-                "com.google.dagger:dagger:2.46.1",
-                "javax.inject:javax.inject:1",
-                "com.google.dagger:hilt-core:2.46.1",
-            )
-        }
-        onUnusedDependencies{
+          onUnusedDependencies{
             exclude("com.squareup.okhttp3:logging-interceptor:4.11.0")
         }
     }
