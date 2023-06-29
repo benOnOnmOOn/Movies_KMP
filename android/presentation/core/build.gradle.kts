@@ -15,8 +15,8 @@ android {
 
 dependencies {
     implementation(project(":android:presentation:screens"))
-    implementation(project(":android:data:database"))
     implementation(project(":data:network"))
+    implementation(project(":data:database"))
 
     releaseImplementation(platform(libs.com.google.firebase.bom))
 

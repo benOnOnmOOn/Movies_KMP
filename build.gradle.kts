@@ -27,6 +27,7 @@ plugins {
     alias(libs.plugins.org.jetbrains.kotlinx.kover) apply false
     alias(libs.plugins.com.osacky.doctor) apply true
     kotlin("plugin.serialization") version "1.8.21"
+    id("app.cash.sqldelight") version "2.0.0-rc01" apply false
 }
 
 tasks.register("clean", Delete::class) {

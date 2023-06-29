@@ -38,8 +38,6 @@ kotlin {
                 implementation(libs.io.ktor.serialization.kotlinx.json)
                 implementation(libs.org.jetbrains.kotlinx.coroutines.core)
                 implementation(libs.io.insert.koin.core)
-                implementation(libs.androidx.core)
-                implementation(libs.androidx.core.ktx)
             }
         }
         commonTest {
@@ -51,10 +49,12 @@ kotlin {
         @Suppress("UnusedPrivateProperty")
         val androidMain by getting {
             dependencies {
-
+                implementation(libs.androidx.core)
+                implementation(libs.androidx.core.ktx)
                 implementation(libs.org.jetbrains.kotlinx.coroutines.android)
                 implementation(libs.io.ktor.client.android)
                 implementation(libs.io.ktor.client.okhttp)
+                implementation(libs.io.insert.koin.android)
 
                 // use debug impl to prevent from adding this deps to release version
 

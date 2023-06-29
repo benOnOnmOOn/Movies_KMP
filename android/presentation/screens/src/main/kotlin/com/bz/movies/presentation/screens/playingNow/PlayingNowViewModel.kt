@@ -2,7 +2,7 @@ package com.bz.movies.presentation.screens.playingNow
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.bz.movies.database.repository.LocalMovieRepository
+import com.bz.movies.kmp.database.repository.LocalMovieRepository
 import com.bz.movies.kmp.dto.MovieDto
 import com.bz.movies.kmp.network.repository.MovieRepository
 import com.bz.movies.kmp.network.repository.NoInternetException
