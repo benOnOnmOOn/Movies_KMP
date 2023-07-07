@@ -11,7 +11,7 @@ kotlin {
     @OptIn(ExperimentalKotlinGradlePluginApi::class)
     targetHierarchy.default()
 
-    android()
+    androidTarget()
 
     listOf(
         iosX64(),

@@ -1,14 +1,16 @@
+import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
+
 plugins {
-    kotlin("multiplatform") version "1.8.21"
+    kotlin("multiplatform")
     id("com.android.library")
-    id("app.cash.sqldelight") version "2.0.0-rc01"
+    alias(libs.plugins.app.cash.sqldelight)
 }
 
 kotlin {
-    @OptIn(org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi::class)
+    @OptIn(ExperimentalKotlinGradlePluginApi::class)
     targetHierarchy.default()
 
-    android()
+    androidTarget()
 
     listOf(
         iosX64(),
@@ -26,7 +28,7 @@ kotlin {
                 implementation(libs.io.insert.koin.core)
                 api(project(":data:dto"))
                 implementation(libs.org.jetbrains.kotlinx.coroutines.core)
-                implementation("app.cash.sqldelight:coroutines-extensions:2.0.0-rc01")
+                implementation(libs.app.cash.sqldelight.coroutines.extensions)
             }
         }
         commonTest {
@@ -38,7 +40,7 @@ kotlin {
         @Suppress("UnusedPrivateProperty")
         val androidMain by getting {
             dependencies {
-                implementation("app.cash.sqldelight:android-driver:2.0.0-rc01")
+                implementation(libs.app.cash.sqldelight.android.driver)
                 implementation(libs.io.insert.koin.android)
             }
         }
@@ -46,7 +48,7 @@ kotlin {
         @Suppress("UnusedPrivateProperty")
         val iosMain by getting {
             dependencies {
-                implementation("app.cash.sqldelight:native-driver:2.0.0-rc01")
+                implementation(libs.app.cash.sqldelight.native.driver)
             }
         }
     }
@@ -63,6 +65,6 @@ sqldelight {
 android {
     namespace = "com.bz.movies.kmp.database"
     lint {
-    this.checkDependencies = false
+        checkDependencies = false
     }
 }

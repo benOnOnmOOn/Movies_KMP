@@ -32,7 +32,6 @@ dependencies {
     implementation(libs.androidx.compose.ui.graphics)
     implementation(libs.androidx.compose.material3)
 
-    implementation(libs.androidx.lifecycle.common)
     implementation(libs.androidx.lifecycle.viewmodel)
     implementation(libs.androidx.navigation.common)
     implementation(libs.androidx.navigation.runtime)
@@ -42,7 +41,6 @@ dependencies {
     implementation(libs.androidx.compose.foundation)
     api(libs.androidx.compose.runtime)
     implementation(libs.androidx.compose.material3)
-    implementation(libs.androidx.core)
 
     testImplementation(libs.org.junit.jupiter.api)
     testImplementation(libs.io.mockk)
