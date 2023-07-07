@@ -3,33 +3,30 @@ activity-compose = "1.7.2"
 com-android-plugin = "8.0.2"
 core = "1.10.1"
 foundation = "1.4.3"
-kotlin = "1.8.21"
-kotlin-compose-compiler-extension = "1.4.7"
+kotlin = "1.9.0"
+kotlin-compose-compiler-extension = "1.5.0-dev-k1.9.0-6a60475e07f"
 android-sdk-target = "33"
 android-min-sdk = "28"
 lifecycle-viewmodel = "2.6.1"
-lifecycle-common = "2.6.1"
 coil-compose = "2.4.0"
 lifecycle-runtime-ktx = "2.6.1"
 navigation-compose = "2.6.0"
 startup-runtime = "1.1.1"
 material = "1.4.3"
-ksp = "1.8.21-1.0.11"
 runtime = "1.4.3"
-kotlinx-coroutines = "1.7.1"
+kotlinx-coroutines = "1.7.2"
 ui = "1.4.3"
 mockk = "1.13.5"
 monitor = "1.6.1"
 junit = "5.9.3"
 compose = "1.4.3"
-room-runtime = "2.5.2"
-sqlite = "2.3.1"
 timber = "5.0.1"
 firebase-bom = "32.1.1"
 okhttp = "4.11.0"
 material3 = "1.1.1"
-ktor = "2.3.1"
+ktor = "2.3.2"
 koin = "3.4.2"
+sqldelight = "2.0.0-rc02"
 
 [libraries]
 androidx-activity = { module = "androidx.activity:activity", version.ref = "activity-compose" }
@@ -53,21 +50,17 @@ androidx-navigation-common = { module = "androidx.navigation:navigation-common",
 androidx-navigation-compose = { module = "androidx.navigation:navigation-compose", version.ref = "navigation-compose" }
 androidx-navigation-runtime = { module = "androidx.navigation:navigation-runtime", version.ref = "navigation-compose" }
 androidx-lifecycle-viewmodel = { module = "androidx.lifecycle:lifecycle-viewmodel", version.ref = "lifecycle-viewmodel" }
-androidx-lifecycle-common = { module = "androidx.lifecycle:lifecycle-common", version.ref = "lifecycle-common" }
 androidx-lifecycle-viewmodel-ktx = { module = "androidx.lifecycle:lifecycle-viewmodel-ktx", version.ref = "lifecycle-runtime-ktx" }
 androidx-lifecycle-viewmodel-compose = { module = "androidx.lifecycle:lifecycle-viewmodel-compose", version.ref = "lifecycle-runtime-ktx" }
-androidx-room-common = { module = "androidx.room:room-common", version.ref = "room-runtime" }
-androidx-room-compiler = { module = "androidx.room:room-compiler", version.ref = "room-runtime" }
-androidx-room-ktx = { module = "androidx.room:room-ktx", version.ref = "room-runtime" }
-androidx-room-runtime = { module = "androidx.room:room-runtime", version.ref = "room-runtime" }
 androidx-startup-runtime = { module = "androidx.startup:startup-runtime", version.ref = "startup-runtime" }
-androidx-sqlite = { module = "androidx.sqlite:sqlite", version.ref = "sqlite" }
+app-cash-sqldelight-android-driver = { group = "app.cash.sqldelight", name = "android-driver", version.ref = "sqldelight" }
+app-cash-sqldelight-coroutines-extensions = { group = "app.cash.sqldelight", name = "coroutines-extensions", version.ref = "sqldelight" }
+app-cash-sqldelight-native-driver = { group = "app.cash.sqldelight", name = "native-driver", version.ref = "sqldelight" }
 com-google-firebase-bom = { module = "com.google.firebase:firebase-bom", version.ref = "firebase-bom" }
 com-google-firebase-analytics-ktx = { module = "com.google.firebase:firebase-analytics-ktx" }
 com-google-firebase-crashlytics-ktx = { module = "com.google.firebase:firebase-crashlytics-ktx" }
 com-jakewharton-timber = { module = "com.jakewharton.timber:timber", version.ref = "timber" }
 com-squareup-okhttp-logging-interceptor = { group = "com.squareup.okhttp3", name = "logging-interceptor", version.ref = "okhttp" }
-com-squareup-okhttp = { group = "com.squareup.okhttp3", name = "okhttp", version.ref = "okhttp" }
 io-insert-koin-core = { group = "io.insert-koin", name = "koin-core", version.ref = "koin" }
 io-insert-koin-android = { group = "io.insert-koin", name = "koin-android", version.ref = "koin" }
 io-insert-koin-android-compose = { group = "io.insert-koin", name = "koin-androidx-compose", version.ref = "koin" }
@@ -85,7 +78,6 @@ org-jetbrains-kotlinx-coroutines-android = { group = "org.jetbrains.kotlinx", na
 org-jetbrains-kotlinx-coroutines-test = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-test", version.ref = "kotlinx-coroutines" }
 org-junit-jupiter-api = { group = "org.junit.jupiter", name = "junit-jupiter-api", version.ref = "junit" }
 org-junit-jupiter-engine = { group = "org.junit.jupiter", name = "junit-jupiter-engine", version.ref = "junit" }
-
 [plugins]
 com-android-application = { id = "com.android.application", version.ref = "com-android-plugin" }
 com-android-library = { id = "com.android.library", version.ref = "com-android-plugin" }
@@ -97,7 +89,7 @@ io_gitlab_arturbosch_detekt = { id = "io.gitlab.arturbosch.detekt", version = "1
 com_autonomousapps_dependency-analysis = { id = "com.autonomousapps.dependency-analysis", version = "1.20.0" }
 org_jetbrains_kotlinx_kover = { id = "org.jetbrains.kotlinx.kover", version = "0.7.1" }
 com_osacky_doctor = { id = "com.osacky.doctor", version = "0.8.1" }
-com-google-devtools-ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
+app-cash-sqldelight = { id = "app.cash.sqldelight", version.ref = "sqldelight" }
 com-google-firebase-crashlytics-gradle = { id = "com.google.firebase.crashlytics", version = "2.9.6" }
 [bundles]
 

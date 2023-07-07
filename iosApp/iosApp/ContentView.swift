@@ -1,11 +1,14 @@
 import SwiftUI
-import shared
+import database
+import dto
+import network
+//import shared
 
 struct ContentView: View {
-	let greet = Greeting().greet()
+//	let greet = Greeting().greet()
 
 	var body: some View {
-		Text(greet)
+		Text("asdf")
 	}
 }
 

@@ -26,8 +26,8 @@ plugins {
     alias(libs.plugins.com.google.gms.google.services) apply false
     alias(libs.plugins.org.jetbrains.kotlinx.kover) apply false
     alias(libs.plugins.com.osacky.doctor) apply true
-    kotlin("plugin.serialization") version "1.8.21"
-    id("app.cash.sqldelight") version "2.0.0-rc01" apply false
+    kotlin("plugin.serialization") version "1.9.0"
+    alias(libs.plugins.app.cash.sqldelight) apply false
 }
 
 tasks.register("clean", Delete::class) {
@@ -114,13 +114,11 @@ tasks.withType<DetektCreateBaselineTask>().configureEach {
 //endregion
 
 //region Global kotlin configuration
-allprojects {
-    tasks.withType<KotlinCompile>().configureEach {
-      compilerOptions{
-          jvmTarget.set(JvmTarget.JVM_17)
+tasks.withType<KotlinCompile>().configureEach {
+    compilerOptions {
+        jvmTarget.set(JvmTarget.JVM_17)
 
-          freeCompilerArgs.add("-Xjvm-default=all")
-      }
+        freeCompilerArgs.add("-Xjvm-default=all")
     }
 }
 //endregion
