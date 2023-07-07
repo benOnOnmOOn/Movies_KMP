@@ -8,13 +8,11 @@ kotlin-compose-compiler-extension = "1.5.0-dev-k1.9.0-6a60475e07f"
 android-sdk-target = "33"
 android-min-sdk = "28"
 lifecycle-viewmodel = "2.6.1"
-lifecycle-common = "2.6.1"
 coil-compose = "2.4.0"
 lifecycle-runtime-ktx = "2.6.1"
 navigation-compose = "2.6.0"
 startup-runtime = "1.1.1"
 material = "1.4.3"
-ksp = "1.9.0-1.0.11"
 runtime = "1.4.3"
 kotlinx-coroutines = "1.7.2"
 ui = "1.4.3"
@@ -52,7 +50,6 @@ androidx-navigation-common = { module = "androidx.navigation:navigation-common",
 androidx-navigation-compose = { module = "androidx.navigation:navigation-compose", version.ref = "navigation-compose" }
 androidx-navigation-runtime = { module = "androidx.navigation:navigation-runtime", version.ref = "navigation-compose" }
 androidx-lifecycle-viewmodel = { module = "androidx.lifecycle:lifecycle-viewmodel", version.ref = "lifecycle-viewmodel" }
-androidx-lifecycle-common = { module = "androidx.lifecycle:lifecycle-common", version.ref = "lifecycle-common" }
 androidx-lifecycle-viewmodel-ktx = { module = "androidx.lifecycle:lifecycle-viewmodel-ktx", version.ref = "lifecycle-runtime-ktx" }
 androidx-lifecycle-viewmodel-compose = { module = "androidx.lifecycle:lifecycle-viewmodel-compose", version.ref = "lifecycle-runtime-ktx" }
 androidx-startup-runtime = { module = "androidx.startup:startup-runtime", version.ref = "startup-runtime" }

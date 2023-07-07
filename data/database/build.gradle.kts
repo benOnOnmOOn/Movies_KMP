@@ -1,7 +1,7 @@
 import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
 
 plugins {
-    kotlin("multiplatform")
+    kotlin("multiplatform") version("1.9.0")
     id("com.android.library")
     alias(libs.plugins.app.cash.sqldelight)
 }
@@ -64,7 +64,4 @@ sqldelight {
 
 android {
     namespace = "com.bz.movies.kmp.database"
-    lint {
-        checkDependencies = false
-    }
 }
