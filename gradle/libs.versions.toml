@@ -87,7 +87,7 @@ com-google-gms-google-services = { id = "com.google.gms.google-services", versio
 com_github_ben-manes_versions = { id = "com.github.ben-manes.versions", version = "0.47.0" }
 io_gitlab_arturbosch_detekt = { id = "io.gitlab.arturbosch.detekt", version = "1.23.0" }
 com_autonomousapps_dependency-analysis = { id = "com.autonomousapps.dependency-analysis", version = "1.20.0" }
-org_jetbrains_kotlinx_kover = { id = "org.jetbrains.kotlinx.kover", version = "0.7.1" }
+org_jetbrains_kotlinx_kover = { id = "org.jetbrains.kotlinx.kover", version = "0.7.2" }
 com_osacky_doctor = { id = "com.osacky.doctor", version = "0.8.1" }
 app-cash-sqldelight = { id = "app.cash.sqldelight", version.ref = "sqldelight" }
 com-google-firebase-crashlytics-gradle = { id = "com.google.firebase.crashlytics", version = "2.9.6" }
