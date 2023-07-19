@@ -35,12 +35,6 @@ dependencyResolutionManagement {
                 includeGroupByRegex("com.google.*")
             }
         }
-        maven {
-            url = URI.create("https://androidx.dev/storage/compose-compiler/repository/")
-            content {
-                includeGroupByRegex("androidx.*")
-            }
-        }
         mavenCentral()
     }
 }
