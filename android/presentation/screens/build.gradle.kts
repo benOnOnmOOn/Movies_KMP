@@ -13,7 +13,6 @@ android {
             "-opt-in=androidx.compose.material.ExperimentalMaterialApi",
         )
     }
-    @Suppress("UnstableApiUsage")
     buildFeatures {
         compose = true
     }
@@ -30,6 +29,7 @@ dependencies {
     releaseImplementation(libs.com.google.firebase.crashlytics.ktx)
 
     implementation(libs.io.insert.koin.core)
+    implementation(libs.io.insert.koin.compose)
     implementation(libs.io.insert.koin.android)
     implementation(libs.io.insert.koin.android.compose)
 
