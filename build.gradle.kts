@@ -1,3 +1,4 @@
+import com.android.build.api.dsl.AndroidResources
 import com.android.build.api.dsl.BuildFeatures
 import com.android.build.api.dsl.BuildType
 import com.android.build.api.dsl.CommonExtension
@@ -147,8 +148,8 @@ fun PluginContainer.applyBaseConfig(project: Project) {
 }
 
 //region Global android configuration
-fun <BF : BuildFeatures, BT : BuildType, DC : DefaultConfig, PF : ProductFlavor>
-        CommonExtension<BF, BT, DC, PF>.defaultBaseConfig() {
+fun <BF : BuildFeatures, BT : BuildType, DC : DefaultConfig, PF : ProductFlavor, AR : AndroidResources>
+        CommonExtension<BF, BT, DC, PF, AR>.defaultBaseConfig() {
     compileSdk = libs.versions.android.sdk.target.get().toInt()
 //    buildToolsVersion = "34.0.0"
 
@@ -176,7 +177,6 @@ fun <BF : BuildFeatures, BT : BuildType, DC : DefaultConfig, PF : ProductFlavor>
         release {
             isMinifyEnabled = true
             proguardFiles(
-                @Suppress("UnstableApiUsage")
                 getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro"
             )
         }
