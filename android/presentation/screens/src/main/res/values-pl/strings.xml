@@ -8,4 +8,5 @@
     <string name="your_favorite_movies">Twoje ulubione</string>
     <string name="playing_now_screen_title">Obecnie wyświetlane w kinach</string>
     <string name="popular_now_screen_title">Popularne obecnie filmy</string>
+    <string name="details_screen_title">Szczegóły</string>
 </resources>

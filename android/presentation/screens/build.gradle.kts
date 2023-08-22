@@ -33,28 +33,30 @@ dependencies {
     implementation(libs.io.insert.koin.android)
     implementation(libs.io.insert.koin.android.compose)
 
-    implementation(libs.androidx.navigation.compose)
     api(libs.androidx.navigation.common)
     api(libs.androidx.navigation.runtime)
-
     api(libs.androidx.compose.ui)
+    api(libs.androidx.compose.material3)
+    api(libs.androidx.compose.runtime)
+    api(libs.androidx.lifecycle.viewmodel)
+    api(libs.androidx.compose.material3)
+    api(libs.androidx.activity.compose.animation)
+
+    implementation(libs.androidx.navigation.compose)
     implementation(libs.androidx.compose.ui.graphics)
     implementation(libs.androidx.compose.ui.tooling.preview)
-    api(libs.androidx.compose.material3)
-
     implementation(libs.androidx.compose.foundation.layout)
     implementation(libs.androidx.compose.foundation)
-    api(libs.androidx.compose.runtime)
     implementation(libs.androidx.compose.material)
     implementation(libs.androidx.compose.ui.text)
     implementation(libs.androidx.compose.ui.unit)
     implementation(libs.androidx.core)
     implementation(libs.androidx.lifecycle.viewmodel.compose)
     implementation(libs.androidx.lifecycle.viewmodel.ktx)
-    api(libs.androidx.lifecycle.viewmodel)
-    api(libs.androidx.compose.material3)
     runtimeOnly(libs.androidx.startup.runtime)
+
     implementation(libs.io.coil.compose)
+    implementation(libs.io.coil.base)
 
     implementation(libs.org.jetbrains.kotlinx.coroutines.core)
 
@@ -63,6 +65,7 @@ dependencies {
     testImplementation(libs.org.junit.jupiter.api)
     testImplementation(libs.io.mockk)
     testImplementation(libs.org.jetbrains.kotlinx.coroutines.test)
+
     testRuntimeOnly(libs.org.junit.jupiter.engine)
 
     debugRuntimeOnly(libs.androidx.compose.ui.test.manifest)

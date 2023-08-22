@@ -44,8 +44,9 @@ private fun FavoriteScreen(
 
 @Preview(showBackground = true)
 @Composable
-private fun PlayingNowScreen() {
+@Suppress("UnusedPrivateMember")
+private fun PlayingNowScreenPreview() {
     MoviesTheme {
-        PlayingNowScreen()
+        FavoriteScreen()
     }
 }
