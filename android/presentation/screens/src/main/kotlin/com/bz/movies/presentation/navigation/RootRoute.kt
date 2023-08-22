@@ -9,12 +9,12 @@ import androidx.compose.runtime.remember
 import androidx.navigation.NavController
 import androidx.navigation.NavGraph.Companion.findStartDestination
 
-
 enum class RootRoute(val route: String) {
     PlayingNow("tab_playing_now"),
     Popular("tab_popular"),
     Favorite("tab_favorite"),
     More("tab_more"),
+    Details("details/{id}"),
 }
 
 fun NavController.navigateToRootRoute(rootRoute: RootRoute) {
@@ -37,8 +37,7 @@ fun NavController.currentRootRouteAsState(): State<RootRoute> {
 
     DisposableEffect(this) {
         val listener = NavController.OnDestinationChangedListener { _, destination, _ ->
-            val item = RootRoute.values()
-                .find { it.route == destination.route }
+            val item = RootRoute.entries.find { it.route == destination.route }
             selectedItem.value = item ?: RootRoute.PlayingNow
         }
         addOnDestinationChangedListener(listener)

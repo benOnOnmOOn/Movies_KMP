@@ -6,3 +6,7 @@ data class MoviesState(
     val playingNowMovies: List<MovieItem> = emptyList()
 )
 
+data class MovieDetailState(
+    val isLoading: Boolean = true,
+    val movieDetails: MovieItem? = null
+)

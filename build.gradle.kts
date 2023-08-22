@@ -151,7 +151,7 @@ fun PluginContainer.applyBaseConfig(project: Project) {
 fun <BF : BuildFeatures, BT : BuildType, DC : DefaultConfig, PF : ProductFlavor, AR : AndroidResources>
         CommonExtension<BF, BT, DC, PF, AR>.defaultBaseConfig() {
     compileSdk = libs.versions.android.sdk.target.get().toInt()
-//    buildToolsVersion = "34.0.0"
+    buildToolsVersion = "34.0.0"
 
     defaultConfig {
         minSdk = libs.versions.android.min.sdk.get().toInt()
@@ -194,6 +194,13 @@ fun <BF : BuildFeatures, BT : BuildType, DC : DefaultConfig, PF : ProductFlavor,
         }
     }
 
+    packaging.resources.excludes += setOf(
+        "kotlin/**",
+        "META-INF/**",
+        "**.properties",
+        "kotlin-tooling-metadata.json",
+    )
+
 }
 
 fun LibraryExtension.baseConfig() {
@@ -206,6 +213,10 @@ fun LibraryExtension.baseConfig() {
 
 fun BaseAppModuleExtension.baseConfig() {
     defaultBaseConfig()
+    dependenciesInfo.apply {
+        includeInApk = false
+        includeInBundle = false
+    }
     defaultConfig {
         targetSdk = libs.versions.android.sdk.target.get().toInt()
     }

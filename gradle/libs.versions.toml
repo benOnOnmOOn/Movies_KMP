@@ -2,45 +2,42 @@
 activity-compose = "1.7.2"
 com-android-plugin = "8.1.0"
 core = "1.10.1"
-foundation = "1.4.3"
 kotlin = "1.9.0"
 kotlin-compose-compiler-extension = "1.5.1"
-android-sdk-target = "33"
+android-sdk-target = "34"
 android-min-sdk = "28"
 lifecycle-viewmodel = "2.6.1"
-coil-compose = "2.4.0"
+coil = "2.4.0"
 lifecycle-runtime-ktx = "2.6.1"
-navigation-compose = "2.6.0"
+navigation-compose = "2.7.0"
 startup-runtime = "1.1.1"
-material = "1.4.3"
-runtime = "1.4.3"
+compose = "1.5.0"
 kotlinx-coroutines = "1.7.3"
-ui = "1.4.3"
-mockk = "1.13.5"
+mockk = "1.13.7"
 monitor = "1.6.1"
 junit = "5.10.0"
-compose = "1.4.3"
 timber = "5.0.1"
-firebase-bom = "32.2.0"
+firebase-bom = "32.2.2"
 okhttp = "4.11.0"
 material3 = "1.1.1"
-ktor = "2.3.2"
-koin = "3.4.2"
+ktor = "2.3.3"
+koin = "3.4.3"
 sqldelight = "2.0.0"
 
 [libraries]
 androidx-activity = { module = "androidx.activity:activity", version.ref = "activity-compose" }
 androidx-activity-compose = { module = "androidx.activity:activity-compose", version.ref = "activity-compose" }
-androidx-compose-ui = { module = "androidx.compose.ui:ui", version.ref = "ui" }
-androidx-compose-ui-text = { module = "androidx.compose.ui:ui-text", version.ref = "ui" }
-androidx-compose-ui-graphics = { module = "androidx.compose.ui:ui-graphics", version.ref = "ui" }
-androidx-compose-ui-tooling = { module = "androidx.compose.ui:ui-tooling", version.ref = "ui" }
-androidx-compose-ui-tooling-preview = { module = "androidx.compose.ui:ui-tooling-preview", version.ref = "ui" }
-androidx-compose-ui-unit = { module = "androidx.compose.ui:ui-unit", version.ref = "ui" }
-androidx-compose-runtime = { module = "androidx.compose.runtime:runtime", version.ref = "runtime" }
-androidx-compose-foundation = { module = "androidx.compose.foundation:foundation", version.ref = "foundation" }
-androidx-compose-foundation-layout = { module = "androidx.compose.foundation:foundation-layout", version.ref = "foundation" }
-androidx-compose-material = { module = "androidx.compose.material:material", version.ref = "material" }
+androidx-activity-compose-animation = { module ="androidx.compose.animation:animation-android", version.ref = "compose" }
+androidx-compose-ui = { module = "androidx.compose.ui:ui-android", version.ref = "compose" }
+androidx-compose-ui-text = { module = "androidx.compose.ui:ui-text-android", version.ref = "compose" }
+androidx-compose-ui-graphics = { module = "androidx.compose.ui:ui-graphics-android", version.ref = "compose" }
+androidx-compose-ui-tooling = { module = "androidx.compose.ui:ui-tooling-android", version.ref = "compose" }
+androidx-compose-ui-tooling-preview = { module = "androidx.compose.ui:ui-tooling-preview-android", version.ref = "compose" }
+androidx-compose-ui-unit = { module = "androidx.compose.ui:ui-unit-android", version.ref = "compose" }
+androidx-compose-runtime = { module = "androidx.compose.runtime:runtime-android", version.ref = "compose" }
+androidx-compose-foundation = { module = "androidx.compose.foundation:foundation-android", version.ref = "compose" }
+androidx-compose-foundation-layout = { module = "androidx.compose.foundation:foundation-layout-android", version.ref = "compose" }
+androidx-compose-material = { module = "androidx.compose.material:material-android", version.ref = "compose" }
 androidx-compose-material3 = { module = "androidx.compose.material3:material3", version.ref = "material3" }
 androidx-compose-ui-test-manifest = { module = "androidx.compose.ui:ui-test-manifest", version.ref = "compose" }
 androidx-core = { module = "androidx.core:core", version.ref = "core" }
@@ -63,8 +60,8 @@ com-jakewharton-timber = { module = "com.jakewharton.timber:timber", version.ref
 com-squareup-okhttp-logging-interceptor = { group = "com.squareup.okhttp3", name = "logging-interceptor", version.ref = "okhttp" }
 io-insert-koin-core = { group = "io.insert-koin", name = "koin-core", version.ref = "koin" }
 io-insert-koin-android = { group = "io.insert-koin", name = "koin-android", version.ref = "koin" }
-io-insert-koin-android-compose = { group = "io.insert-koin", name = "koin-androidx-compose", version = "3.4.5" }
-io-insert-koin-compose = { group = "io.insert-koin", name = "koin-compose", version = "1.0.3" }
+io-insert-koin-android-compose = { group = "io.insert-koin", name = "koin-androidx-compose", version = "3.4.6" }
+io-insert-koin-compose = { group = "io.insert-koin", name = "koin-compose", version = "1.0.4" }
 io-ktor-bom = { module = "io.ktor:ktor-bom", version.ref = "ktor" }
 io-ktor-serialization-kotlinx-json = { group = "io.ktor", name = "ktor-serialization-kotlinx-json" }
 io-ktor-serialization-content-negotiation = { group = "io.ktor", name = "ktor-client-content-negotiation" }
@@ -73,7 +70,8 @@ io-ktor-client-android = { group = "io.ktor", name = "ktor-client-android" }
 io-ktor-client-okhttp = { group = "io.ktor", name = "ktor-client-okhttp" }
 io-ktor-client-ios = { group = "io.ktor", name = "ktor-client-ios" }
 io-mockk = { group = "io.mockk", name = "mockk", version.ref = "mockk" }
-io-coil-compose = { module = "io.coil-kt:coil-compose", version.ref = "coil-compose" }
+io-coil-compose = { module = "io.coil-kt:coil-compose", version.ref = "coil" }
+io-coil-base = { module = "io.coil-kt:coil-base", version.ref = "coil" }
 org-jetbrains-kotlinx-coroutines-core = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-core", version.ref = "kotlinx-coroutines" }
 org-jetbrains-kotlinx-coroutines-android = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-android", version.ref = "kotlinx-coroutines" }
 org-jetbrains-kotlinx-coroutines-test = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-test", version.ref = "kotlinx-coroutines" }
@@ -86,11 +84,11 @@ org-jetbrains-kotlin-android = { id = "org.jetbrains.kotlin.android", version.re
 org-jetbrains-kotlin-multiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
 com-google-gms-google-services = { id = "com.google.gms.google-services", version = "4.3.15" }
 com_github_ben-manes_versions = { id = "com.github.ben-manes.versions", version = "0.47.0" }
-io_gitlab_arturbosch_detekt = { id = "io.gitlab.arturbosch.detekt", version = "1.23.0" }
-com_autonomousapps_dependency-analysis = { id = "com.autonomousapps.dependency-analysis", version = "1.20.0" }
+io_gitlab_arturbosch_detekt = { id = "io.gitlab.arturbosch.detekt", version = "1.23.1" }
+com_autonomousapps_dependency-analysis = { id = "com.autonomousapps.dependency-analysis", version = "1.21.0" }
 org_jetbrains_kotlinx_kover = { id = "org.jetbrains.kotlinx.kover", version = "0.7.2" }
 com_osacky_doctor = { id = "com.osacky.doctor", version = "0.8.1" }
 app-cash-sqldelight = { id = "app.cash.sqldelight", version.ref = "sqldelight" }
-com-google-firebase-crashlytics-gradle = { id = "com.google.firebase.crashlytics", version = "2.9.7" }
+com-google-firebase-crashlytics-gradle = { id = "com.google.firebase.crashlytics", version = "2.9.8" }
 [bundles]
 

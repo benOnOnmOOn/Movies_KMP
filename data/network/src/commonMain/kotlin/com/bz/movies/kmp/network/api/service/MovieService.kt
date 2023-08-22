@@ -59,7 +59,7 @@ internal class MovieService {
         language: String,
         apiKey: String,
     ): MovieDetailsApiResponse {
-        val url = BASE_URL.plus("movie/popular")
+        val url = BASE_URL.plus("movie")
         return client.get(url) {
             url {
                 parameters.append("api_key", apiKey)
