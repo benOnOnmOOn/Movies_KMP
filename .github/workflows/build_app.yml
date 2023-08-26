@@ -32,6 +32,9 @@ jobs:
       - name: Run detket plugin
         run: ./gradlew detektAll
 
+      - name: Run ktlint plugin
+        run: ./gradlew ktlintCheck
+
       - name: Run unit test
         run: ./gradlew testDebugUnitTest
 
