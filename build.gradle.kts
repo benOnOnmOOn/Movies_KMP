@@ -29,6 +29,8 @@ plugins {
     alias(libs.plugins.com.osacky.doctor) apply true
     kotlin("plugin.serialization") version "1.9.0"
     alias(libs.plugins.app.cash.sqldelight) apply false
+
+    id("org.jlleitschuh.gradle.ktlint") version "11.5.1"
 }
 
 tasks.register("clean", Delete::class) {
@@ -238,3 +240,8 @@ fun KoverReportExtension.baseConfig() {
         }
     }
 }
+
+subprojects {
+    apply(plugin = "org.jlleitschuh.gradle.ktlint")
+}
+
