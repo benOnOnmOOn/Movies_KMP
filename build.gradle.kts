@@ -15,6 +15,7 @@ import kotlinx.kover.gradle.plugin.KoverGradlePlugin
 import kotlinx.kover.gradle.plugin.dsl.KoverReportExtension
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+import org.jlleitschuh.gradle.ktlint.KtlintExtension
 
 plugins {
     alias(libs.plugins.org.jetbrains.kotlin.multiplatform) apply false
@@ -240,10 +241,10 @@ fun KoverReportExtension.baseConfig() {
 
 subprojects {
     apply(plugin = "org.jlleitschuh.gradle.ktlint")
-}
 
-configure<org.jlleitschuh.gradle.ktlint.KtlintExtension> {
-    filter {
-        exclude("**/generated/**")
+    configure<KtlintExtension> {
+        filter {
+            exclude("**/generated/**")
+        }
     }
 }
