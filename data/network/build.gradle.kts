@@ -1,8 +1,8 @@
 import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
 
 plugins {
-    kotlin("multiplatform") version("1.9.0")
-    kotlin("plugin.serialization") version("1.9.0")
+    kotlin("multiplatform")
+    kotlin("plugin.serialization")
     id("com.android.library")
 }
 

@@ -3,7 +3,7 @@ plugins {
     alias(libs.plugins.com.google.gms.google.services) apply false
     alias(libs.plugins.com.google.firebase.crashlytics.gradle) apply false
     alias(libs.plugins.org.jetbrains.kotlinx.kover)
-    kotlin("android") version("1.9.0")
+    kotlin("android")
 }
 
 android {

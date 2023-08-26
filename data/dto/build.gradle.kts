@@ -1,7 +1,7 @@
 import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
 
 plugins {
-    kotlin("multiplatform") version("1.9.0")
+    kotlin("multiplatform")
 }
 
 kotlin {

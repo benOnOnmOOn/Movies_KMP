@@ -1,15 +1,15 @@
 [versions]
 activity-compose = "1.7.2"
-com-android-plugin = "8.1.0"
+com-android-plugin = "8.1.1"
 core = "1.10.1"
 kotlin = "1.9.0"
-kotlin-compose-compiler-extension = "1.5.1"
+kotlin-compose-compiler-extension = "1.5.2"
 android-sdk-target = "34"
 android-min-sdk = "28"
 lifecycle-viewmodel = "2.6.1"
 coil = "2.4.0"
 lifecycle-runtime-ktx = "2.6.1"
-navigation-compose = "2.7.0"
+navigation-compose = "2.7.1"
 startup-runtime = "1.1.1"
 compose = "1.5.0"
 kotlinx-coroutines = "1.7.3"
@@ -17,7 +17,7 @@ mockk = "1.13.7"
 monitor = "1.6.1"
 junit = "5.10.0"
 timber = "5.0.1"
-firebase-bom = "32.2.2"
+firebase-bom = "32.2.3"
 okhttp = "4.11.0"
 material3 = "1.1.1"
 ktor = "2.3.3"
@@ -86,9 +86,9 @@ com-google-gms-google-services = { id = "com.google.gms.google-services", versio
 com_github_ben-manes_versions = { id = "com.github.ben-manes.versions", version = "0.47.0" }
 io_gitlab_arturbosch_detekt = { id = "io.gitlab.arturbosch.detekt", version = "1.23.1" }
 com_autonomousapps_dependency-analysis = { id = "com.autonomousapps.dependency-analysis", version = "1.21.0" }
-org_jetbrains_kotlinx_kover = { id = "org.jetbrains.kotlinx.kover", version = "0.7.2" }
+org_jetbrains_kotlinx_kover = { id = "org.jetbrains.kotlinx.kover", version = "0.7.3" }
 com_osacky_doctor = { id = "com.osacky.doctor", version = "0.8.1" }
 app-cash-sqldelight = { id = "app.cash.sqldelight", version.ref = "sqldelight" }
-com-google-firebase-crashlytics-gradle = { id = "com.google.firebase.crashlytics", version = "2.9.8" }
+com-google-firebase-crashlytics-gradle = { id = "com.google.firebase.crashlytics", version = "2.9.9" }
 [bundles]
 
