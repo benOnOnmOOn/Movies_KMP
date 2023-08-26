@@ -5,7 +5,6 @@ import com.bz.movies.kmp.di.presentationModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
 import org.koin.core.context.GlobalContext.startKoin
-import org.koin.dsl.module
 
 class MoviesApp : Application() {
     override fun onCreate() {

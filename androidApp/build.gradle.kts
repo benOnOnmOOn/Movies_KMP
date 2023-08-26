@@ -34,7 +34,6 @@ android {
     }
 }
 
-
 dependencyAnalysis {
     issues { onUnusedDependencies { exclude(":android:presentation:core") } }
     issues { onUnusedDependencies { exclude(":shared") } }
@@ -72,6 +71,4 @@ dependencies {
     androidTestImplementation(libs.androidx.monitor)
     androidTestImplementation(libs.org.junit.jupiter.api)
     androidTestRuntimeOnly(libs.org.junit.jupiter.engine)
-
-
 }

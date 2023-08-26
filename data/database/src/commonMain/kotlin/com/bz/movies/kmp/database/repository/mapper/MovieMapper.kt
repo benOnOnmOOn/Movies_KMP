@@ -11,7 +11,7 @@ internal fun Favaorite.toMovieDto() = MovieDto(
     title = title,
     publicationDate = publicationDate,
     language = language,
-    rating = rating.toInt(),
+    rating = rating.toInt()
 )
 
 internal fun MovieDto.toMovieEntity() = Favaorite(
@@ -20,7 +20,7 @@ internal fun MovieDto.toMovieEntity() = Favaorite(
     title = title,
     publicationDate = publicationDate,
     language = language,
-    rating = rating.toLong(),
+    rating = rating.toLong()
 )
 
 internal fun PopularNow.toMovieDto() = MovieDto(
@@ -29,7 +29,7 @@ internal fun PopularNow.toMovieDto() = MovieDto(
     title = title,
     publicationDate = publicationDate,
     language = language,
-    rating = rating.toInt(),
+    rating = rating.toInt()
 )
 
 internal fun MovieDto.toPopularMovieEntity() = PopularNow(
@@ -38,7 +38,7 @@ internal fun MovieDto.toPopularMovieEntity() = PopularNow(
     title = title,
     publicationDate = publicationDate,
     language = language,
-    rating = rating.toLong(),
+    rating = rating.toLong()
 )
 
 internal fun PlayingNow.toMovieDto() = MovieDto(
@@ -47,7 +47,7 @@ internal fun PlayingNow.toMovieDto() = MovieDto(
     title = title,
     publicationDate = publicationDate,
     language = language,
-    rating = rating.toInt(),
+    rating = rating.toInt()
 )
 
 internal fun MovieDto.toPlayingNowMovieEntity() = PlayingNow(
@@ -56,7 +56,5 @@ internal fun MovieDto.toPlayingNowMovieEntity() = PlayingNow(
     title = title,
     publicationDate = publicationDate,
     language = language,
-    rating = rating.toLong(),
+    rating = rating.toLong()
 )
-
-

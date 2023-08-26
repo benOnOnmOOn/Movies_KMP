@@ -10,7 +10,7 @@ android {
     kotlinOptions {
         freeCompilerArgs += listOf(
             "-opt-in=androidx.compose.material3.ExperimentalMaterial3Api",
-            "-opt-in=androidx.compose.material.ExperimentalMaterialApi",
+            "-opt-in=androidx.compose.material.ExperimentalMaterialApi"
         )
     }
     buildFeatures {
@@ -74,6 +74,4 @@ dependencies {
     androidTestImplementation(libs.androidx.monitor)
     androidTestRuntimeOnly(libs.org.junit.jupiter.engine)
     androidTestImplementation(libs.org.junit.jupiter.api)
-
-
 }

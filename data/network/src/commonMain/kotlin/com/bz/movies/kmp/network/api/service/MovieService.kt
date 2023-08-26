@@ -18,17 +18,19 @@ internal class MovieService {
 
     private val client = httpClient {
         install(ContentNegotiation) {
-            json(Json {
-                prettyPrint = true
-                isLenient = true
-            })
+            json(
+                Json {
+                    prettyPrint = true
+                    isLenient = true
+                }
+            )
         }
     }
 
     suspend fun getPopularMoviePage(
         apiKey: String,
         language: String,
-        page: Int,
+        page: Int
     ): PopularMoviesPageApiResponse {
         val url = BASE_URL.plus("movie/popular")
         return client.get(url) {
@@ -42,7 +44,7 @@ internal class MovieService {
     suspend fun getNowPlayingMovies(
         apiKey: String,
         language: String,
-        page: String,
+        page: String
     ): PlayingNowMoviesApiResponse {
         val url = BASE_URL.plus("movie/now_playing")
         return client.get(url) {
@@ -55,9 +57,9 @@ internal class MovieService {
     }
 
     suspend fun getMovieDetails(
-         movieId: Int,
+        movieId: Int,
         language: String,
-        apiKey: String,
+        apiKey: String
     ): MovieDetailsApiResponse {
         val url = BASE_URL.plus("movie")
         return client.get(url) {
@@ -68,5 +70,4 @@ internal class MovieService {
             }
         }.body()
     }
-
 }

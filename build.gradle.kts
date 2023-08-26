@@ -130,7 +130,6 @@ dependencyAnalysis {
     issues { all { onAny { severity("fail") } } }
 }
 
-
 fun PluginContainer.applyBaseConfig(project: Project) {
     whenPluginAdded {
         when (this) {
@@ -151,7 +150,7 @@ fun PluginContainer.applyBaseConfig(project: Project) {
 
 //region Global android configuration
 fun <BF : BuildFeatures, BT : BuildType, DC : DefaultConfig, PF : ProductFlavor, AR : AndroidResources>
-        CommonExtension<BF, BT, DC, PF, AR>.defaultBaseConfig() {
+CommonExtension<BF, BT, DC, PF, AR>.defaultBaseConfig() {
     compileSdk = libs.versions.android.sdk.target.get().toInt()
     buildToolsVersion = "34.0.0"
 
@@ -179,7 +178,8 @@ fun <BF : BuildFeatures, BT : BuildType, DC : DefaultConfig, PF : ProductFlavor,
         release {
             isMinifyEnabled = true
             proguardFiles(
-                getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro"
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro"
             )
         }
     }
@@ -200,9 +200,8 @@ fun <BF : BuildFeatures, BT : BuildType, DC : DefaultConfig, PF : ProductFlavor,
         "kotlin/**",
         "META-INF/**",
         "**.properties",
-        "kotlin-tooling-metadata.json",
+        "kotlin-tooling-metadata.json"
     )
-
 }
 
 fun LibraryExtension.baseConfig() {
@@ -210,7 +209,6 @@ fun LibraryExtension.baseConfig() {
     defaultConfig {
         consumerProguardFiles("consumer-rules.pro")
     }
-
 }
 
 fun BaseAppModuleExtension.baseConfig() {
@@ -222,7 +220,6 @@ fun BaseAppModuleExtension.baseConfig() {
     defaultConfig {
         targetSdk = libs.versions.android.sdk.target.get().toInt()
     }
-
 }
 
 subprojects {
@@ -245,3 +242,8 @@ subprojects {
     apply(plugin = "org.jlleitschuh.gradle.ktlint")
 }
 
+configure<org.jlleitschuh.gradle.ktlint.KtlintExtension> {
+    filter {
+        exclude("**/generated/**")
+    }
+}

@@ -57,7 +57,6 @@ kotlin {
                 implementation(libs.io.insert.koin.android)
 
                 // use debug impl to prevent from adding this deps to release version
-
             }
         }
 
@@ -74,7 +73,7 @@ kotlin {
 dependencyAnalysis {
     // resolve false positive problems caused by using kotlin multiplatform
     issues {
-          onUnusedDependencies{
+        onUnusedDependencies {
             exclude("com.squareup.okhttp3:logging-interceptor:4.11.0")
         }
     }
