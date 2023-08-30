@@ -15,7 +15,7 @@ internal fun MovieApiResponse.toPopularMovieDto() = MovieDto(
     title = title.orEmpty(),
     publicationDate = releaseDate.orEmpty(),
     language = originalLanguage.orEmpty(),
-    rating = voteAverage?.let { it * VOTE_MULTIPLIER }?.toInt() ?: 0,
+    rating = voteAverage?.let { it * VOTE_MULTIPLIER }?.toInt() ?: 0
 )
 
 internal fun PopularMoviesPageApiResponse.toPopularMovieDto() =
@@ -27,7 +27,7 @@ internal fun MovieApiResponse.toPlayingNowMovieDto() = MovieDto(
     title = title.orEmpty(),
     publicationDate = releaseDate.orEmpty(),
     language = originalLanguage.orEmpty(),
-    rating = voteAverage?.let { it * VOTE_MULTIPLIER }?.toInt() ?: 0,
+    rating = voteAverage?.let { it * VOTE_MULTIPLIER }?.toInt() ?: 0
 )
 
 internal fun PlayingNowMoviesApiResponse.toMovieDto() =
@@ -40,12 +40,12 @@ internal fun MovieDetailsApiResponse.toMovieDetailDto() = MoveDetailDto(
     language = originalLanguage.orEmpty(),
     title = title.orEmpty(),
     genre = genres?.map { it.name }?.toSet() ?: emptySet(),
-    overview = overview.orEmpty(),
+    overview = overview.orEmpty()
 )
 
 internal fun PopularMoviesPageApiResponse.toPopularMoviePageDto() = PopularMoviePageDto(
     page = page,
     totalPages = totalPages,
     totalResults = totalResults,
-    popularMovies = movies.map { it.toPopularMovieDto() },
+    popularMovies = movies.map { it.toPopularMovieDto() }
 )

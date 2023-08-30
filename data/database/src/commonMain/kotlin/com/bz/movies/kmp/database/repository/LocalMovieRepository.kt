@@ -22,5 +22,4 @@ interface LocalMovieRepository {
     suspend fun insertPopularMovies(movieDto: List<MovieDto>): Result<Unit>
 
     suspend fun clearPopularMovies(): Result<Unit>
-
 }

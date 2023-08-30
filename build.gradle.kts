@@ -15,6 +15,8 @@ import kotlinx.kover.gradle.plugin.KoverGradlePlugin
 import kotlinx.kover.gradle.plugin.dsl.KoverReportExtension
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+import org.jlleitschuh.gradle.ktlint.KtlintExtension
+import org.jlleitschuh.gradle.ktlint.KtlintPlugin
 
 plugins {
     alias(libs.plugins.org.jetbrains.kotlin.multiplatform) apply false
@@ -27,8 +29,10 @@ plugins {
     alias(libs.plugins.com.google.gms.google.services) apply false
     alias(libs.plugins.org.jetbrains.kotlinx.kover) apply false
     alias(libs.plugins.com.osacky.doctor) apply true
-    kotlin("plugin.serialization") version "1.9.0"
+    kotlin("plugin.serialization") version "1.9.10"
     alias(libs.plugins.app.cash.sqldelight) apply false
+
+    alias(libs.plugins.org.jlleitschuh.gradle.ktlint) apply true
 }
 
 tasks.register("clean", Delete::class) {
@@ -128,7 +132,6 @@ dependencyAnalysis {
     issues { all { onAny { severity("fail") } } }
 }
 
-
 fun PluginContainer.applyBaseConfig(project: Project) {
     whenPluginAdded {
         when (this) {
@@ -143,13 +146,17 @@ fun PluginContainer.applyBaseConfig(project: Project) {
             is KoverGradlePlugin -> {
                 project.extensions.getByType<KoverReportExtension>().baseConfig()
             }
+
+            is KtlintPlugin -> {
+                project.extensions.getByType<KtlintExtension>().baseConfig()
+            }
         }
     }
 }
 
 //region Global android configuration
 fun <BF : BuildFeatures, BT : BuildType, DC : DefaultConfig, PF : ProductFlavor, AR : AndroidResources>
-        CommonExtension<BF, BT, DC, PF, AR>.defaultBaseConfig() {
+CommonExtension<BF, BT, DC, PF, AR>.defaultBaseConfig() {
     compileSdk = libs.versions.android.sdk.target.get().toInt()
     buildToolsVersion = "34.0.0"
 
@@ -177,7 +184,8 @@ fun <BF : BuildFeatures, BT : BuildType, DC : DefaultConfig, PF : ProductFlavor,
         release {
             isMinifyEnabled = true
             proguardFiles(
-                getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro"
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro"
             )
         }
     }
@@ -198,9 +206,8 @@ fun <BF : BuildFeatures, BT : BuildType, DC : DefaultConfig, PF : ProductFlavor,
         "kotlin/**",
         "META-INF/**",
         "**.properties",
-        "kotlin-tooling-metadata.json",
+        "kotlin-tooling-metadata.json"
     )
-
 }
 
 fun LibraryExtension.baseConfig() {
@@ -208,7 +215,6 @@ fun LibraryExtension.baseConfig() {
     defaultConfig {
         consumerProguardFiles("consumer-rules.pro")
     }
-
 }
 
 fun BaseAppModuleExtension.baseConfig() {
@@ -220,7 +226,6 @@ fun BaseAppModuleExtension.baseConfig() {
     defaultConfig {
         targetSdk = libs.versions.android.sdk.target.get().toInt()
     }
-
 }
 
 subprojects {
@@ -236,5 +241,11 @@ fun KoverReportExtension.baseConfig() {
         xml {
             onCheck = true
         }
+    }
+}
+
+fun KtlintExtension.baseConfig() {
+    filter {
+        exclude("**/generated/**")
     }
 }

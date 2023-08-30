@@ -21,7 +21,7 @@ private const val LANGUAGE = "en-US"
 
 internal class MovieRepositoryImpl(
     private val movieService: MovieService,
-    private val internetConnectionChecker: InternetConnection,
+    private val internetConnectionChecker: InternetConnection
 ) : MovieRepository {
 
     override suspend fun getPlayingNowMovies(): Result<List<MovieDto>> =
@@ -47,7 +47,7 @@ internal class MovieRepositoryImpl(
             movieService.getMovieDetails(
                 apiKey = AUTH_KEY,
                 language = LANGUAGE,
-                movieId = movieId,
+                movieId = movieId
             )
         }
 
@@ -64,15 +64,15 @@ internal class MovieRepositoryImpl(
         crossinline mapper: (T) -> R,
         crossinline apiCall: suspend () -> T
     ): Result<R> {
-        if (!internetConnectionChecker.isConnected)
+        if (!internetConnectionChecker.isConnected) {
             return Result.failure(NoInternetException())
+        }
 
         return withContext(Dispatchers.IO) {
             runCatching {
                 val response = apiCall()
                 mapper(response)
             }
-
         }
     }
 }

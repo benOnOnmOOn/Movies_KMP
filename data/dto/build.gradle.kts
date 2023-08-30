@@ -1,7 +1,7 @@
 import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
 
 plugins {
-    kotlin("multiplatform") version("1.9.0")
+    kotlin("multiplatform")
 }
 
 kotlin {
@@ -24,7 +24,7 @@ kotlin {
     sourceSets {
         commonMain {
             dependencies {
-                //put your multiplatform dependencies here
+                // put your multiplatform dependencies here
             }
         }
         commonTest {
