@@ -29,10 +29,10 @@ plugins {
     alias(libs.plugins.com.google.gms.google.services) apply false
     alias(libs.plugins.org.jetbrains.kotlinx.kover) apply false
     alias(libs.plugins.com.osacky.doctor) apply true
-    kotlin("plugin.serialization") version "1.9.0"
+    kotlin("plugin.serialization") version "1.9.10"
     alias(libs.plugins.app.cash.sqldelight) apply false
 
-    id("org.jlleitschuh.gradle.ktlint") version "11.5.1"
+    alias(libs.plugins.org.jlleitschuh.gradle.ktlint) apply true
 }
 
 tasks.register("clean", Delete::class) {
@@ -248,8 +248,4 @@ fun KtlintExtension.baseConfig() {
     filter {
         exclude("**/generated/**")
     }
-}
-
-subprojects {
-    apply(plugin = "org.jlleitschuh.gradle.ktlint")
 }
