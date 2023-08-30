@@ -147,7 +147,7 @@ fun PluginContainer.applyBaseConfig(project: Project) {
                 project.extensions.getByType<KoverReportExtension>().baseConfig()
             }
 
-            is KtlintPlugin ->{
+            is KtlintPlugin -> {
                 project.extensions.getByType<KtlintExtension>().baseConfig()
             }
         }
@@ -244,7 +244,7 @@ fun KoverReportExtension.baseConfig() {
     }
 }
 
-fun KtlintExtension.baseConfig(){
+fun KtlintExtension.baseConfig() {
     filter {
         exclude("**/generated/**")
     }
