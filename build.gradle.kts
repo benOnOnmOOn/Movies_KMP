@@ -246,6 +246,18 @@ fun KoverReportExtension.baseConfig() {
 
 fun KtlintExtension.baseConfig() {
     filter {
-        exclude("**/generated/**")
+        exclude("**/generated/**", "**/build/**")
+        include("**/kotlin/**")
     }
+}
+
+configure<KtlintExtension> {
+    filter {
+        exclude("**/generated/**", "**/build/**")
+        include("**/kotlin/**")
+    }
+}
+
+subprojects {
+    apply(plugin = "org.jlleitschuh.gradle.ktlint")
 }

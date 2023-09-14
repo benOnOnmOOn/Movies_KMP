@@ -1,5 +1,3 @@
-import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
-
 plugins {
     kotlin("multiplatform")
     kotlin("plugin.serialization")
@@ -7,10 +5,6 @@ plugins {
 }
 
 kotlin {
-
-    @OptIn(ExperimentalKotlinGradlePluginApi::class)
-    targetHierarchy.default()
-
     androidTarget()
 
     listOf(
@@ -61,8 +55,7 @@ kotlin {
         }
 
         @Suppress("UnusedPrivateProperty")
-        val iosMain by getting {
-
+        val iosMain by creating {
             dependencies {
                 implementation(libs.io.ktor.client.ios)
             }

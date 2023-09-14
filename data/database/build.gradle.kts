@@ -1,5 +1,3 @@
-import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
-
 plugins {
     kotlin("multiplatform")
     id("com.android.library")
@@ -7,9 +5,6 @@ plugins {
 }
 
 kotlin {
-    @OptIn(ExperimentalKotlinGradlePluginApi::class)
-    targetHierarchy.default()
-
     androidTarget()
 
     listOf(
@@ -46,7 +41,7 @@ kotlin {
         }
 
         @Suppress("UnusedPrivateProperty")
-        val iosMain by getting {
+        val iosMain by creating {
             dependencies {
                 implementation(libs.app.cash.sqldelight.native.driver)
             }
