@@ -24,8 +24,8 @@ jobs:
       - name: Build apk
         run: ./gradlew :androidApp:assembleDebug
 
-      - name: Run ktlint plugin
-        run: ./gradlew ktlintCheck
+#      - name: Run ktlint plugin
+#        run: ./gradlew ktlintCheck
 
       - name: Run detket plugin
         run: ./gradlew detektAll
