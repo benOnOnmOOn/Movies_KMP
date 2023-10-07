@@ -48,7 +48,6 @@ dependencies {
     implementation(libs.androidx.navigation.common)
     implementation(libs.androidx.navigation.runtime)
 
-
     testImplementation(libs.org.junit.jupiter.api)
     testImplementation(libs.io.mockk)
     testRuntimeOnly(libs.org.junit.jupiter.engine)
