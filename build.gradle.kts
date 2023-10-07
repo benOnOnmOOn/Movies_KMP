@@ -19,8 +19,9 @@ import org.jlleitschuh.gradle.ktlint.KtlintExtension
 import org.jlleitschuh.gradle.ktlint.KtlintPlugin
 
 plugins {
-    alias(libs.plugins.org.jetbrains.kotlin.multiplatform) apply false
-    alias(libs.plugins.org.jetbrains.kotlin.android) apply false
+    embeddedKotlin("multiplatform") apply false
+    embeddedKotlin("android") apply false
+    embeddedKotlin("plugin.serialization") apply false
     alias(libs.plugins.com.android.application) apply false
     alias(libs.plugins.com.android.library) apply false
     alias(libs.plugins.com.github.ben.manes.versions) apply true
@@ -29,7 +30,6 @@ plugins {
     alias(libs.plugins.com.google.gms.google.services) apply false
     alias(libs.plugins.org.jetbrains.kotlinx.kover) apply false
     alias(libs.plugins.com.osacky.doctor) apply true
-    kotlin("plugin.serialization") version "1.9.10"
     alias(libs.plugins.app.cash.sqldelight) apply false
 
     alias(libs.plugins.org.jlleitschuh.gradle.ktlint) apply true

@@ -2,7 +2,6 @@
 activity-compose = "1.8.0"
 com-android-plugin = "8.1.2"
 core = "1.12.0"
-kotlin = "1.9.10"
 kotlin-compose-compiler-extension = "1.5.3"
 android-sdk-target = "34"
 android-min-sdk = "28"
@@ -87,8 +86,6 @@ org-junit-jupiter-engine = { group = "org.junit.jupiter", name = "junit-jupiter-
 [plugins]
 com-android-application = { id = "com.android.application", version.ref = "com-android-plugin" }
 com-android-library = { id = "com.android.library", version.ref = "com-android-plugin" }
-org-jetbrains-kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
-org-jetbrains-kotlin-multiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
 com-google-gms-google-services = { id = "com.google.gms.google-services", version = "4.4.0" }
 com_github_ben-manes_versions = { id = "com.github.ben-manes.versions", version = "0.48.0" }
 io_gitlab_arturbosch_detekt = { id = "io.gitlab.arturbosch.detekt", version = "1.23.1" }
