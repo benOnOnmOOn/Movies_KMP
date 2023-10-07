@@ -12,6 +12,10 @@ android {
     }
 }
 
+dependencyAnalysis {
+    issues { onUsedTransitiveDependencies { exclude("androidx.compose.runtime:runtime") } }
+}
+
 dependencies {
     implementation(project(":android:presentation:screens"))
     implementation(project(":data:network"))
@@ -25,21 +29,25 @@ dependencies {
     implementation(libs.io.insert.koin.core)
     implementation(libs.io.insert.koin.android)
 
+    api(libs.androidx.activity)
+    api(libs.androidx.compose.runtime)
+    implementation(libs.androidx.compose.foundation.layout)
+    implementation(libs.androidx.compose.foundation.layout.android)
+    implementation(libs.androidx.compose.foundation)
+    implementation(libs.androidx.compose.foundation.android)
+    implementation(libs.androidx.compose.material3)
     implementation(libs.androidx.activity.compose)
     implementation(libs.androidx.navigation.compose)
     implementation(libs.androidx.compose.ui)
+    implementation(libs.androidx.compose.ui.android)
     implementation(libs.androidx.compose.ui.graphics)
+    implementation(libs.androidx.compose.ui.graphics.android)
     implementation(libs.androidx.compose.material3)
 
     implementation(libs.androidx.lifecycle.viewmodel)
     implementation(libs.androidx.navigation.common)
     implementation(libs.androidx.navigation.runtime)
 
-    api(libs.androidx.activity)
-    implementation(libs.androidx.compose.foundation.layout)
-    implementation(libs.androidx.compose.foundation)
-    api(libs.androidx.compose.runtime)
-    implementation(libs.androidx.compose.material3)
 
     testImplementation(libs.org.junit.jupiter.api)
     testImplementation(libs.io.mockk)
