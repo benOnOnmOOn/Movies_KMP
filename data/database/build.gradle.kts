@@ -1,3 +1,5 @@
+import org.jlleitschuh.gradle.ktlint.KtlintExtension
+
 plugins {
     kotlin("multiplatform")
     id("com.android.library")
@@ -46,6 +48,23 @@ kotlin {
                 implementation(libs.app.cash.sqldelight.native.driver)
             }
         }
+    }
+}
+
+tasks {
+    runKtlintCheckOverCommonMainSourceSet {
+        doFirst {
+            source.forEach { println(it) }
+        }
+    }
+}
+
+configure<KtlintExtension> {
+    android.set(true)
+    enableExperimentalRules.set(true)
+    filter {
+        exclude { element -> element.file.path.contains("generated/") }
+        exclude { element -> element.file.path.contains("build/") }
     }
 }
 
