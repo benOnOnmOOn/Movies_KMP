@@ -1,13 +1,8 @@
-import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
-
 plugins {
     kotlin("multiplatform")
 }
 
 kotlin {
-
-    @OptIn(ExperimentalKotlinGradlePluginApi::class)
-    targetHierarchy.default()
 
     jvm()
 

@@ -1,4 +1,4 @@
-import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
+import org.jlleitschuh.gradle.ktlint.KtlintExtension
 
 plugins {
     kotlin("multiplatform")
@@ -7,9 +7,6 @@ plugins {
 }
 
 kotlin {
-    @OptIn(ExperimentalKotlinGradlePluginApi::class)
-    targetHierarchy.default()
-
     androidTarget()
 
     listOf(
@@ -46,11 +43,28 @@ kotlin {
         }
 
         @Suppress("UnusedPrivateProperty")
-        val iosMain by getting {
+        val iosMain by creating {
             dependencies {
                 implementation(libs.app.cash.sqldelight.native.driver)
             }
         }
+    }
+}
+
+tasks {
+    runKtlintCheckOverCommonMainSourceSet {
+        doFirst {
+            source.forEach { println(it) }
+        }
+    }
+}
+
+configure<KtlintExtension> {
+    android.set(true)
+    enableExperimentalRules.set(true)
+    filter {
+        exclude { element -> element.file.path.contains("generated/") }
+        exclude { element -> element.file.path.contains("build/") }
     }
 }
 

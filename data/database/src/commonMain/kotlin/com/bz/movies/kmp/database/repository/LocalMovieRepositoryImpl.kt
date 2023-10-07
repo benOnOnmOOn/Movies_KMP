@@ -63,12 +63,11 @@ internal class LocalMovieRepositoryImpl(
             }
         }
 
-    override suspend fun clearPlayingNowMovies(): Result<Unit> =
-        withContext(Dispatchers.IO) {
-            runCatching {
-                queries.clearPlayingNow()
-            }
+    override suspend fun clearPlayingNowMovies(): Result<Unit> = withContext(Dispatchers.IO) {
+        runCatching {
+            queries.clearPlayingNow()
         }
+    }
 
     override suspend fun insertPopularMovies(movieDto: List<MovieDto>): Result<Unit> =
         withContext(Dispatchers.IO) {
@@ -77,10 +76,9 @@ internal class LocalMovieRepositoryImpl(
             }
         }
 
-    override suspend fun clearPopularMovies(): Result<Unit> =
-        withContext(Dispatchers.IO) {
-            runCatching {
-                queries.clearPopularNow()
-            }
+    override suspend fun clearPopularMovies(): Result<Unit> = withContext(Dispatchers.IO) {
+        runCatching {
+            queries.clearPopularNow()
         }
+    }
 }

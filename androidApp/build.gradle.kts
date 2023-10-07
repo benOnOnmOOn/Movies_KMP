@@ -37,6 +37,7 @@ android {
 dependencyAnalysis {
     issues { onUnusedDependencies { exclude(":android:presentation:core") } }
     issues { onUnusedDependencies { exclude(":shared") } }
+    issues { onUsedTransitiveDependencies { exclude("androidx.compose.runtime:runtime") } }
 }
 
 dependencies {

@@ -1,5 +1,3 @@
-import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
-
 plugins {
     kotlin("multiplatform")
     kotlin("plugin.serialization")
@@ -7,10 +5,6 @@ plugins {
 }
 
 kotlin {
-
-    @OptIn(ExperimentalKotlinGradlePluginApi::class)
-    targetHierarchy.default()
-
     androidTarget()
 
     listOf(
@@ -61,8 +55,7 @@ kotlin {
         }
 
         @Suppress("UnusedPrivateProperty")
-        val iosMain by getting {
-
+        val iosMain by creating {
             dependencies {
                 implementation(libs.io.ktor.client.ios)
             }
@@ -72,11 +65,7 @@ kotlin {
 
 dependencyAnalysis {
     // resolve false positive problems caused by using kotlin multiplatform
-    issues {
-        onUnusedDependencies {
-            exclude("com.squareup.okhttp3:logging-interceptor:4.11.0")
-        }
-    }
+    issues { onUnusedDependencies { exclude("com.squareup.okhttp3:logging-interceptor") } }
 }
 
 android {
