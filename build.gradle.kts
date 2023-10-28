@@ -15,8 +15,6 @@ import kotlinx.kover.gradle.plugin.KoverGradlePlugin
 import kotlinx.kover.gradle.plugin.dsl.KoverReportExtension
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
-import org.jlleitschuh.gradle.ktlint.KtlintExtension
-import org.jlleitschuh.gradle.ktlint.KtlintPlugin
 
 plugins {
     embeddedKotlin("multiplatform") apply false
@@ -31,25 +29,27 @@ plugins {
     alias(libs.plugins.org.jetbrains.kotlinx.kover) apply false
     alias(libs.plugins.com.osacky.doctor) apply true
     alias(libs.plugins.app.cash.sqldelight) apply false
-
     alias(libs.plugins.org.jlleitschuh.gradle.ktlint) apply true
+    alias(libs.plugins.org.gradle.android.cache.fix) apply false
 }
 
-tasks.register("clean", Delete::class) {
-    delete(rootProject.buildDir)
+tasks.register<Delete>("clean") {
+    delete(rootProject.layout.buildDirectory)
 }
 
 //region Dependency Updates Task
 
 fun isNonStable(version: String): Boolean {
-    val unStableKeyword = listOf("ALPHA", "BETA").any {
-        version.contains(it, ignoreCase = true)
-    }
+    val unStableKeyword =
+        listOf("ALPHA", "BETA").any {
+            version.contains(it, ignoreCase = true)
+        }
     if (unStableKeyword) return true
 
-    val stableKeyword = listOf("RELEASE", "FINAL", "GA").any {
-        version.contains(it, ignoreCase = true)
-    }
+    val stableKeyword =
+        listOf("RELEASE", "FINAL", "GA").any {
+            version.contains(it, ignoreCase = true)
+        }
     val regex = "^[0-9,.v-]+(-r)?$".toRegex()
     val isStable = stableKeyword || regex.matches(version)
     return isStable.not()
@@ -146,17 +146,18 @@ fun PluginContainer.applyBaseConfig(project: Project) {
             is KoverGradlePlugin -> {
                 project.extensions.getByType<KoverReportExtension>().baseConfig()
             }
-
-            is KtlintPlugin -> {
-                project.extensions.getByType<KtlintExtension>().baseConfig()
-            }
         }
     }
 }
 
 //region Global android configuration
-fun <BF : BuildFeatures, BT : BuildType, DC : DefaultConfig, PF : ProductFlavor, AR : AndroidResources>
-CommonExtension<BF, BT, DC, PF, AR>.defaultBaseConfig() {
+fun <
+    BF : BuildFeatures,
+    BT : BuildType,
+    DC : DefaultConfig,
+    PF : ProductFlavor,
+    AR : AndroidResources,
+    > CommonExtension<BF, BT, DC, PF, AR>.defaultBaseConfig() {
     compileSdk = libs.versions.android.sdk.target.get().toInt()
     buildToolsVersion = "34.0.0"
 
@@ -185,7 +186,7 @@ CommonExtension<BF, BT, DC, PF, AR>.defaultBaseConfig() {
             isMinifyEnabled = true
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
+                "proguard-rules.pro",
             )
         }
     }
@@ -202,12 +203,13 @@ CommonExtension<BF, BT, DC, PF, AR>.defaultBaseConfig() {
         }
     }
 
-    packaging.resources.excludes += setOf(
-        "kotlin/**",
-        "META-INF/**",
-        "**.properties",
-        "kotlin-tooling-metadata.json"
-    )
+    packaging.resources.excludes +=
+        setOf(
+            "kotlin/**",
+            "META-INF/**",
+            "**.properties",
+            "kotlin-tooling-metadata.json",
+        )
 }
 
 fun LibraryExtension.baseConfig() {
@@ -244,14 +246,8 @@ fun KoverReportExtension.baseConfig() {
     }
 }
 
-fun KtlintExtension.baseConfig() {
-    filter {
-        exclude("**/generated/**", "**/build/**")
-        include("**/kotlin/**")
-    }
-}
-
-configure<KtlintExtension> {
+ktlint {
+    version.set("1.0.1")
     filter {
         exclude("**/generated/**", "**/build/**")
         include("**/kotlin/**")
@@ -260,4 +256,10 @@ configure<KtlintExtension> {
 
 subprojects {
     apply(plugin = "org.jlleitschuh.gradle.ktlint")
+    apply(plugin = "org.gradle.android.cache-fix")
+}
+
+doctor {
+    daggerThreshold.set(100)
+    negativeAvoidanceThreshold.set(50)
 }

@@ -58,7 +58,7 @@ dependencies {
     implementation(libs.io.insert.koin.android)
 
     implementation(libs.androidx.startup.runtime)
-    implementation(libs.androidx.compose.runtime)
+    implementation(libs.androidx.compose.runtime.android)
 
     implementation(libs.com.jakewharton.timber)
 
