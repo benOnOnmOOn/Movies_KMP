@@ -9,14 +9,14 @@ coil = "2.4.0"
 lifecycle = "2.6.2"
 navigation-compose = "2.7.4"
 startup-runtime = "1.1.1"
-compose = "1.5.3"
+compose = "1.5.4"
 kotlinx-coroutines = "1.7.3"
 mockk = "1.13.8"
 monitor = "1.6.1"
 junit = "5.10.0"
 timber = "5.0.1"
-firebase-bom = "32.3.1"
-okhttp = "4.11.0"
+firebase-bom = "32.4.1"
+okhttp = "4.12.0"
 material3 = "1.1.2"
 ktor = "2.3.5"
 koin = "3.5.0"
@@ -25,23 +25,15 @@ sqldelight = "2.0.0"
 [libraries]
 androidx-activity = { module = "androidx.activity:activity", version.ref = "activity-compose" }
 androidx-activity-compose = { module = "androidx.activity:activity-compose", version.ref = "activity-compose" }
-androidx-activity-compose-animation = { module = "androidx.compose.animation:animation", version.ref = "compose" }
 androidx-activity-compose-animation-android = { module = "androidx.compose.animation:animation-android", version.ref = "compose" }
-androidx-compose-ui = { module = "androidx.compose.ui:ui", version.ref = "compose" }
 androidx-compose-ui-android = { module = "androidx.compose.ui:ui-android", version.ref = "compose" }
-androidx-compose-ui-text = { module = "androidx.compose.ui:ui-text-android", version.ref = "compose" }
-androidx-compose-ui-text-android = { module = "androidx.compose.ui:ui-text", version.ref = "compose" }
-androidx-compose-ui-graphics = { module = "androidx.compose.ui:ui-graphics", version.ref = "compose" }
+androidx-compose-ui-text-android = { module = "androidx.compose.ui:ui-text-android", version.ref = "compose" }
 androidx-compose-ui-graphics-android = { module = "androidx.compose.ui:ui-graphics-android", version.ref = "compose" }
 androidx-compose-ui-tooling = { module = "androidx.compose.ui:ui-tooling-android", version.ref = "compose" }
 androidx-compose-ui-tooling-preview = { module = "androidx.compose.ui:ui-tooling-preview-android", version.ref = "compose" }
-androidx-compose-ui-unit = { module = "androidx.compose.ui:ui-unit", version.ref = "compose" }
 androidx-compose-ui-unit-android = { module = "androidx.compose.ui:ui-unit-android", version.ref = "compose" }
-androidx-compose-runtime = { module = "androidx.compose.runtime:runtime", version.ref = "compose" }
 androidx-compose-runtime-android = { module = "androidx.compose.runtime:runtime-android", version.ref = "compose" }
-androidx-compose-foundation = { module = "androidx.compose.foundation:foundation", version.ref = "compose" }
 androidx-compose-foundation-android = { module = "androidx.compose.foundation:foundation-android", version.ref = "compose" }
-androidx-compose-foundation-layout = { module = "androidx.compose.foundation:foundation-layout", version.ref = "compose" }
 androidx-compose-foundation-layout-android = { module = "androidx.compose.foundation:foundation-layout-android", version.ref = "compose" }
 androidx-compose-material = { module = "androidx.compose.material:material-android", version.ref = "compose" }
 androidx-compose-material3 = { module = "androidx.compose.material3:material3", version.ref = "material3" }
@@ -87,13 +79,14 @@ org-junit-jupiter-engine = { group = "org.junit.jupiter", name = "junit-jupiter-
 com-android-application = { id = "com.android.application", version.ref = "com-android-plugin" }
 com-android-library = { id = "com.android.library", version.ref = "com-android-plugin" }
 com-google-gms-google-services = { id = "com.google.gms.google-services", version = "4.4.0" }
-com_github_ben-manes_versions = { id = "com.github.ben-manes.versions", version = "0.48.0" }
+com_github_ben-manes_versions = { id = "com.github.ben-manes.versions", version = "0.49.0" }
 io_gitlab_arturbosch_detekt = { id = "io.gitlab.arturbosch.detekt", version = "1.23.1" }
-com_autonomousapps_dependency-analysis = { id = "com.autonomousapps.dependency-analysis", version = "1.24.0" }
-org_jetbrains_kotlinx_kover = { id = "org.jetbrains.kotlinx.kover", version = "0.7.3" }
+com_autonomousapps_dependency-analysis = { id = "com.autonomousapps.dependency-analysis", version = "1.25.0" }
+org_jetbrains_kotlinx_kover = { id = "org.jetbrains.kotlinx.kover", version = "0.7.4" }
 com_osacky_doctor = { id = "com.osacky.doctor", version = "0.8.1" }
 app-cash-sqldelight = { id = "app.cash.sqldelight", version.ref = "sqldelight" }
 com-google-firebase-crashlytics-gradle = { id = "com.google.firebase.crashlytics", version = "2.9.9" }
-org-jlleitschuh-gradle-ktlint = { id = "org.jlleitschuh.gradle.ktlint", version = "11.5.1" }
+org-jlleitschuh-gradle-ktlint = { id = "org.jlleitschuh.gradle.ktlint", version = "11.6.1" }
+org-gradle-android-cache-fix = { id = "org.gradle.android.cache-fix", version = "3.0" }
 [bundles]
 
