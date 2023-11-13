@@ -15,6 +15,8 @@ import kotlinx.kover.gradle.plugin.KoverGradlePlugin
 import kotlinx.kover.gradle.plugin.dsl.KoverReportExtension
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+import org.jlleitschuh.gradle.ktlint.KtlintExtension
+import org.jlleitschuh.gradle.ktlint.KtlintPlugin
 
 plugins {
     embeddedKotlin("multiplatform") apply false
@@ -146,6 +148,10 @@ fun PluginContainer.applyBaseConfig(project: Project) {
             is KoverGradlePlugin -> {
                 project.extensions.getByType<KoverReportExtension>().baseConfig()
             }
+
+            is KtlintPlugin -> {
+                project.extensions.getByType<KtlintExtension>().baseConfig()
+            }
         }
     }
 }
@@ -262,4 +268,15 @@ subprojects {
 doctor {
     daggerThreshold.set(100)
     negativeAvoidanceThreshold.set(50)
+}
+
+ktlint {
+    version.set("1.0.1")
+}
+
+fun KtlintExtension.baseConfig() {
+    version.set("1.0.1")
+    filter {
+        exclude("**/generated/**")
+    }
 }
