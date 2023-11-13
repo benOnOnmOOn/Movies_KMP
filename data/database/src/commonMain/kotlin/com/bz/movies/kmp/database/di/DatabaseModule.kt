@@ -7,6 +7,3 @@ import org.koin.dsl.module
 
 expect val databaseModule: Module
 
-val queriesModule = module {
-    single<MoviesDB2Queries> { get<MoviesDB2>().moviesDB2Queries }
-}

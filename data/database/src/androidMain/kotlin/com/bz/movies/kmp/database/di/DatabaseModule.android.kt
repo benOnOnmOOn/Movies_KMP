@@ -7,7 +7,8 @@ import com.bz.movies.kmp.database.createDatabase
 import org.koin.android.ext.koin.androidApplication
 import org.koin.dsl.module
 
-actual val databaseModule = module {
-    single<MoviesDB2> { createDatabase(DriverFactory(androidApplication())) }
-    single<MoviesDB2Queries> { get<MoviesDB2>().moviesDB2Queries }
-}
+actual val databaseModule =
+    module {
+        single<MoviesDB2> { createDatabase(DriverFactory(androidApplication())) }
+        single<MoviesDB2Queries> { get<MoviesDB2>().moviesDB2Queries }
+    }

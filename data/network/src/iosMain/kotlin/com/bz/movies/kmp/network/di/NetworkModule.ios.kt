@@ -4,6 +4,7 @@ import com.bz.movies.kmp.network.utils.InternetConnection
 import com.bz.movies.kmp.network.utils.InternetConnectionImpl
 import org.koin.dsl.module
 
-actual val platformNetworkModule = module {
-    factory<InternetConnection> { InternetConnectionImpl() }
-}
+actual val platformNetworkModule =
+    module {
+        factory<InternetConnection> { InternetConnectionImpl() }
+    }

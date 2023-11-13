@@ -10,7 +10,7 @@ kotlin {
     listOf(
         iosX64(),
         iosArm64(),
-        iosSimulatorArm64()
+        iosSimulatorArm64(),
     ).forEach {
         it.binaries.framework {
             baseName = "network"
@@ -40,8 +40,7 @@ kotlin {
             }
         }
 
-        @Suppress("UnusedPrivateProperty")
-        val androidMain by getting {
+        androidMain {
             dependencies {
                 implementation(libs.androidx.core)
                 implementation(libs.androidx.core.ktx)
@@ -54,8 +53,7 @@ kotlin {
             }
         }
 
-        @Suppress("UnusedPrivateProperty")
-        val iosMain by creating {
+        iosMain {
             dependencies {
                 implementation(libs.io.ktor.client.ios)
             }

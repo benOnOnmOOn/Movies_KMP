@@ -13,24 +13,26 @@ import io.ktor.serialization.kotlinx.json.json
 import kotlinx.serialization.json.Json
 
 const val BASE_URL = "https://api.themoviedb.org/3/"
-expect fun httpClient(config: HttpClientConfig<*>.() -> Unit): HttpClient
-internal class MovieService {
 
-    private val client = httpClient {
-        install(ContentNegotiation) {
-            json(
-                Json {
-                    prettyPrint = true
-                    isLenient = true
-                }
-            )
+expect fun httpClient(config: HttpClientConfig<*>.() -> Unit): HttpClient
+
+internal class MovieService {
+    private val client =
+        httpClient {
+            install(ContentNegotiation) {
+                json(
+                    Json {
+                        prettyPrint = true
+                        isLenient = true
+                    },
+                )
+            }
         }
-    }
 
     suspend fun getPopularMoviePage(
         apiKey: String,
         language: String,
-        page: Int
+        page: Int,
     ): PopularMoviesPageApiResponse {
         val url = BASE_URL.plus("movie/popular")
         return client.get(url) {
@@ -41,17 +43,18 @@ internal class MovieService {
             }
         }.body()
     }
+
     suspend fun getNowPlayingMovies(
         apiKey: String,
         language: String,
-        page: String
+        page: Int,
     ): PlayingNowMoviesApiResponse {
         val url = BASE_URL.plus("movie/now_playing")
         return client.get(url) {
             url {
                 parameters.append("api_key", apiKey)
                 parameters.append("language", language)
-                parameters.append("page", page)
+                parameters.append("page", page.toString())
             }
         }.body()
     }
@@ -59,7 +62,7 @@ internal class MovieService {
     suspend fun getMovieDetails(
         movieId: Int,
         language: String,
-        apiKey: String
+        apiKey: String,
     ): MovieDetailsApiResponse {
         val url = BASE_URL.plus("movie")
         return client.get(url) {

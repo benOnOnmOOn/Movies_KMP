@@ -23,7 +23,7 @@ android {
             isShrinkResources = true
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
+                "proguard-rules.pro",
             )
             signingConfig = signingConfigs.getByName("debug")
         }
@@ -49,6 +49,8 @@ dependencies {
     // kover(project(":data:database"))
     // kover(project(":data:network"))
     // kover(project(":data:dto"))
+
+    implementation(libs.kotlin.stdlib)
 
     releaseImplementation(platform(libs.com.google.firebase.bom))
     releaseImplementation(libs.com.google.firebase.analytics.ktx)

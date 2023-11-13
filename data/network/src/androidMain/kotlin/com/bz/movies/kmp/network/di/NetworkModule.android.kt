@@ -7,8 +7,9 @@ import com.bz.movies.kmp.network.utils.InternetConnectionImpl
 import org.koin.android.ext.koin.androidApplication
 import org.koin.dsl.module
 
-actual val platformNetworkModule = module {
+actual val platformNetworkModule =
+    module {
 
-    factory<ConnectivityManager?> { androidApplication().getSystemService<ConnectivityManager>() }
-    factory<InternetConnection> { InternetConnectionImpl(get()) }
-}
+        factory<ConnectivityManager?> { androidApplication().getSystemService<ConnectivityManager>() }
+        factory<InternetConnection> { InternetConnectionImpl(get()) }
+    }

@@ -12,7 +12,7 @@ kotlin {
     listOf(
         iosX64(),
         iosArm64(),
-        iosSimulatorArm64()
+        iosSimulatorArm64(),
     ).forEach {
         it.binaries.framework {
             baseName = "database"
@@ -34,16 +34,14 @@ kotlin {
             }
         }
 
-        @Suppress("UnusedPrivateProperty")
-        val androidMain by getting {
+        androidMain {
             dependencies {
                 implementation(libs.app.cash.sqldelight.android.driver)
                 implementation(libs.io.insert.koin.android)
             }
         }
 
-        @Suppress("UnusedPrivateProperty")
-        val iosMain by creating {
+        iosMain {
             dependencies {
                 implementation(libs.app.cash.sqldelight.native.driver)
             }
