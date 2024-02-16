@@ -3,7 +3,7 @@ plugins {
     alias(libs.plugins.com.google.gms.google.services) apply false
     alias(libs.plugins.com.google.firebase.crashlytics.gradle) apply false
     alias(libs.plugins.org.jetbrains.kotlinx.kover)
-    kotlin("android")
+    embeddedKotlin("android")
 }
 
 android {
@@ -35,24 +35,23 @@ android {
 }
 
 dependencyAnalysis {
-    issues { onUnusedDependencies { exclude(":android:presentation:core") } }
-    issues { onUnusedDependencies { exclude(":shared") } }
-    issues { onUsedTransitiveDependencies { exclude("androidx.compose.runtime:runtime") } }
+    issues {
+        onUnusedDependencies { exclude(":android:presentation:core") }
+        onUnusedDependencies { exclude(":shared") }
+        onUsedTransitiveDependencies { exclude("androidx.compose.runtime:runtime") }
+        onIncorrectConfiguration { exclude("org.jetbrains.kotlin:kotlin-stdlib") }
+    }
 }
 
 dependencies {
     implementation(project(":android:presentation:core"))
 
-    kover(project(":android:presentation:core"))
-    kover(project(":android:presentation:screens"))
-    // TODO add unit test covrage with  kover
-    // kover(project(":data:database"))
-    // kover(project(":data:network"))
-    // kover(project(":data:dto"))
+//    kover(project(":android:presentation:core"))
+//    kover(project(":android:presentation:screens"))
+//    kover(project(":data:database"))
+//    kover(project(":data:network"))
+//    kover(project(":data:dto"))
 
-    implementation(libs.kotlin.stdlib)
-
-    releaseImplementation(platform(libs.com.google.firebase.bom))
     releaseImplementation(libs.com.google.firebase.analytics.ktx)
     releaseImplementation(libs.com.google.firebase.crashlytics.ktx)
 

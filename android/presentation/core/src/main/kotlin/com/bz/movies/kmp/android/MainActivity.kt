@@ -19,10 +19,7 @@ import com.bz.movies.presentation.navigation.currentRootRouteAsState
 import com.bz.movies.presentation.navigation.navigateToRootRoute
 import com.bz.movies.presentation.theme.MoviesTheme
 
-
 class MainActivity : ComponentActivity() {
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
@@ -38,14 +35,14 @@ class MainActivity : ComponentActivity() {
                                 navController.navigateToRootRoute(it.rootRoute)
                             },
                         )
-                    }
-
+                    },
                 ) {
                     Surface(
-                        modifier = Modifier
-                            .fillMaxSize()
-                            .padding(it),
-                        color = MaterialTheme.colorScheme.background
+                        modifier =
+                            Modifier
+                                .fillMaxSize()
+                                .padding(it),
+                        color = MaterialTheme.colorScheme.background,
                     ) {
                         MoviesNavHost(
                             navController = navController,
@@ -57,5 +54,3 @@ class MainActivity : ComponentActivity() {
         }
     }
 }
-
-

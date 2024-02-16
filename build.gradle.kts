@@ -28,7 +28,7 @@ plugins {
     alias(libs.plugins.io.gitlab.arturbosch.detekt) apply true
     alias(libs.plugins.com.autonomousapps.dependency.analysis) apply true
     alias(libs.plugins.com.google.gms.google.services) apply false
-    alias(libs.plugins.org.jetbrains.kotlinx.kover) apply false
+    alias(libs.plugins.org.jetbrains.kotlinx.kover) apply true
     alias(libs.plugins.com.osacky.doctor) apply true
     alias(libs.plugins.app.cash.sqldelight) apply false
     alias(libs.plugins.org.jlleitschuh.gradle.ktlint) apply true
@@ -131,7 +131,16 @@ tasks.withType<KotlinCompile>().configureEach {
 //endregion
 
 dependencyAnalysis {
-    issues { all { onAny { severity("fail") } } }
+    issues {
+        all { onAny { severity("fail") } }
+        all { onUnusedDependencies { exclude("org.jetbrains.kotlin:kotlin-stdlib") } }
+    }
+
+    structure {
+        bundle("kotlin-stdlib") {
+            includeGroup("org.jetbrains.kotlin")
+        }
+    }
 }
 
 fun PluginContainer.applyBaseConfig(project: Project) {
@@ -163,7 +172,7 @@ fun <
     DC : DefaultConfig,
     PF : ProductFlavor,
     AR : AndroidResources,
-    > CommonExtension<BF, BT, DC, PF, AR>.defaultBaseConfig() {
+> CommonExtension<BF, BT, DC, PF, AR>.defaultBaseConfig() {
     compileSdk = libs.versions.android.sdk.target.get().toInt()
     buildToolsVersion = "34.0.0"
 
@@ -271,11 +280,11 @@ doctor {
 }
 
 ktlint {
-    version.set("1.0.1")
+    version.set("1.1.1")
 }
 
 fun KtlintExtension.baseConfig() {
-    version.set("1.0.1")
+    version.set("1.1.1")
     filter {
         exclude("**/generated/**")
     }

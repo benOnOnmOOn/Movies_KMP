@@ -31,15 +31,15 @@ fun NavController.navigateToRootRoute(rootRoute: RootRoute) {
 @Stable
 @Composable
 fun NavController.currentRootRouteAsState(): State<RootRoute> {
-
     val selectedItem =
         remember { mutableStateOf(RootRoute.PlayingNow) }
 
     DisposableEffect(this) {
-        val listener = NavController.OnDestinationChangedListener { _, destination, _ ->
-            val item = RootRoute.entries.find { it.route == destination.route }
-            selectedItem.value = item ?: RootRoute.PlayingNow
-        }
+        val listener =
+            NavController.OnDestinationChangedListener { _, destination, _ ->
+                val item = RootRoute.entries.find { it.route == destination.route }
+                selectedItem.value = item ?: RootRoute.PlayingNow
+            }
         addOnDestinationChangedListener(listener)
 
         onDispose {

@@ -13,7 +13,6 @@ import com.bz.movies.presentation.screens.favorite.FavoriteScreen
 import com.bz.movies.presentation.screens.playingNow.PlayingNowScreen
 import com.bz.movies.presentation.screens.popular.PopularMoviesScreen
 
-
 @Composable
 fun MoviesNavHost(
     navController: NavHostController,
@@ -38,12 +37,9 @@ fun MoviesNavHost(
         }
         composable(
             route = RootRoute.Details.route,
-            arguments = listOf(navArgument("id") { type = NavType.IntType })
+            arguments = listOf(navArgument("id") { type = NavType.IntType }),
         ) { backStackEntry ->
             MovieDetailsScreen(backStackEntry.arguments?.getInt("id"))
         }
     }
 }
-
-
-

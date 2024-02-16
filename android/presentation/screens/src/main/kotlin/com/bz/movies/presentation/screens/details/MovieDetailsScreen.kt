@@ -18,7 +18,7 @@ import org.koin.androidx.compose.koinViewModel
 @Composable
 fun MovieDetailsScreen(
     id: Int?,
-    movieDetailsViewModel: MovieDetailsViewModel = koinViewModel()
+    movieDetailsViewModel: MovieDetailsViewModel = koinViewModel(),
 ) {
     val playingNow by movieDetailsViewModel.state.collectAsState()
     if (id != null) {
@@ -31,7 +31,7 @@ fun MovieDetailsScreen(
 private fun MovieDetailsScreen(state: MovieDetailState = MovieDetailState()) {
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
-        modifier = Modifier.fillMaxSize()
+        modifier = Modifier.fillMaxSize(),
     ) {
         Text(text = stringResource(R.string.details_screen_title))
 
@@ -40,9 +40,7 @@ private fun MovieDetailsScreen(state: MovieDetailState = MovieDetailState()) {
             Text(text = it.releaseDate)
             Text(text = it.language)
         }
-
     }
-
 }
 
 @Preview(showBackground = true)

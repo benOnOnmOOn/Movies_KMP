@@ -25,11 +25,9 @@ import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import timber.log.Timber
 
-
 class FavoriteScreenViewModel(
     private val localMovieRepository: LocalMovieRepository,
 ) : ViewModel() {
-
     private val _state = MutableStateFlow(MoviesState())
     val state: StateFlow<MoviesState> = _state.asStateFlow()
 
@@ -44,13 +42,15 @@ class FavoriteScreenViewModel(
         handleEvent()
     }
 
-    fun sendEvent(event: MovieEvent) = launch {
-        _event.emit(event)
-    }
+    fun sendEvent(event: MovieEvent) =
+        launch {
+            _event.emit(event)
+        }
 
-    private fun handleEvent() = viewModelScope.launch {
-        event.collect { handleEvent(it) }
-    }
+    private fun handleEvent() =
+        viewModelScope.launch {
+            event.collect { handleEvent(it) }
+        }
 
     private suspend fun handleEvent(event: MovieEvent) {
         when (event) {
@@ -70,7 +70,7 @@ class FavoriteScreenViewModel(
                 _state.update {
                     MoviesState(
                         isLoading = false,
-                        playingNowMovies = data.map(MovieDto::toMovieItem)
+                        playingNowMovies = data.map(MovieDto::toMovieItem),
                     )
                 }
             }
@@ -87,4 +87,3 @@ class FavoriteScreenViewModel(
             .launchIn(viewModelScope)
     }
 }
-

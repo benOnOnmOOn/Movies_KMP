@@ -13,19 +13,16 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 
-
 @Composable
 fun BottomNavigationBar(
     currentRootRoute: RootRoute,
     navigateToTopLevelDestination: (TopLevelDestination) -> Unit,
 ) {
-
     NavigationBar(
         modifier = Modifier.fillMaxWidth(),
         containerColor = MaterialTheme.colorScheme.surface,
         contentColor = MaterialTheme.colorScheme.surface,
     ) {
-
         TOP_LEVEL_DESTINATIONS.forEach { destination ->
             val isItemSelected = destination.rootRoute == currentRootRoute
             NavigationBarItem(
@@ -39,9 +36,10 @@ fun BottomNavigationBar(
                         color = getNavTextColor(isItemSelected),
                     )
                 },
-                colors = NavigationBarItemDefaults.colors(
-                    indicatorColor = MaterialTheme.colorScheme.surface
-                )
+                colors =
+                    NavigationBarItemDefaults.colors(
+                        indicatorColor = MaterialTheme.colorScheme.surface,
+                    ),
             )
         }
     }
@@ -56,12 +54,13 @@ private fun getNavTextColor(isItemSelected: Boolean): Color =
     }
 
 @Composable
-private fun NavIcon(destination: TopLevelDestination, isItemSelected: Boolean)  {
+private fun NavIcon(
+    destination: TopLevelDestination,
+    isItemSelected: Boolean,
+) {
     return Icon(
         painter = painterResource(id = if (isItemSelected) destination.selectedIcon else destination.unselectedIcon),
         contentDescription = stringResource(id = destination.iconTextId),
-        tint = if (isItemSelected) Color.Unspecified else MaterialTheme.colorScheme.onSurfaceVariant
+        tint = if (isItemSelected) Color.Unspecified else MaterialTheme.colorScheme.onSurfaceVariant,
     )
-
 }
-
