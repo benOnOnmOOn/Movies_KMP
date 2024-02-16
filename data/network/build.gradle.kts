@@ -26,12 +26,6 @@ kotlin {
     }
 
     sourceSets {
-        @OptIn(ExperimentalKotlinGradlePluginApi::class)
-        invokeWhenCreated("androidDebug") {
-            val androidDebug by getting
-            androidMain { dependsOn(androidDebug) }
-        }
-
         commonMain {
             dependencies {
                 api(project(":data:dto"))
