@@ -1,3 +1,5 @@
+import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
+
 plugins {
     embeddedKotlin("multiplatform")
     embeddedKotlin("plugin.serialization")
@@ -24,6 +26,12 @@ kotlin {
     }
 
     sourceSets {
+        @OptIn(ExperimentalKotlinGradlePluginApi::class)
+        invokeWhenCreated("androidDebug") {
+            val androidDebug by getting
+            androidMain { dependsOn(androidDebug) }
+        }
+
         commonMain {
             dependencies {
                 api(project(":data:dto"))
@@ -52,6 +60,7 @@ kotlin {
                 // use debug impl to prevent from adding this deps to release version
             }
         }
+
 
         iosMain {
             dependencies {
