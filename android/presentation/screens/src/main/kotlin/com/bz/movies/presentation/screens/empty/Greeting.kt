@@ -8,16 +8,16 @@ import androidx.compose.ui.tooling.preview.Preview
 import com.bz.movies.presentation.theme.MoviesTheme
 
 @Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-
+fun Greeting(
+    name: String,
+    modifier: Modifier = Modifier,
+) {
     Column {
         Text(
             text = "Hello $name!",
-            modifier = modifier
+            modifier = modifier,
         )
-
     }
-
 }
 
 @Preview(showBackground = true)

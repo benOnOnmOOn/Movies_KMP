@@ -24,20 +24,19 @@ fun MoviesContentWithPullToRefresh(
     val pullRefreshState = rememberPullRefreshState(playingNowState.isRefreshing, refresh)
 
     Box(
-        modifier = Modifier
-            .fillMaxSize()
-            .pullRefresh(pullRefreshState)
+        modifier =
+            Modifier
+                .fillMaxSize()
+                .pullRefresh(pullRefreshState),
     ) {
         MoviesContentLazyColumn(playingNowState, onMovieClicked)
 
         PullRefreshIndicator(
             playingNowState.isRefreshing,
             pullRefreshState,
-            Modifier.align(Alignment.TopCenter)
+            Modifier.align(Alignment.TopCenter),
         )
-
     }
-
 }
 
 @Composable
@@ -59,13 +58,13 @@ private fun MoviesContentLazyColumn(
         modifier = Modifier.fillMaxSize(),
         contentPadding = PaddingValues(vertical = 8.dp, horizontal = 16.dp),
         verticalArrangement = Arrangement.spacedBy(8.dp),
-        horizontalAlignment = Alignment.CenterHorizontally
+        horizontalAlignment = Alignment.CenterHorizontally,
     ) {
         itemsIndexed(playingNowState.playingNowMovies) { index, movieItem ->
             MovieContent(
                 movieItem = movieItem,
                 isLast = index == playingNowState.playingNowMovies.size - 1,
-                onMovieClicked = onMovieClicked
+                onMovieClicked = onMovieClicked,
             )
         }
     }

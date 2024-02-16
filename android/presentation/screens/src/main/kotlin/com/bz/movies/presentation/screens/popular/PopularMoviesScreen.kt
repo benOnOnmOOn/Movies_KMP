@@ -22,7 +22,6 @@ fun PopularMoviesScreen(
     playingNowViewModel: PopularMoviesViewModel = koinViewModel(),
     navController: NavHostController,
 ) {
-
     val playingNow by playingNowViewModel.state.collectAsState()
     PopularMoviesScreen(playingNow, playingNowViewModel::sendEvent) {
         navController.navigate("details/$it")
@@ -36,7 +35,7 @@ private fun PopularMoviesScreen(
     onMovieClicked: (id: Int) -> Unit = {},
 ) {
     Column(
-        horizontalAlignment = Alignment.CenterHorizontally
+        horizontalAlignment = Alignment.CenterHorizontally,
     ) {
         Text(text = stringResource(R.string.popular_now_screen_title))
 
@@ -47,11 +46,9 @@ private fun PopularMoviesScreen(
                 Timber.i("Item id : ${it.id}")
                 sendEvent(MovieEvent.OnMovieClicked(it))
                 onMovieClicked(it.id)
-            }
+            },
         )
-
     }
-
 }
 
 @Preview(showBackground = true)

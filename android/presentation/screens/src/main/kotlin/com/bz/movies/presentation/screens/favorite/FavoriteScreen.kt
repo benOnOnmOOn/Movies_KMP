@@ -18,9 +18,7 @@ import com.bz.presentation.screens.R
 import org.koin.androidx.compose.koinViewModel
 
 @Composable
-fun FavoriteScreen(
-    favoriteScreenViewModel: FavoriteScreenViewModel = koinViewModel()
-) {
+fun FavoriteScreen(favoriteScreenViewModel: FavoriteScreenViewModel = koinViewModel()) {
     val playingNow by favoriteScreenViewModel.state.collectAsState()
     FavoriteScreen(playingNow, favoriteScreenViewModel::sendEvent)
 }
@@ -31,7 +29,7 @@ private fun FavoriteScreen(
     sendEvent: (MovieEvent) -> Unit,
 ) {
     Column(
-        horizontalAlignment = Alignment.CenterHorizontally
+        horizontalAlignment = Alignment.CenterHorizontally,
     ) {
         Text(text = stringResource(R.string.your_favorite_movies))
 
@@ -39,7 +37,6 @@ private fun FavoriteScreen(
             sendEvent(MovieEvent.OnMovieClicked(it))
         }
     }
-
 }
 
 @Preview(showBackground = true)

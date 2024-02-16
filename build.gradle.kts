@@ -172,7 +172,7 @@ fun <
     DC : DefaultConfig,
     PF : ProductFlavor,
     AR : AndroidResources,
-    > CommonExtension<BF, BT, DC, PF, AR>.defaultBaseConfig() {
+> CommonExtension<BF, BT, DC, PF, AR>.defaultBaseConfig() {
     compileSdk = libs.versions.android.sdk.target.get().toInt()
     buildToolsVersion = "34.0.0"
 

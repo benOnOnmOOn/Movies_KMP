@@ -32,7 +32,6 @@ class PlayingNowViewModel(
     private val movieRepository: MovieRepository,
     private val localMovieRepository: LocalMovieRepository,
 ) : ViewModel() {
-
     private val _state = MutableStateFlow(MoviesState())
     val state: StateFlow<MoviesState> = _state.asStateFlow()
 
@@ -47,13 +46,15 @@ class PlayingNowViewModel(
         handleEvent()
     }
 
-    fun sendEvent(event: MovieEvent) = launch {
-        _event.emit(event)
-    }
+    fun sendEvent(event: MovieEvent) =
+        launch {
+            _event.emit(event)
+        }
 
-    private fun handleEvent() = viewModelScope.launch {
-        event.collect { handleEvent(it) }
-    }
+    private fun handleEvent() =
+        viewModelScope.launch {
+            event.collect { handleEvent(it) }
+        }
 
     private suspend fun handleEvent(event: MovieEvent) {
         when (event) {
@@ -65,7 +66,7 @@ class PlayingNowViewModel(
                     MoviesState(
                         isLoading = false,
                         isRefreshing = true,
-                        playingNowMovies = emptyList()
+                        playingNowMovies = emptyList(),
                     )
                 }
                 fetchPlayingNowMovies()
@@ -73,23 +74,24 @@ class PlayingNowViewModel(
         }
     }
 
-    private fun fetchPlayingNowMovies() = launch {
-        localMovieRepository.clearPlayingNowMovies()
-        val result = movieRepository.getPlayingNowMovies()
+    private fun fetchPlayingNowMovies() =
+        launch {
+            localMovieRepository.clearPlayingNowMovies()
+            val result = movieRepository.getPlayingNowMovies()
 
-        result.onSuccess { data ->
-            localMovieRepository.insertPlayingNowMovies(data)
-        }
-        result.onFailure {
-            val error = when (it) {
-                is NoInternetException -> MovieEffect.NetworkConnectionError
-                else -> MovieEffect.UnknownError
+            result.onSuccess { data ->
+                localMovieRepository.insertPlayingNowMovies(data)
             }
-            _effect.emit(error)
-            Timber.e(it)
+            result.onFailure {
+                val error =
+                    when (it) {
+                        is NoInternetException -> MovieEffect.NetworkConnectionError
+                        else -> MovieEffect.UnknownError
+                    }
+                _effect.emit(error)
+                Timber.e(it)
+            }
         }
-
-    }
 
     private fun collectPlayingNowMovies() {
         localMovieRepository.playingNowMovies
@@ -99,7 +101,7 @@ class PlayingNowViewModel(
                 _state.update {
                     MoviesState(
                         isLoading = false,
-                        playingNowMovies = data.map(MovieDto::toMovieItem)
+                        playingNowMovies = data.map(MovieDto::toMovieItem),
                     )
                 }
             }
@@ -115,5 +117,4 @@ class PlayingNowViewModel(
             }
             .launchIn(viewModelScope)
     }
-
 }

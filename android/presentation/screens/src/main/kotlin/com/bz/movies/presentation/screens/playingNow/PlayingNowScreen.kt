@@ -16,9 +16,7 @@ import com.bz.presentation.screens.R
 import org.koin.androidx.compose.koinViewModel
 
 @Composable
-fun PlayingNowScreen(
-    playingNowViewModel: PlayingNowViewModel = koinViewModel()
-) {
+fun PlayingNowScreen(playingNowViewModel: PlayingNowViewModel = koinViewModel()) {
     val playingNow by playingNowViewModel.state.collectAsState()
     PlayingNowScreen(playingNow, playingNowViewModel::sendEvent)
 }
@@ -29,18 +27,16 @@ private fun PlayingNowScreen(
     sendEvent: (MovieEvent) -> Unit,
 ) {
     Column(
-        horizontalAlignment = Alignment.CenterHorizontally
+        horizontalAlignment = Alignment.CenterHorizontally,
     ) {
         Text(text = stringResource(R.string.playing_now_screen_title))
 
         MoviesContentWithPullToRefresh(
             playingNowState = state,
             refresh = { sendEvent(MovieEvent.Refresh) },
-            onMovieClicked = { sendEvent(MovieEvent.OnMovieClicked(it)) }
+            onMovieClicked = { sendEvent(MovieEvent.OnMovieClicked(it)) },
         )
-
     }
-
 }
 
 @Preview(showBackground = true)

@@ -11,9 +11,10 @@ import com.bz.movies.presentation.screens.popular.PopularMoviesViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
-val presentationModule = module {
-    viewModel { PlayingNowViewModel(get(), get()) }
-    viewModel { PopularMoviesViewModel(get(), get()) }
-    viewModel { FavoriteScreenViewModel(get()) }
-    viewModel { MovieDetailsViewModel(get()) }
-} + commonNetworkModule + platformNetworkModule+ databaseModule + repositoryModule
+val presentationModule =
+    module {
+        viewModel { PlayingNowViewModel(get(), get()) }
+        viewModel { PopularMoviesViewModel(get(), get()) }
+        viewModel { FavoriteScreenViewModel(get()) }
+        viewModel { MovieDetailsViewModel(get()) }
+    } + commonNetworkModule + platformNetworkModule + databaseModule + repositoryModule

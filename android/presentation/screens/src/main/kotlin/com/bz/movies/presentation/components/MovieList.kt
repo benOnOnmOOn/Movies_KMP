@@ -22,20 +22,24 @@ import com.bz.movies.presentation.screens.common.MovieItem
 import com.bz.presentation.screens.R
 
 @Composable
-fun MovieContent(movieItem: MovieItem, isLast: Boolean, onMovieClicked: (MovieItem) -> Unit) {
+fun MovieContent(
+    movieItem: MovieItem,
+    isLast: Boolean,
+    onMovieClicked: (MovieItem) -> Unit,
+) {
     Row(
         Modifier
             .fillMaxWidth()
             .wrapContentHeight()
             .padding(4.dp)
             .clickable { onMovieClicked(movieItem) },
-
-        ) {
+    ) {
         AsyncImage(
-            modifier = Modifier
-                .height(80.dp)
-                .width(80.dp)
-                .padding(4.dp),
+            modifier =
+                Modifier
+                    .height(80.dp)
+                    .width(80.dp)
+                    .padding(4.dp),
             model = movieItem.posterUrl,
             contentDescription = movieItem.title,
         )
@@ -43,7 +47,7 @@ fun MovieContent(movieItem: MovieItem, isLast: Boolean, onMovieClicked: (MovieIt
             Modifier
                 .fillMaxWidth()
                 .wrapContentHeight()
-                .weight(1f)
+                .weight(1f),
         ) {
             Text(text = movieItem.title)
             Text(text = movieItem.releaseDate)
@@ -52,10 +56,11 @@ fun MovieContent(movieItem: MovieItem, isLast: Boolean, onMovieClicked: (MovieIt
 
         Image(
             painterResource(R.drawable.ic_star),
-            modifier = Modifier
-                .height(40.dp)
-                .width(40.dp)
-                .padding(4.dp),
+            modifier =
+                Modifier
+                    .height(40.dp)
+                    .width(40.dp)
+                    .padding(4.dp),
             contentDescription = "",
             contentScale = ContentScale.Crop,
         )
@@ -65,9 +70,10 @@ fun MovieContent(movieItem: MovieItem, isLast: Boolean, onMovieClicked: (MovieIt
 
     if (!isLast) {
         Divider(
-            modifier = Modifier
-                .fillMaxWidth()
-                .height(2.dp),
+            modifier =
+                Modifier
+                    .fillMaxWidth()
+                    .height(2.dp),
         )
     }
 }

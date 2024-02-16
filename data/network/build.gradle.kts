@@ -1,5 +1,3 @@
-import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
-
 plugins {
     embeddedKotlin("multiplatform")
     embeddedKotlin("plugin.serialization")
@@ -55,7 +53,6 @@ kotlin {
             }
         }
 
-
         iosMain {
             dependencies {
                 implementation(libs.io.ktor.client.ios)
@@ -63,7 +60,6 @@ kotlin {
         }
     }
 }
-
 
 android {
     namespace = "com.bz.movies.kmp.network"
