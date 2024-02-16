@@ -47,12 +47,12 @@ jobs:
       - name: Run gradle check
         run: ./gradlew check
 
-      - name: Upload coverage reports
-        id: kover
-        uses: mi-kas/kover-report@v1.8
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          path: ${{ github.workspace }}/app/build/reports/kover/report.xml
+#      - name: Upload coverage reports
+#        id: kover
+#        uses: mi-kas/kover-report@v1.8
+#        with:
+#          token: ${{ secrets.GITHUB_TOKEN }}
+#          path: ${{ github.workspace }}/app/build/reports/kover/report.xml
 
       - name: Add build scan URL as PR comment
         uses: actions/github-script@v5

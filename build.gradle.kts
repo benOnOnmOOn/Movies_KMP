@@ -28,7 +28,7 @@ plugins {
     alias(libs.plugins.io.gitlab.arturbosch.detekt) apply true
     alias(libs.plugins.com.autonomousapps.dependency.analysis) apply true
     alias(libs.plugins.com.google.gms.google.services) apply false
-    alias(libs.plugins.org.jetbrains.kotlinx.kover) apply false
+    alias(libs.plugins.org.jetbrains.kotlinx.kover) apply true
     alias(libs.plugins.com.osacky.doctor) apply true
     alias(libs.plugins.app.cash.sqldelight) apply false
     alias(libs.plugins.org.jlleitschuh.gradle.ktlint) apply true
