@@ -1,6 +1,6 @@
 plugins {
-    kotlin("multiplatform")
-    kotlin("plugin.serialization")
+    embeddedKotlin("multiplatform")
+    embeddedKotlin("plugin.serialization")
     id("com.android.library")
 }
 
@@ -61,14 +61,24 @@ kotlin {
     }
 }
 
-dependencyAnalysis {
-    // resolve false positive problems caused by using kotlin multiplatform
-    issues { onUnusedDependencies { exclude("com.squareup.okhttp3:logging-interceptor") } }
-}
 
 android {
     namespace = "com.bz.movies.kmp.network"
     dependencies {
-        debugApi(libs.com.squareup.okhttp.logging.interceptor)
+        api(project(":data:dto"))
+
+        api(libs.okhttp)
+
+        implementation(libs.io.ktor.http)
+        implementation(libs.io.ktor.serialization)
+        implementation(libs.io.ktor.utils)
+        implementation(libs.kotlinx.serialization.core)
+        implementation(libs.kotlinx.serialization.json)
+        implementation(libs.androidx.core)
+        implementation(libs.androidx.core.ktx)
+        implementation(libs.io.insert.koin.android)
+        testImplementation(libs.org.junit.jupiter.api)
+
+        debugImplementation(libs.com.squareup.okhttp.logging.interceptor)
     }
 }

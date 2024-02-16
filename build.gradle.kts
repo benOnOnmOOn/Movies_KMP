@@ -131,7 +131,16 @@ tasks.withType<KotlinCompile>().configureEach {
 //endregion
 
 dependencyAnalysis {
-    issues { all { onAny { severity("fail") } } }
+    issues {
+        all { onAny { severity("fail") } }
+        all { onUnusedDependencies { exclude("org.jetbrains.kotlin:kotlin-stdlib") } }
+    }
+
+    structure {
+        bundle("kotlin-stdlib") {
+            includeGroup("org.jetbrains.kotlin")
+        }
+    }
 }
 
 fun PluginContainer.applyBaseConfig(project: Project) {
@@ -271,11 +280,11 @@ doctor {
 }
 
 ktlint {
-    version.set("1.0.1")
+    version.set("1.1.1")
 }
 
 fun KtlintExtension.baseConfig() {
-    version.set("1.0.1")
+    version.set("1.1.1")
     filter {
         exclude("**/generated/**")
     }

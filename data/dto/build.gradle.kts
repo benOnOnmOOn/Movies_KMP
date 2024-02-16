@@ -1,5 +1,5 @@
 plugins {
-    kotlin("multiplatform")
+    embeddedKotlin("multiplatform")
 }
 
 kotlin {

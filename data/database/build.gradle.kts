@@ -1,7 +1,7 @@
 import org.jlleitschuh.gradle.ktlint.KtlintExtension
 
 plugins {
-    kotlin("multiplatform")
+    embeddedKotlin("multiplatform")
     id("com.android.library")
     alias(libs.plugins.app.cash.sqldelight)
 }
@@ -22,8 +22,8 @@ kotlin {
     sourceSets {
         commonMain {
             dependencies {
-                implementation(libs.io.insert.koin.core)
                 api(project(":data:dto"))
+                implementation(libs.io.insert.koin.core)
                 implementation(libs.org.jetbrains.kotlinx.coroutines.core)
                 implementation(libs.app.cash.sqldelight.coroutines.extensions)
             }
@@ -36,6 +36,8 @@ kotlin {
 
         androidMain {
             dependencies {
+                api(project(":data:dto"))
+                implementation(libs.androidx.sqlite)
                 implementation(libs.app.cash.sqldelight.android.driver)
                 implementation(libs.io.insert.koin.android)
             }
@@ -76,4 +78,10 @@ sqldelight {
 
 android {
     namespace = "com.bz.movies.kmp.database"
+    dependencies {
+        api(project(":data:dto"))
+        implementation(libs.androidx.sqlite)
+        implementation(libs.app.cash.sqldelight.android.driver)
+        implementation(libs.io.insert.koin.android)
+    }
 }

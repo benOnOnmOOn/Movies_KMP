@@ -24,8 +24,6 @@ dependencies {
     api(project(":data:database"))
     api(project(":data:dto"))
 
-    releaseImplementation(platform(libs.com.google.firebase.bom))
-
     releaseImplementation(libs.com.google.firebase.analytics.ktx)
     releaseImplementation(libs.com.google.firebase.crashlytics.ktx)
 
