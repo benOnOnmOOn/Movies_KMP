@@ -174,7 +174,7 @@ fun <
     AR : AndroidResources,
 > CommonExtension<BF, BT, DC, PF, AR>.defaultBaseConfig() {
     compileSdk = libs.versions.android.sdk.target.get().toInt()
-    buildToolsVersion = "35.0.0-rc1"
+    buildToolsVersion = "34.0.0"
 
     defaultConfig {
         minSdk = libs.versions.android.min.sdk.get().toInt()
