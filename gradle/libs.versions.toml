@@ -88,7 +88,7 @@ org-junit-jupiter-engine = { group = "org.junit.jupiter", name = "junit-jupiter-
 com-android-application = { id = "com.android.application", version.ref = "com-android-plugin" }
 com-android-library = { id = "com.android.library", version.ref = "com-android-plugin" }
 com-google-gms-google-services = { id = "com.google.gms.google-services", version = "4.4.1" }
-com_github_ben-manes_versions = { id = "com.github.ben-manes.versions", version = "0.50.0" }
+com_github_ben-manes_versions = { id = "com.github.ben-manes.versions", version = "0.51.0" }
 io_gitlab_arturbosch_detekt = { id = "io.gitlab.arturbosch.detekt", version = "1.23.5" }
 com_autonomousapps_dependency-analysis = { id = "com.autonomousapps.dependency-analysis", version = "1.30.0" }
 org_jetbrains_kotlinx_kover = { id = "org.jetbrains.kotlinx.kover", version = "0.7.6" }
