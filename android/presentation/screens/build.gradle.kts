@@ -56,6 +56,7 @@ dependencies {
 
     implementation(libs.io.coil.compose)
     implementation(libs.io.coil.base)
+    implementation(libs.coil.compose.base)
 
     implementation(libs.org.jetbrains.kotlinx.coroutines.core)
 

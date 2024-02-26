@@ -1,17 +1,18 @@
 [versions]
 activity-compose = "1.8.2"
+coil-compose-base = "2.6.0"
 com-android-plugin = "8.2.2"
 core = "1.12.0"
-kotlin-compose-compiler-extension = "1.5.6"
+kotlin-compose-compiler-extension = "1.5.10"
 android-sdk-target = "34"
 android-min-sdk = "28"
-coil = "2.5.0"
+coil = "2.6.0"
 kotlinx-serialization = "1.6.2"
 lifecycle = "2.7.0"
 navigation-compose = "2.7.7"
 sqlite = "2.4.0"
 startup-runtime = "1.1.1"
-compose = "1.6.1"
+compose = "1.6.2"
 kotlinx-coroutines = "1.8.0"
 mockk = "1.13.9"
 monitor = "1.6.1"
@@ -53,6 +54,7 @@ androidx-startup-runtime = { module = "androidx.startup:startup-runtime", versio
 app-cash-sqldelight-android-driver = { group = "app.cash.sqldelight", name = "android-driver", version.ref = "sqldelight" }
 app-cash-sqldelight-coroutines-extensions = { group = "app.cash.sqldelight", name = "coroutines-extensions", version.ref = "sqldelight" }
 app-cash-sqldelight-native-driver = { group = "app.cash.sqldelight", name = "native-driver", version.ref = "sqldelight" }
+coil-compose-base = { module = "io.coil-kt:coil-compose-base", version.ref = "coil-compose-base" }
 com-google-firebase-analytics-ktx = { module = "com.google.firebase:firebase-analytics-ktx", version = "21.5.1" }
 com-google-firebase-crashlytics-ktx = { module = "com.google.firebase:firebase-crashlytics-ktx", version = "18.6.2" }
 com-jakewharton-timber = { module = "com.jakewharton.timber:timber", version.ref = "timber" }
@@ -86,10 +88,10 @@ org-junit-jupiter-engine = { group = "org.junit.jupiter", name = "junit-jupiter-
 com-android-application = { id = "com.android.application", version.ref = "com-android-plugin" }
 com-android-library = { id = "com.android.library", version.ref = "com-android-plugin" }
 com-google-gms-google-services = { id = "com.google.gms.google-services", version = "4.4.1" }
-com_github_ben-manes_versions = { id = "com.github.ben-manes.versions", version = "0.51.0" }
+com_github_ben-manes_versions = { id = "com.github.ben-manes.versions", version = "0.50.0" }
 io_gitlab_arturbosch_detekt = { id = "io.gitlab.arturbosch.detekt", version = "1.23.5" }
 com_autonomousapps_dependency-analysis = { id = "com.autonomousapps.dependency-analysis", version = "1.30.0" }
-org_jetbrains_kotlinx_kover = { id = "org.jetbrains.kotlinx.kover", version = "0.7.5" }
+org_jetbrains_kotlinx_kover = { id = "org.jetbrains.kotlinx.kover", version = "0.7.6" }
 com_osacky_doctor = { id = "com.osacky.doctor", version = "0.9.1" }
 app-cash-sqldelight = { id = "app.cash.sqldelight", version.ref = "sqldelight" }
 com-google-firebase-crashlytics-gradle = { id = "com.google.firebase.crashlytics", version = "2.9.9" }
