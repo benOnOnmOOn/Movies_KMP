@@ -138,11 +138,11 @@ fun PluginContainer.applyBaseConfig(project: Project) {
     whenPluginAdded {
         when (this) {
             is AppPlugin -> {
-                project.extensions.getByType<BaseAppModuleExtension>().baseConfig()
+                project.extensions.getByType<BaseAppModuleExtension>().baseConfig(project)
             }
 
             is LibraryPlugin -> {
-                project.extensions.getByType<LibraryExtension>().baseConfig()
+                project.extensions.getByType<LibraryExtension>().baseConfig(project)
             }
 
             is KoverGradlePlugin -> {
@@ -160,7 +160,9 @@ fun <
     PF : ProductFlavor,
     AR : AndroidResources,
     IN : Installation,
-> CommonExtension<BF, BT, DC, PF, AR, IN>.defaultBaseConfig() {
+> CommonExtension<BF, BT, DC, PF, AR, IN>.defaultBaseConfig(
+    project: Project,
+) {
     compileSdk = libs.versions.android.sdk.target.get().toInt()
     buildToolsVersion = "34.0.0"
 
@@ -172,7 +174,7 @@ fun <
     }
 
     lint {
-        baseline = file("lint-baseline.xml")
+        baseline = project.file("lint-baseline.xml")
         abortOnError = true
         checkAllWarnings = true
         warningsAsErrors = true
@@ -212,15 +214,15 @@ fun <
         )
 }
 
-fun LibraryExtension.baseConfig() {
-    defaultBaseConfig()
+fun LibraryExtension.baseConfig(project: Project) {
+    defaultBaseConfig(project)
     defaultConfig {
         consumerProguardFiles("consumer-rules.pro")
     }
 }
 
-fun BaseAppModuleExtension.baseConfig() {
-    defaultBaseConfig()
+fun BaseAppModuleExtension.baseConfig(project: Project) {
+    defaultBaseConfig(project)
     dependenciesInfo.apply {
         includeInApk = false
         includeInBundle = false
