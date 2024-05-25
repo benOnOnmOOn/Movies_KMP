@@ -12,11 +12,10 @@ import com.android.build.gradle.internal.dsl.BaseAppModuleExtension
 import com.github.benmanes.gradle.versions.updates.DependencyUpdatesTask
 import io.gitlab.arturbosch.detekt.Detekt
 import io.gitlab.arturbosch.detekt.DetektCreateBaselineTask
+import kotlinx.kover.gradle.plugin.KoverGradlePlugin
 import kotlinx.kover.gradle.plugin.dsl.KoverReportExtension
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
-import org.jlleitschuh.gradle.ktlint.KtlintExtension
-import org.jlleitschuh.gradle.ktlint.KtlintPlugin
 
 plugins {
     alias(libs.plugins.com.android.application) apply false
@@ -114,9 +113,6 @@ tasks.register<DetektCreateBaselineTask>("detektGenerateBaseline") {
     config.setFrom(configFile)
     include(kotlinFiles)
     exclude(resourceFiles, buildFiles)
-}
-
-tasks.withType<DetektCreateBaselineTask>().configureEach {
     jvmTarget = "17"
 }
 
@@ -135,13 +131,6 @@ tasks.withType<KotlinCompile>().configureEach {
 dependencyAnalysis {
     issues {
         all { onAny { severity("fail") } }
-        all { onUnusedDependencies { exclude("org.jetbrains.kotlin:kotlin-stdlib") } }
-    }
-
-    structure {
-        bundle("kotlin-stdlib") {
-            includeGroup("org.jetbrains.kotlin")
-        }
     }
 }
 
@@ -156,12 +145,8 @@ fun PluginContainer.applyBaseConfig(project: Project) {
                 project.extensions.getByType<LibraryExtension>().baseConfig()
             }
 
-//            is KoverGradlePlugin -> {
-//                project.extensions.getByType<KoverProjectExtension>().baseConfig()
-//            }
-
-            is KtlintPlugin -> {
-                project.extensions.getByType<KtlintExtension>().baseConfig()
+            is KoverGradlePlugin -> {
+                project.extensions.getByType<KoverReportExtension>().baseConfig()
             }
         }
     }
@@ -261,7 +246,7 @@ fun KoverReportExtension.baseConfig() {
 }
 
 ktlint {
-    version.set("1.0.1")
+    version.set("1.1.1")
     filter {
         exclude("**/generated/**", "**/build/**")
         include("**/kotlin/**")
@@ -276,15 +261,4 @@ subprojects {
 doctor {
     daggerThreshold.set(100)
     negativeAvoidanceThreshold.set(50)
-}
-
-ktlint {
-    version.set("1.1.1")
-}
-
-fun KtlintExtension.baseConfig() {
-    version.set("1.1.1")
-    filter {
-        exclude("**/generated/**")
-    }
 }

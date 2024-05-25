@@ -80,6 +80,7 @@ android {
     namespace = "com.bz.movies.kmp.database"
     dependencies {
         api(project(":data:dto"))
+        api(libs.kotlin.stdlib)
         implementation(libs.androidx.sqlite)
         implementation(libs.app.cash.sqldelight.android.driver)
         implementation(libs.io.insert.koin.android)
