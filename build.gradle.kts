@@ -12,7 +12,6 @@ import com.android.build.gradle.internal.dsl.BaseAppModuleExtension
 import com.github.benmanes.gradle.versions.updates.DependencyUpdatesTask
 import io.gitlab.arturbosch.detekt.Detekt
 import io.gitlab.arturbosch.detekt.DetektCreateBaselineTask
-import kotlinx.kover.gradle.plugin.dsl.KoverProjectExtension
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
@@ -143,20 +142,19 @@ fun PluginContainer.applyBaseConfig(project: Project) {
             is LibraryPlugin -> {
                 project.extensions.getByType<LibraryExtension>().baseConfig(project)
             }
-
         }
     }
 }
 
 //region Global android configuration
 fun <
-        BF : BuildFeatures,
-        BT : BuildType,
-        DC : DefaultConfig,
-        PF : ProductFlavor,
-        AR : AndroidResources,
-        IN : Installation,
-        > CommonExtension<BF, BT, DC, PF, AR, IN>.defaultBaseConfig(
+    BF : BuildFeatures,
+    BT : BuildType,
+    DC : DefaultConfig,
+    PF : ProductFlavor,
+    AR : AndroidResources,
+    IN : Installation,
+> CommonExtension<BF, BT, DC, PF, AR, IN>.defaultBaseConfig(
     project: Project,
 ) {
     compileSdk = libs.versions.android.sdk.target.get().toInt()

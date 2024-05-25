@@ -8,7 +8,7 @@ plugins {
     alias(libs.plugins.compose.compiler)
 }
 
-kover{
+kover {
     currentProject {
         createVariant("custom") {
             add("debug")
