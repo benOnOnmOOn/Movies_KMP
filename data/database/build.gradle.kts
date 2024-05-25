@@ -7,6 +7,14 @@ plugins {
     alias(libs.plugins.org.jetbrains.kotlinx.kover)
 }
 
+kover {
+    currentProject {
+        createVariant("custom") {
+            add("debug")
+        }
+    }
+}
+
 kotlin {
     androidTarget()
 
