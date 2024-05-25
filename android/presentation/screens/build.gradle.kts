@@ -6,7 +6,6 @@ plugins {
     alias(libs.plugins.compose.compiler)
 }
 
-
 android {
     namespace = "com.bz.presentation.screens"
 

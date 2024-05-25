@@ -167,16 +167,15 @@ fun PluginContainer.applyBaseConfig(project: Project) {
     }
 }
 
-
 //region Global android configuration
 fun <
-        BF : BuildFeatures,
-        BT : BuildType,
-        DC : DefaultConfig,
-        PF : ProductFlavor,
-        AR : AndroidResources,
-        IN : Installation,
-        > CommonExtension<BF, BT, DC, PF, AR, IN>.defaultBaseConfig() {
+    BF : BuildFeatures,
+    BT : BuildType,
+    DC : DefaultConfig,
+    PF : ProductFlavor,
+    AR : AndroidResources,
+    IN : Installation,
+> CommonExtension<BF, BT, DC, PF, AR, IN>.defaultBaseConfig() {
     compileSdk = libs.versions.android.sdk.target.get().toInt()
     buildToolsVersion = "34.0.0"
 
@@ -209,8 +208,6 @@ fun <
             )
         }
     }
-
-
 
     @Suppress("UnstableApiUsage")
     testOptions {
