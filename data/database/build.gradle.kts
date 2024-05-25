@@ -1,8 +1,8 @@
 import org.jlleitschuh.gradle.ktlint.KtlintExtension
 
 plugins {
-    embeddedKotlin("multiplatform")
-    id("com.android.library")
+    alias(libs.plugins.kotlin.multiplatform)
+    alias(libs.plugins.com.android.library)
     alias(libs.plugins.app.cash.sqldelight)
 }
 
@@ -80,6 +80,7 @@ android {
     namespace = "com.bz.movies.kmp.database"
     dependencies {
         api(project(":data:dto"))
+        api(libs.kotlin.stdlib)
         implementation(libs.androidx.sqlite)
         implementation(libs.app.cash.sqldelight.android.driver)
         implementation(libs.io.insert.koin.android)

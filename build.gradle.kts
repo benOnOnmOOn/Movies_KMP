@@ -3,6 +3,7 @@ import com.android.build.api.dsl.BuildFeatures
 import com.android.build.api.dsl.BuildType
 import com.android.build.api.dsl.CommonExtension
 import com.android.build.api.dsl.DefaultConfig
+import com.android.build.api.dsl.Installation
 import com.android.build.api.dsl.LibraryExtension
 import com.android.build.api.dsl.ProductFlavor
 import com.android.build.gradle.AppPlugin
@@ -15,13 +16,8 @@ import kotlinx.kover.gradle.plugin.KoverGradlePlugin
 import kotlinx.kover.gradle.plugin.dsl.KoverReportExtension
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
-import org.jlleitschuh.gradle.ktlint.KtlintExtension
-import org.jlleitschuh.gradle.ktlint.KtlintPlugin
 
 plugins {
-    embeddedKotlin("multiplatform") apply false
-    embeddedKotlin("android") apply false
-    embeddedKotlin("plugin.serialization") apply false
     alias(libs.plugins.com.android.application) apply false
     alias(libs.plugins.com.android.library) apply false
     alias(libs.plugins.com.github.ben.manes.versions) apply true
@@ -33,6 +29,11 @@ plugins {
     alias(libs.plugins.app.cash.sqldelight) apply false
     alias(libs.plugins.org.jlleitschuh.gradle.ktlint) apply true
     alias(libs.plugins.org.gradle.android.cache.fix) apply false
+    alias(libs.plugins.jetbrains.compose) apply false
+    alias(libs.plugins.compose.compiler) apply false
+    alias(libs.plugins.kotlin.multiplatform) apply false
+    alias(libs.plugins.kotlin.android) apply false
+    alias(libs.plugins.kotlin.serialization) apply false
 }
 
 tasks.register<Delete>("clean") {
@@ -112,9 +113,6 @@ tasks.register<DetektCreateBaselineTask>("detektGenerateBaseline") {
     config.setFrom(configFile)
     include(kotlinFiles)
     exclude(resourceFiles, buildFiles)
-}
-
-tasks.withType<DetektCreateBaselineTask>().configureEach {
     jvmTarget = "17"
 }
 
@@ -133,13 +131,6 @@ tasks.withType<KotlinCompile>().configureEach {
 dependencyAnalysis {
     issues {
         all { onAny { severity("fail") } }
-        all { onUnusedDependencies { exclude("org.jetbrains.kotlin:kotlin-stdlib") } }
-    }
-
-    structure {
-        bundle("kotlin-stdlib") {
-            includeGroup("org.jetbrains.kotlin")
-        }
     }
 }
 
@@ -147,19 +138,15 @@ fun PluginContainer.applyBaseConfig(project: Project) {
     whenPluginAdded {
         when (this) {
             is AppPlugin -> {
-                project.extensions.getByType<BaseAppModuleExtension>().baseConfig()
+                project.extensions.getByType<BaseAppModuleExtension>().baseConfig(project)
             }
 
             is LibraryPlugin -> {
-                project.extensions.getByType<LibraryExtension>().baseConfig()
+                project.extensions.getByType<LibraryExtension>().baseConfig(project)
             }
 
             is KoverGradlePlugin -> {
                 project.extensions.getByType<KoverReportExtension>().baseConfig()
-            }
-
-            is KtlintPlugin -> {
-                project.extensions.getByType<KtlintExtension>().baseConfig()
             }
         }
     }
@@ -172,7 +159,10 @@ fun <
     DC : DefaultConfig,
     PF : ProductFlavor,
     AR : AndroidResources,
-> CommonExtension<BF, BT, DC, PF, AR>.defaultBaseConfig() {
+    IN : Installation,
+> CommonExtension<BF, BT, DC, PF, AR, IN>.defaultBaseConfig(
+    project: Project,
+) {
     compileSdk = libs.versions.android.sdk.target.get().toInt()
     buildToolsVersion = "34.0.0"
 
@@ -184,11 +174,13 @@ fun <
     }
 
     lint {
-        baseline = file("lint-baseline.xml")
+        baseline = project.file("lint-baseline.xml")
+        disable += listOf("NewerVersionAvailable", "GradleDependency")
         abortOnError = true
         checkAllWarnings = true
         warningsAsErrors = true
         checkReleaseBuilds = false
+        checkDependencies = false
     }
 
     compileOptions {
@@ -204,10 +196,6 @@ fun <
                 "proguard-rules.pro",
             )
         }
-    }
-
-    composeOptions {
-        kotlinCompilerExtensionVersion = libs.versions.kotlin.compose.compiler.extension.get()
     }
 
     @Suppress("UnstableApiUsage")
@@ -227,15 +215,15 @@ fun <
         )
 }
 
-fun LibraryExtension.baseConfig() {
-    defaultBaseConfig()
+fun LibraryExtension.baseConfig(project: Project) {
+    defaultBaseConfig(project)
     defaultConfig {
         consumerProguardFiles("consumer-rules.pro")
     }
 }
 
-fun BaseAppModuleExtension.baseConfig() {
-    defaultBaseConfig()
+fun BaseAppModuleExtension.baseConfig(project: Project) {
+    defaultBaseConfig(project)
     dependenciesInfo.apply {
         includeInApk = false
         includeInBundle = false
@@ -262,7 +250,7 @@ fun KoverReportExtension.baseConfig() {
 }
 
 ktlint {
-    version.set("1.0.1")
+    version.set("1.1.1")
     filter {
         exclude("**/generated/**", "**/build/**")
         include("**/kotlin/**")
@@ -277,15 +265,4 @@ subprojects {
 doctor {
     daggerThreshold.set(100)
     negativeAvoidanceThreshold.set(50)
-}
-
-ktlint {
-    version.set("1.1.1")
-}
-
-fun KtlintExtension.baseConfig() {
-    version.set("1.1.1")
-    filter {
-        exclude("**/generated/**")
-    }
 }

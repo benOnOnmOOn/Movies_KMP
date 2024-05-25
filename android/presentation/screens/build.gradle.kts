@@ -1,7 +1,9 @@
 plugins {
-    embeddedKotlin("android")
+    alias(libs.plugins.kotlin.android)
     alias(libs.plugins.com.android.library)
     alias(libs.plugins.org.jetbrains.kotlinx.kover)
+    alias(libs.plugins.jetbrains.compose)
+    alias(libs.plugins.compose.compiler)
 }
 
 android {
@@ -14,6 +16,7 @@ android {
                 "-opt-in=androidx.compose.material.ExperimentalMaterialApi",
             )
     }
+
     buildFeatures {
         compose = true
     }
@@ -51,7 +54,6 @@ dependencies {
     implementation(libs.androidx.compose.ui.unit.android)
     implementation(libs.androidx.core)
     implementation(libs.androidx.lifecycle.viewmodel.compose)
-    implementation(libs.androidx.lifecycle.viewmodel.ktx)
     runtimeOnly(libs.androidx.startup.runtime)
 
     implementation(libs.io.coil.compose)

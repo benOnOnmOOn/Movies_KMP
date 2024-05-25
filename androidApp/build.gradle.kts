@@ -3,7 +3,9 @@ plugins {
     alias(libs.plugins.com.google.gms.google.services) apply false
     alias(libs.plugins.com.google.firebase.crashlytics.gradle) apply false
     alias(libs.plugins.org.jetbrains.kotlinx.kover)
-    embeddedKotlin("android")
+    alias(libs.plugins.kotlin.android)
+    alias(libs.plugins.jetbrains.compose)
+    alias(libs.plugins.compose.compiler)
 }
 
 android {
@@ -38,8 +40,6 @@ dependencyAnalysis {
     issues {
         onUnusedDependencies { exclude(":android:presentation:core") }
         onUnusedDependencies { exclude(":shared") }
-        onUsedTransitiveDependencies { exclude("androidx.compose.runtime:runtime") }
-        onIncorrectConfiguration { exclude("org.jetbrains.kotlin:kotlin-stdlib") }
     }
 }
 
@@ -52,8 +52,7 @@ dependencies {
 //    kover(project(":data:network"))
 //    kover(project(":data:dto"))
 
-    releaseImplementation(libs.com.google.firebase.analytics.ktx)
-    releaseImplementation(libs.com.google.firebase.crashlytics.ktx)
+    implementation(libs.kotlin.stdlib)
 
     implementation(libs.io.insert.koin.core)
     implementation(libs.io.insert.koin.android)
@@ -62,6 +61,9 @@ dependencies {
     implementation(libs.androidx.compose.runtime.android)
 
     implementation(libs.com.jakewharton.timber)
+
+    releaseImplementation(libs.com.google.firebase.analytics.ktx)
+    releaseImplementation(libs.com.google.firebase.crashlytics.ktx)
 
     testImplementation(libs.org.junit.jupiter.api)
     testImplementation(libs.io.mockk)

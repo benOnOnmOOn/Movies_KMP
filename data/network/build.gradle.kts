@@ -1,7 +1,7 @@
 plugins {
-    embeddedKotlin("multiplatform")
-    embeddedKotlin("plugin.serialization")
-    id("com.android.library")
+    alias(libs.plugins.kotlin.multiplatform)
+    alias(libs.plugins.kotlin.serialization)
+    alias(libs.plugins.com.android.library)
 }
 
 kotlin {
@@ -67,6 +67,7 @@ android {
         api(project(":data:dto"))
 
         api(libs.okhttp)
+        api(libs.kotlin.stdlib)
 
         implementation(libs.io.ktor.http)
         implementation(libs.io.ktor.serialization)
@@ -76,8 +77,10 @@ android {
         implementation(libs.androidx.core)
         implementation(libs.androidx.core.ktx)
         implementation(libs.io.insert.koin.android)
-        testImplementation(libs.org.junit.jupiter.api)
 
         debugImplementation(libs.com.squareup.okhttp.logging.interceptor)
+
+        testImplementation(libs.org.junit.jupiter.api)
+        testImplementation(libs.kotlin.test)
     }
 }
