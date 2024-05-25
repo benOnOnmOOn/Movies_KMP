@@ -8,6 +8,33 @@ plugins {
     alias(libs.plugins.compose.compiler)
 }
 
+kover{
+    currentProject {
+        createVariant("custom") {
+            add("debug")
+        }
+    }
+
+    reports {
+        variant("custom") {
+            xml {
+                onCheck = true
+            }
+            html {
+                onCheck = true
+            }
+        }
+        filters {
+            excludes {
+                annotatedBy(
+                    "*Generated*",
+                    "*Composable*",
+                )
+            }
+        }
+    }
+}
+
 android {
     namespace = "com.bz.movies.kmp.android"
 
@@ -46,11 +73,11 @@ dependencyAnalysis {
 dependencies {
     implementation(project(":android:presentation:core"))
 
-//    kover(project(":android:presentation:core"))
-//    kover(project(":android:presentation:screens"))
-//    kover(project(":data:database"))
-//    kover(project(":data:network"))
-//    kover(project(":data:dto"))
+    kover(project(":android:presentation:core"))
+    kover(project(":android:presentation:screens"))
+    kover(project(":data:database"))
+    kover(project(":data:network"))
+    kover(project(":data:dto"))
 
     implementation(libs.kotlin.stdlib)
 
