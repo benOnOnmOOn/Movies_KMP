@@ -48,3 +48,5 @@
 # Add rule that keep ktor url params
 # https://youtrack.jetbrains.com/issue/KTOR-5564/Request-parameters-encodes-to-empty-string-with-Android-R8-for-release-build-after-update-kotlin-language-version-up-to-1.8.10
 -keepclassmembers class io.ktor.http.CodecsKt$encodeURL** { *; }
+
+-dontwarn com.bz.movies.kmp.di.PresentationModuleKt
