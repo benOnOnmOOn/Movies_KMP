@@ -177,6 +177,7 @@ fun <
         checkAllWarnings = true
         warningsAsErrors = true
         checkReleaseBuilds = false
+        checkDependencies = false
     }
 
     compileOptions {
