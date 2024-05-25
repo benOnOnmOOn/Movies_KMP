@@ -40,8 +40,6 @@ dependencyAnalysis {
     issues {
         onUnusedDependencies { exclude(":android:presentation:core") }
         onUnusedDependencies { exclude(":shared") }
-        onUsedTransitiveDependencies { exclude("androidx.compose.runtime:runtime") }
-        onIncorrectConfiguration { exclude("org.jetbrains.kotlin:kotlin-stdlib") }
     }
 }
 

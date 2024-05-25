@@ -8,15 +8,4 @@
             file="$GRADLE_USER_HOME/caches/modules-2/files-2.1/io.ktor/ktor-utils-jvm/2.3.11/db227e84b9b155891262f7376ad22b6fb9e4ae6/ktor-utils-jvm-2.3.11.jar"/>
     </issue>
 
-    <issue
-        id="NewerVersionAvailable"
-        message="A newer version of org.jetbrains.kotlinx.kover than 0.7.6 is available: 0.8.0"
-        errorLine1="org_jetbrains_kotlinx_kover = { id = &quot;org.jetbrains.kotlinx.kover&quot;, version = &quot;0.7.6&quot; }"
-        errorLine2="                                                                              ~~~~~~~">
-        <location
-            file="../gradle/libs.versions.toml"
-            line="96"
-            column="79"/>
-    </issue>
-
 </issues>
