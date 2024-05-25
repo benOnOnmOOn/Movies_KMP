@@ -1,8 +1,8 @@
 import org.jlleitschuh.gradle.ktlint.KtlintExtension
 
 plugins {
-    embeddedKotlin("multiplatform")
-    id("com.android.library")
+    alias(libs.plugins.kotlin.multiplatform)
+    alias(libs.plugins.com.android.library)
     alias(libs.plugins.app.cash.sqldelight)
 }
 

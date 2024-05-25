@@ -1,8 +1,11 @@
 plugins {
-    embeddedKotlin("android")
+    alias(libs.plugins.kotlin.android)
     alias(libs.plugins.com.android.library)
     alias(libs.plugins.org.jetbrains.kotlinx.kover)
+    alias(libs.plugins.jetbrains.compose)
+    alias(libs.plugins.compose.compiler)
 }
+
 
 android {
     namespace = "com.bz.presentation.screens"
@@ -14,6 +17,7 @@ android {
                 "-opt-in=androidx.compose.material.ExperimentalMaterialApi",
             )
     }
+
     buildFeatures {
         compose = true
     }

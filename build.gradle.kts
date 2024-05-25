@@ -3,6 +3,7 @@ import com.android.build.api.dsl.BuildFeatures
 import com.android.build.api.dsl.BuildType
 import com.android.build.api.dsl.CommonExtension
 import com.android.build.api.dsl.DefaultConfig
+import com.android.build.api.dsl.Installation
 import com.android.build.api.dsl.LibraryExtension
 import com.android.build.api.dsl.ProductFlavor
 import com.android.build.gradle.AppPlugin
@@ -11,7 +12,6 @@ import com.android.build.gradle.internal.dsl.BaseAppModuleExtension
 import com.github.benmanes.gradle.versions.updates.DependencyUpdatesTask
 import io.gitlab.arturbosch.detekt.Detekt
 import io.gitlab.arturbosch.detekt.DetektCreateBaselineTask
-import kotlinx.kover.gradle.plugin.KoverGradlePlugin
 import kotlinx.kover.gradle.plugin.dsl.KoverReportExtension
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
@@ -19,9 +19,6 @@ import org.jlleitschuh.gradle.ktlint.KtlintExtension
 import org.jlleitschuh.gradle.ktlint.KtlintPlugin
 
 plugins {
-    embeddedKotlin("multiplatform") apply false
-    embeddedKotlin("android") apply false
-    embeddedKotlin("plugin.serialization") apply false
     alias(libs.plugins.com.android.application) apply false
     alias(libs.plugins.com.android.library) apply false
     alias(libs.plugins.com.github.ben.manes.versions) apply true
@@ -33,6 +30,11 @@ plugins {
     alias(libs.plugins.app.cash.sqldelight) apply false
     alias(libs.plugins.org.jlleitschuh.gradle.ktlint) apply true
     alias(libs.plugins.org.gradle.android.cache.fix) apply false
+    alias(libs.plugins.jetbrains.compose) apply false
+    alias(libs.plugins.compose.compiler) apply false
+    alias(libs.plugins.kotlin.multiplatform) apply false
+    alias(libs.plugins.kotlin.android) apply false
+    alias(libs.plugins.kotlin.serialization) apply false
 }
 
 tasks.register<Delete>("clean") {
@@ -154,9 +156,9 @@ fun PluginContainer.applyBaseConfig(project: Project) {
                 project.extensions.getByType<LibraryExtension>().baseConfig()
             }
 
-            is KoverGradlePlugin -> {
-                project.extensions.getByType<KoverReportExtension>().baseConfig()
-            }
+//            is KoverGradlePlugin -> {
+//                project.extensions.getByType<KoverProjectExtension>().baseConfig()
+//            }
 
             is KtlintPlugin -> {
                 project.extensions.getByType<KtlintExtension>().baseConfig()
@@ -165,14 +167,16 @@ fun PluginContainer.applyBaseConfig(project: Project) {
     }
 }
 
+
 //region Global android configuration
 fun <
-    BF : BuildFeatures,
-    BT : BuildType,
-    DC : DefaultConfig,
-    PF : ProductFlavor,
-    AR : AndroidResources,
-> CommonExtension<BF, BT, DC, PF, AR>.defaultBaseConfig() {
+        BF : BuildFeatures,
+        BT : BuildType,
+        DC : DefaultConfig,
+        PF : ProductFlavor,
+        AR : AndroidResources,
+        IN : Installation,
+        > CommonExtension<BF, BT, DC, PF, AR, IN>.defaultBaseConfig() {
     compileSdk = libs.versions.android.sdk.target.get().toInt()
     buildToolsVersion = "34.0.0"
 
@@ -206,9 +210,7 @@ fun <
         }
     }
 
-    composeOptions {
-        kotlinCompilerExtensionVersion = libs.versions.kotlin.compose.compiler.extension.get()
-    }
+
 
     @Suppress("UnstableApiUsage")
     testOptions {

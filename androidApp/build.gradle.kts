@@ -3,7 +3,9 @@ plugins {
     alias(libs.plugins.com.google.gms.google.services) apply false
     alias(libs.plugins.com.google.firebase.crashlytics.gradle) apply false
     alias(libs.plugins.org.jetbrains.kotlinx.kover)
-    embeddedKotlin("android")
+    alias(libs.plugins.kotlin.android)
+    alias(libs.plugins.jetbrains.compose)
+    alias(libs.plugins.compose.compiler)
 }
 
 android {
