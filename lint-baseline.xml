@@ -14,29 +14,7 @@
         errorLine1="org_jetbrains_kotlinx_kover = { id = &quot;org.jetbrains.kotlinx.kover&quot;, version = &quot;0.7.6&quot; }"
         errorLine2="                                                                              ~~~~~~~">
         <location
-            file="$HOME/AndroidStudioProjects/MoviesKMP/gradle/libs.versions.toml"
-            line="96"
-            column="79"/>
-    </issue>
-
-    <issue
-        id="NewerVersionAvailable"
-        message="A newer version of org.jetbrains.kotlinx.kover than 0.7.6 is available: 0.8.0"
-        errorLine1="org_jetbrains_kotlinx_kover = { id = &quot;org.jetbrains.kotlinx.kover&quot;, version = &quot;0.7.6&quot; }"
-        errorLine2="                                                                              ~~~~~~~">
-        <location
-            file="$HOME/AndroidStudioProjects/MoviesKMP/gradle/libs.versions.toml"
-            line="96"
-            column="79"/>
-    </issue>
-
-    <issue
-        id="NewerVersionAvailable"
-        message="A newer version of org.jetbrains.kotlinx.kover than 0.7.6 is available: 0.8.0"
-        errorLine1="org_jetbrains_kotlinx_kover = { id = &quot;org.jetbrains.kotlinx.kover&quot;, version = &quot;0.7.6&quot; }"
-        errorLine2="                                                                              ~~~~~~~">
-        <location
-            file="$HOME/AndroidStudioProjects/MoviesKMP/gradle/libs.versions.toml"
+            file="../gradle/libs.versions.toml"
             line="96"
             column="79"/>
     </issue>
