@@ -52,8 +52,7 @@ dependencies {
 //    kover(project(":data:network"))
 //    kover(project(":data:dto"))
 
-    releaseImplementation(libs.com.google.firebase.analytics.ktx)
-    releaseImplementation(libs.com.google.firebase.crashlytics.ktx)
+    implementation(libs.kotlin.stdlib)
 
     implementation(libs.io.insert.koin.core)
     implementation(libs.io.insert.koin.android)
@@ -62,6 +61,9 @@ dependencies {
     implementation(libs.androidx.compose.runtime.android)
 
     implementation(libs.com.jakewharton.timber)
+
+    releaseImplementation(libs.com.google.firebase.analytics.ktx)
+    releaseImplementation(libs.com.google.firebase.crashlytics.ktx)
 
     testImplementation(libs.org.junit.jupiter.api)
     testImplementation(libs.io.mockk)
