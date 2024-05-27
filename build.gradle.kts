@@ -233,7 +233,7 @@ subprojects {
 // endregion
 
 ktlint {
-    version.set("1.1.1")
+    version.set("1.2.1")
     filter {
         exclude("**/generated/**", "**/build/**")
         include("**/kotlin/**")
