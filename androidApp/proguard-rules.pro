@@ -23,6 +23,8 @@
     public void printStackTrace();
 }
 
+-repackageclasses ''
+
 -allowaccessmodification
 
 # Add rule that keep ktor url params
