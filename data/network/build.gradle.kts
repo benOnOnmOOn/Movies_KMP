@@ -2,6 +2,15 @@ plugins {
     alias(libs.plugins.kotlin.multiplatform)
     alias(libs.plugins.kotlin.serialization)
     alias(libs.plugins.com.android.library)
+    alias(libs.plugins.org.jetbrains.kotlinx.kover)
+}
+
+kover {
+    currentProject {
+        createVariant("custom") {
+            add("debug")
+        }
+    }
 }
 
 kotlin {

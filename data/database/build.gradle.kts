@@ -4,6 +4,15 @@ plugins {
     alias(libs.plugins.kotlin.multiplatform)
     alias(libs.plugins.com.android.library)
     alias(libs.plugins.app.cash.sqldelight)
+    alias(libs.plugins.org.jetbrains.kotlinx.kover)
+}
+
+kover {
+    currentProject {
+        createVariant("custom") {
+            add("debug")
+        }
+    }
 }
 
 kotlin {

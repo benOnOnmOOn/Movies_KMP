@@ -12,8 +12,6 @@ import com.android.build.gradle.internal.dsl.BaseAppModuleExtension
 import com.github.benmanes.gradle.versions.updates.DependencyUpdatesTask
 import io.gitlab.arturbosch.detekt.Detekt
 import io.gitlab.arturbosch.detekt.DetektCreateBaselineTask
-import kotlinx.kover.gradle.plugin.KoverGradlePlugin
-import kotlinx.kover.gradle.plugin.dsl.KoverReportExtension
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
@@ -144,10 +142,6 @@ fun PluginContainer.applyBaseConfig(project: Project) {
             is LibraryPlugin -> {
                 project.extensions.getByType<LibraryExtension>().baseConfig(project)
             }
-
-            is KoverGradlePlugin -> {
-                project.extensions.getByType<KoverReportExtension>().baseConfig()
-            }
         }
     }
 }
@@ -190,7 +184,7 @@ fun <
 
     buildTypes {
         release {
-            isMinifyEnabled = true
+            isMinifyEnabled = false
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro",
@@ -237,17 +231,6 @@ subprojects {
     project.plugins.applyBaseConfig(project)
 }
 // endregion
-
-fun KoverReportExtension.baseConfig() {
-    androidReports("debug") {
-        html {
-            onCheck = true
-        }
-        xml {
-            onCheck = true
-        }
-    }
-}
 
 ktlint {
     version.set("1.1.1")
