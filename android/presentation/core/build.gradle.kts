@@ -6,6 +6,14 @@ plugins {
     alias(libs.plugins.compose.compiler)
 }
 
+kover {
+    currentProject {
+        createVariant("custom") {
+            add("debug")
+        }
+    }
+}
+
 android {
     namespace = "com.bz.core"
 
