@@ -1,3 +1,5 @@
+import com.google.gms.googleservices.GoogleServicesTask
+
 plugins {
     alias(libs.plugins.com.android.application)
     alias(libs.plugins.com.google.gms.google.services) apply false
@@ -96,10 +98,18 @@ dependencies {
     testImplementation(libs.io.mockk)
     testRuntimeOnly(libs.org.junit.jupiter.engine)
 
+    compileOnly(libs.google.services)
+
     debugRuntimeOnly(libs.androidx.compose.ui.test.manifest)
     debugRuntimeOnly(libs.androidx.compose.ui.tooling)
 
     androidTestImplementation(libs.androidx.monitor)
     androidTestImplementation(libs.org.junit.jupiter.api)
     androidTestRuntimeOnly(libs.org.junit.jupiter.engine)
+}
+
+project.afterEvaluate {
+    tasks.withType<GoogleServicesTask> {
+        gmpAppId.set(project.layout.buildDirectory.file("$name-gmpAppId.txt"))
+    }
 }
