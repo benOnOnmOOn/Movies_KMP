@@ -52,4 +52,4 @@ jobs:
         uses: mi-kas/kover-report@v1
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          path: ${{ github.workspace }}/androidApp/build/reports/kover/report.xml
+          path: ${{ github.workspace }}/androidApp/build/reports/kover/reportCustom.xml
