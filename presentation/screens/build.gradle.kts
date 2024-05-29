@@ -81,4 +81,26 @@ android {
     buildFeatures {
         compose = true
     }
+    dependencies {
+        api(project(":data:database"))
+        api(project(":data:dto"))
+        api(project(":data:network"))
+        api(libs.androidx.animation)
+        api(libs.androidx.runtime)
+        api(libs.androidx.ui)
+        api(libs.androidx.compose.material3)
+        api(libs.androidx.navigation.common)
+        api(libs.androidx.navigation.runtime)
+        api(libs.kotlin.stdlib)
+
+        implementation(libs.androidx.animation.core)
+        implementation(libs.androidx.foundation.layout)
+        implementation(libs.androidx.foundation)
+        implementation(libs.androidx.ui.graphics)
+        implementation(libs.androidx.ui.text)
+        implementation(libs.androidx.ui.unit)
+        implementation(libs.androidx.compose.ui.tooling.preview)
+        implementation(libs.androidx.lifecycle.viewmodel.compose)
+        implementation(libs.androidx.navigation.compose)
+    }
 }
