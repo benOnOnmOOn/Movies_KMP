@@ -1,6 +1,5 @@
 include(":presentation:screens")
 
-
 pluginManagement {
     repositories {
         google {

@@ -28,7 +28,6 @@ fun MoviesContentWithPullToRefresh(
 ) {
     val state = rememberPullToRefreshState()
 
-
     if (state.isRefreshing) {
         refresh()
     }
@@ -37,19 +36,25 @@ fun MoviesContentWithPullToRefresh(
         state.endRefresh()
     }
 
-    val scaleFraction = if (state.isRefreshing) 1f else
-        LinearOutSlowInEasing.transform(state.progress).coerceIn(0f, 1f)
+    val scaleFraction =
+        if (state.isRefreshing) {
+            1f
+        } else {
+            LinearOutSlowInEasing.transform(state.progress).coerceIn(0f, 1f)
+        }
     Box(
-        modifier = Modifier
-            .padding(10.dp)
-            .fillMaxSize()
-            .nestedScroll(state.nestedScrollConnection)
+        modifier =
+            Modifier
+                .padding(10.dp)
+                .fillMaxSize()
+                .nestedScroll(state.nestedScrollConnection),
     ) {
         MoviesContentLazyColumn(playingNowState, onMovieClicked)
         PullToRefreshContainer(
-            modifier = Modifier
-                .align(Alignment.TopCenter)
-                .graphicsLayer(scaleX = scaleFraction, scaleY = scaleFraction),
+            modifier =
+                Modifier
+                    .align(Alignment.TopCenter)
+                    .graphicsLayer(scaleX = scaleFraction, scaleY = scaleFraction),
             state = state,
         )
     }

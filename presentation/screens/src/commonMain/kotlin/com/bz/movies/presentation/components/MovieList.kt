@@ -1,6 +1,5 @@
 package com.bz.movies.presentation.components
 
-
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
@@ -46,7 +45,7 @@ fun MovieContent(
                     .padding(4.dp),
             model = movieItem.posterUrl,
             contentDescription = movieItem.title,
-            imageLoader = ImageLoader(LocalPlatformContext.current)
+            imageLoader = ImageLoader(LocalPlatformContext.current),
         )
         Column(
             Modifier

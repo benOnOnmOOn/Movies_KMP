@@ -10,7 +10,6 @@ import androidx.navigation.NavHostController
 import com.bz.movies.presentation.screens.common.MovieEvent
 import com.bz.movies.presentation.screens.common.MoviesContentWithPullToRefresh
 import com.bz.movies.presentation.screens.common.MoviesState
-import com.bz.movies.presentation.theme.MoviesTheme
 import movies_kmp.presentation.screens.generated.resources.Res
 import movies_kmp.presentation.screens.generated.resources.popular_now_screen_title
 import org.jetbrains.compose.resources.stringResource
@@ -49,4 +48,3 @@ fun PopularMoviesScreen(
         )
     }
 }
-

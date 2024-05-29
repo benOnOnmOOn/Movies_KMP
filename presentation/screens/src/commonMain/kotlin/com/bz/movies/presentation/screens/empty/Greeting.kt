@@ -17,4 +17,3 @@ fun Greeting(
         )
     }
 }
-

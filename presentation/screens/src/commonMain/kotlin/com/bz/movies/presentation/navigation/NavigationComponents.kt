@@ -37,9 +37,9 @@ fun BottomNavigationBar(
                     )
                 },
                 colors =
-                NavigationBarItemDefaults.colors(
-                    indicatorColor = MaterialTheme.colorScheme.surface,
-                ),
+                    NavigationBarItemDefaults.colors(
+                        indicatorColor = MaterialTheme.colorScheme.surface,
+                    ),
             )
         }
     }
@@ -59,16 +59,20 @@ private fun NavIcon(
     isItemSelected: Boolean,
 ) {
     return Icon(
-        painter = painterResource(
-            if (isItemSelected)
-                destination.selectedIcon
-            else
-                destination.unselectedIcon
-        ),
+        painter =
+            painterResource(
+                if (isItemSelected) {
+                    destination.selectedIcon
+                } else {
+                    destination.unselectedIcon
+                },
+            ),
         contentDescription = stringResource(destination.iconTextId),
-        tint = if (isItemSelected)
-            Color.Unspecified
-        else
-            MaterialTheme.colorScheme.onSurfaceVariant,
+        tint =
+            if (isItemSelected) {
+                Color.Unspecified
+            } else {
+                MaterialTheme.colorScheme.onSurfaceVariant
+            },
     )
 }

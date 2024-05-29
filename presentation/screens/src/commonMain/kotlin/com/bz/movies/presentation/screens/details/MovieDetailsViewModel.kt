@@ -46,7 +46,7 @@ class MovieDetailsViewModel(private val movieRepository: MovieRepository) : View
             result.onFailure {
                 val error =
                     when (it) {
-                        is NoInternetException-> MovieEffect.NetworkConnectionError
+                        is NoInternetException -> MovieEffect.NetworkConnectionError
                         else -> MovieEffect.UnknownError
                     }
                 _effect.emit(error)

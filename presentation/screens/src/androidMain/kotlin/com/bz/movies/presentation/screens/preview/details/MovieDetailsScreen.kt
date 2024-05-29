@@ -6,7 +6,6 @@ import com.bz.movies.presentation.screens.common.MovieDetailState
 import com.bz.movies.presentation.screens.details.MovieDetailsScreen
 import com.bz.movies.presentation.theme.MoviesTheme
 
-
 @Preview(showBackground = true)
 @Composable
 @Suppress("UnusedPrivateMember")

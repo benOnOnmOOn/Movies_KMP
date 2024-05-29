@@ -41,4 +41,3 @@ fun MovieDetailsScreen(state: MovieDetailState = MovieDetailState()) {
         }
     }
 }
-
