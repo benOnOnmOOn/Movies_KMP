@@ -23,7 +23,7 @@ android {
 }
 
 dependencies {
-    implementation(project(":android:presentation:screens"))
+    implementation(project(":presentation:screens"))
     implementation(project(":data:network"))
     implementation(project(":data:database"))
 

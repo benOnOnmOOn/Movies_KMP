@@ -9,7 +9,6 @@ import org.koin.dsl.module
 
 actual val platformNetworkModule =
     module {
-
         factory<ConnectivityManager?> { androidApplication().getSystemService<ConnectivityManager>() }
         factory<InternetConnection> { InternetConnectionImpl(get()) }
     }
