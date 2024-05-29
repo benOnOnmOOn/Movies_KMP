@@ -76,7 +76,7 @@ dependencies {
     implementation(project(":android:presentation:core"))
 
     kover(project(":android:presentation:core"))
-    kover(project(":android:presentation:screens"))
+    kover(project(":presentation:screens"))
     kover(project(":data:database"))
     kover(project(":data:network"))
     kover(project(":data:dto"))

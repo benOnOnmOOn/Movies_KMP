@@ -43,7 +43,6 @@ dependencyResolutionManagement {
 rootProject.name = "Movies_KMP"
 include(":androidApp")
 include(":android:presentation:core")
-include(":android:presentation:screens")
 include(":data:network")
 include(":data:dto")
 include(":data:database")
