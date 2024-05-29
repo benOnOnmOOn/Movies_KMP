@@ -11,7 +11,6 @@ import com.bz.movies.presentation.mappers.toMovieItem
 import com.bz.movies.presentation.screens.common.MovieEffect
 import com.bz.movies.presentation.screens.common.MovieEvent
 import com.bz.movies.presentation.screens.common.MoviesState
-import com.bz.movies.presentation.utils.launch
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -45,15 +44,17 @@ class PlayingNowViewModel(
         handleEvent()
     }
 
-    fun sendEvent(event: MovieEvent) =
-        launch {
+    fun sendEvent(event: MovieEvent) {
+        viewModelScope.launch {
             _event.emit(event)
         }
+    }
 
-    private fun handleEvent() =
+    private fun handleEvent() {
         viewModelScope.launch {
             event.collect { handleEvent(it) }
         }
+    }
 
     private suspend fun handleEvent(event: MovieEvent) {
         when (event) {
@@ -73,8 +74,10 @@ class PlayingNowViewModel(
         }
     }
 
-    private fun fetchPlayingNowMovies() =
-        launch {
+    private fun fetchPlayingNowMovies() {
+        viewModelScope.launch {
+            // Timber.e(it)
+
             localMovieRepository.clearPlayingNowMovies()
             val result = movieRepository.getPlayingNowMovies()
 
@@ -88,9 +91,10 @@ class PlayingNowViewModel(
                         else -> MovieEffect.UnknownError
                     }
                 _effect.emit(error)
-//                Timber.e(it)
+                // Timber.e(it)
             }
         }
+    }
 
     private fun collectPlayingNowMovies() {
         localMovieRepository.playingNowMovies

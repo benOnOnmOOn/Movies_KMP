@@ -11,7 +11,6 @@ import com.bz.movies.presentation.mappers.toMovieItem
 import com.bz.movies.presentation.screens.common.MovieEffect
 import com.bz.movies.presentation.screens.common.MovieEvent
 import com.bz.movies.presentation.screens.common.MoviesState
-import com.bz.movies.presentation.utils.launch
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -46,7 +45,7 @@ class PopularMoviesViewModel(
     }
 
     fun sendEvent(event: MovieEvent) =
-        launch {
+        viewModelScope.launch {
             _event.emit(event)
         }
 
@@ -67,8 +66,9 @@ class PopularMoviesViewModel(
         }
     }
 
-    private fun fetchPopularNowMovies() =
-        launch {
+    private fun fetchPopularNowMovies() {
+        viewModelScope.launch {
+            // Timber.e(it)
             val result = movieRepository.getPopularMovies(1)
 
             result.onSuccess { data ->
@@ -88,10 +88,11 @@ class PopularMoviesViewModel(
                         else -> MovieEffect.UnknownError
                     }
                 _effect.emit(error)
-//                Timber.e(it)
+                // Timber.e(it)
                 _state.update { MoviesState(isLoading = false) }
             }
         }
+    }
 
     private fun collectPopularMovies() {
         localMovieRepository.popularMovies

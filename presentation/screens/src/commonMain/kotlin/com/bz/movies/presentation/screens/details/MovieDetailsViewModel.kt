@@ -1,18 +1,19 @@
 package com.bz.movies.presentation.screens.details
 
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.bz.movies.kmp.network.repository.MovieRepository
 import com.bz.movies.kmp.network.repository.NoInternetException
 import com.bz.movies.presentation.screens.common.MovieDetailState
 import com.bz.movies.presentation.screens.common.MovieEffect
 import com.bz.movies.presentation.screens.common.MovieItem
-import com.bz.movies.presentation.utils.launch
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asSharedFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
+import kotlinx.coroutines.launch
 import kotlin.random.Random
 
 class MovieDetailsViewModel(private val movieRepository: MovieRepository) : ViewModel() {
@@ -23,10 +24,10 @@ class MovieDetailsViewModel(private val movieRepository: MovieRepository) : View
     val effect = _effect.asSharedFlow()
 
     @Suppress("MagicNumber")
-    fun fetchMovieDetails(movieId: Int) =
-        launch {
+    fun fetchMovieDetails(movieId: Int) {
+        viewModelScope.launch {
+            // Timber.e(it)
             val result = movieRepository.getMovieDetail(movieId)
-
             result.onSuccess { data ->
                 _state.update {
                     MovieDetailState(
@@ -43,6 +44,7 @@ class MovieDetailsViewModel(private val movieRepository: MovieRepository) : View
                     )
                 }
             }
+            // Timber.e(it)
             result.onFailure {
                 val error =
                     when (it) {
@@ -50,8 +52,9 @@ class MovieDetailsViewModel(private val movieRepository: MovieRepository) : View
                         else -> MovieEffect.UnknownError
                     }
                 _effect.emit(error)
-//                Timber.e(it)
+                //                Timber.e(it)
                 _state.update { MovieDetailState(isLoading = false) }
             }
         }
+    }
 }
