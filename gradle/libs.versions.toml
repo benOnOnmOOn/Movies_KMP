@@ -1,12 +1,10 @@
 [versions]
 activity-compose = "1.9.0"
-coil-compose-base = "2.6.0"
 coil-core = "3.0.0-alpha06"
 com-android-plugin = "8.4.1"
 core = "1.13.1"
 android-sdk-target = "34"
 android-min-sdk = "28"
-coil = "2.6.0"
 google-services = "4.4.1"
 kotlinx-serialization = "1.6.3"
 lifecycle = "2.8.0"
@@ -32,19 +30,15 @@ sqldelight = "2.0.2"
 [libraries]
 androidx-activity = { module = "androidx.activity:activity", version.ref = "activity-compose" }
 androidx-activity-compose = { module = "androidx.activity:activity-compose", version.ref = "activity-compose" }
-androidx-activity-compose-animation-android = { module = "androidx.compose.animation:animation-android", version.ref = "compose" }
 androidx-animation = { module = "androidx.compose.animation:animation", version.ref = "compose" }
 androidx-animation-core = { module = "androidx.compose.animation:animation-core", version.ref = "compose" }
 androidx-compose-ui-android = { module = "androidx.compose.ui:ui-android", version.ref = "compose" }
-androidx-compose-ui-text-android = { module = "androidx.compose.ui:ui-text-android", version.ref = "compose" }
 androidx-compose-ui-graphics-android = { module = "androidx.compose.ui:ui-graphics-android", version.ref = "compose" }
 androidx-compose-ui-tooling = { module = "androidx.compose.ui:ui-tooling-android", version.ref = "compose" }
 androidx-compose-ui-tooling-preview = { module = "androidx.compose.ui:ui-tooling-preview-android", version.ref = "compose" }
-androidx-compose-ui-unit-android = { module = "androidx.compose.ui:ui-unit-android", version.ref = "compose" }
 androidx-compose-runtime-android = { module = "androidx.compose.runtime:runtime-android", version.ref = "compose" }
 androidx-compose-foundation-android = { module = "androidx.compose.foundation:foundation-android", version.ref = "compose" }
 androidx-compose-foundation-layout-android = { module = "androidx.compose.foundation:foundation-layout-android", version.ref = "compose" }
-androidx-compose-material = { module = "androidx.compose.material:material-android", version.ref = "compose" }
 androidx-compose-material3 = { module = "androidx.compose.material3:material3", version.ref = "material3" }
 androidx-compose-ui-test-manifest = { module = "androidx.compose.ui:ui-test-manifest", version.ref = "compose" }
 androidx-core = { module = "androidx.core:core", version.ref = "core" }
@@ -68,7 +62,6 @@ app-cash-sqldelight-android-driver = { group = "app.cash.sqldelight", name = "an
 app-cash-sqldelight-coroutines-extensions = { group = "app.cash.sqldelight", name = "coroutines-extensions", version.ref = "sqldelight" }
 app-cash-sqldelight-native-driver = { group = "app.cash.sqldelight", name = "native-driver", version.ref = "sqldelight" }
 coil = { module = "io.coil-kt.coil3:coil", version.ref = "coil-core" }
-coil-compose-base = { module = "io.coil-kt:coil-compose-base", version.ref = "coil-compose-base" }
 coil-compose-core = { module = "io.coil-kt.coil3:coil-compose-core", version.ref = "coil-core" }
 coil-core = { module = "io.coil-kt.coil3:coil-core", version.ref = "coil-core" }
 coil-network-ktor = { module = "io.coil-kt.coil3:coil-network-ktor", version.ref = "coil-core" }
@@ -79,7 +72,6 @@ com-squareup-okhttp-logging-interceptor = { group = "com.squareup.okhttp3", name
 google-services = { module = "com.google.gms:google-services", version.ref = "google-services" }
 io-insert-koin-core = { group = "io.insert-koin", name = "koin-core", version.ref = "koin" }
 io-insert-koin-android = { group = "io.insert-koin", name = "koin-android", version.ref = "koin" }
-io-insert-koin-android-compose = { group = "io.insert-koin", name = "koin-androidx-compose", version.ref = "koin" }
 io-insert-koin-compose = { group = "io.insert-koin", name = "koin-compose", version = "1.2.0-Beta4" }
 io-insert-koin-compose-viemodel = { group = "io.insert-koin", name = "koin-compose-viewmodel", version = "1.2.0-Beta4" }
 io-ktor-bom = { module = "io.ktor:ktor-bom", version.ref = "ktor" }
@@ -93,8 +85,6 @@ io-ktor-http = { module = "io.ktor:ktor-http", version.ref = "ktor" }
 io-ktor-serialization = { module = "io.ktor:ktor-serialization", version.ref = "ktor" }
 io-ktor-utils = { module = "io.ktor:ktor-utils", version.ref = "ktor" }
 io-mockk = { group = "io.mockk", name = "mockk", version.ref = "mockk" }
-io-coil-compose = { module = "io.coil-kt:coil-compose", version.ref = "coil" }
-io-coil-base = { module = "io.coil-kt:coil-base", version.ref = "coil" }
 kotlin-stdlib = { module = "org.jetbrains.kotlin:kotlin-stdlib", version.ref = "kotlin" }
 kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
 kotlinx-serialization-core = { module = "org.jetbrains.kotlinx:kotlinx-serialization-core", version.ref = "kotlinx-serialization" }
