@@ -1,3 +1,4 @@
+include(":presentation:screens")
 
 
 pluginManagement {
