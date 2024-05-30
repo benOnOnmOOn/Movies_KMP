@@ -124,6 +124,7 @@ tasks.withType<KotlinCompile>().configureEach {
         freeCompilerArgs.add("-Xjvm-default=all")
     }
 }
+
 //endregion
 
 dependencyAnalysis {
