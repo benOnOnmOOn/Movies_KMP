@@ -125,7 +125,6 @@ tasks.withType<KotlinCompile>().configureEach {
     }
 }
 
-
 //endregion
 
 dependencyAnalysis {
