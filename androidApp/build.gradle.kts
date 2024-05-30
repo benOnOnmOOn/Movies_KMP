@@ -69,15 +69,14 @@ android {
 
 dependencyAnalysis {
     issues {
-        onUnusedDependencies { exclude(":android:presentation:core") }
-        onUnusedDependencies { exclude(":shared") }
+        onUnusedDependencies { exclude(":presentation:core") }
     }
 }
 
 dependencies {
-    implementation(project(":android:presentation:core"))
+    implementation(project(":presentation:core"))
 
-    kover(project(":android:presentation:core"))
+    kover(project(":presentation:core"))
     kover(project(":presentation:screens"))
     kover(project(":data:database"))
     kover(project(":data:network"))

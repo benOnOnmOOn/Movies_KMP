@@ -26,6 +26,7 @@ material3 = "1.2.1"
 ktor = "2.3.11"
 koin = "3.6.0-Beta4"
 sqldelight = "2.0.2"
+jetbrains-kotlin-jvm = "2.0.0"
 
 [libraries]
 androidx-activity = { module = "androidx.activity:activity", version.ref = "activity-compose" }
@@ -74,9 +75,8 @@ io-insert-koin-core = { group = "io.insert-koin", name = "koin-core", version.re
 io-insert-koin-android = { group = "io.insert-koin", name = "koin-android", version.ref = "koin" }
 io-insert-koin-compose = { group = "io.insert-koin", name = "koin-compose", version = "1.2.0-Beta4" }
 io-insert-koin-compose-viemodel = { group = "io.insert-koin", name = "koin-compose-viewmodel", version = "1.2.0-Beta4" }
-io-ktor-bom = { module = "io.ktor:ktor-bom", version.ref = "ktor" }
-io-ktor-serialization-kotlinx-json = { group = "io.ktor", name = "ktor-serialization-kotlinx-json" }
-io-ktor-serialization-content-negotiation = { group = "io.ktor", name = "ktor-client-content-negotiation" }
+io-ktor-serialization-kotlinx-json = { group = "io.ktor", name = "ktor-serialization-kotlinx-json", version.ref = "ktor" }
+io-ktor-serialization-content-negotiation = { group = "io.ktor", name = "ktor-client-content-negotiation", version.ref = "ktor" }
 io-ktor-client-core = { group = "io.ktor", name = "ktor-client-core", version.ref = "ktor" }
 io-ktor-client-android = { group = "io.ktor", name = "ktor-client-android", version.ref = "ktor" }
 io-ktor-client-okhttp = { group = "io.ktor", name = "ktor-client-okhttp", version.ref = "ktor" }
@@ -117,5 +117,6 @@ kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
 dependency-guard = { id = "com.dropbox.dependency-guard", version = "0.5.0" }
 dexcount = { id = "com.getkeepsafe.dexcount", version = "4.0.0" }
+jetbrains-kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "jetbrains-kotlin-jvm" }
 [bundles]
 

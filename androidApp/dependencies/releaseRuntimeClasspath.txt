@@ -156,7 +156,6 @@ io.insert-koin:koin-compose-viewmodel:1.2.0-Beta4
 io.insert-koin:koin-compose:1.2.0-Beta4
 io.insert-koin:koin-core-jvm:3.6.0-Beta4
 io.insert-koin:koin-core:3.6.0-Beta4
-io.ktor:ktor-bom:2.3.11
 io.ktor:ktor-client-android-jvm:2.3.11
 io.ktor:ktor-client-android:2.3.11
 io.ktor:ktor-client-content-negotiation-jvm:2.3.11

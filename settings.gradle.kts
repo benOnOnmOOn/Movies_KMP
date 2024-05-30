@@ -1,5 +1,3 @@
-include(":presentation:screens")
-
 pluginManagement {
     repositories {
         google {
@@ -40,8 +38,10 @@ dependencyResolutionManagement {
 }
 
 rootProject.name = "Movies_KMP"
+
 include(":androidApp")
-include(":android:presentation:core")
 include(":data:network")
 include(":data:dto")
 include(":data:database")
+include(":presentation:core")
+include(":presentation:screens")

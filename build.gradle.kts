@@ -32,6 +32,7 @@ plugins {
     alias(libs.plugins.kotlin.multiplatform) apply false
     alias(libs.plugins.kotlin.android) apply false
     alias(libs.plugins.kotlin.serialization) apply false
+    alias(libs.plugins.jetbrains.kotlin.jvm) apply false
 }
 
 tasks.register<Delete>("clean") {
@@ -236,7 +237,8 @@ subprojects {
 ktlint {
     version.set("1.2.1")
     filter {
-        exclude("**/generated/**", "**/build/**")
+        exclude { it.file.path.contains("/generated/") }
+        exclude { it.file.path.contains("/build/") }
         include("**/kotlin/**")
     }
 }
