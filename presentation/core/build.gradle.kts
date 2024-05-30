@@ -27,7 +27,6 @@ kotlin {
         }
     }
 
-
     sourceSets {
         commonMain {
             dependencies {
@@ -49,7 +48,6 @@ kotlin {
                 implementation(libs.io.insert.koin.compose.viemodel)
             }
         }
-
 
         androidMain {
             dependencies {
@@ -89,6 +87,5 @@ android {
         implementation(libs.androidx.navigation.runtime)
         implementation(libs.androidx.ui)
         implementation(libs.androidx.ui.graphics)
-
     }
 }

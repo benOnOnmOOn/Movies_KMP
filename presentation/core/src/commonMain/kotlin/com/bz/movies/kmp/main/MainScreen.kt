@@ -16,7 +16,7 @@ import com.bz.movies.presentation.navigation.navigateToRootRoute
 import com.bz.movies.presentation.theme.MoviesTheme
 
 @Composable
-fun MainScreen(){
+fun MainScreen() {
     val navController = rememberNavController()
     val currentRootRoute by navController.currentRootRouteAsState()
 
@@ -33,9 +33,7 @@ fun MainScreen(){
         ) {
             Surface(
                 modifier =
-                Modifier
-                    .fillMaxSize()
-                    .padding(it),
+                    Modifier.fillMaxSize().padding(it),
                 color = MaterialTheme.colorScheme.background,
             ) {
                 MoviesNavHost(
