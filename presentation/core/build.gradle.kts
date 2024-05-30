@@ -71,4 +71,24 @@ android {
     buildFeatures {
         compose = true
     }
+    dependencies {
+        implementation(project(":data:database"))
+        implementation(project(":data:network"))
+        implementation(project(":presentation:screens"))
+
+        api(libs.androidx.activity)
+        api(libs.androidx.runtime)
+        api(libs.kotlin.stdlib)
+
+        implementation(libs.androidx.activity.compose)
+        implementation(libs.androidx.compose.material3)
+        implementation(libs.androidx.foundation)
+        implementation(libs.androidx.foundation.layout)
+        implementation(libs.androidx.navigation.common)
+        implementation(libs.androidx.navigation.compose)
+        implementation(libs.androidx.navigation.runtime)
+        implementation(libs.androidx.ui)
+        implementation(libs.androidx.ui.graphics)
+
+    }
 }
