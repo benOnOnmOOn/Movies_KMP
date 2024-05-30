@@ -26,12 +26,6 @@ kotlin {
         }
     }
 
-    sourceSets.forEach {
-        it.dependencies {
-            implementation(project.dependencies.enforcedPlatform(libs.io.ktor.bom))
-        }
-    }
-
     sourceSets {
         commonMain {
             dependencies {

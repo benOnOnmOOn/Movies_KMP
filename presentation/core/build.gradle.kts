@@ -15,7 +15,6 @@ kover {
 }
 
 kotlin {
-
     androidTarget()
 
     listOf(
@@ -24,16 +23,17 @@ kotlin {
         iosSimulatorArm64(),
     ).forEach {
         it.binaries.framework {
-            baseName = "screens"
+            baseName = "core"
         }
     }
+
 
     sourceSets {
         commonMain {
             dependencies {
-                api(project(":data:network"))
-                api(project(":data:database"))
-                api(project(":data:dto"))
+                implementation(project(":presentation:screens"))
+                implementation(project(":data:network"))
+                implementation(project(":data:database"))
 
                 implementation(compose.components.resources)
                 implementation(libs.org.jetbrains.kotlinx.coroutines.core)
@@ -49,11 +49,7 @@ kotlin {
                 implementation(libs.io.insert.koin.compose.viemodel)
             }
         }
-        commonTest {
-            dependencies {
-                implementation(kotlin("test"))
-            }
-        }
+
 
         androidMain {
             dependencies {
@@ -70,31 +66,9 @@ kotlin {
 }
 
 android {
-    namespace = "com.bz.presentation.screens"
+    namespace = "com.bz.core"
 
     buildFeatures {
         compose = true
-    }
-    dependencies {
-        api(project(":data:database"))
-        api(project(":data:dto"))
-        api(project(":data:network"))
-        api(libs.androidx.animation)
-        api(libs.androidx.runtime)
-        api(libs.androidx.ui)
-        api(libs.androidx.compose.material3)
-        api(libs.androidx.navigation.common)
-        api(libs.androidx.navigation.runtime)
-        api(libs.kotlin.stdlib)
-
-        implementation(libs.androidx.animation.core)
-        implementation(libs.androidx.foundation.layout)
-        implementation(libs.androidx.foundation)
-        implementation(libs.androidx.ui.graphics)
-        implementation(libs.androidx.ui.text)
-        implementation(libs.androidx.ui.unit)
-        implementation(libs.androidx.compose.ui.tooling.preview)
-        implementation(libs.androidx.lifecycle.viewmodel.compose)
-        implementation(libs.androidx.navigation.compose)
     }
 }
