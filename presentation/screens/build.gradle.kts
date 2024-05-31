@@ -1,3 +1,5 @@
+import org.jetbrains.kotlin.gradle.plugin.mpp.apple.XCFramework
+
 plugins {
     alias(libs.plugins.kotlin.multiplatform)
     alias(libs.plugins.com.android.library)
@@ -15,8 +17,9 @@ kover {
 }
 
 kotlin {
-
     androidTarget()
+
+    val xcf = XCFramework()
 
     listOf(
         iosX64(),
@@ -25,6 +28,8 @@ kotlin {
     ).forEach {
         it.binaries.framework {
             baseName = "screens"
+            linkerOpts.add("-lsqlite3")
+            xcf.add(this)
         }
     }
 

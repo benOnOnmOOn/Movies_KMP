@@ -1,3 +1,5 @@
+import org.jetbrains.kotlin.gradle.plugin.mpp.apple.XCFramework
+
 plugins {
     alias(libs.plugins.kotlin.multiplatform)
     alias(libs.plugins.kotlin.serialization)
@@ -16,6 +18,7 @@ kover {
 kotlin {
     androidTarget()
 
+    val xcf = XCFramework()
     listOf(
         iosX64(),
         iosArm64(),
@@ -23,6 +26,7 @@ kotlin {
     ).forEach {
         it.binaries.framework {
             baseName = "network"
+            xcf.add(this)
         }
     }
 

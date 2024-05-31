@@ -1,19 +1,19 @@
 import SwiftUI
-import database
-import dto
-import network
-//import shared
+import core
+
+struct ComposeView: UIViewControllerRepresentable {
+    func makeUIViewController(context: Context) -> UIViewController {
+        AppViewControllerKt.AppViewController()
+    }
+
+    func updateUIViewController(_ uiViewController: UIViewController, context: Context) {}
+}
 
 struct ContentView: View {
-//	let greet = Greeting().greet()
-
-	var body: some View {
-		Text("asdf")
-	}
+    var body: some View {
+        ComposeView()
+                .ignoresSafeArea(.keyboard) // Compose has own keyboard handler
+    }
 }
 
-struct ContentView_Previews: PreviewProvider {
-	static var previews: some View {
-		ContentView()
-	}
-}
+

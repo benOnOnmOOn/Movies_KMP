@@ -1,3 +1,6 @@
+import org.jetbrains.kotlin.gradle.plugin.mpp.Framework
+import org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget
+import org.jetbrains.kotlin.gradle.plugin.mpp.apple.XCFramework
 import org.jlleitschuh.gradle.ktlint.KtlintExtension
 
 plugins {
@@ -17,7 +20,7 @@ kover {
 
 kotlin {
     androidTarget()
-
+    val xcf = XCFramework()
     listOf(
         iosX64(),
         iosArm64(),
@@ -25,6 +28,8 @@ kotlin {
     ).forEach {
         it.binaries.framework {
             baseName = "database"
+            linkerOpts.add("-lsqlite3")
+            xcf.add(this)
         }
     }
 
@@ -83,6 +88,7 @@ sqldelight {
             packageName.set("com.bz.movies.kmp.database")
         }
     }
+    linkSqlite = true
 }
 
 android {

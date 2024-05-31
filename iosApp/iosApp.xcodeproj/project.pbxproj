@@ -27,6 +27,11 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0059C7452C08EF6B00F121C2 /* XCFrameworks */ = {isa = PBXFileReference; lastKnownFileType = folder; name = XCFrameworks; path = ../data/dto/build/XCFrameworks; sourceTree = "<group>"; };
+		0059C7472C08EFFB00F121C2 /* XCFrameworks */ = {isa = PBXFileReference; lastKnownFileType = folder; name = XCFrameworks; path = ../data/database/build/XCFrameworks; sourceTree = "<group>"; };
+		0059C7482C08F01300F121C2 /* XCFrameworks */ = {isa = PBXFileReference; lastKnownFileType = folder; name = XCFrameworks; path = ../data/network/build/XCFrameworks; sourceTree = "<group>"; };
+		0059C7492C08F05000F121C2 /* XCFrameworks */ = {isa = PBXFileReference; lastKnownFileType = folder; name = XCFrameworks; path = ../presentation/screens/build/XCFrameworks; sourceTree = "<group>"; };
+		0059C74A2C08F07300F121C2 /* XCFrameworks */ = {isa = PBXFileReference; lastKnownFileType = folder; name = XCFrameworks; path = ../presentation/core/build/XCFrameworks; sourceTree = "<group>"; };
 		058557BA273AAA24004C7B11 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		058557D8273AAEEB004C7B11 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		2152FB032600AC8F00CF470E /* iOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSApp.swift; sourceTree = "<group>"; };
@@ -86,6 +91,11 @@
 		7555FFB0242A642200829871 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0059C74A2C08F07300F121C2 /* XCFrameworks */,
+				0059C7492C08F05000F121C2 /* XCFrameworks */,
+				0059C7482C08F01300F121C2 /* XCFrameworks */,
+				0059C7472C08EFFB00F121C2 /* XCFrameworks */,
+				0059C7452C08EF6B00F121C2 /* XCFrameworks */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -97,9 +107,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7555FFA5242A565B00829871 /* Build configuration list for PBXNativeTarget "iosApp" */;
 			buildPhases = (
-				002D88A62A4D829200EAFB27 /* ShellScript */,
-				002D88A52A4D6D0200EAFB27 /* ShellScript */,
-				002D88A72A4D899D00EAFB27 /* Run Script */,
 				7555FF77242A565900829871 /* Sources */,
 				7555FF78242A565900829871 /* Frameworks */,
 				7555FF79242A565900829871 /* Resources */,
@@ -158,61 +165,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		002D88A52A4D6D0200EAFB27 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "cd \"$SRCROOT/..\"\n./gradlew :data:database:embedAndSignAppleFrameworkForXcode\n";
-		};
-		002D88A62A4D829200EAFB27 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "cd \"$SRCROOT/..\"\n./gradlew :data:dto:embedAndSignAppleFrameworkForXcode\n";
-		};
-		002D88A72A4D899D00EAFB27 /* Run Script */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			name = "Run Script";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "cd \"$SRCROOT/..\"\n./gradlew :data:network:embedAndSignAppleFrameworkForXcode\n";
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		7555FF77242A565900829871 /* Sources */ = {
@@ -278,7 +230,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -333,7 +285,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -364,13 +316,7 @@
 				);
 				OTHER_LDFLAGS = (
 					"$(inherited)",
-					"-framework",
-					database,
-					"$(inherited)",
-					"-framework",
-					dto,
-					"-framework",
-					network,
+					"-lsqlite3",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = orgIdentifier.iosApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -400,13 +346,7 @@
 				);
 				OTHER_LDFLAGS = (
 					"$(inherited)",
-					"-framework",
-					database,
-					"$(inherited)",
-					"-framework",
-					dto,
-					"-framework",
-					network,
+					"-lsqlite3",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = orgIdentifier.iosApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";

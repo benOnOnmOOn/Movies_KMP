@@ -1,3 +1,6 @@
+import org.jetbrains.kotlin.gradle.plugin.mpp.NativeBuildType
+import org.jetbrains.kotlin.gradle.plugin.mpp.apple.XCFramework
+
 plugins {
     alias(libs.plugins.kotlin.multiplatform)
     alias(libs.plugins.com.android.library)
@@ -16,7 +19,7 @@ kover {
 
 kotlin {
     androidTarget()
-
+    val xcf = XCFramework()
     listOf(
         iosX64(),
         iosArm64(),
@@ -24,6 +27,9 @@ kotlin {
     ).forEach {
         it.binaries.framework {
             baseName = "core"
+            linkerOpts.add("-lsqlite3")
+            xcf.add(this)
+            binaryOption("bundleId", "com.bz.movies.kmp")
         }
     }
 
@@ -58,6 +64,7 @@ kotlin {
 
         iosMain {
             dependencies {
+                implementation(libs.app.cash.sqldelight.native.driver)
             }
         }
     }
