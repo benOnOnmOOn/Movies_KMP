@@ -1,3 +1,16 @@
-PODFILE CHECKSUM: c8b607a42d26f21541b1abb39b8ff3ab6670f169
+PODS:
+  - presentationCore (1.0)
+
+DEPENDENCIES:
+  - presentationCore (from `../presentation/core`)
+
+EXTERNAL SOURCES:
+  presentationCore:
+    :path: "../presentation/core"
+
+SPEC CHECKSUMS:
+  presentationCore: f84c5365d012a63d0a350362d2581cec60c0c7e8
+
+PODFILE CHECKSUM: a63e35dec54f2c589af723addbe021474f7bf3b3
 
 COCOAPODS: 1.15.2
