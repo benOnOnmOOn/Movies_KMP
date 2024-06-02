@@ -18,17 +18,10 @@ kover {
 kotlin {
     androidTarget()
 
-    val xcf = XCFramework()
-    listOf(
-        iosX64(),
-        iosArm64(),
-        iosSimulatorArm64(),
-    ).forEach {
-        it.binaries.framework {
-            baseName = "network"
-            xcf.add(this)
-        }
-    }
+       iosX64()
+        iosArm64()
+        iosSimulatorArm64()
+
 
     sourceSets {
         commonMain {

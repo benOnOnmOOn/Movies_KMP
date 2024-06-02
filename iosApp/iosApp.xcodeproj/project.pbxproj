@@ -27,11 +27,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		0059C7452C08EF6B00F121C2 /* XCFrameworks */ = {isa = PBXFileReference; lastKnownFileType = folder; name = XCFrameworks; path = ../data/dto/build/XCFrameworks; sourceTree = "<group>"; };
-		0059C7472C08EFFB00F121C2 /* XCFrameworks */ = {isa = PBXFileReference; lastKnownFileType = folder; name = XCFrameworks; path = ../data/database/build/XCFrameworks; sourceTree = "<group>"; };
-		0059C7482C08F01300F121C2 /* XCFrameworks */ = {isa = PBXFileReference; lastKnownFileType = folder; name = XCFrameworks; path = ../data/network/build/XCFrameworks; sourceTree = "<group>"; };
-		0059C7492C08F05000F121C2 /* XCFrameworks */ = {isa = PBXFileReference; lastKnownFileType = folder; name = XCFrameworks; path = ../presentation/screens/build/XCFrameworks; sourceTree = "<group>"; };
-		0059C74A2C08F07300F121C2 /* XCFrameworks */ = {isa = PBXFileReference; lastKnownFileType = folder; name = XCFrameworks; path = ../presentation/core/build/XCFrameworks; sourceTree = "<group>"; };
 		058557BA273AAA24004C7B11 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		058557D8273AAEEB004C7B11 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		2152FB032600AC8F00CF470E /* iOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSApp.swift; sourceTree = "<group>"; };
@@ -91,11 +86,6 @@
 		7555FFB0242A642200829871 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				0059C74A2C08F07300F121C2 /* XCFrameworks */,
-				0059C7492C08F05000F121C2 /* XCFrameworks */,
-				0059C7482C08F01300F121C2 /* XCFrameworks */,
-				0059C7472C08EFFB00F121C2 /* XCFrameworks */,
-				0059C7452C08EF6B00F121C2 /* XCFrameworks */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -317,6 +307,8 @@
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-lsqlite3",
+					"-framework",
+					core,
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = orgIdentifier.iosApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -347,6 +339,8 @@
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-lsqlite3",
+					"-framework",
+					core,
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = orgIdentifier.iosApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";

@@ -1,3 +1,4 @@
+import org.jetbrains.kotlin.gradle.plugin.mpp.NativeBuildType
 import org.jetbrains.kotlin.gradle.plugin.mpp.apple.XCFramework
 
 plugins {
@@ -19,19 +20,11 @@ kover {
 kotlin {
     androidTarget()
 
-    val xcf = XCFramework()
+    iosX64()
+    iosArm64()
+    iosSimulatorArm64()
 
-    listOf(
-        iosX64(),
-        iosArm64(),
-        iosSimulatorArm64(),
-    ).forEach {
-        it.binaries.framework {
-            baseName = "screens"
-            linkerOpts.add("-lsqlite3")
-            xcf.add(this)
-        }
-    }
+
 
     sourceSets {
         commonMain {

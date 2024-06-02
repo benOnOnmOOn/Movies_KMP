@@ -1,5 +1,4 @@
 import org.jetbrains.kotlin.gradle.plugin.mpp.NativeBuildType
-import org.jetbrains.kotlin.gradle.plugin.mpp.apple.XCFramework
 
 plugins {
     alias(libs.plugins.kotlin.multiplatform)
@@ -7,6 +6,7 @@ plugins {
     alias(libs.plugins.org.jetbrains.kotlinx.kover)
     alias(libs.plugins.jetbrains.compose)
     alias(libs.plugins.compose.compiler)
+    kotlin("native.cocoapods") version "2.0.0"
 }
 
 kover {
@@ -19,7 +19,7 @@ kover {
 
 kotlin {
     androidTarget()
-    val xcf = XCFramework()
+
     listOf(
         iosX64(),
         iosArm64(),
@@ -28,17 +28,36 @@ kotlin {
         it.binaries.framework {
             baseName = "core"
             linkerOpts.add("-lsqlite3")
-            xcf.add(this)
             binaryOption("bundleId", "com.bz.movies.kmp.core")
         }
+    }
+
+    cocoapods {
+        version = "1.0"
+        summary = "Some description for a Kotlin/Native module"
+        homepage = "Link to a Kotlin/Native module homepage"
+        name = "presentationCore"
+
+        framework {
+            baseName = "presentationCore"
+            export(project(":presentation:screens"))
+            export(project(":data:network"))
+            export(project(":data:database"))
+            export(project(":data:dto"))
+        }
+
+        // Maps custom Xcode configuration to NativeBuildType
+        xcodeConfigurationToNativeBuildType["CUSTOM_DEBUG"] = NativeBuildType.DEBUG
+        xcodeConfigurationToNativeBuildType["CUSTOM_RELEASE"] = NativeBuildType.RELEASE
     }
 
     sourceSets {
         commonMain {
             dependencies {
-                implementation(project(":presentation:screens"))
-                implementation(project(":data:network"))
-                implementation(project(":data:database"))
+                api(project(":presentation:screens"))
+                api(project(":data:network"))
+                api(project(":data:database"))
+                api(project(":data:dto"))
 
                 implementation(compose.components.resources)
                 implementation(libs.org.jetbrains.kotlinx.coroutines.core)

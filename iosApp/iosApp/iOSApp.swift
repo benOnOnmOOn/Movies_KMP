@@ -1,5 +1,5 @@
 import SwiftUI
-import core
+import presentationCore
 
 @main
 struct iOSApp: App {
