@@ -34,6 +34,7 @@ kotlin {
         framework {
             linkerOpts.add("-lsqlite3")
             baseName = "presentationCore"
+            isStatic = true
             binaryOption("bundleId", "com.bz.movies.kmp.core")
             export(project(":presentation:screens"))
             export(project(":data:network"))
