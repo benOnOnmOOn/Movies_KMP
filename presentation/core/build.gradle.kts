@@ -20,17 +20,10 @@ kover {
 kotlin {
     androidTarget()
 
-    listOf(
-        iosX64(),
-        iosArm64(),
-        iosSimulatorArm64(),
-    ).forEach {
-        it.binaries.framework {
-            baseName = "core"
-            linkerOpts.add("-lsqlite3")
-            binaryOption("bundleId", "com.bz.movies.kmp.core")
-        }
-    }
+    iosX64()
+    iosArm64()
+    iosSimulatorArm64()
+
 
     cocoapods {
         version = "1.0"
@@ -39,7 +32,9 @@ kotlin {
         name = "presentationCore"
 
         framework {
+            linkerOpts.add("-lsqlite3")
             baseName = "presentationCore"
+            binaryOption("bundleId", "com.bz.movies.kmp.core")
             export(project(":presentation:screens"))
             export(project(":data:network"))
             export(project(":data:database"))
@@ -49,6 +44,8 @@ kotlin {
         // Maps custom Xcode configuration to NativeBuildType
         xcodeConfigurationToNativeBuildType["CUSTOM_DEBUG"] = NativeBuildType.DEBUG
         xcodeConfigurationToNativeBuildType["CUSTOM_RELEASE"] = NativeBuildType.RELEASE
+
+        podfile = rootProject.file("iosApp/Podfile")
     }
 
     sourceSets {
