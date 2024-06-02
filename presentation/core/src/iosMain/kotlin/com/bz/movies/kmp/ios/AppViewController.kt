@@ -9,10 +9,3 @@ import org.koin.core.context.startKoin
 fun AppViewController() = ComposeUIViewController {
     MainScreen()
 }
-
-
-fun initKoin(){
-    startKoin {
-        modules(presentationModule)
-    }
-}

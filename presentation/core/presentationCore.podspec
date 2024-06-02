@@ -8,7 +8,7 @@ Pod::Spec.new do |spec|
     spec.summary                  = 'Some description for a Kotlin/Native module'
     spec.vendored_frameworks      = 'build/cocoapods/framework/presentationCore.framework'
     spec.libraries                = 'c++'
-                
+    spec.ios.deployment_target    = '16.0'
                 
                 
     if !Dir.exist?('build/cocoapods/framework/presentationCore.framework') || Dir.empty?('build/cocoapods/framework/presentationCore.framework')

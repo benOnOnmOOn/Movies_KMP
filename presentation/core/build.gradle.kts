@@ -30,21 +30,16 @@ kotlin {
         summary = "Some description for a Kotlin/Native module"
         homepage = "Link to a Kotlin/Native module homepage"
         name = "presentationCore"
-
+        ios.deploymentTarget = "16.0"
         framework {
             linkerOpts.add("-lsqlite3")
             baseName = "presentationCore"
-            isStatic = true
             binaryOption("bundleId", "com.bz.movies.kmp.core")
             export(project(":presentation:screens"))
             export(project(":data:network"))
             export(project(":data:database"))
             export(project(":data:dto"))
         }
-
-        // Maps custom Xcode configuration to NativeBuildType
-        xcodeConfigurationToNativeBuildType["CUSTOM_DEBUG"] = NativeBuildType.DEBUG
-        xcodeConfigurationToNativeBuildType["CUSTOM_RELEASE"] = NativeBuildType.RELEASE
 
         podfile = rootProject.file("iosApp/Podfile")
     }
