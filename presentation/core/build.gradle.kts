@@ -29,7 +29,7 @@ kotlin {
             baseName = "core"
             linkerOpts.add("-lsqlite3")
             xcf.add(this)
-            binaryOption("bundleId", "com.bz.movies.kmp")
+            binaryOption("bundleId", "com.bz.movies.kmp.core")
         }
     }
 
