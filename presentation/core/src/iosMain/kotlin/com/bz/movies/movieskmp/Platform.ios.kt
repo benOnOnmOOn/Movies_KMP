@@ -1,3 +1,4 @@
+@file:Suppress("MatchingDeclarationName")
 package com.bz.movies.movieskmp
 
 import platform.UIKit.UIDevice
