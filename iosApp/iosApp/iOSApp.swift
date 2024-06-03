@@ -3,11 +3,11 @@ import presentationCore
 
 @main
 struct iOSApp: App {
-    
+
     init() {
-        AppViewControllerKt.initKoin()
+        KoinInitKt.InitKoin()
     }
-    
+
 	var body: some Scene {
 		WindowGroup {
 			ContentView()

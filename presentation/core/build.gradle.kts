@@ -1,12 +1,11 @@
 import org.jetbrains.kotlin.gradle.plugin.mpp.NativeBuildType
-
 plugins {
     alias(libs.plugins.kotlin.multiplatform)
+    alias(libs.plugins.kotlin.cocoapods)
     alias(libs.plugins.com.android.library)
     alias(libs.plugins.org.jetbrains.kotlinx.kover)
     alias(libs.plugins.jetbrains.compose)
     alias(libs.plugins.compose.compiler)
-    kotlin("native.cocoapods") version "2.0.0"
 }
 
 kover {
@@ -19,29 +18,26 @@ kover {
 
 kotlin {
     androidTarget()
-
     iosX64()
     iosArm64()
     iosSimulatorArm64()
 
-
     cocoapods {
+        summary = "Some description for the Shared Module"
+        homepage = "Link to the Shared Module homepage"
         version = "1.0"
-        summary = "Some description for a Kotlin/Native module"
-        homepage = "Link to a Kotlin/Native module homepage"
-        name = "presentationCore"
         ios.deploymentTarget = "16.0"
+        podfile = project.file("../../iosApp/Podfile")
+        name = "presentationCore"
         framework {
             linkerOpts.add("-lsqlite3")
             baseName = "presentationCore"
-            binaryOption("bundleId", "com.bz.movies.kmp.core")
+            isStatic = true
             export(project(":presentation:screens"))
             export(project(":data:network"))
             export(project(":data:database"))
             export(project(":data:dto"))
         }
-
-        podfile = rootProject.file("iosApp/Podfile")
     }
 
     sourceSets {
