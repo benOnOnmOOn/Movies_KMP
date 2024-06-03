@@ -239,7 +239,7 @@ ktlint {
     version.set("1.2.1")
     filter {
         include("**/kotlin/**")
-        exclude { it.file.path.contains("**/generate/**") }
+        exclude { it.file.path.contains("**/generated/**") }
         exclude { it.file.path.contains("**/build/**") }
     }
 }
