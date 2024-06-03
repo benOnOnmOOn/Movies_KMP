@@ -238,9 +238,9 @@ subprojects {
 ktlint {
     version.set("1.2.1")
     filter {
-        exclude { it.file.path.contains("/generated/") }
-        exclude { it.file.path.contains("/build/") }
         include("**/kotlin/**")
+        exclude { it.file.path.contains("**/generate/**") }
+        exclude { it.file.path.contains("**/build/**") }
     }
 }
 
