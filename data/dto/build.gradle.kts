@@ -1,5 +1,3 @@
-import org.jetbrains.kotlin.gradle.plugin.mpp.apple.XCFramework
-
 plugins {
     alias(libs.plugins.kotlin.multiplatform)
 }
@@ -7,9 +5,9 @@ plugins {
 kotlin {
     jvm()
 
-        iosX64()
-        iosArm64()
-        iosSimulatorArm64()
+    iosX64()
+    iosArm64()
+    iosSimulatorArm64()
 
     sourceSets {
         commonMain {
