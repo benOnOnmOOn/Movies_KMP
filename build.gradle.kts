@@ -151,13 +151,13 @@ fun PluginContainer.applyBaseConfig(project: Project) {
 
 //region Global android configuration
 fun <
-        BF : BuildFeatures,
-        BT : BuildType,
-        DC : DefaultConfig,
-        PF : ProductFlavor,
-        AR : AndroidResources,
-        IN : Installation,
-        > CommonExtension<BF, BT, DC, PF, AR, IN>.defaultBaseConfig(
+    BF : BuildFeatures,
+    BT : BuildType,
+    DC : DefaultConfig,
+    PF : ProductFlavor,
+    AR : AndroidResources,
+    IN : Installation,
+> CommonExtension<BF, BT, DC, PF, AR, IN>.defaultBaseConfig(
     project: Project,
 ) {
     compileSdk = libs.versions.android.sdk.target.get().toInt()
