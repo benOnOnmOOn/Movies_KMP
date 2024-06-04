@@ -29,7 +29,7 @@ internal data class MovieDetailsApiResponse(
     @SerialName("title") val title: String?,
     @SerialName("video") val video: Boolean?,
     @SerialName("vote_average") val voteAverage: Double?,
-    @SerialName("vote_count") val voteCount: Int?,
+    @SerialName("vote_count") val voteCount: Int?
 )
 
 @Serializable
@@ -37,13 +37,13 @@ internal data class BelongsToCollection(
     @SerialName("backdrop_path") val backdropPath: String,
     @SerialName("id") val id: Int,
     @SerialName("name") val name: String,
-    @SerialName("poster_path") val posterPath: String,
+    @SerialName("poster_path") val posterPath: String
 )
 
 @Serializable
 internal data class Genre(
     @SerialName("id") val id: Int,
-    @SerialName("name") val name: String,
+    @SerialName("name") val name: String
 )
 
 @Serializable
@@ -51,18 +51,18 @@ internal data class ProductionCompany(
     @SerialName("id") val id: Int,
     @SerialName("logo_path") val logoPath: String?,
     @SerialName("name") val name: String,
-    @SerialName("origin_country") val originCountry: String,
+    @SerialName("origin_country") val originCountry: String
 )
 
 @Serializable
 internal data class ProductionCountry(
     @SerialName("iso_3166_1") val iso31661: String,
-    @SerialName("name") val name: String,
+    @SerialName("name") val name: String
 )
 
 @Serializable
 internal data class SpokenLanguage(
     @SerialName("english_name") val englishName: String,
     @SerialName("iso_639_1") val iso6391: String,
-    @SerialName("name") val name: String,
+    @SerialName("name") val name: String
 )

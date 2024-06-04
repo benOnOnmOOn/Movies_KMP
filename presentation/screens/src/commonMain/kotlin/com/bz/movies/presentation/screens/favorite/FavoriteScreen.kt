@@ -22,12 +22,9 @@ fun FavoriteScreen(favoriteScreenViewModel: FavoriteScreenViewModel = koinViewMo
 }
 
 @Composable
-private fun FavoriteScreen(
-    state: MoviesState = MoviesState(),
-    sendEvent: (MovieEvent) -> Unit,
-) {
+private fun FavoriteScreen(state: MoviesState = MoviesState(), sendEvent: (MovieEvent) -> Unit) {
     Column(
-        horizontalAlignment = Alignment.CenterHorizontally,
+        horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Text(text = stringResource(Res.string.your_favorite_movies))
 

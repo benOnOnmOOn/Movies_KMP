@@ -24,7 +24,7 @@ internal class MovieService {
                     Json {
                         prettyPrint = true
                         isLenient = true
-                    },
+                    }
                 )
             }
         }
@@ -32,7 +32,7 @@ internal class MovieService {
     suspend fun getPopularMoviePage(
         apiKey: String,
         language: String,
-        page: Int,
+        page: Int
     ): PopularMoviesPageApiResponse {
         val url = BASE_URL.plus("movie/popular")
         return client.get(url) {
@@ -47,7 +47,7 @@ internal class MovieService {
     suspend fun getNowPlayingMovies(
         apiKey: String,
         language: String,
-        page: Int,
+        page: Int
     ): PlayingNowMoviesApiResponse {
         val url = BASE_URL.plus("movie/now_playing")
         return client.get(url) {
@@ -62,7 +62,7 @@ internal class MovieService {
     suspend fun getMovieDetails(
         movieId: Int,
         language: String,
-        apiKey: String,
+        apiKey: String
     ): MovieDetailsApiResponse {
         val url = BASE_URL.plus("movie")
         return client.get(url) {

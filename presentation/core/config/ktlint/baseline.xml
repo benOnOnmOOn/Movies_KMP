@@ -3,8 +3,8 @@
     <file name="build/generated/compose/resourceGenerator/kotlin/commonResClass/movies_kmp/presentation/core/generated/resources/Res.kt">
         <error line="2" column="1" source="standard:indent" />
         <error line="3" column="1" source="standard:indent" />
+        <error line="3" column="65" source="standard:trailing-comma-on-call-site" />
         <error line="6" column="9" source="standard:package-name" />
-        <error line="8" column="1" source="standard:import-ordering" />
         <error line="16" column="1" source="standard:indent" />
         <error line="17" column="1" source="standard:indent" />
         <error line="18" column="1" source="standard:indent" />
@@ -26,7 +26,6 @@
         <error line="35" column="1" source="standard:indent" />
         <error line="36" column="1" source="standard:indent" />
         <error line="37" column="1" source="standard:indent" />
-        <error line="37" column="44" source="standard:function-signature" />
         <error line="38" column="1" source="standard:indent" />
         <error line="40" column="1" source="standard:indent" />
         <error line="40" column="17" source="standard:class-naming" />
@@ -39,7 +38,10 @@
         <error line="48" column="1" source="standard:indent" />
         <error line="48" column="17" source="standard:class-naming" />
     </file>
-    <file name="src/commonMain/kotlin/com/bz/movies/kmp/main/MainScreen.kt">
-        <error line="19" column="5" source="standard:function-naming" />
+    <file name="src/iosMain/kotlin/com/bz/movies/kmp/ios/AppViewController.kt">
+        <error line="7" column="5" source="standard:function-naming" />
+    </file>
+    <file name="src/iosMain/kotlin/com/bz/movies/movieskmp/Platform.ios.kt">
+        <error line="8" column="1" source="standard:max-line-length" />
     </file>
 </baseline>

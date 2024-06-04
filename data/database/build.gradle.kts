@@ -18,15 +18,9 @@ kover {
 kotlin {
     androidTarget()
 
-    listOf(
-        iosX64(),
-        iosArm64(),
-        iosSimulatorArm64(),
-    ).forEach {
-        it.binaries.framework {
-            baseName = "database"
-        }
-    }
+    iosX64()
+    iosArm64()
+    iosSimulatorArm64()
 
     sourceSets {
         commonMain {
@@ -83,6 +77,7 @@ sqldelight {
             packageName.set("com.bz.movies.kmp.database")
         }
     }
+    linkSqlite = true
 }
 
 android {

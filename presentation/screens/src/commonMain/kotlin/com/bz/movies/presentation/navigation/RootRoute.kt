@@ -14,7 +14,7 @@ enum class RootRoute(val route: String) {
     Popular("tab_popular"),
     Favorite("tab_favorite"),
     More("tab_more"),
-    Details("details/{id}"),
+    Details("details/{id}")
 }
 
 fun NavController.navigateToRootRoute(rootRoute: RootRoute) {

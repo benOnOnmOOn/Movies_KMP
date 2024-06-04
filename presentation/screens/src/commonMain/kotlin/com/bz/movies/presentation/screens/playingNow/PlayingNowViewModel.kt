@@ -28,7 +28,7 @@ import kotlinx.coroutines.launch
 
 class PlayingNowViewModel(
     private val movieRepository: MovieRepository,
-    private val localMovieRepository: LocalMovieRepository,
+    private val localMovieRepository: LocalMovieRepository
 ) : ViewModel() {
     private val _state = MutableStateFlow(MoviesState())
     val state: StateFlow<MoviesState> = _state.asStateFlow()
@@ -66,7 +66,7 @@ class PlayingNowViewModel(
                     MoviesState(
                         isLoading = false,
                         isRefreshing = true,
-                        playingNowMovies = emptyList(),
+                        playingNowMovies = emptyList()
                     )
                 }
                 fetchPlayingNowMovies()
@@ -104,7 +104,7 @@ class PlayingNowViewModel(
                 _state.update {
                     MoviesState(
                         isLoading = false,
-                        playingNowMovies = data.map(MovieDto::toMovieItem),
+                        playingNowMovies = data.map(MovieDto::toMovieItem)
                     )
                 }
             }
@@ -114,7 +114,7 @@ class PlayingNowViewModel(
                 _state.update {
                     MoviesState(
                         isLoading = false,
-                        isRefreshing = false,
+                        isRefreshing = false
                     )
                 }
             }

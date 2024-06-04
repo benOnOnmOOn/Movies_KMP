@@ -33,6 +33,7 @@ plugins {
     alias(libs.plugins.kotlin.android) apply false
     alias(libs.plugins.kotlin.serialization) apply false
     alias(libs.plugins.jetbrains.kotlin.jvm) apply false
+    alias(libs.plugins.kotlin.cocoapods) apply false
 }
 
 tasks.register<Delete>("clean") {
@@ -155,9 +156,9 @@ fun <
     DC : DefaultConfig,
     PF : ProductFlavor,
     AR : AndroidResources,
-    IN : Installation,
-> CommonExtension<BF, BT, DC, PF, AR, IN>.defaultBaseConfig(
-    project: Project,
+    IN : Installation
+    > CommonExtension<BF, BT, DC, PF, AR, IN>.defaultBaseConfig(
+    project: Project
 ) {
     compileSdk = libs.versions.android.sdk.target.get().toInt()
     buildToolsVersion = "34.0.0"
@@ -189,7 +190,7 @@ fun <
             isMinifyEnabled = false
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro",
+                "proguard-rules.pro"
             )
         }
     }
@@ -207,7 +208,7 @@ fun <
             "kotlin/**",
             "META-INF/**",
             "**.properties",
-            "kotlin-tooling-metadata.json",
+            "kotlin-tooling-metadata.json"
         )
 }
 
@@ -237,9 +238,9 @@ subprojects {
 ktlint {
     version.set("1.2.1")
     filter {
-        exclude { it.file.path.contains("/generated/") }
-        exclude { it.file.path.contains("/build/") }
-        include("**/kotlin/**")
+        exclude { it.file.path.contains("**/generated/**/*") }
+        exclude { it.file.path.contains("**/build/**/*") }
+        exclude { it.file.name == "Res.kt" }
     }
 }
 

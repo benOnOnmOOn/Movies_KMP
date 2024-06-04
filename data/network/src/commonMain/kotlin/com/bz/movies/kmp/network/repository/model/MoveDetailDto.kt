@@ -7,5 +7,5 @@ data class MoveDetailDto(
     val language: String,
     val title: String,
     val genre: Set<String>,
-    val overview: String,
+    val overview: String
 )
