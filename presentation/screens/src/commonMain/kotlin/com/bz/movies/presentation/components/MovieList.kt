@@ -25,33 +25,29 @@ import movies_kmp.presentation.screens.generated.resources.ic_star
 import org.jetbrains.compose.resources.painterResource
 
 @Composable
-fun MovieContent(
-    movieItem: MovieItem,
-    isLast: Boolean,
-    onMovieClicked: (MovieItem) -> Unit,
-) {
+fun MovieContent(movieItem: MovieItem, isLast: Boolean, onMovieClicked: (MovieItem) -> Unit) {
     Row(
         Modifier
             .fillMaxWidth()
             .wrapContentHeight()
             .padding(4.dp)
-            .clickable { onMovieClicked(movieItem) },
+            .clickable { onMovieClicked(movieItem) }
     ) {
         AsyncImage(
             modifier =
-                Modifier
-                    .height(80.dp)
-                    .width(80.dp)
-                    .padding(4.dp),
+            Modifier
+                .height(80.dp)
+                .width(80.dp)
+                .padding(4.dp),
             model = movieItem.posterUrl,
             contentDescription = movieItem.title,
-            imageLoader = ImageLoader(LocalPlatformContext.current),
+            imageLoader = ImageLoader(LocalPlatformContext.current)
         )
         Column(
             Modifier
                 .fillMaxWidth()
                 .wrapContentHeight()
-                .weight(1f),
+                .weight(1f)
         ) {
             Text(text = movieItem.title)
             Text(text = movieItem.releaseDate)
@@ -61,12 +57,12 @@ fun MovieContent(
         Image(
             painterResource(Res.drawable.ic_star),
             modifier =
-                Modifier
-                    .height(40.dp)
-                    .width(40.dp)
-                    .padding(4.dp),
+            Modifier
+                .height(40.dp)
+                .width(40.dp)
+                .padding(4.dp),
             contentDescription = "",
-            contentScale = ContentScale.Crop,
+            contentScale = ContentScale.Crop
         )
     }
 
@@ -75,9 +71,9 @@ fun MovieContent(
     if (!isLast) {
         HorizontalDivider(
             modifier =
-                Modifier
-                    .fillMaxWidth()
-                    .height(2.dp),
+            Modifier
+                .fillMaxWidth()
+                .height(2.dp)
         )
     }
 }

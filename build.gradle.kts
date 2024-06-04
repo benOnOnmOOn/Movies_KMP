@@ -156,9 +156,9 @@ fun <
     DC : DefaultConfig,
     PF : ProductFlavor,
     AR : AndroidResources,
-    IN : Installation,
-> CommonExtension<BF, BT, DC, PF, AR, IN>.defaultBaseConfig(
-    project: Project,
+    IN : Installation
+    > CommonExtension<BF, BT, DC, PF, AR, IN>.defaultBaseConfig(
+    project: Project
 ) {
     compileSdk = libs.versions.android.sdk.target.get().toInt()
     buildToolsVersion = "34.0.0"
@@ -190,7 +190,7 @@ fun <
             isMinifyEnabled = false
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro",
+                "proguard-rules.pro"
             )
         }
     }
@@ -208,7 +208,7 @@ fun <
             "kotlin/**",
             "META-INF/**",
             "**.properties",
-            "kotlin-tooling-metadata.json",
+            "kotlin-tooling-metadata.json"
         )
 }
 

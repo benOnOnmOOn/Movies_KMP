@@ -24,7 +24,7 @@ import com.bz.movies.presentation.components.MovieContent
 fun MoviesContentWithPullToRefresh(
     playingNowState: MoviesState,
     refresh: () -> Unit = {},
-    onMovieClicked: (MovieItem) -> Unit,
+    onMovieClicked: (MovieItem) -> Unit
 ) {
     val state = rememberPullToRefreshState()
 
@@ -44,27 +44,24 @@ fun MoviesContentWithPullToRefresh(
         }
     Box(
         modifier =
-            Modifier
-                .padding(10.dp)
-                .fillMaxSize()
-                .nestedScroll(state.nestedScrollConnection),
+        Modifier
+            .padding(10.dp)
+            .fillMaxSize()
+            .nestedScroll(state.nestedScrollConnection)
     ) {
         MoviesContentLazyColumn(playingNowState, onMovieClicked)
         PullToRefreshContainer(
             modifier =
-                Modifier
-                    .align(Alignment.TopCenter)
-                    .graphicsLayer(scaleX = scaleFraction, scaleY = scaleFraction),
-            state = state,
+            Modifier
+                .align(Alignment.TopCenter)
+                .graphicsLayer(scaleX = scaleFraction, scaleY = scaleFraction),
+            state = state
         )
     }
 }
 
 @Composable
-fun MoviesContent(
-    playingNowState: MoviesState,
-    onMovieClicked: (MovieItem) -> Unit,
-) {
+fun MoviesContent(playingNowState: MoviesState, onMovieClicked: (MovieItem) -> Unit) {
     Box(modifier = Modifier.fillMaxSize()) {
         MoviesContentLazyColumn(playingNowState, onMovieClicked)
     }
@@ -73,19 +70,19 @@ fun MoviesContent(
 @Composable
 private fun MoviesContentLazyColumn(
     playingNowState: MoviesState,
-    onMovieClicked: (MovieItem) -> Unit,
+    onMovieClicked: (MovieItem) -> Unit
 ) {
     LazyColumn(
         modifier = Modifier.fillMaxSize(),
         contentPadding = PaddingValues(vertical = 8.dp, horizontal = 16.dp),
         verticalArrangement = Arrangement.spacedBy(8.dp),
-        horizontalAlignment = Alignment.CenterHorizontally,
+        horizontalAlignment = Alignment.CenterHorizontally
     ) {
         itemsIndexed(playingNowState.playingNowMovies) { index, movieItem ->
             MovieContent(
                 movieItem = movieItem,
                 isLast = index == playingNowState.playingNowMovies.size - 1,
-                onMovieClicked = onMovieClicked,
+                onMovieClicked = onMovieClicked
             )
         }
     }

@@ -7,6 +7,6 @@ fun OkHttpClient.Builder.configureLoggingInterceptor() {
     addInterceptor(
         HttpLoggingInterceptor().apply {
             setLevel(HttpLoggingInterceptor.Level.BODY)
-        },
+        }
     )
 }

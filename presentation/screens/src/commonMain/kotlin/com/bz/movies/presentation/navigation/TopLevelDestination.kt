@@ -16,7 +16,7 @@ data class TopLevelDestination(
     val rootRoute: RootRoute,
     val unselectedIcon: DrawableResource,
     val selectedIcon: DrawableResource,
-    val iconTextId: StringResource,
+    val iconTextId: StringResource
 )
 
 val TOP_LEVEL_DESTINATIONS =
@@ -25,24 +25,24 @@ val TOP_LEVEL_DESTINATIONS =
             rootRoute = RootRoute.PlayingNow,
             unselectedIcon = Res.drawable.ic_playing_now,
             selectedIcon = Res.drawable.ic_playing_now,
-            iconTextId = Res.string.playing_now,
+            iconTextId = Res.string.playing_now
         ),
         TopLevelDestination(
             rootRoute = RootRoute.Popular,
             unselectedIcon = Res.drawable.ic_popular,
             selectedIcon = Res.drawable.ic_popular,
-            iconTextId = Res.string.popular,
+            iconTextId = Res.string.popular
         ),
         TopLevelDestination(
             rootRoute = RootRoute.Favorite,
             unselectedIcon = Res.drawable.ic_favorite,
             selectedIcon = Res.drawable.ic_favorite,
-            iconTextId = Res.string.favorite,
+            iconTextId = Res.string.favorite
         ),
         TopLevelDestination(
             rootRoute = RootRoute.More,
             unselectedIcon = Res.drawable.ic_more,
             selectedIcon = Res.drawable.ic_more,
-            iconTextId = Res.string.more,
-        ),
+            iconTextId = Res.string.more
+        )
     )
