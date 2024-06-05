@@ -5,16 +5,16 @@ com-android-plugin = "8.4.1"
 core = "1.13.1"
 android-sdk-target = "34"
 android-min-sdk = "28"
-google-services = "4.4.1"
+google-services = "4.4.2"
 kotlinx-serialization = "1.6.3"
 lifecycle = "2.8.1"
-material3-version = "1.6.10"
+material3-version = "1.6.11"
 navigation-compose = "2.7.7"
 navigation-compose-version = "2.7.0-alpha07"
 sqlite = "2.4.0"
 startup-runtime = "1.1.1"
 compose = "1.6.7"
-compose-plugin = "1.6.10"
+compose-plugin = "1.6.11"
 kotlin = "2.0.0"
 kotlinx-coroutines = "1.9.0-RC"
 mockk = "1.13.11"
@@ -33,13 +33,9 @@ androidx-activity = { module = "androidx.activity:activity", version.ref = "acti
 androidx-activity-compose = { module = "androidx.activity:activity-compose", version.ref = "activity-compose" }
 androidx-animation = { module = "androidx.compose.animation:animation", version.ref = "compose" }
 androidx-animation-core = { module = "androidx.compose.animation:animation-core", version.ref = "compose" }
-androidx-compose-ui-android = { module = "androidx.compose.ui:ui-android", version.ref = "compose" }
-androidx-compose-ui-graphics-android = { module = "androidx.compose.ui:ui-graphics-android", version.ref = "compose" }
 androidx-compose-ui-tooling = { module = "androidx.compose.ui:ui-tooling-android", version.ref = "compose" }
 androidx-compose-ui-tooling-preview = { module = "androidx.compose.ui:ui-tooling-preview-android", version.ref = "compose" }
 androidx-compose-runtime-android = { module = "androidx.compose.runtime:runtime-android", version.ref = "compose" }
-androidx-compose-foundation-android = { module = "androidx.compose.foundation:foundation-android", version.ref = "compose" }
-androidx-compose-foundation-layout-android = { module = "androidx.compose.foundation:foundation-layout-android", version.ref = "compose" }
 androidx-compose-material3 = { module = "androidx.compose.material3:material3", version.ref = "material3" }
 androidx-compose-ui-test-manifest = { module = "androidx.compose.ui:ui-test-manifest", version.ref = "compose" }
 androidx-core = { module = "androidx.core:core", version.ref = "core" }
@@ -66,8 +62,8 @@ coil = { module = "io.coil-kt.coil3:coil", version.ref = "coil-core" }
 coil-compose-core = { module = "io.coil-kt.coil3:coil-compose-core", version.ref = "coil-core" }
 coil-core = { module = "io.coil-kt.coil3:coil-core", version.ref = "coil-core" }
 coil-network-ktor = { module = "io.coil-kt.coil3:coil-network-ktor", version.ref = "coil-core" }
-com-google-firebase-analytics-ktx = { module = "com.google.firebase:firebase-analytics-ktx", version = "22.0.0" }
-com-google-firebase-crashlytics-ktx = { module = "com.google.firebase:firebase-crashlytics-ktx", version = "19.0.0" }
+com-google-firebase-analytics-ktx = { module = "com.google.firebase:firebase-analytics-ktx", version = "22.0.1" }
+com-google-firebase-crashlytics-ktx = { module = "com.google.firebase:firebase-crashlytics-ktx", version = "19.0.1" }
 com-jakewharton-timber = { module = "com.jakewharton.timber:timber", version.ref = "timber" }
 com-squareup-okhttp-logging-interceptor = { group = "com.squareup.okhttp3", name = "logging-interceptor", version.ref = "okhttp" }
 google-services = { module = "com.google.gms:google-services", version.ref = "google-services" }
@@ -100,7 +96,7 @@ org-junit-jupiter-engine = { group = "org.junit.jupiter", name = "junit-jupiter-
 [plugins]
 com-android-application = { id = "com.android.application", version.ref = "com-android-plugin" }
 com-android-library = { id = "com.android.library", version.ref = "com-android-plugin" }
-com-google-gms-google-services = { id = "com.google.gms.google-services", version = "4.4.1" }
+com-google-gms-google-services = { id = "com.google.gms.google-services", version.ref = "google-services" }
 com_github_ben-manes_versions = { id = "com.github.ben-manes.versions", version = "0.51.0" }
 io_gitlab_arturbosch_detekt = { id = "io.gitlab.arturbosch.detekt", version = "1.23.6" }
 com_autonomousapps_dependency-analysis = { id = "com.autonomousapps.dependency-analysis", version = "1.32.0" }

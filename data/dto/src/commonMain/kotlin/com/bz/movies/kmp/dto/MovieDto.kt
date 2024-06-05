@@ -6,5 +6,5 @@ data class MovieDto(
     val title: String,
     val publicationDate: String,
     val language: String,
-    val rating: Int
+    val rating: Int,
 )

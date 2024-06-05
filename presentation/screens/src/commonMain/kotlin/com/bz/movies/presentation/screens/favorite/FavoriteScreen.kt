@@ -14,7 +14,9 @@ import movies_kmp.presentation.screens.generated.resources.Res
 import movies_kmp.presentation.screens.generated.resources.your_favorite_movies
 import org.jetbrains.compose.resources.stringResource
 import org.koin.compose.viewmodel.koinViewModel
+import org.koin.core.annotation.KoinExperimentalAPI
 
+@OptIn(KoinExperimentalAPI::class)
 @Composable
 fun FavoriteScreen(favoriteScreenViewModel: FavoriteScreenViewModel = koinViewModel()) {
     val playingNow by favoriteScreenViewModel.state.collectAsState()
@@ -22,9 +24,12 @@ fun FavoriteScreen(favoriteScreenViewModel: FavoriteScreenViewModel = koinViewMo
 }
 
 @Composable
-private fun FavoriteScreen(state: MoviesState = MoviesState(), sendEvent: (MovieEvent) -> Unit) {
+private fun FavoriteScreen(
+    state: MoviesState = MoviesState(),
+    sendEvent: (MovieEvent) -> Unit,
+) {
     Column(
-        horizontalAlignment = Alignment.CenterHorizontally
+        horizontalAlignment = Alignment.CenterHorizontally,
     ) {
         Text(text = stringResource(Res.string.your_favorite_movies))
 

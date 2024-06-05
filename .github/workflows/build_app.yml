@@ -33,8 +33,8 @@ jobs:
       - name: Run android lint
         run: ./gradlew lint
 
-#      - name: Run ktlint format check
-#        run: ./gradlew ktlintCheck
+      - name: Run ktlint format check
+        run: ./gradlew ktlintCheck
 
       - name: Run unit test
         run: ./gradlew testDebugUnitTest

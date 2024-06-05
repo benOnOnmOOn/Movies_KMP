@@ -22,6 +22,9 @@ kotlin {
     iosSimulatorArm64()
 
     sourceSets {
+        all {
+            languageSettings.optIn("org.koin.core.annotation.KoinExperimentalAPI")
+        }
         commonMain {
             dependencies {
                 api(project(":data:network"))
