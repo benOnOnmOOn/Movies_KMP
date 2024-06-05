@@ -18,7 +18,7 @@ import org.koin.compose.viewmodel.koinViewModel
 @Composable
 fun PopularMoviesScreen(
     playingNowViewModel: PopularMoviesViewModel = koinViewModel(),
-    navController: NavHostController
+    navController: NavHostController,
 ) {
     val playingNow by playingNowViewModel.state.collectAsState()
     PopularMoviesScreen(playingNow, playingNowViewModel::sendEvent) {
@@ -30,10 +30,10 @@ fun PopularMoviesScreen(
 fun PopularMoviesScreen(
     state: MoviesState = MoviesState(),
     sendEvent: (MovieEvent) -> Unit = {},
-    onMovieClicked: (id: Int) -> Unit = {}
+    onMovieClicked: (id: Int) -> Unit = {},
 ) {
     Column(
-        horizontalAlignment = Alignment.CenterHorizontally
+        horizontalAlignment = Alignment.CenterHorizontally,
     ) {
         Text(text = stringResource(Res.string.popular_now_screen_title))
 
@@ -44,7 +44,7 @@ fun PopularMoviesScreen(
 //                Timber.i("Item id : ${it.id}")
                 sendEvent(MovieEvent.OnMovieClicked(it))
                 onMovieClicked(it.id)
-            }
+            },
         )
     }
 }

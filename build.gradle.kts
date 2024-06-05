@@ -156,15 +156,21 @@ fun <
     DC : DefaultConfig,
     PF : ProductFlavor,
     AR : AndroidResources,
-    IN : Installation
-    > CommonExtension<BF, BT, DC, PF, AR, IN>.defaultBaseConfig(
-    project: Project
+    IN : Installation,
+> CommonExtension<BF, BT, DC, PF, AR, IN>.defaultBaseConfig(
+    project: Project,
 ) {
-    compileSdk = libs.versions.android.sdk.target.get().toInt()
+    compileSdk =
+        libs.versions.android.sdk.target
+            .get()
+            .toInt()
     buildToolsVersion = "34.0.0"
 
     defaultConfig {
-        minSdk = libs.versions.android.min.sdk.get().toInt()
+        minSdk =
+            libs.versions.android.min.sdk
+                .get()
+                .toInt()
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         resourceConfigurations.addAll(listOf("en", "pl"))
@@ -190,7 +196,7 @@ fun <
             isMinifyEnabled = false
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
+                "proguard-rules.pro",
             )
         }
     }
@@ -208,7 +214,7 @@ fun <
             "kotlin/**",
             "META-INF/**",
             "**.properties",
-            "kotlin-tooling-metadata.json"
+            "kotlin-tooling-metadata.json",
         )
 }
 
@@ -226,7 +232,10 @@ fun BaseAppModuleExtension.baseConfig(project: Project) {
         includeInBundle = false
     }
     defaultConfig {
-        targetSdk = libs.versions.android.sdk.target.get().toInt()
+        targetSdk =
+            libs.versions.android.sdk.target
+                .get()
+                .toInt()
     }
 }
 
@@ -236,7 +245,7 @@ subprojects {
 // endregion
 
 ktlint {
-    version.set("1.2.1")
+    version.set("1.3.0")
     filter {
         exclude { it.file.path.contains("**/generated/**/*") }
         exclude { it.file.path.contains("**/build/**/*") }

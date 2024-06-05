@@ -24,7 +24,7 @@ import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 
 class FavoriteScreenViewModel(
-    private val localMovieRepository: LocalMovieRepository
+    private val localMovieRepository: LocalMovieRepository,
 ) : ViewModel() {
     private val _state = MutableStateFlow(MoviesState())
     val state: StateFlow<MoviesState> = _state.asStateFlow()
@@ -70,7 +70,7 @@ class FavoriteScreenViewModel(
                 _state.update {
                     MoviesState(
                         isLoading = false,
-                        playingNowMovies = data.map(MovieDto::toMovieItem)
+                        playingNowMovies = data.map(MovieDto::toMovieItem),
                     )
                 }
             }
@@ -80,7 +80,7 @@ class FavoriteScreenViewModel(
                 _state.update {
                     MoviesState(
                         isLoading = false,
-                        isRefreshing = false
+                        isRefreshing = false,
                     )
                 }
             }

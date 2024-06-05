@@ -15,7 +15,10 @@ import org.jetbrains.compose.resources.stringResource
 import org.koin.compose.viewmodel.koinViewModel
 
 @Composable
-fun MovieDetailsScreen(id: Int?, movieDetailsViewModel: MovieDetailsViewModel = koinViewModel()) {
+fun MovieDetailsScreen(
+    id: Int?,
+    movieDetailsViewModel: MovieDetailsViewModel = koinViewModel(),
+) {
     val playingNow by movieDetailsViewModel.state.collectAsState()
     if (id != null) {
         movieDetailsViewModel.fetchMovieDetails(id)
@@ -27,7 +30,7 @@ fun MovieDetailsScreen(id: Int?, movieDetailsViewModel: MovieDetailsViewModel = 
 fun MovieDetailsScreen(state: MovieDetailState = MovieDetailState()) {
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
-        modifier = Modifier.fillMaxSize()
+        modifier = Modifier.fillMaxSize(),
     ) {
         Text(text = stringResource(Res.string.details_screen_title))
 

@@ -28,7 +28,7 @@ import kotlinx.coroutines.launch
 
 class PopularMoviesViewModel(
     private val movieRepository: MovieRepository,
-    private val localMovieRepository: LocalMovieRepository
+    private val localMovieRepository: LocalMovieRepository,
 ) : ViewModel() {
     private val _state = MutableStateFlow(MoviesState())
     val state: StateFlow<MoviesState> = _state.asStateFlow()
@@ -44,13 +44,15 @@ class PopularMoviesViewModel(
         handleEvent()
     }
 
-    fun sendEvent(event: MovieEvent) = viewModelScope.launch {
-        _event.emit(event)
-    }
+    fun sendEvent(event: MovieEvent) =
+        viewModelScope.launch {
+            _event.emit(event)
+        }
 
-    private fun handleEvent() = viewModelScope.launch {
-        event.collect { handleEvent(it) }
-    }
+    private fun handleEvent() =
+        viewModelScope.launch {
+            event.collect { handleEvent(it) }
+        }
 
     private suspend fun handleEvent(event: MovieEvent) {
         when (event) {
@@ -73,7 +75,7 @@ class PopularMoviesViewModel(
                 _state.update {
                     MoviesState(
                         isLoading = false,
-                        playingNowMovies = data.map(MovieDto::toMovieItem)
+                        playingNowMovies = data.map(MovieDto::toMovieItem),
                     )
                 }
                 localMovieRepository.insertPopularMovies(data)
@@ -100,7 +102,7 @@ class PopularMoviesViewModel(
                 _state.update {
                     MoviesState(
                         isLoading = false,
-                        playingNowMovies = data.map(MovieDto::toMovieItem)
+                        playingNowMovies = data.map(MovieDto::toMovieItem),
                     )
                 }
             }
@@ -110,7 +112,7 @@ class PopularMoviesViewModel(
                 _state.update {
                     MoviesState(
                         isLoading = false,
-                        isRefreshing = false
+                        isRefreshing = false,
                     )
                 }
             }

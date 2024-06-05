@@ -6,5 +6,5 @@ data class MovieItem(
     val title: String,
     val releaseDate: String,
     val rating: Int,
-    val language: String
+    val language: String,
 )

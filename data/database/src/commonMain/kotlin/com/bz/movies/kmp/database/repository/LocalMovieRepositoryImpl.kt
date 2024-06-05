@@ -18,7 +18,7 @@ import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.withContext
 
 internal class LocalMovieRepositoryImpl(
-    private val queries: MoviesDB2Queries
+    private val queries: MoviesDB2Queries,
 ) : LocalMovieRepository {
     override val favoritesMovies: Flow<List<MovieDto>>
         get() =
@@ -62,11 +62,12 @@ internal class LocalMovieRepositoryImpl(
             }
         }
 
-    override suspend fun clearPlayingNowMovies(): Result<Unit> = withContext(Dispatchers.IO) {
-        runCatching {
-            queries.clearPlayingNow()
+    override suspend fun clearPlayingNowMovies(): Result<Unit> =
+        withContext(Dispatchers.IO) {
+            runCatching {
+                queries.clearPlayingNow()
+            }
         }
-    }
 
     override suspend fun insertPopularMovies(movieDto: List<MovieDto>): Result<Unit> =
         withContext(Dispatchers.IO) {
@@ -75,9 +76,10 @@ internal class LocalMovieRepositoryImpl(
             }
         }
 
-    override suspend fun clearPopularMovies(): Result<Unit> = withContext(Dispatchers.IO) {
-        runCatching {
-            queries.clearPopularNow()
+    override suspend fun clearPopularMovies(): Result<Unit> =
+        withContext(Dispatchers.IO) {
+            runCatching {
+                queries.clearPopularNow()
+            }
         }
-    }
 }

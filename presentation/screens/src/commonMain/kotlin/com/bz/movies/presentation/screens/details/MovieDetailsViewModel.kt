@@ -7,7 +7,6 @@ import com.bz.movies.kmp.network.repository.NoInternetException
 import com.bz.movies.presentation.screens.common.MovieDetailState
 import com.bz.movies.presentation.screens.common.MovieEffect
 import com.bz.movies.presentation.screens.common.MovieItem
-import kotlin.random.Random
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -15,6 +14,7 @@ import kotlinx.coroutines.flow.asSharedFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
+import kotlin.random.Random
 
 class MovieDetailsViewModel(private val movieRepository: MovieRepository) : ViewModel() {
     private val _state = MutableStateFlow(MovieDetailState())
@@ -33,14 +33,14 @@ class MovieDetailsViewModel(private val movieRepository: MovieRepository) : View
                     MovieDetailState(
                         isLoading = false,
                         movieDetails =
-                        MovieItem(
-                            id = movieId,
-                            language = data.language,
-                            posterUrl = data.posterUrl,
-                            title = data.title,
-                            rating = Random.nextInt(40, 90),
-                            releaseDate = data.publicationDate
-                        )
+                            MovieItem(
+                                id = movieId,
+                                language = data.language,
+                                posterUrl = data.posterUrl,
+                                title = data.title,
+                                rating = Random.nextInt(40, 90),
+                                releaseDate = data.publicationDate,
+                            ),
                     )
                 }
             }
