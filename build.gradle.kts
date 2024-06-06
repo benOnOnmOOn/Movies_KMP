@@ -90,6 +90,9 @@ tasks.register<Detekt>("detektAll") {
     description = "Runs Detekt for all modules"
     group = "verification"
     jvmTarget = "17"
+    allRules = false
+    config = files(configFile)
+    baseline = file(baselineFile)
     setSource(projectSource)
     include(kotlinFiles)
     exclude(resourceFiles, buildFiles)
