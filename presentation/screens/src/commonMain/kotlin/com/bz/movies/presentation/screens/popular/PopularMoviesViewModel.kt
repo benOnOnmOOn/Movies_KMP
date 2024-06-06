@@ -2,6 +2,7 @@ package com.bz.movies.presentation.screens.popular
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import co.touchlab.kermit.Logger
 import com.bz.movies.kmp.database.repository.LocalMovieRepository
 import com.bz.movies.kmp.dto.MovieDto
 import com.bz.movies.kmp.network.repository.MovieRepository
@@ -68,7 +69,6 @@ class PopularMoviesViewModel(
 
     private fun fetchPopularNowMovies() {
         viewModelScope.launch {
-            // Timber.e(it)
             val result = movieRepository.getPopularMovies(1)
 
             result.onSuccess { data ->
@@ -83,12 +83,17 @@ class PopularMoviesViewModel(
             result.onFailure {
                 val error =
                     when (it) {
-                        is NoInternetException -> MovieEffect.NetworkConnectionError
+                        is NoInternetException -> {
+                            Logger.w(it) { "Failed to fetch popular movies. Network exception" }
+                            MovieEffect.NetworkConnectionError
+                        }
 
-                        else -> MovieEffect.UnknownError
+                        else -> {
+                            Logger.e(it) { "Failed to fetch popular movies" }
+                            MovieEffect.UnknownError
+                        }
                     }
                 _effect.emit(error)
-                // Timber.e(it)
                 _state.update { MoviesState(isLoading = false) }
             }
         }
@@ -108,7 +113,6 @@ class PopularMoviesViewModel(
             }
             .catch {
                 _effect.emit(MovieEffect.UnknownError)
-//                Timber.e(it)
                 _state.update {
                     MoviesState(
                         isLoading = false,

@@ -90,7 +90,11 @@ dependencies {
     implementation(libs.androidx.startup.runtime)
     implementation(libs.androidx.compose.runtime.android)
 
-    implementation(libs.com.jakewharton.timber)
+    implementation(libs.kermit)
+    debugImplementation(libs.kermit.android.debug)
+    debugImplementation(libs.kermit.core.android.debug)
+    releaseImplementation(libs.kermit.crashlytics)
+    releaseImplementation(libs.kermit.core)
 
     releaseImplementation(libs.com.google.firebase.analytics.ktx)
     releaseImplementation(libs.com.google.firebase.crashlytics.ktx)

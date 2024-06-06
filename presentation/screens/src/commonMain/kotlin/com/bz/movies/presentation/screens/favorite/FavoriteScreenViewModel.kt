@@ -2,6 +2,7 @@ package com.bz.movies.presentation.screens.favorite
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import co.touchlab.kermit.Logger
 import com.bz.movies.kmp.database.repository.LocalMovieRepository
 import com.bz.movies.kmp.dto.MovieDto
 import com.bz.movies.presentation.mappers.toDTO
@@ -76,7 +77,7 @@ class FavoriteScreenViewModel(
             }
             .catch {
                 _effect.emit(MovieEffect.UnknownError)
-//                Timber.e(it)
+                Logger.e(it.cause) { "Failed to fetch favorite movies from local db" }
                 _state.update {
                     MoviesState(
                         isLoading = false,

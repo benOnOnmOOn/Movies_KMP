@@ -6,6 +6,7 @@ core = "1.13.1"
 android-sdk-target = "34"
 android-min-sdk = "28"
 google-services = "4.4.2"
+kermit = "2.0.3"
 kotlinx-serialization = "1.6.3"
 lifecycle = "2.8.1"
 material3-version = "1.6.11"
@@ -20,7 +21,6 @@ kotlinx-coroutines = "1.9.0-RC"
 mockk = "1.13.11"
 monitor = "1.6.1"
 junit = "5.10.2"
-timber = "5.0.1"
 okhttp = "4.12.0"
 material3 = "1.2.1"
 ktor = "2.3.11"
@@ -64,7 +64,6 @@ coil-core = { module = "io.coil-kt.coil3:coil-core", version.ref = "coil-core" }
 coil-network-ktor = { module = "io.coil-kt.coil3:coil-network-ktor", version.ref = "coil-core" }
 com-google-firebase-analytics-ktx = { module = "com.google.firebase:firebase-analytics-ktx", version = "22.0.1" }
 com-google-firebase-crashlytics-ktx = { module = "com.google.firebase:firebase-crashlytics-ktx", version = "19.0.1" }
-com-jakewharton-timber = { module = "com.jakewharton.timber:timber", version.ref = "timber" }
 com-squareup-okhttp-logging-interceptor = { group = "com.squareup.okhttp3", name = "logging-interceptor", version.ref = "okhttp" }
 google-services = { module = "com.google.gms:google-services", version.ref = "google-services" }
 io-insert-koin-core = { group = "io.insert-koin", name = "koin-core", version.ref = "koin" }
@@ -81,6 +80,11 @@ io-ktor-http = { module = "io.ktor:ktor-http", version.ref = "ktor" }
 io-ktor-serialization = { module = "io.ktor:ktor-serialization", version.ref = "ktor" }
 io-ktor-utils = { module = "io.ktor:ktor-utils", version.ref = "ktor" }
 io-mockk = { group = "io.mockk", name = "mockk", version.ref = "mockk" }
+kermit = { module = "co.touchlab:kermit", version.ref = "kermit" }
+kermit-android-debug = { module = "co.touchlab:kermit-android-debug", version.ref = "kermit" }
+kermit-core = { module = "co.touchlab:kermit-core", version.ref = "kermit" }
+kermit-core-android-debug = { module = "co.touchlab:kermit-core-android-debug", version.ref = "kermit" }
+kermit-crashlytics = { module = "co.touchlab:kermit-crashlytics", version.ref = "kermit" }
 kotlin-stdlib = { module = "org.jetbrains.kotlin:kotlin-stdlib", version.ref = "kotlin" }
 kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
 kotlinx-serialization-core = { module = "org.jetbrains.kotlinx:kotlinx-serialization-core", version.ref = "kotlinx-serialization" }

@@ -7,7 +7,6 @@ import io.ktor.client.engine.okhttp.OkHttp
 actual fun httpClient(config: HttpClientConfig<*>.() -> Unit): HttpClient =
     HttpClient(OkHttp) {
         config(this)
-
         engine {
             config {
                 retryOnConnectionFailure(false)
