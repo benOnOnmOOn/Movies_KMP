@@ -2,6 +2,7 @@ package com.bz.movies.presentation.screens.playingNow
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import co.touchlab.kermit.Logger
 import com.bz.movies.kmp.database.repository.LocalMovieRepository
 import com.bz.movies.kmp.dto.MovieDto
 import com.bz.movies.kmp.network.repository.MovieRepository
@@ -76,8 +77,6 @@ class PlayingNowViewModel(
 
     private fun fetchPlayingNowMovies() {
         viewModelScope.launch {
-            // Timber.e(it)
-
             localMovieRepository.clearPlayingNowMovies()
             val result = movieRepository.getPlayingNowMovies()
 
@@ -87,11 +86,17 @@ class PlayingNowViewModel(
             result.onFailure {
                 val error =
                     when (it) {
-                        is NoInternetException -> MovieEffect.NetworkConnectionError
-                        else -> MovieEffect.UnknownError
+                        is NoInternetException -> {
+                            Logger.w(it.cause) { "Failed to fetch playing now movies. Network exception" }
+                            MovieEffect.NetworkConnectionError
+                        }
+
+                        else -> {
+                            Logger.e(it) { "Failed to fetch playing now movies" }
+                            MovieEffect.UnknownError
+                        }
                     }
                 _effect.emit(error)
-                // Timber.e(it)
             }
         }
     }
@@ -110,7 +115,6 @@ class PlayingNowViewModel(
             }
             .catch {
                 _effect.emit(MovieEffect.UnknownError)
-//                Timber.e(it)
                 _state.update {
                     MoviesState(
                         isLoading = false,

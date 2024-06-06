@@ -43,6 +43,8 @@ kotlin {
                 implementation(libs.io.insert.koin.core)
                 implementation(libs.io.insert.koin.compose)
                 implementation(libs.io.insert.koin.compose.viemodel)
+
+                implementation(libs.kermit)
             }
         }
         commonTest {
@@ -92,5 +94,9 @@ android {
         implementation(libs.androidx.compose.ui.tooling.preview)
         implementation(libs.androidx.lifecycle.viewmodel.compose)
         implementation(libs.androidx.navigation.compose)
+
+        debugImplementation(libs.kermit.android.debug)
+        debugImplementation(libs.kermit.core.android.debug)
+        releaseImplementation(libs.kermit.core)
     }
 }

@@ -2,6 +2,7 @@ package com.bz.movies.presentation.screens.details
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import co.touchlab.kermit.Logger
 import com.bz.movies.kmp.network.repository.MovieRepository
 import com.bz.movies.kmp.network.repository.NoInternetException
 import com.bz.movies.presentation.screens.common.MovieDetailState
@@ -26,7 +27,6 @@ class MovieDetailsViewModel(private val movieRepository: MovieRepository) : View
     @Suppress("MagicNumber")
     fun fetchMovieDetails(movieId: Int) {
         viewModelScope.launch {
-            // Timber.e(it)
             val result = movieRepository.getMovieDetail(movieId)
             result.onSuccess { data ->
                 _state.update {
@@ -44,15 +44,21 @@ class MovieDetailsViewModel(private val movieRepository: MovieRepository) : View
                     )
                 }
             }
-            // Timber.e(it)
+
             result.onFailure {
                 val error =
                     when (it) {
-                        is NoInternetException -> MovieEffect.NetworkConnectionError
-                        else -> MovieEffect.UnknownError
+                        is NoInternetException -> {
+                            Logger.w(it) { "Failed to fetch movie details. Network exception" }
+                            MovieEffect.NetworkConnectionError
+                        }
+                        else -> {
+                            Logger.e(it) { "Failed to fetch movie details" }
+                            MovieEffect.UnknownError
+                        }
                     }
                 _effect.emit(error)
-                //                Timber.e(it)
+
                 _state.update { MovieDetailState(isLoading = false) }
             }
         }
