@@ -23,8 +23,8 @@ jobs:
           cache-encryption-key: ${{ secrets.GRADLE_ENCRYPTION_KEY }}
           gradle-home-cache-cleanup: true
 
-      # Build debug app to improve pr check build speed by storing debug cache
-      - name: Build debug apk
+      # Build debug and release app to improve pr check build speed by creating and storing cache
+      - name: Build apk
         run: ./gradlew :androidApp:assemble
 
       - name: Run detket plugin

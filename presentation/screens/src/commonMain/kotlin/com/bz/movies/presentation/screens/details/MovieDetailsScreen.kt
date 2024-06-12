@@ -19,11 +19,16 @@ fun MovieDetailsScreen(
     id: Int?,
     movieDetailsViewModel: MovieDetailsViewModel = koinViewModel(),
 ) {
-    val playingNow by movieDetailsViewModel.state.collectAsState()
     if (id != null) {
         movieDetailsViewModel.fetchMovieDetails(id)
     }
-    MovieDetailsScreen(playingNow)
+    MovieDetailsScreen(movieDetailsViewModel)
+}
+
+@Composable
+fun MovieDetailsScreen(movieDetailsViewModel: MovieDetailsViewModel) {
+    val state by movieDetailsViewModel.state.collectAsState()
+    MovieDetailsScreen(state)
 }
 
 @Composable
