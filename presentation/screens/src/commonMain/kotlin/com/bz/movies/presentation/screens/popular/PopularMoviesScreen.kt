@@ -7,6 +7,7 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.navigation.NavHostController
+import co.touchlab.kermit.Logger
 import com.bz.movies.presentation.screens.common.MovieEvent
 import com.bz.movies.presentation.screens.common.MoviesContentWithPullToRefresh
 import com.bz.movies.presentation.screens.common.MoviesState
@@ -41,7 +42,7 @@ fun PopularMoviesScreen(
             playingNowState = state,
             refresh = { sendEvent(MovieEvent.Refresh) },
             onMovieClicked = {
-//                Timber.i("Item id : ${it.id}")
+                Logger.i("Item id : ${it.id}")
                 sendEvent(MovieEvent.OnMovieClicked(it))
                 onMovieClicked(it.id)
             },

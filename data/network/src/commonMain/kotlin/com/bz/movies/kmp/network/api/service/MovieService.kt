@@ -24,6 +24,7 @@ internal class MovieService {
                     Json {
                         prettyPrint = true
                         isLenient = true
+                        ignoreUnknownKeys = true
                     },
                 )
             }
