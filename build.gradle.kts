@@ -215,6 +215,7 @@ fun <
             "META-INF/**",
             "**.properties",
             "kotlin-tooling-metadata.json",
+            "DebugProbesKt.bin"
         )
 }
 
