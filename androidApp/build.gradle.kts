@@ -1,5 +1,3 @@
-import com.google.gms.googleservices.GoogleServicesTask
-
 plugins {
     alias(libs.plugins.com.android.application)
     alias(libs.plugins.com.google.gms.google.services) apply false
@@ -112,7 +110,6 @@ dependencies {
     androidTestImplementation(libs.org.junit.jupiter.api)
     androidTestRuntimeOnly(libs.org.junit.jupiter.engine)
 }
-
 
 dependencyGuard {
     // All dependencies included in Production Release APK

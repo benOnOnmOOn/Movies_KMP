@@ -151,13 +151,13 @@ fun PluginContainer.applyBaseConfig(project: Project) {
 
 //region Global android configuration
 fun <
-        BF : BuildFeatures,
-        BT : BuildType,
-        DC : DefaultConfig,
-        PF : ProductFlavor,
-        AR : AndroidResources,
-        IN : Installation,
-        > CommonExtension<BF, BT, DC, PF, AR, IN>.defaultBaseConfig(
+    BF : BuildFeatures,
+    BT : BuildType,
+    DC : DefaultConfig,
+    PF : ProductFlavor,
+    AR : AndroidResources,
+    IN : Installation,
+> CommonExtension<BF, BT, DC, PF, AR, IN>.defaultBaseConfig(
     project: Project,
 ) {
     compileSdk =
@@ -215,7 +215,7 @@ fun <
             "META-INF/**",
             "**.properties",
             "kotlin-tooling-metadata.json",
-            "DebugProbesKt.bin"
+            "DebugProbesKt.bin",
         )
 }
 
@@ -239,8 +239,6 @@ fun BaseAppModuleExtension.baseConfig(project: Project) {
                 .toInt()
     }
 }
-
-
 
 subprojects {
     project.plugins.applyBaseConfig(project)
