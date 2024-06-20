@@ -7,16 +7,10 @@
 
 
 # Remove all standard Android logging invocations.
--assumenosideeffects class android.util.Log {
-    public static boolean isLoggable(java.lang.String, int);
-    public static int v(...);
-    public static int i(...);
-    public static int w(...);
-    public static int d(...);
-    public static int e(...);
-    public static java.lang.String
-                    getStackTraceString(java.lang.Throwable);
-}
+-assumenosideeffects class android.util.Log { *; }
+
+-assumenosideeffects class java.util.logging.** { *; }
+-assumenosideeffects class org.slf4j.** { *; }
 
 # Remove all printing of stack traces.
 -assumenosideeffects class java.lang.Throwable {

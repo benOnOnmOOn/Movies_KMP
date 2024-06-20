@@ -151,13 +151,13 @@ fun PluginContainer.applyBaseConfig(project: Project) {
 
 //region Global android configuration
 fun <
-    BF : BuildFeatures,
-    BT : BuildType,
-    DC : DefaultConfig,
-    PF : ProductFlavor,
-    AR : AndroidResources,
-    IN : Installation,
-> CommonExtension<BF, BT, DC, PF, AR, IN>.defaultBaseConfig(
+        BF : BuildFeatures,
+        BT : BuildType,
+        DC : DefaultConfig,
+        PF : ProductFlavor,
+        AR : AndroidResources,
+        IN : Installation,
+        > CommonExtension<BF, BT, DC, PF, AR, IN>.defaultBaseConfig(
     project: Project,
 ) {
     compileSdk =
@@ -239,8 +239,29 @@ fun BaseAppModuleExtension.baseConfig(project: Project) {
     }
 }
 
+
+
 subprojects {
     project.plugins.applyBaseConfig(project)
+    configurations.all {
+        exclude("org.jetbrains.kotlin", "kotlin-stdlib-jdk7")
+        exclude("org.jetbrains.kotlin", "kotlin-stdlib-jdk8")
+        exclude("com.google.code.findbugs", "jsr305")
+        exclude("com.google.errorprone", "error_prone_annotations")
+        exclude("androidx.legacy", "legacy-support-core-utils")
+        exclude("androidx.loader", "loader")
+        exclude("androidx.privacysandbox.ads", "ads-adservices-java")
+        exclude("androidx.privacysandbox.ads", "ads-adservices")
+        exclude("androidx.cursoradapter", "cursoradapter")
+        exclude("androidx.customview", "customview")
+        exclude("androidx.versionedparcelable", "versionedparcelable")
+        exclude("androidx.vectordrawable", "vectordrawable-animated")
+        exclude("androidx.vectordrawable", "vectordrawable")
+        exclude("androidx.drawerlayout", "drawerlayout")
+        exclude("androidx.fragment", "fragment")
+        exclude("androidx.fragment", "fragment-ktx")
+        exclude("org.checkerframework", "checker-qual")
+    }
 }
 // endregion
 
