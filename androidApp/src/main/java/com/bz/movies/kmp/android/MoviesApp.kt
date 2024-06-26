@@ -1,6 +1,7 @@
 package com.bz.movies.kmp.android
 
 import android.app.Application
+import android.os.Build
 import android.os.StrictMode
 import co.touchlab.kermit.Logger
 import com.bz.movies.kmp.di.presentationModule
@@ -21,8 +22,14 @@ class MoviesApp : Application() {
         StrictMode.setThreadPolicy(
             StrictMode.ThreadPolicy.Builder()
                 .detectAll()
-                .penaltyListener(Executors.newSingleThreadScheduledExecutor()) {
-                    Logger.w(it) { "Thread policy error ${it.message}" }
+                .apply {
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
+                        penaltyListener(Executors.newSingleThreadScheduledExecutor()) {
+                            Logger.w(it) { "Thread policy error ${it.message}" }
+                        }
+                    } else {
+                        penaltyLog()
+                    }
                 }
                 .build(),
         )
@@ -30,8 +37,14 @@ class MoviesApp : Application() {
         StrictMode.setVmPolicy(
             StrictMode.VmPolicy.Builder()
                 .detectAll()
-                .penaltyListener(Executors.newSingleThreadScheduledExecutor()) {
-                    Logger.w(it) { "VM policy error ${it.message}" }
+                .apply {
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
+                        penaltyListener(Executors.newSingleThreadScheduledExecutor()) {
+                            Logger.w(it) { "VM policy error ${it.message}" }
+                        }
+                    } else {
+                        penaltyLog()
+                    }
                 }
                 .build(),
         )
