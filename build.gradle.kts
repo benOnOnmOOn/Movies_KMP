@@ -160,17 +160,11 @@ fun <
 > CommonExtension<BF, BT, DC, PF, AR, IN>.defaultBaseConfig(
     project: Project,
 ) {
-    compileSdk =
-        libs.versions.android.sdk.target
-            .get()
-            .toInt()
-    buildToolsVersion = "34.0.0"
+    compileSdk = 35
+    buildToolsVersion = "35.0.0"
 
     defaultConfig {
-        minSdk =
-            libs.versions.android.min.sdk
-                .get()
-                .toInt()
+        minSdk = 27
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         resourceConfigurations.addAll(listOf("en", "pl"))
@@ -232,12 +226,6 @@ fun BaseAppModuleExtension.baseConfig(project: Project) {
         includeInApk = false
         includeInBundle = false
     }
-    defaultConfig {
-        targetSdk =
-            libs.versions.android.sdk.target
-                .get()
-                .toInt()
-    }
 }
 
 subprojects {
@@ -260,6 +248,14 @@ subprojects {
         exclude("androidx.fragment", "fragment")
         exclude("androidx.fragment", "fragment-ktx")
         exclude("org.checkerframework", "checker-qual")
+        exclude("androidx.activity", "activity-ktx")
+        exclude("androidx.collection", "collection-ktx")
+        exclude("androidx.lifecycle", "lifecycle-runtime-ktx-android")
+        exclude("androidx.lifecycle", "lifecycle-runtime-ktx")
+        exclude("androidx.lifecycle", "viewmodel-ktx")
+        exclude("androidx.navigation", "navigation-common-ktx")
+        exclude("androidx.navigation", "navigation-runtime-ktx")
+        exclude("org.slf4j", "slf4j-api")
     }
 }
 // endregion
