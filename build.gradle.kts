@@ -151,13 +151,13 @@ fun PluginContainer.applyBaseConfig(project: Project) {
 
 //region Global android configuration
 fun <
-    BF : BuildFeatures,
-    BT : BuildType,
-    DC : DefaultConfig,
-    PF : ProductFlavor,
-    AR : AndroidResources,
-    IN : Installation,
-> CommonExtension<BF, BT, DC, PF, AR, IN>.defaultBaseConfig(
+        BF : BuildFeatures,
+        BT : BuildType,
+        DC : DefaultConfig,
+        PF : ProductFlavor,
+        AR : AndroidResources,
+        IN : Installation,
+        > CommonExtension<BF, BT, DC, PF, AR, IN>.defaultBaseConfig(
     project: Project,
 ) {
     compileSdk = 35
@@ -211,6 +211,10 @@ fun <
             "kotlin-tooling-metadata.json",
             "DebugProbesKt.bin",
         )
+
+    configurations.all {
+        exclude("org.slf4j", "slf4j-api")
+    }
 }
 
 fun LibraryExtension.baseConfig(project: Project) {
@@ -255,7 +259,7 @@ subprojects {
         exclude("androidx.lifecycle", "viewmodel-ktx")
         exclude("androidx.navigation", "navigation-common-ktx")
         exclude("androidx.navigation", "navigation-runtime-ktx")
-        exclude("org.slf4j", "slf4j-api")
+//        exclude("org.slf4j", "slf4j-api")
     }
 }
 // endregion
