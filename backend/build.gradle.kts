@@ -33,4 +33,3 @@ dependencyGuard {
     // All dependencies included in Production Release APK
     configuration("runtimeClasspath")
 }
-

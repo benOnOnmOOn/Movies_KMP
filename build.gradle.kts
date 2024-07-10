@@ -151,13 +151,13 @@ fun PluginContainer.applyBaseConfig(project: Project) {
 
 //region Global android configuration
 fun <
-        BF : BuildFeatures,
-        BT : BuildType,
-        DC : DefaultConfig,
-        PF : ProductFlavor,
-        AR : AndroidResources,
-        IN : Installation,
-        > CommonExtension<BF, BT, DC, PF, AR, IN>.defaultBaseConfig(
+    BF : BuildFeatures,
+    BT : BuildType,
+    DC : DefaultConfig,
+    PF : ProductFlavor,
+    AR : AndroidResources,
+    IN : Installation,
+> CommonExtension<BF, BT, DC, PF, AR, IN>.defaultBaseConfig(
     project: Project,
 ) {
     compileSdk = 35
@@ -211,7 +211,6 @@ fun <
             "kotlin-tooling-metadata.json",
             "DebugProbesKt.bin",
         )
-
 }
 
 fun LibraryExtension.baseConfig(project: Project) {
