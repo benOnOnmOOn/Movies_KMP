@@ -1,6 +1,7 @@
 plugins {
     kotlin("jvm") version "2.0.0"
     id("io.ktor.plugin") version "2.3.12"
+    alias(libs.plugins.dependency.guard)
 }
 
 group = "com.bz.movies"
@@ -27,3 +28,9 @@ dependencies {
     implementation(libs.logback.classic)
     implementation(libs.ktor.server.config.yaml)
 }
+
+dependencyGuard {
+    // All dependencies included in Production Release APK
+    configuration("runtimeClasspath")
+}
+

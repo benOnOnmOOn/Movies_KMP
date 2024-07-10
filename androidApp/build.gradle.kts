@@ -109,6 +109,11 @@ dependencies {
     androidTestImplementation(libs.androidx.monitor)
     androidTestImplementation(libs.org.junit.jupiter.api)
     androidTestRuntimeOnly(libs.org.junit.jupiter.engine)
+
+
+    configurations.all {
+        exclude("org.slf4j", "slf4j-api")
+    }
 }
 
 dependencyGuard {

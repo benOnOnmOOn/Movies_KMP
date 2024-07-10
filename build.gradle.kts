@@ -212,9 +212,6 @@ fun <
             "DebugProbesKt.bin",
         )
 
-    configurations.all {
-        exclude("org.slf4j", "slf4j-api")
-    }
 }
 
 fun LibraryExtension.baseConfig(project: Project) {
@@ -259,13 +256,12 @@ subprojects {
         exclude("androidx.lifecycle", "viewmodel-ktx")
         exclude("androidx.navigation", "navigation-common-ktx")
         exclude("androidx.navigation", "navigation-runtime-ktx")
-//        exclude("org.slf4j", "slf4j-api")
     }
 }
 // endregion
 
 ktlint {
-    version.set("1.3.0")
+    version.set("1.3.1")
 }
 
 subprojects {
