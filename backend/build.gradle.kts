@@ -25,7 +25,7 @@ dependencies {
     implementation(libs.io.ktor.http)
     implementation(libs.io.ktor.utils)
 
-    implementation(libs.logback.classic)
+    runtimeOnly(libs.logback.classic)
     implementation(libs.ktor.server.config.yaml)
 }
 
