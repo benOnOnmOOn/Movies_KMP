@@ -89,7 +89,7 @@ detekt {
 tasks.register<Detekt>("detektAll") {
     description = "Runs Detekt for all modules"
     group = "verification"
-    jvmTarget = "17"
+    jvmTarget = "21"
     allRules = false
     config = files(configFile)
     baseline = file(baselineFile)
@@ -113,7 +113,7 @@ tasks.register<DetektCreateBaselineTask>("detektGenerateBaseline") {
     config.setFrom(configFile)
     include(kotlinFiles)
     exclude(resourceFiles, buildFiles)
-    jvmTarget = "17"
+    jvmTarget = "21"
 }
 
 //endregion
@@ -121,7 +121,7 @@ tasks.register<DetektCreateBaselineTask>("detektGenerateBaseline") {
 //region Global kotlin configuration
 tasks.withType<KotlinCompile>().configureEach {
     compilerOptions {
-        jvmTarget.set(JvmTarget.JVM_17)
+        jvmTarget.set(JvmTarget.JVM_21)
 
         freeCompilerArgs.add("-Xjvm-default=all")
     }
@@ -181,8 +181,8 @@ fun <
     }
 
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_17
-        targetCompatibility = JavaVersion.VERSION_17
+        sourceCompatibility = JavaVersion.VERSION_21
+        targetCompatibility = JavaVersion.VERSION_21
     }
 
     buildTypes {

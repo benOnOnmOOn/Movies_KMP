@@ -75,6 +75,8 @@ android {
         implementation(libs.androidx.core.ktx)
         implementation(libs.io.insert.koin.android)
 
+        lintChecks(libs.slack.lint.checks)
+
         debugImplementation(libs.com.squareup.okhttp.logging.interceptor)
 
         testImplementation(libs.org.junit.jupiter.api)
