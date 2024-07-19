@@ -94,6 +94,8 @@ dependencies {
     releaseImplementation(libs.kermit.crashlytics)
     releaseImplementation(libs.kermit.core)
 
+    lintChecks(libs.slack.lint.checks)
+
     releaseImplementation(libs.com.google.firebase.analytics.ktx)
     releaseImplementation(libs.com.google.firebase.crashlytics.ktx)
 
@@ -109,10 +111,6 @@ dependencies {
     androidTestImplementation(libs.androidx.monitor)
     androidTestImplementation(libs.org.junit.jupiter.api)
     androidTestRuntimeOnly(libs.org.junit.jupiter.engine)
-
-    configurations.all {
-        exclude("org.slf4j", "slf4j-api")
-    }
 }
 
 dependencyGuard {

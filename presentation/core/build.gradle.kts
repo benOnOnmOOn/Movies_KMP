@@ -92,6 +92,8 @@ android {
         api(libs.androidx.runtime)
         api(libs.kotlin.stdlib)
 
+        lintChecks(libs.slack.lint.checks)
+
         implementation(libs.androidx.activity.compose)
         implementation(libs.androidx.compose.material3)
         implementation(libs.androidx.foundation)

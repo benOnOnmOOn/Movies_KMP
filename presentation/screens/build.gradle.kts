@@ -95,6 +95,9 @@ android {
         implementation(libs.androidx.lifecycle.viewmodel.compose)
         implementation(libs.androidx.navigation.compose)
 
+        lintChecks(libs.slack.lint.checks)
+        lintChecks(libs.compose.lint.checks)
+
         debugImplementation(libs.kermit.android.debug)
         debugImplementation(libs.kermit.core.android.debug)
         releaseImplementation(libs.kermit.core)
