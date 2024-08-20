@@ -1,7 +1,7 @@
 plugins {
-    kotlin("jvm") version "2.0.0"
-    id("io.ktor.plugin") version "2.3.12"
+    alias(libs.plugins.ktor)
     alias(libs.plugins.dependency.guard)
+    alias(libs.plugins.jetbrains.kotlin.jvm)
 }
 
 group = "com.bz.movies"
@@ -12,10 +12,6 @@ application {
 
     val isDevelopment: Boolean = project.ext.has("development")
     applicationDefaultJvmArgs = listOf("-Dio.ktor.development=$isDevelopment")
-}
-
-repositories {
-    mavenCentral()
 }
 
 dependencies {

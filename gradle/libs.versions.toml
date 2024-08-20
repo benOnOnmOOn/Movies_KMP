@@ -1,14 +1,14 @@
 [versions]
-activity-compose = "1.9.0"
-coil-core = "3.0.0-alpha08"
-com-android-plugin = "8.5.1"
+activity-compose = "1.9.1"
+coil = "3.0.0-alpha10"
+com-android-plugin = "8.5.2"
 compose-lint-checks = "1.3.1"
 core = "1.13.1"
 google-services = "4.4.2"
 kermit = "2.0.4"
 kotlinx-serialization = "1.7.1"
-lifecycle = "2.8.3"
-logback-classic = "1.5.6"
+lifecycle = "2.8.4"
+logback-classic = "1.5.7"
 material3-version = "1.6.11"
 navigation-compose = "2.7.7"
 navigation-compose-version = "2.7.0-alpha07"
@@ -16,19 +16,17 @@ sqlite = "2.4.0"
 startup-runtime = "1.1.1"
 compose = "1.6.8"
 compose-plugin = "1.6.11"
-kotlin = "2.0.10-RC"
-kotlinx-coroutines = "1.9.0-RC"
+kotlin = "2.0.20-RC2"
+kotlinx-coroutines = "1.9.0-RC.2"
 mockk = "1.13.12"
-monitor = "1.7.1"
-junit = "5.10.3"
+monitor = "1.7.2"
+junit = "5.11.0"
 okhttp = "4.12.0"
 material3 = "1.2.1"
-ktor = "2.3.12"
-koin = "3.6.0-Beta5"
-koin-compose = "1.2.0-Beta5"
+ktor = "3.0.0-beta-2"
+koin = "4.0.0-RC1"
 slack-lint-checks = "0.7.4"
 sqldelight = "2.0.2"
-jetbrains-kotlin-jvm = "2.0.0"
 
 [libraries]
 androidx-activity = { module = "androidx.activity:activity", version.ref = "activity-compose" }
@@ -60,19 +58,20 @@ androidx-ui-unit = { module = "androidx.compose.ui:ui-unit", version.ref = "comp
 app-cash-sqldelight-android-driver = { group = "app.cash.sqldelight", name = "android-driver", version.ref = "sqldelight" }
 app-cash-sqldelight-coroutines-extensions = { group = "app.cash.sqldelight", name = "coroutines-extensions", version.ref = "sqldelight" }
 app-cash-sqldelight-native-driver = { group = "app.cash.sqldelight", name = "native-driver", version.ref = "sqldelight" }
-coil = { module = "io.coil-kt.coil3:coil", version.ref = "coil-core" }
-coil-compose-core = { module = "io.coil-kt.coil3:coil-compose-core", version.ref = "coil-core" }
-coil-core = { module = "io.coil-kt.coil3:coil-core", version.ref = "coil-core" }
-coil-network-ktor = { module = "io.coil-kt.coil3:coil-network-ktor", version.ref = "coil-core" }
+coil = { module = "io.coil-kt.coil3:coil", version.ref = "coil" }
+coil-compose-core = { module = "io.coil-kt.coil3:coil-compose-core", version.ref = "coil" }
+coil-core = { module = "io.coil-kt.coil3:coil-core", version.ref = "coil" }
+coil-network-ktor = { module = "io.coil-kt.coil3:coil-network-ktor2", version.ref = "coil" }
 com-google-firebase-analytics-ktx = { module = "com.google.firebase:firebase-analytics-ktx", version = "22.0.2" }
 com-google-firebase-crashlytics-ktx = { module = "com.google.firebase:firebase-crashlytics-ktx", version = "19.0.3" }
 com-squareup-okhttp-logging-interceptor = { group = "com.squareup.okhttp3", name = "logging-interceptor", version.ref = "okhttp" }
 compose-lint-checks = { module = "com.slack.lint.compose:compose-lint-checks", version.ref = "compose-lint-checks" }
 google-services = { module = "com.google.gms:google-services", version.ref = "google-services" }
 io-insert-koin-core = { group = "io.insert-koin", name = "koin-core", version.ref = "koin" }
+io-insert-koin-core-viewmodel = { group = "io.insert-koin", name = "koin-core-viewmodel", version.ref = "koin" }
 io-insert-koin-android = { group = "io.insert-koin", name = "koin-android", version.ref = "koin" }
-io-insert-koin-compose = { group = "io.insert-koin", name = "koin-compose", version.ref = "koin-compose" }
-io-insert-koin-compose-viemodel = { group = "io.insert-koin", name = "koin-compose-viewmodel", version.ref = "koin-compose" }
+io-insert-koin-compose = { group = "io.insert-koin", name = "koin-compose", version.ref = "koin" }
+io-insert-koin-compose-viemodel = { group = "io.insert-koin", name = "koin-compose-viewmodel", version.ref = "koin" }
 io-ktor-serialization-kotlinx-json = { group = "io.ktor", name = "ktor-serialization-kotlinx-json", version.ref = "ktor" }
 io-ktor-serialization-content-negotiation = { group = "io.ktor", name = "ktor-client-content-negotiation", version.ref = "ktor" }
 io-ktor-client-core = { group = "io.ktor", name = "ktor-client-core", version.ref = "ktor" }
@@ -112,8 +111,8 @@ com-android-library = { id = "com.android.library", version.ref = "com-android-p
 com-google-gms-google-services = { id = "com.google.gms.google-services", version.ref = "google-services" }
 com_github_ben-manes_versions = { id = "com.github.ben-manes.versions", version = "0.51.0" }
 io_gitlab_arturbosch_detekt = { id = "io.gitlab.arturbosch.detekt", version = "1.23.6" }
-com_autonomousapps_dependency-analysis = { id = "com.autonomousapps.dependency-analysis", version = "1.32.0" }
-org_jetbrains_kotlinx_kover = { id = "org.jetbrains.kotlinx.kover", version = "0.8.2" }
+com_autonomousapps_dependency-analysis = { id = "com.autonomousapps.dependency-analysis", version = "1.33.0" }
+org_jetbrains_kotlinx_kover = { id = "org.jetbrains.kotlinx.kover", version = "0.8.3" }
 com_osacky_doctor = { id = "com.osacky.doctor", version = "0.10.0" }
 app-cash-sqldelight = { id = "app.cash.sqldelight", version.ref = "sqldelight" }
 com-google-firebase-crashlytics-gradle = { id = "com.google.firebase.crashlytics", version = "3.0.2" }
@@ -127,6 +126,7 @@ kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
 dependency-guard = { id = "com.dropbox.dependency-guard", version = "0.5.0" }
 dexcount = { id = "com.getkeepsafe.dexcount", version = "4.0.0" }
-jetbrains-kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "jetbrains-kotlin-jvm" }
+jetbrains-kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
+ktor = { id = "io.ktor.plugin", version.ref = "ktor" }
 [bundles]
 

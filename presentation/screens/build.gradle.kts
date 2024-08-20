@@ -41,6 +41,7 @@ kotlin {
                 implementation(libs.coil)
                 implementation(libs.coil.network.ktor)
                 implementation(libs.io.insert.koin.core)
+                implementation(libs.io.insert.koin.core.viewmodel)
                 implementation(libs.io.insert.koin.compose)
                 implementation(libs.io.insert.koin.compose.viemodel)
 
