@@ -19,7 +19,6 @@ dependencies {
     implementation(libs.ktor.server.core.jvm)
     implementation(libs.ktor.server.netty.jvm)
     implementation(libs.io.ktor.http)
-    implementation(libs.io.ktor.utils)
 
     runtimeOnly(libs.logback.classic)
     implementation(libs.ktor.server.config.yaml)
