@@ -44,3 +44,4 @@
 -dontwarn org.openjsse.**
 -dontwarn org.slf4j.**
 -dontwarn java.lang.invoke.StringConcatFactory.**
+-dontwarn io.ktor.utils.io.jvm.nio.WritingKt

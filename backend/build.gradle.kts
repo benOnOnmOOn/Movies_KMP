@@ -1,7 +1,7 @@
 plugins {
-    kotlin("jvm") version "2.0.0"
-    id("io.ktor.plugin") version "2.3.12"
+    alias(libs.plugins.ktor)
     alias(libs.plugins.dependency.guard)
+    alias(libs.plugins.jetbrains.kotlin.jvm)
 }
 
 group = "com.bz.movies"
@@ -14,16 +14,11 @@ application {
     applicationDefaultJvmArgs = listOf("-Dio.ktor.development=$isDevelopment")
 }
 
-repositories {
-    mavenCentral()
-}
-
 dependencies {
     implementation(libs.kotlin.stdlib)
     implementation(libs.ktor.server.core.jvm)
     implementation(libs.ktor.server.netty.jvm)
     implementation(libs.io.ktor.http)
-    implementation(libs.io.ktor.utils)
 
     runtimeOnly(libs.logback.classic)
     implementation(libs.ktor.server.config.yaml)
