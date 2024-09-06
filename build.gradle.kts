@@ -44,7 +44,7 @@ tasks.register<Delete>("clean") {
 
 fun isNonStable(version: String): Boolean {
     val unStableKeyword =
-        listOf("ALPHA", "BETA").any {
+        listOf("ALPHA", "BETA", "RC").any {
             version.contains(it, ignoreCase = true)
         }
     if (unStableKeyword) return true
@@ -231,10 +231,6 @@ fun BaseAppModuleExtension.baseConfig(project: Project) {
 subprojects {
     project.plugins.applyBaseConfig(project)
     configurations.all {
-        exclude("org.jetbrains.kotlin", "kotlin-stdlib-jdk7")
-        exclude("org.jetbrains.kotlin", "kotlin-stdlib-jdk8")
-        exclude("com.google.code.findbugs", "jsr305")
-        exclude("com.google.errorprone", "error_prone_annotations")
         exclude("androidx.legacy", "legacy-support-core-utils")
         exclude("androidx.loader", "loader")
         exclude("androidx.privacysandbox.ads", "ads-adservices-java")
@@ -247,14 +243,19 @@ subprojects {
         exclude("androidx.drawerlayout", "drawerlayout")
         exclude("androidx.fragment", "fragment")
         exclude("androidx.fragment", "fragment-ktx")
-        exclude("org.checkerframework", "checker-qual")
         exclude("androidx.activity", "activity-ktx")
         exclude("androidx.collection", "collection-ktx")
         exclude("androidx.lifecycle", "lifecycle-runtime-ktx-android")
         exclude("androidx.lifecycle", "lifecycle-runtime-ktx")
         exclude("androidx.lifecycle", "viewmodel-ktx")
+        exclude("androidx.lifecycle", "lifecycle-viewmodel-ktx")
         exclude("androidx.navigation", "navigation-common-ktx")
         exclude("androidx.navigation", "navigation-runtime-ktx")
+        exclude("org.jetbrains.kotlin", "kotlin-stdlib-jdk7")
+        exclude("org.jetbrains.kotlin", "kotlin-stdlib-jdk8")
+        exclude("com.google.code.findbugs", "jsr305")
+        exclude("com.google.errorprone", "error_prone_annotations")
+        exclude("org.checkerframework", "checker-qual")
     }
 }
 // endregion

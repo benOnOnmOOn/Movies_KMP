@@ -5,6 +5,7 @@ plugins {
     alias(libs.plugins.com.android.library)
     alias(libs.plugins.app.cash.sqldelight)
     alias(libs.plugins.org.jetbrains.kotlinx.kover)
+    alias(libs.plugins.com.autonomousapps.dependency.analysis) apply true
 }
 
 kover {

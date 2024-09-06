@@ -3,6 +3,7 @@ plugins {
     alias(libs.plugins.kotlin.serialization)
     alias(libs.plugins.com.android.library)
     alias(libs.plugins.org.jetbrains.kotlinx.kover)
+    alias(libs.plugins.com.autonomousapps.dependency.analysis) apply true
 }
 
 kover {

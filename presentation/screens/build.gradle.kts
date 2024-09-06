@@ -4,6 +4,7 @@ plugins {
     alias(libs.plugins.org.jetbrains.kotlinx.kover)
     alias(libs.plugins.jetbrains.compose)
     alias(libs.plugins.compose.compiler)
+    alias(libs.plugins.com.autonomousapps.dependency.analysis) apply true
 }
 
 kover {
