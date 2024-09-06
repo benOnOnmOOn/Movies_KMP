@@ -44,7 +44,7 @@ tasks.register<Delete>("clean") {
 
 fun isNonStable(version: String): Boolean {
     val unStableKeyword =
-        listOf("ALPHA", "BETA").any {
+        listOf("ALPHA", "BETA", "RC").any {
             version.contains(it, ignoreCase = true)
         }
     if (unStableKeyword) return true

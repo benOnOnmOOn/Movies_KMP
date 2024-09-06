@@ -2,6 +2,7 @@ plugins {
     alias(libs.plugins.ktor)
     alias(libs.plugins.dependency.guard)
     alias(libs.plugins.jetbrains.kotlin.jvm)
+    alias(libs.plugins.com.autonomousapps.dependency.analysis) apply true
 }
 
 group = "com.bz.movies"

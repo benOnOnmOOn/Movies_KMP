@@ -8,7 +8,7 @@ import com.bz.movies.presentation.screens.details.MovieDetailsViewModel
 import com.bz.movies.presentation.screens.favorite.FavoriteScreenViewModel
 import com.bz.movies.presentation.screens.playingNow.PlayingNowViewModel
 import com.bz.movies.presentation.screens.popular.PopularMoviesViewModel
-import org.koin.compose.viewmodel.dsl.viewModel
+import org.koin.core.module.dsl.viewModel
 import org.koin.dsl.module
 
 val presentationModule =
