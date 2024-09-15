@@ -123,7 +123,7 @@ tasks.withType<KotlinCompile>().configureEach {
     compilerOptions {
         jvmTarget.set(JvmTarget.JVM_21)
 
-        freeCompilerArgs.add("-Xjvm-default=all")
+        freeCompilerArgs.addAll(listOf("-Xjvm-default=all", "-Xexpect-actual-classes"))
     }
 }
 

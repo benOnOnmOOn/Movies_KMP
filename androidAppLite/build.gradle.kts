@@ -34,16 +34,11 @@ android {
     }
 }
 
-dependencyAnalysis {
-    issues {
-        onUnusedDependencies { exclude(":presentation:core") }
-    }
-}
-
 dependencies {
     lintChecks(libs.slack.lint.checks)
 
     implementation(project(":presentation:core"))
+    implementation(project(":presentation:screens"))
 
     implementation(libs.kotlin.stdlib)
 
