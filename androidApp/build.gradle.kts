@@ -66,14 +66,9 @@ android {
     }
 }
 
-dependencyAnalysis {
-    issues {
-        onUnusedDependencies { exclude(":presentation:core") }
-    }
-}
-
 dependencies {
     implementation(project(":presentation:core"))
+    implementation(project(":presentation:screens"))
 
     kover(project(":presentation:core"))
     kover(project(":presentation:screens"))
