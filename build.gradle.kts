@@ -251,6 +251,7 @@ subprojects {
         exclude("androidx.lifecycle", "lifecycle-viewmodel-ktx")
         exclude("androidx.navigation", "navigation-common-ktx")
         exclude("androidx.navigation", "navigation-runtime-ktx")
+        exclude("androidx.appcompat", "appcompat")
         exclude("org.jetbrains.kotlin", "kotlin-stdlib-jdk7")
         exclude("org.jetbrains.kotlin", "kotlin-stdlib-jdk8")
         exclude("com.google.code.findbugs", "jsr305")

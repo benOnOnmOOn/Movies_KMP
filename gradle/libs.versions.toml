@@ -24,7 +24,7 @@ junit = "5.11.0"
 okhttp = "4.12.0"
 material3 = "1.2.1"
 ktor = "3.0.0-rc-1"
-koin = "4.0.0-RC2"
+koin = "4.0.0"
 slack-lint-checks = "0.7.4"
 sqldelight = "2.0.2"
 
