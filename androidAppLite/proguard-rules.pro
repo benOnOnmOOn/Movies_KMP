@@ -35,6 +35,9 @@
 -dontwarn androidx.vectordrawable.graphics.drawable.AnimatedVectorDrawableCompat
 -dontwarn androidx.vectordrawable.graphics.drawable.VectorDrawableCompat
 
+-dontwarn org.slf4j.Logger
+-dontwarn org.slf4j.LoggerFactory
+
 # Valid rules copy paste from file "proguard-android-optimize.txt"
 
 # For native methods, see https://www.guardsquare.com/manual/configuration/examples#native
