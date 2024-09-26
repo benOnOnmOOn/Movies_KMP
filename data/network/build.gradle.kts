@@ -46,8 +46,6 @@ kotlin {
                 implementation(libs.io.ktor.client.android)
                 implementation(libs.io.ktor.client.okhttp)
                 implementation(libs.io.insert.koin.android)
-
-                // use debug impl to prevent from adding this deps to release version
             }
         }
 
@@ -80,7 +78,6 @@ android {
 
         debugImplementation(libs.com.squareup.okhttp.logging.interceptor)
 
-        testImplementation(libs.org.junit.jupiter.api)
         testImplementation(libs.kotlin.test)
     }
 }

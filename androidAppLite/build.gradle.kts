@@ -21,10 +21,7 @@ android {
         release {
             isMinifyEnabled = true
             isShrinkResources = true
-            proguardFiles(
-                getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro",
-            )
+            proguardFiles("proguard-rules.pro")
             signingConfig = signingConfigs.getByName("debug")
         }
     }
@@ -32,6 +29,10 @@ android {
     buildFeatures {
         compose = true
     }
+}
+
+configurations.all {
+    exclude("org.slf4j", "slf4j-api")
 }
 
 dependencies {
@@ -46,7 +47,6 @@ dependencies {
     implementation(libs.io.insert.koin.android)
 
     implementation(libs.androidx.startup.runtime)
-    implementation(libs.androidx.compose.runtime.android)
 
     implementation(libs.kermit)
     debugImplementation(libs.kermit.android.debug)
