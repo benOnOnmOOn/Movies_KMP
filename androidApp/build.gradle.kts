@@ -63,10 +63,6 @@ android {
     }
 }
 
-configurations.all {
-    exclude("org.slf4j", "slf4j-api")
-}
-
 dependencies {
     implementation(project(":presentation:core"))
     implementation(project(":presentation:screens"))

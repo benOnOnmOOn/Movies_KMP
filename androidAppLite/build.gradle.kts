@@ -31,10 +31,6 @@ android {
     }
 }
 
-configurations.all {
-    exclude("org.slf4j", "slf4j-api")
-}
-
 dependencies {
     lintChecks(libs.slack.lint.checks)
 
@@ -67,5 +63,7 @@ dependencies {
 
 dependencyGuard {
     // All dependencies included in Production Release APK
-    configuration("releaseRuntimeClasspath")
+    configuration("releaseRuntimeClasspath"){
+        tree = true
+    }
 }

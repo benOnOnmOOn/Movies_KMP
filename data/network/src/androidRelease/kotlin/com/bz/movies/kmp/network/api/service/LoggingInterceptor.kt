@@ -1,8 +1,9 @@
 package com.bz.movies.kmp.network.api.service
 
-import okhttp3.OkHttpClient
+import io.ktor.client.HttpClientConfig
+import io.ktor.client.engine.android.AndroidEngineConfig
 
 @Suppress("NOTHING_TO_INLINE")
-inline fun OkHttpClient.Builder.configureLoggingInterceptor() {
+inline fun HttpClientConfig<*>.configureLoggingInterceptor() {
     // no-op as we don't have any specific interceptor for release
 }
