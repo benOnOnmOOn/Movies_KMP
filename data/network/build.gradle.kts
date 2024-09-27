@@ -30,7 +30,6 @@ kotlin {
                 implementation(libs.io.ktor.serialization.kotlinx.json)
                 implementation(libs.org.jetbrains.kotlinx.coroutines.core)
                 implementation(libs.io.insert.koin.core)
-                implementation(libs.ktor.client.logging)
             }
         }
         commonTest {
@@ -46,6 +45,7 @@ kotlin {
                 implementation(libs.org.jetbrains.kotlinx.coroutines.android)
                 implementation(libs.io.ktor.client.android)
                 implementation(libs.io.insert.koin.android)
+                implementation(libs.ktor.client.logging)
                 implementation(libs.slf4j.android)
             }
         }
@@ -76,8 +76,6 @@ android {
         implementation(libs.io.insert.koin.android)
 
         lintChecks(libs.slack.lint.checks)
-
-        debugImplementation(libs.slf4j.android)
 
         testImplementation(libs.kotlin.test)
     }

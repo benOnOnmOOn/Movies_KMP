@@ -21,8 +21,6 @@ io.ktor:ktor-server-core:3.0.0-rc-1
 io.ktor:ktor-server-netty-jvm:3.0.0-rc-1
 io.ktor:ktor-utils-jvm:3.0.0-rc-1
 io.ktor:ktor-utils:3.0.0-rc-1
-io.ktor:ktor-websockets-jvm:3.0.0-rc-1
-io.ktor:ktor-websockets:3.0.0-rc-1
 io.netty:netty-buffer:4.1.113.Final
 io.netty:netty-codec-http2:4.1.113.Final
 io.netty:netty-codec-http:4.1.113.Final

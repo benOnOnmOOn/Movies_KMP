@@ -56,3 +56,5 @@
     public static final ** CREATOR;
 }
 
+-dontwarn androidx.legacy.content.WakefulBroadcastReceiver
+-dontwarn androidx.privacysandbox.ads.adservices.java.measurement.MeasurementManagerFutures

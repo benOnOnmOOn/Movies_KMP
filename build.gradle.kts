@@ -254,6 +254,13 @@ subprojects {
         exclude("com.google.code.findbugs", "jsr305")
         exclude("com.google.errorprone", "error_prone_annotations")
         exclude("org.checkerframework", "checker-qual")
+        // exclude server side events and web sockets as this is unused
+        exclude("io.ktor", "ktor-sse-jvm")
+        exclude("io.ktor", "ktor-sse")
+        exclude("io.ktor", "ktor-websocket-serialization-jvm")
+        exclude("io.ktor", "ktor-websocket-serialization")
+        exclude("io.ktor", "ktor-websockets-jvm")
+        exclude("io.ktor", "ktor-websockets")
     }
 }
 // endregion

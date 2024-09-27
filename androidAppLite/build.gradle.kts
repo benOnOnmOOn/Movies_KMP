@@ -23,6 +23,13 @@ android {
             isShrinkResources = true
             proguardFiles("proguard-rules.pro")
             signingConfig = signingConfigs.getByName("debug")
+            // TODO exculed this configuration globaly
+            configurations.all{
+                exclude("org.slf4j", "slf4j-api")
+                exclude("org.slf4j", "slf4j-android")
+                exclude("io.ktor", "ktor-client-logging-jvm")
+                exclude("io.ktor", "ktor-client-logging")
+            }
         }
     }
 
@@ -30,6 +37,7 @@ android {
         compose = true
     }
 }
+
 
 dependencies {
     lintChecks(libs.slack.lint.checks)
@@ -63,7 +71,5 @@ dependencies {
 
 dependencyGuard {
     // All dependencies included in Production Release APK
-    configuration("releaseRuntimeClasspath"){
-        tree = true
-    }
+    configuration("releaseRuntimeClasspath")
 }
