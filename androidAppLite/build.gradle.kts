@@ -23,16 +23,19 @@ android {
             isShrinkResources = true
             proguardFiles("proguard-rules.pro")
             signingConfig = signingConfigs.getByName("debug")
+            // TODO exculed this configuration globaly
+            configurations.all {
+                exclude("org.slf4j", "slf4j-api")
+                exclude("org.slf4j", "slf4j-android")
+                exclude("io.ktor", "ktor-client-logging-jvm")
+                exclude("io.ktor", "ktor-client-logging")
+            }
         }
     }
 
     buildFeatures {
         compose = true
     }
-}
-
-configurations.all {
-    exclude("org.slf4j", "slf4j-api")
 }
 
 dependencies {

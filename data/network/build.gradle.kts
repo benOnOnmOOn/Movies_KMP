@@ -44,8 +44,9 @@ kotlin {
                 implementation(libs.androidx.core.ktx)
                 implementation(libs.org.jetbrains.kotlinx.coroutines.android)
                 implementation(libs.io.ktor.client.android)
-                implementation(libs.io.ktor.client.okhttp)
                 implementation(libs.io.insert.koin.android)
+                implementation(libs.ktor.client.logging)
+                implementation(libs.slf4j.android)
             }
         }
 
@@ -62,7 +63,7 @@ android {
     dependencies {
         api(project(":data:dto"))
 
-        api(libs.okhttp)
+        implementation(libs.io.ktor.client.android)
         api(libs.kotlin.stdlib)
 
         implementation(libs.io.ktor.http)
@@ -75,8 +76,6 @@ android {
         implementation(libs.io.insert.koin.android)
 
         lintChecks(libs.slack.lint.checks)
-
-        debugImplementation(libs.com.squareup.okhttp.logging.interceptor)
 
         testImplementation(libs.kotlin.test)
     }

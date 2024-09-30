@@ -1,12 +1,9 @@
 package com.bz.movies.kmp.network.api.service
 
-import okhttp3.OkHttpClient
-import okhttp3.logging.HttpLoggingInterceptor
+import io.ktor.client.HttpClientConfig
+import io.ktor.client.plugins.logging.Logging
 
-fun OkHttpClient.Builder.configureLoggingInterceptor() {
-    addInterceptor(
-        HttpLoggingInterceptor().apply {
-            setLevel(HttpLoggingInterceptor.Level.BODY)
-        },
-    )
+@Suppress("NOTHING_TO_INLINE")
+inline fun HttpClientConfig<*>.configureLoggingInterceptor() {
+    install(Logging)
 }
