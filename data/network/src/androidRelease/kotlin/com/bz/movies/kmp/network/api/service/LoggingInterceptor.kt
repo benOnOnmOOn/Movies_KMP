@@ -1,7 +1,6 @@
 package com.bz.movies.kmp.network.api.service
 
 import io.ktor.client.HttpClientConfig
-import io.ktor.client.engine.android.AndroidEngineConfig
 
 @Suppress("NOTHING_TO_INLINE")
 inline fun HttpClientConfig<*>.configureLoggingInterceptor() {
