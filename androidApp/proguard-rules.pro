@@ -58,3 +58,9 @@
 
 -dontwarn androidx.legacy.content.WakefulBroadcastReceiver
 -dontwarn androidx.privacysandbox.ads.adservices.java.measurement.MeasurementManagerFutures
+-dontwarn androidx.fragment.app.DialogFragment
+-dontwarn androidx.fragment.app.Fragment
+-dontwarn androidx.fragment.app.FragmentActivity
+-dontwarn androidx.fragment.app.FragmentManager
+-dontwarn androidx.fragment.app.FragmentTransaction
+-dontwarn androidx.versionedparcelable.CustomVersionedParcelable
