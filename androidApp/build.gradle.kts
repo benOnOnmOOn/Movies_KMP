@@ -1,3 +1,6 @@
+import com.google.firebase.crashlytics.buildtools.gradle.CrashlyticsPlugin
+import com.google.gms.googleservices.GoogleServicesPlugin
+
 plugins {
     alias(libs.plugins.com.android.application)
     alias(libs.plugins.com.google.gms.google.services) apply false
@@ -49,8 +52,8 @@ android {
 
     buildTypes {
         release {
-            apply(plugin = "com.google.gms.google-services")
-            apply(plugin = "com.google.firebase.crashlytics")
+            apply<GoogleServicesPlugin>()
+            apply<CrashlyticsPlugin>()
             isMinifyEnabled = true
             isShrinkResources = true
             proguardFiles("proguard-rules.pro")
