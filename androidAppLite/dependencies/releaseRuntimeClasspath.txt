@@ -118,6 +118,8 @@ io.ktor:ktor-client-content-negotiation-jvm:3.0.0
 io.ktor:ktor-client-content-negotiation:3.0.0
 io.ktor:ktor-client-core-jvm:3.0.0
 io.ktor:ktor-client-core:3.0.0
+io.ktor:ktor-client-logging-jvm:3.0.0
+io.ktor:ktor-client-logging:3.0.0
 io.ktor:ktor-events-jvm:3.0.0
 io.ktor:ktor-events:3.0.0
 io.ktor:ktor-http-jvm:3.0.0
@@ -189,3 +191,5 @@ org.jetbrains.kotlinx:kotlinx-serialization-json-io:1.7.3
 org.jetbrains.kotlinx:kotlinx-serialization-json-jvm:1.7.3
 org.jetbrains.kotlinx:kotlinx-serialization-json:1.7.3
 org.jetbrains:annotations:23.0.0
+org.slf4j:slf4j-android:1.7.36
+org.slf4j:slf4j-api:2.0.16
