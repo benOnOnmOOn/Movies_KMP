@@ -12,8 +12,10 @@ import com.android.build.gradle.internal.dsl.BaseAppModuleExtension
 import com.github.benmanes.gradle.versions.updates.DependencyUpdatesTask
 import io.gitlab.arturbosch.detekt.Detekt
 import io.gitlab.arturbosch.detekt.DetektCreateBaselineTask
+import org.gradle.android.AndroidCacheFixPlugin
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+import org.jlleitschuh.gradle.ktlint.KtlintPlugin
 
 plugins {
     alias(libs.plugins.com.android.application) apply false
@@ -226,6 +228,8 @@ fun BaseAppModuleExtension.baseConfig(project: Project) {
 }
 
 subprojects {
+    apply<KtlintPlugin>()
+    apply<AndroidCacheFixPlugin>()
     project.plugins.applyBaseConfig(project)
     configurations.all {
         exclude("androidx.legacy", "legacy-support-core-utils")
@@ -260,11 +264,6 @@ subprojects {
 
 ktlint {
     version.set("1.3.1")
-}
-
-subprojects {
-    apply(plugin = "org.jlleitschuh.gradle.ktlint")
-    apply(plugin = "org.gradle.android.cache-fix")
 }
 
 doctor {

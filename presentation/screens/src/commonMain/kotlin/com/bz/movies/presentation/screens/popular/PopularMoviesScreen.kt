@@ -46,6 +46,7 @@ fun PopularMoviesScreen(
                 sendEvent(MovieEvent.OnMovieClicked(it))
                 onMovieClicked(it.id)
             },
+            isRefreshing = state.isRefreshing,
         )
     }
 }
