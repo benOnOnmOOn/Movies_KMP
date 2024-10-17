@@ -58,3 +58,4 @@
     public static final ** CREATOR;
 }
 
+-dontwarn androidx.test.platform.app.InstrumentationRegistry
