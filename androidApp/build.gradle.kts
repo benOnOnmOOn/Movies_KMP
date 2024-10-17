@@ -108,12 +108,12 @@ dependencies {
     androidTestRuntimeOnly(libs.org.junit.jupiter.engine)
 }
 
-//configurations.releaseImplementation {
+// configurations.releaseImplementation {
 //    exclude("org.slf4j", "slf4j-api")
 //    exclude("org.slf4j", "slf4j-android")
 //    exclude("io.ktor", "ktor-client-logging-jvm")
 //    exclude("io.ktor", "ktor-client-logging")
-//}
+// }
 
 dependencyGuard {
     // All dependencies included in Production Release APK
