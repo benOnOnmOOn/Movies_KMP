@@ -1,3 +1,5 @@
+import com.android.build.gradle.internal.tasks.factory.dependsOn
+
 plugins {
     alias(libs.plugins.kotlin.multiplatform)
     alias(libs.plugins.com.android.library)
@@ -87,7 +89,6 @@ android {
         api(libs.androidx.navigation.runtime)
         api(libs.kotlin.stdlib)
 
-        implementation(libs.androidx.animation.core)
         implementation(libs.androidx.foundation.layout)
         implementation(libs.androidx.foundation)
         implementation(libs.androidx.ui.graphics)
@@ -104,4 +105,9 @@ android {
         debugImplementation(libs.kermit.core.android.debug)
         releaseImplementation(libs.kermit.core)
     }
+}
+
+afterEvaluate {
+    tasks.named("explodeCodeSourceDebug").dependsOn("generateActualResourceCollectorsForAndroidMain")
+    tasks.named("explodeCodeSourceRelease").dependsOn("generateActualResourceCollectorsForAndroidMain")
 }

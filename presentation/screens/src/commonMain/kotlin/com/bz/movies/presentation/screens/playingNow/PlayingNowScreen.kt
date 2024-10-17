@@ -34,6 +34,7 @@ private fun PlayingNowScreen(
             playingNowState = state,
             refresh = { sendEvent(MovieEvent.Refresh) },
             onMovieClicked = { sendEvent(MovieEvent.OnMovieClicked(it)) },
+            isRefreshing = state.isRefreshing,
         )
     }
 }

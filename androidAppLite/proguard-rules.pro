@@ -3,6 +3,9 @@
 
 -assumenosideeffects class java.util.logging.** { *; }
 -assumenosideeffects class org.slf4j.** { *; }
+-assumenosideeffects class kotlin.DeprecationLevel { *; }
+-assumenosideeffects class kotlin.Deprecated { *; }
+-assumenosideeffects class kotlin.ReplaceWith { *; }
 
 # Remove all printing of stack traces.
 -assumenosideeffects class java.lang.Throwable {

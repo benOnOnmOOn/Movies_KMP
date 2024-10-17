@@ -1,6 +1,5 @@
 package com.bz.movies.presentation.screens.common
 
-import androidx.compose.animation.core.LinearOutSlowInEasing
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.PaddingValues
@@ -9,13 +8,11 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.pulltorefresh.PullToRefreshContainer
+import androidx.compose.material3.pulltorefresh.PullToRefreshBox
 import androidx.compose.material3.pulltorefresh.rememberPullToRefreshState
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.graphicsLayer
-import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.unit.dp
 import com.bz.movies.presentation.components.MovieContent
 
@@ -25,38 +22,20 @@ fun MoviesContentWithPullToRefresh(
     playingNowState: MoviesState,
     refresh: () -> Unit = {},
     onMovieClicked: (MovieItem) -> Unit,
+    isRefreshing: Boolean,
 ) {
     val state = rememberPullToRefreshState()
 
-    if (state.isRefreshing) {
-        refresh()
-    }
-
-    if (playingNowState.isRefreshing == false) {
-        state.endRefresh()
-    }
-
-    val scaleFraction =
-        if (state.isRefreshing) {
-            1f
-        } else {
-            LinearOutSlowInEasing.transform(state.progress).coerceIn(0f, 1f)
-        }
-    Box(
+    PullToRefreshBox(
+        state = state,
+        isRefreshing = isRefreshing,
+        onRefresh = refresh,
         modifier =
             Modifier
                 .padding(10.dp)
-                .fillMaxSize()
-                .nestedScroll(state.nestedScrollConnection),
+                .fillMaxSize(),
     ) {
         MoviesContentLazyColumn(playingNowState, onMovieClicked)
-        PullToRefreshContainer(
-            modifier =
-                Modifier
-                    .align(Alignment.TopCenter)
-                    .graphicsLayer(scaleX = scaleFraction, scaleY = scaleFraction),
-            state = state,
-        )
     }
 }
 
