@@ -58,13 +58,6 @@ android {
             isShrinkResources = true
             proguardFiles("proguard-rules.pro")
             signingConfig = signingConfigs.getByName("debug")
-            // TODO exclude this configuration globally
-            configurations.all {
-                exclude("org.slf4j", "slf4j-api")
-                exclude("org.slf4j", "slf4j-android")
-                exclude("io.ktor", "ktor-client-logging-jvm")
-                exclude("io.ktor", "ktor-client-logging")
-            }
         }
     }
 
@@ -114,6 +107,13 @@ dependencies {
     androidTestImplementation(libs.org.junit.jupiter.api)
     androidTestRuntimeOnly(libs.org.junit.jupiter.engine)
 }
+
+//configurations.releaseImplementation {
+//    exclude("org.slf4j", "slf4j-api")
+//    exclude("org.slf4j", "slf4j-android")
+//    exclude("io.ktor", "ktor-client-logging-jvm")
+//    exclude("io.ktor", "ktor-client-logging")
+//}
 
 dependencyGuard {
     // All dependencies included in Production Release APK
