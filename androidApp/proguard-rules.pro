@@ -64,3 +64,4 @@
 -dontwarn androidx.fragment.app.FragmentManager
 -dontwarn androidx.fragment.app.FragmentTransaction
 -dontwarn androidx.versionedparcelable.CustomVersionedParcelable
+-dontwarn androidx.test.platform.app.InstrumentationRegistry
