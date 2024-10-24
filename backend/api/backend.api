@@ -1,0 +1,9 @@
+public final class com/example/ApplicationKt {
+	public static final fun main ([Ljava/lang/String;)V
+	public static final fun module (Lio/ktor/server/application/Application;)V
+}
+
+public final class com/example/plugins/RoutingKt {
+	public static final fun configureRouting (Lio/ktor/server/application/Application;)V
+}
+
