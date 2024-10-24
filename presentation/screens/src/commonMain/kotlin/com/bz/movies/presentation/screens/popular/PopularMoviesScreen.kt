@@ -17,7 +17,7 @@ import org.jetbrains.compose.resources.stringResource
 import org.koin.compose.viewmodel.koinViewModel
 
 @Composable
-fun PopularMoviesScreen(
+internal fun PopularMoviesScreen(
     playingNowViewModel: PopularMoviesViewModel = koinViewModel(),
     navController: NavHostController,
 ) {
@@ -28,7 +28,7 @@ fun PopularMoviesScreen(
 }
 
 @Composable
-fun PopularMoviesScreen(
+internal fun PopularMoviesScreen(
     state: MoviesState = MoviesState(),
     sendEvent: (MovieEvent) -> Unit = {},
     onMovieClicked: (id: Int) -> Unit = {},

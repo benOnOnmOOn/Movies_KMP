@@ -36,6 +36,7 @@ plugins {
     alias(libs.plugins.kotlin.serialization) apply false
     alias(libs.plugins.jetbrains.kotlin.jvm) apply false
     alias(libs.plugins.kotlin.cocoapods) apply false
+    alias(libs.plugins.binary.compatibility)
 }
 
 tasks.register<Delete>("clean") {

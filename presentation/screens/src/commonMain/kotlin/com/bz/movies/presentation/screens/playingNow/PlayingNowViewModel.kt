@@ -27,7 +27,7 @@ import kotlinx.coroutines.flow.onEmpty
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 
-class PlayingNowViewModel(
+internal class PlayingNowViewModel(
     private val movieRepository: MovieRepository,
     private val localMovieRepository: LocalMovieRepository,
 ) : ViewModel() {

@@ -16,7 +16,7 @@ import com.bz.movies.presentation.navigation.navigateToRootRoute
 import com.bz.movies.presentation.theme.MoviesTheme
 
 @Composable
-fun MainScreen() {
+internal fun MainScreen() {
     val navController = rememberNavController()
     val currentRootRoute by navController.currentRootRouteAsState()
 

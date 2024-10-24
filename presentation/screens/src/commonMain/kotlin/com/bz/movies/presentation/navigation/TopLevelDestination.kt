@@ -19,7 +19,7 @@ data class TopLevelDestination(
     val iconTextId: StringResource,
 )
 
-val TOP_LEVEL_DESTINATIONS =
+internal val TOP_LEVEL_DESTINATIONS =
     listOf(
         TopLevelDestination(
             rootRoute = RootRoute.PlayingNow,

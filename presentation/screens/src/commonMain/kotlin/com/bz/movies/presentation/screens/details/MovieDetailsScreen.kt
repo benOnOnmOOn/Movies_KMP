@@ -15,7 +15,7 @@ import org.jetbrains.compose.resources.stringResource
 import org.koin.compose.viewmodel.koinViewModel
 
 @Composable
-fun MovieDetailsScreen(
+internal fun MovieDetailsScreen(
     id: Int?,
     movieDetailsViewModel: MovieDetailsViewModel = koinViewModel(),
 ) {
@@ -26,13 +26,13 @@ fun MovieDetailsScreen(
 }
 
 @Composable
-fun MovieDetailsScreen(movieDetailsViewModel: MovieDetailsViewModel) {
+internal fun MovieDetailsScreen(movieDetailsViewModel: MovieDetailsViewModel) {
     val state by movieDetailsViewModel.state.collectAsState()
     MovieDetailsScreen(state)
 }
 
 @Composable
-fun MovieDetailsScreen(state: MovieDetailState = MovieDetailState()) {
+internal fun MovieDetailsScreen(state: MovieDetailState = MovieDetailState()) {
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
         modifier = Modifier.fillMaxSize(),

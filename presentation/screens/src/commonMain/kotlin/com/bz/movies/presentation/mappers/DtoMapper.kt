@@ -3,7 +3,7 @@ package com.bz.movies.presentation.mappers
 import com.bz.movies.kmp.dto.MovieDto
 import com.bz.movies.presentation.screens.common.MovieItem
 
-fun MovieDto.toMovieItem() =
+internal fun MovieDto.toMovieItem() =
     MovieItem(
         id = id,
         posterUrl = "https://image.tmdb.org/t/p/w154/$posterUrl",
@@ -13,7 +13,7 @@ fun MovieDto.toMovieItem() =
         language = language,
     )
 
-fun MovieItem.toDTO() =
+internal fun MovieItem.toDTO() =
     MovieDto(
         rating = rating,
         language = language,

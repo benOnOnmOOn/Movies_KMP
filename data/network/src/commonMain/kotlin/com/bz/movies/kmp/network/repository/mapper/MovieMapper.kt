@@ -8,7 +8,7 @@ import com.bz.movies.kmp.network.api.model.PopularMoviesPageApiResponse
 import com.bz.movies.kmp.network.repository.model.MoveDetailDto
 import com.bz.movies.kmp.network.repository.model.PopularMoviePageDto
 
-const val VOTE_MULTIPLIER = 10
+private const val VOTE_MULTIPLIER = 10
 
 internal fun MovieApiResponse.toPopularMovieDto() =
     MovieDto(

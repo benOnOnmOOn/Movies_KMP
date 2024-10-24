@@ -1,6 +1,6 @@
 package com.bz.movies.presentation.screens.common
 
-data class MovieItem(
+internal data class MovieItem(
     val id: Int,
     val posterUrl: String,
     val title: String,

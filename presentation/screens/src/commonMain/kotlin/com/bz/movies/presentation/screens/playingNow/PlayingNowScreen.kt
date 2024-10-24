@@ -15,7 +15,7 @@ import org.jetbrains.compose.resources.stringResource
 import org.koin.compose.viewmodel.koinViewModel
 
 @Composable
-fun PlayingNowScreen(playingNowViewModel: PlayingNowViewModel = koinViewModel()) {
+internal fun PlayingNowScreen(playingNowViewModel: PlayingNowViewModel = koinViewModel()) {
     val playingNow by playingNowViewModel.state.collectAsState()
     PlayingNowScreen(playingNow, playingNowViewModel::sendEvent)
 }

@@ -8,7 +8,7 @@ import javax.net.SocketFactory
 
 // Create custom SocketFactory that avoid raising untagged socket detected with enabled strict mode
 // https://github.com/square/okhttp/issues/3537
-open class DelegatingSocketFactory(
+internal open class DelegatingSocketFactory(
     private val delegate: SocketFactory,
     private val configureSocket: (Socket) -> Socket,
 ) : SocketFactory() {

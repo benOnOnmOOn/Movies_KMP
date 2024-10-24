@@ -17,7 +17,7 @@ import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import kotlin.random.Random
 
-class MovieDetailsViewModel(private val movieRepository: MovieRepository) : ViewModel() {
+internal class MovieDetailsViewModel(private val movieRepository: MovieRepository) : ViewModel() {
     private val _state = MutableStateFlow(MovieDetailState())
     val state: StateFlow<MovieDetailState> = _state.asStateFlow()
 
