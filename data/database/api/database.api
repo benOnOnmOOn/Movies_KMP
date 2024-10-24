@@ -5,7 +5,6 @@ public final class com/bz/movies/kmp/database/DriverFactory {
 
 public final class com/bz/movies/kmp/database/DriverFactoryKt {
 	public static final field MOVIES_DB_NAME Ljava/lang/String;
-	public static final fun createDatabase (Lcom/bz/movies/kmp/database/DriverFactory;)Lcom/bz/movies/kmp/database/MoviesDB2;
 }
 
 public final class com/bz/movies/kmp/database/Favaorite {

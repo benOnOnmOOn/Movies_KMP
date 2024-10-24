@@ -12,9 +12,9 @@ import io.ktor.http.appendPathSegments
 import io.ktor.serialization.kotlinx.json.json
 import kotlinx.serialization.json.Json
 
-const val BASE_URL = "https://api.themoviedb.org/3/"
+private const val BASE_URL = "https://api.themoviedb.org/3/"
 
-expect fun httpClient(config: HttpClientConfig<*>.() -> Unit): HttpClient
+internal expect fun httpClient(config: HttpClientConfig<*>.() -> Unit): HttpClient
 
 internal class MovieService {
     private val client =

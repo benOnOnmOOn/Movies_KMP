@@ -1,15 +1,3 @@
-public final class com/bz/movies/kmp/network/api/service/LoggingInterceptorKt {
-	public static final fun configureLoggingInterceptor (Lio/ktor/client/HttpClientConfig;)V
-}
-
-public final class com/bz/movies/kmp/network/api/service/MovieServiceKt {
-	public static final field BASE_URL Ljava/lang/String;
-}
-
-public final class com/bz/movies/kmp/network/api/service/MovieService_androidKt {
-	public static final fun httpClient (Lkotlin/jvm/functions/Function1;)Lio/ktor/client/HttpClient;
-}
-
 public final class com/bz/movies/kmp/network/di/NetworkModuleKt {
 	public static final fun getCommonNetworkModule ()Lorg/koin/core/module/Module;
 }
@@ -27,10 +15,6 @@ public abstract interface class com/bz/movies/kmp/network/repository/MovieReposi
 
 public final class com/bz/movies/kmp/network/repository/NoInternetException : java/lang/Exception {
 	public fun <init> ()V
-}
-
-public final class com/bz/movies/kmp/network/repository/mapper/MovieMapperKt {
-	public static final field VOTE_MULTIPLIER I
 }
 
 public final class com/bz/movies/kmp/network/repository/model/MoveDetailDto {
@@ -71,27 +55,5 @@ public final class com/bz/movies/kmp/network/repository/model/PopularMoviePageDt
 	public final fun getTotalResults ()I
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-}
-
-public class com/bz/movies/kmp/network/utils/DelegatingSocketFactory : javax/net/SocketFactory {
-	public fun <init> (Ljavax/net/SocketFactory;Lkotlin/jvm/functions/Function1;)V
-	public fun createSocket ()Ljava/net/Socket;
-	public fun createSocket (Ljava/lang/String;I)Ljava/net/Socket;
-	public fun createSocket (Ljava/lang/String;ILjava/net/InetAddress;I)Ljava/net/Socket;
-	public fun createSocket (Ljava/net/InetAddress;I)Ljava/net/Socket;
-	public fun createSocket (Ljava/net/InetAddress;ILjava/net/InetAddress;I)Ljava/net/Socket;
-}
-
-public abstract interface class com/bz/movies/kmp/network/utils/InternetConnection {
-	public abstract fun isConnected ()Z
-}
-
-public final class com/bz/movies/kmp/network/utils/InternetConnection$DefaultImpls {
-	public static fun isConnected (Lcom/bz/movies/kmp/network/utils/InternetConnection;)Z
-}
-
-public final class com/bz/movies/kmp/network/utils/InternetConnectionImpl : com/bz/movies/kmp/network/utils/InternetConnection {
-	public fun <init> (Landroid/net/ConnectivityManager;)V
-	public fun isConnected ()Z
 }
 

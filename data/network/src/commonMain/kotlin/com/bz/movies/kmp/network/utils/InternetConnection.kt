@@ -1,6 +1,6 @@
 package com.bz.movies.kmp.network.utils
 
-interface InternetConnection {
+internal interface InternetConnection {
     val isConnected: Boolean
         get() = true
 }
