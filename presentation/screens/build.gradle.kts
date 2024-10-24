@@ -30,9 +30,9 @@ kotlin {
         }
         commonMain {
             dependencies {
-                api(project(":data:network"))
-                api(project(":data:database"))
-                api(project(":data:dto"))
+                implementation(project(":data:network"))
+                implementation(project(":data:database"))
+                implementation(project(":data:dto"))
 
                 implementation(compose.components.resources)
                 implementation(libs.org.jetbrains.kotlinx.coroutines.core)
@@ -78,9 +78,10 @@ android {
         compose = true
     }
     dependencies {
-        api(project(":data:database"))
-        api(project(":data:dto"))
-        api(project(":data:network"))
+        implementation(project(":data:database"))
+        implementation(project(":data:dto"))
+        implementation(project(":data:network"))
+
         api(libs.androidx.animation)
         api(libs.androidx.runtime)
         api(libs.androidx.ui)
