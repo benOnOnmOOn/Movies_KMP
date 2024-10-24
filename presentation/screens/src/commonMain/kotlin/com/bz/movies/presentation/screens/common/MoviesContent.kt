@@ -18,7 +18,7 @@ import com.bz.movies.presentation.components.MovieContent
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun MoviesContentWithPullToRefresh(
+internal fun MoviesContentWithPullToRefresh(
     playingNowState: MoviesState,
     refresh: () -> Unit = {},
     onMovieClicked: (MovieItem) -> Unit,
@@ -40,7 +40,7 @@ fun MoviesContentWithPullToRefresh(
 }
 
 @Composable
-fun MoviesContent(
+internal fun MoviesContent(
     playingNowState: MoviesState,
     onMovieClicked: (MovieItem) -> Unit,
 ) {

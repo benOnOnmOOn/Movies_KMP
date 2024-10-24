@@ -36,7 +36,7 @@ plugins {
     alias(libs.plugins.kotlin.serialization) apply false
     alias(libs.plugins.jetbrains.kotlin.jvm) apply false
     alias(libs.plugins.kotlin.cocoapods) apply false
-    id("org.jetbrains.kotlinx.binary-compatibility-validator") version "0.16.3"
+    alias(libs.plugins.binary.compatibility)
 }
 
 tasks.register<Delete>("clean") {

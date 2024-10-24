@@ -14,27 +14,3 @@ public final class com/bz/movies/kmp/di/PresentationModuleKt {
 	public static final fun getPresentationModule ()Ljava/util/List;
 }
 
-public final class com/bz/movies/kmp/main/MainScreenKt {
-	public static final fun MainScreen (Landroidx/compose/runtime/Composer;I)V
-}
-
-public final class com/bz/movies/movieskmp/AndroidPlatform : com/bz/movies/movieskmp/Platform {
-	public static final field $stable I
-	public fun <init> ()V
-	public fun getName ()Ljava/lang/String;
-}
-
-public final class com/bz/movies/movieskmp/Greeting {
-	public static final field $stable I
-	public fun <init> ()V
-	public final fun greet ()Ljava/lang/String;
-}
-
-public abstract interface class com/bz/movies/movieskmp/Platform {
-	public abstract fun getName ()Ljava/lang/String;
-}
-
-public final class com/bz/movies/movieskmp/Platform_androidKt {
-	public static final fun getPlatform ()Lcom/bz/movies/movieskmp/Platform;
-}
-

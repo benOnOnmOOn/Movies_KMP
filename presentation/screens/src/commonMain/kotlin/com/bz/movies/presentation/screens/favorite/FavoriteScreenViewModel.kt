@@ -24,7 +24,7 @@ import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 
-class FavoriteScreenViewModel(
+internal class FavoriteScreenViewModel(
     private val localMovieRepository: LocalMovieRepository,
 ) : ViewModel() {
     private val _state = MutableStateFlow(MoviesState())

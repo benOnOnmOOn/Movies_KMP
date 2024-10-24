@@ -18,7 +18,7 @@ import org.koin.core.annotation.KoinExperimentalAPI
 
 @OptIn(KoinExperimentalAPI::class)
 @Composable
-fun FavoriteScreen(favoriteScreenViewModel: FavoriteScreenViewModel = koinViewModel()) {
+internal fun FavoriteScreen(favoriteScreenViewModel: FavoriteScreenViewModel = koinViewModel()) {
     val playingNow by favoriteScreenViewModel.state.collectAsState()
     FavoriteScreen(playingNow, favoriteScreenViewModel::sendEvent)
 }

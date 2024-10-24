@@ -25,7 +25,7 @@ import movies_kmp.presentation.screens.generated.resources.ic_star
 import org.jetbrains.compose.resources.painterResource
 
 @Composable
-fun MovieContent(
+internal fun MovieContent(
     movieItem: MovieItem,
     isLast: Boolean,
     onMovieClicked: (MovieItem) -> Unit,

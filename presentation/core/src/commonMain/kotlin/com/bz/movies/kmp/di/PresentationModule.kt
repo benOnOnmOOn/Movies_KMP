@@ -4,17 +4,7 @@ import com.bz.movies.kmp.database.di.databaseModule
 import com.bz.movies.kmp.database.di.repositoryModule
 import com.bz.movies.kmp.network.di.commonNetworkModule
 import com.bz.movies.kmp.network.di.platformNetworkModule
-import com.bz.movies.presentation.screens.details.MovieDetailsViewModel
-import com.bz.movies.presentation.screens.favorite.FavoriteScreenViewModel
-import com.bz.movies.presentation.screens.playingNow.PlayingNowViewModel
-import com.bz.movies.presentation.screens.popular.PopularMoviesViewModel
-import org.koin.core.module.dsl.viewModel
-import org.koin.dsl.module
+import com.bz.movies.presentation.di.screensModule
 
 val presentationModule =
-    module {
-        viewModel { PlayingNowViewModel(get(), get()) }
-        viewModel { PopularMoviesViewModel(get(), get()) }
-        viewModel { FavoriteScreenViewModel(get()) }
-        viewModel { MovieDetailsViewModel(get()) }
-    } + commonNetworkModule + platformNetworkModule + databaseModule + repositoryModule
+    screensModule + commonNetworkModule + platformNetworkModule + databaseModule + repositoryModule

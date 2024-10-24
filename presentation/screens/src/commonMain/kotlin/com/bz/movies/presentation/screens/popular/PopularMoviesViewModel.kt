@@ -27,7 +27,7 @@ import kotlinx.coroutines.flow.onEmpty
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 
-class PopularMoviesViewModel(
+internal class PopularMoviesViewModel(
     private val movieRepository: MovieRepository,
     private val localMovieRepository: LocalMovieRepository,
 ) : ViewModel() {
