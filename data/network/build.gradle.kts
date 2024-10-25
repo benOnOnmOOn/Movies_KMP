@@ -78,5 +78,6 @@ android {
         lintChecks(libs.slack.lint.checks)
 
         testImplementation(libs.kotlin.test)
+        testImplementation(libs.org.junit.jupiter.api)
     }
 }
