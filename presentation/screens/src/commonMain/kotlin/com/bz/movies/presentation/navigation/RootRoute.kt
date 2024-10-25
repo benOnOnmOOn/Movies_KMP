@@ -17,7 +17,7 @@ enum class RootRoute(val route: String) {
     Details("details/{id}"),
 }
 
-fun NavController.navigateToRootRoute(rootRoute: RootRoute) {
+internal fun NavController.navigateToRootRoute(rootRoute: RootRoute) {
     navigate(rootRoute.route) {
         popUpTo(graph.findStartDestination().route!!) {
             saveState = true

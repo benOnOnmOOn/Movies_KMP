@@ -18,6 +18,14 @@ fun MoviesNavHost(
     navController: NavHostController,
     modifier: Modifier = Modifier,
 ) {
+    MoviesNavHostInternal(navController, modifier)
+}
+
+@Composable
+private fun MoviesNavHostInternal(
+    navController: NavHostController,
+    modifier: Modifier = Modifier,
+) {
     NavHost(
         modifier = modifier,
         navController = navController,

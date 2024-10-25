@@ -12,7 +12,6 @@ import androidx.navigation.compose.rememberNavController
 import com.bz.movies.presentation.navigation.BottomNavigationBar
 import com.bz.movies.presentation.navigation.MoviesNavHost
 import com.bz.movies.presentation.navigation.currentRootRouteAsState
-import com.bz.movies.presentation.navigation.navigateToRootRoute
 import com.bz.movies.presentation.theme.MoviesTheme
 
 @Composable
@@ -25,9 +24,7 @@ internal fun MainScreen() {
             bottomBar = {
                 BottomNavigationBar(
                     currentRootRoute = currentRootRoute,
-                    navigateToTopLevelDestination = {
-                        navController.navigateToRootRoute(it.rootRoute)
-                    },
+                    navController = navController,
                 )
             },
         ) {
