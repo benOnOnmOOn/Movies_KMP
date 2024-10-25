@@ -20,23 +20,7 @@ public final class com/bz/movies/presentation/navigation/MoviesNavHostKt {
 }
 
 public final class com/bz/movies/presentation/navigation/NavigationComponentsKt {
-	public static final fun BottomNavigationBar (Lcom/bz/movies/presentation/navigation/RootRoute;Landroidx/navigation/NavController;Landroidx/compose/runtime/Composer;I)V
-}
-
-public final class com/bz/movies/presentation/navigation/RootRoute : java/lang/Enum {
-	public static final field Details Lcom/bz/movies/presentation/navigation/RootRoute;
-	public static final field Favorite Lcom/bz/movies/presentation/navigation/RootRoute;
-	public static final field More Lcom/bz/movies/presentation/navigation/RootRoute;
-	public static final field PlayingNow Lcom/bz/movies/presentation/navigation/RootRoute;
-	public static final field Popular Lcom/bz/movies/presentation/navigation/RootRoute;
-	public static fun getEntries ()Lkotlin/enums/EnumEntries;
-	public final fun getRoute ()Ljava/lang/String;
-	public static fun valueOf (Ljava/lang/String;)Lcom/bz/movies/presentation/navigation/RootRoute;
-	public static fun values ()[Lcom/bz/movies/presentation/navigation/RootRoute;
-}
-
-public final class com/bz/movies/presentation/navigation/RootRouteKt {
-	public static final fun currentRootRouteAsState (Landroidx/navigation/NavController;Landroidx/compose/runtime/Composer;I)Landroidx/compose/runtime/State;
+	public static final fun BottomNavigationBar (Landroidx/navigation/NavController;Landroidx/compose/runtime/Composer;I)V
 }
 
 public final class com/bz/movies/presentation/screens/preview/details/ComposableSingletons$MovieDetailsScreenKt {
