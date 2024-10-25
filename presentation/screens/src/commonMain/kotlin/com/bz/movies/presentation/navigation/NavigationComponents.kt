@@ -16,9 +16,7 @@ import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.resources.stringResource
 
 @Composable
-fun BottomNavigationBar(
-    navController: NavController,
-) {
+fun BottomNavigationBar(navController: NavController) {
     val currentRootRoute by navController.currentRootRouteAsState()
 
     NavigationBar(
