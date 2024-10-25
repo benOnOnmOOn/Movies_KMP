@@ -9,7 +9,7 @@ import androidx.compose.runtime.remember
 import androidx.navigation.NavController
 import androidx.navigation.NavGraph.Companion.findStartDestination
 
-enum class RootRoute(val route: String) {
+internal enum class RootRoute(val route: String) {
     PlayingNow("tab_playing_now"),
     Popular("tab_popular"),
     Favorite("tab_favorite"),
@@ -17,7 +17,7 @@ enum class RootRoute(val route: String) {
     Details("details/{id}"),
 }
 
-fun NavController.navigateToRootRoute(rootRoute: RootRoute) {
+internal fun NavController.navigateToRootRoute(rootRoute: RootRoute) {
     navigate(rootRoute.route) {
         popUpTo(graph.findStartDestination().route!!) {
             saveState = true
@@ -30,7 +30,7 @@ fun NavController.navigateToRootRoute(rootRoute: RootRoute) {
 
 @Stable
 @Composable
-fun NavController.currentRootRouteAsState(): State<RootRoute> {
+internal fun NavController.currentRootRouteAsState(): State<RootRoute> {
     val selectedItem =
         remember { mutableStateOf(RootRoute.PlayingNow) }
 

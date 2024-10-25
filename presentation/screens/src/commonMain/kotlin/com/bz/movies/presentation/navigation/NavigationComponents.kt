@@ -8,16 +8,17 @@ import androidx.compose.material3.NavigationBarItem
 import androidx.compose.material3.NavigationBarItemDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.navigation.NavController
 import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.resources.stringResource
 
 @Composable
-fun BottomNavigationBar(
-    currentRootRoute: RootRoute,
-    navigateToTopLevelDestination: (TopLevelDestination) -> Unit,
-) {
+fun BottomNavigationBar(navController: NavController) {
+    val currentRootRoute by navController.currentRootRouteAsState()
+
     NavigationBar(
         modifier = Modifier.fillMaxWidth(),
         containerColor = MaterialTheme.colorScheme.surface,
@@ -27,7 +28,7 @@ fun BottomNavigationBar(
             val isItemSelected = destination.rootRoute == currentRootRoute
             NavigationBarItem(
                 selected = isItemSelected,
-                onClick = { navigateToTopLevelDestination(destination) },
+                onClick = { navController.navigateToRootRoute(destination.rootRoute) },
                 icon = { NavIcon(destination, isItemSelected) },
                 alwaysShowLabel = true,
                 label = {

@@ -20,42 +20,7 @@ public final class com/bz/movies/presentation/navigation/MoviesNavHostKt {
 }
 
 public final class com/bz/movies/presentation/navigation/NavigationComponentsKt {
-	public static final fun BottomNavigationBar (Lcom/bz/movies/presentation/navigation/RootRoute;Lkotlin/jvm/functions/Function1;Landroidx/compose/runtime/Composer;I)V
-}
-
-public final class com/bz/movies/presentation/navigation/RootRoute : java/lang/Enum {
-	public static final field Details Lcom/bz/movies/presentation/navigation/RootRoute;
-	public static final field Favorite Lcom/bz/movies/presentation/navigation/RootRoute;
-	public static final field More Lcom/bz/movies/presentation/navigation/RootRoute;
-	public static final field PlayingNow Lcom/bz/movies/presentation/navigation/RootRoute;
-	public static final field Popular Lcom/bz/movies/presentation/navigation/RootRoute;
-	public static fun getEntries ()Lkotlin/enums/EnumEntries;
-	public final fun getRoute ()Ljava/lang/String;
-	public static fun valueOf (Ljava/lang/String;)Lcom/bz/movies/presentation/navigation/RootRoute;
-	public static fun values ()[Lcom/bz/movies/presentation/navigation/RootRoute;
-}
-
-public final class com/bz/movies/presentation/navigation/RootRouteKt {
-	public static final fun currentRootRouteAsState (Landroidx/navigation/NavController;Landroidx/compose/runtime/Composer;I)Landroidx/compose/runtime/State;
-	public static final fun navigateToRootRoute (Landroidx/navigation/NavController;Lcom/bz/movies/presentation/navigation/RootRoute;)V
-}
-
-public final class com/bz/movies/presentation/navigation/TopLevelDestination {
-	public static final field $stable I
-	public fun <init> (Lcom/bz/movies/presentation/navigation/RootRoute;Lorg/jetbrains/compose/resources/DrawableResource;Lorg/jetbrains/compose/resources/DrawableResource;Lorg/jetbrains/compose/resources/StringResource;)V
-	public final fun component1 ()Lcom/bz/movies/presentation/navigation/RootRoute;
-	public final fun component2 ()Lorg/jetbrains/compose/resources/DrawableResource;
-	public final fun component3 ()Lorg/jetbrains/compose/resources/DrawableResource;
-	public final fun component4 ()Lorg/jetbrains/compose/resources/StringResource;
-	public final fun copy (Lcom/bz/movies/presentation/navigation/RootRoute;Lorg/jetbrains/compose/resources/DrawableResource;Lorg/jetbrains/compose/resources/DrawableResource;Lorg/jetbrains/compose/resources/StringResource;)Lcom/bz/movies/presentation/navigation/TopLevelDestination;
-	public static synthetic fun copy$default (Lcom/bz/movies/presentation/navigation/TopLevelDestination;Lcom/bz/movies/presentation/navigation/RootRoute;Lorg/jetbrains/compose/resources/DrawableResource;Lorg/jetbrains/compose/resources/DrawableResource;Lorg/jetbrains/compose/resources/StringResource;ILjava/lang/Object;)Lcom/bz/movies/presentation/navigation/TopLevelDestination;
-	public fun equals (Ljava/lang/Object;)Z
-	public final fun getIconTextId ()Lorg/jetbrains/compose/resources/StringResource;
-	public final fun getRootRoute ()Lcom/bz/movies/presentation/navigation/RootRoute;
-	public final fun getSelectedIcon ()Lorg/jetbrains/compose/resources/DrawableResource;
-	public final fun getUnselectedIcon ()Lorg/jetbrains/compose/resources/DrawableResource;
-	public fun hashCode ()I
-	public fun toString ()Ljava/lang/String;
+	public static final fun BottomNavigationBar (Landroidx/navigation/NavController;Landroidx/compose/runtime/Composer;I)V
 }
 
 public final class com/bz/movies/presentation/screens/preview/details/ComposableSingletons$MovieDetailsScreenKt {
