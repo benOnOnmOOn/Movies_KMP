@@ -19,7 +19,23 @@ kover {
 }
 
 kotlin {
-    androidTarget()
+    androidTarget {
+        dependencies {
+            implementation(project(":data:database"))
+            implementation(project(":data:network"))
+            implementation(project(":presentation:screens"))
+
+            lintChecks(libs.slack.lint.checks)
+
+            api(libs.androidx.activity)
+            api(libs.kotlin.stdlib)
+
+            implementation(libs.androidx.activity.compose)
+            implementation(libs.androidx.navigation.common)
+            implementation(libs.androidx.navigation.compose)
+            implementation(libs.androidx.navigation.runtime)
+        }
+    }
     iosX64()
     iosArm64()
     iosSimulatorArm64()
@@ -43,39 +59,51 @@ kotlin {
     }
 
     sourceSets {
-        commonMain {
-            dependencies {
-                api(project(":presentation:screens"))
-                api(project(":data:network"))
-                api(project(":data:database"))
-                api(project(":data:dto"))
+        commonMain.dependencies {
+            api(project(":presentation:screens"))
+            api(project(":data:network"))
+            api(project(":data:database"))
+            api(project(":data:dto"))
 
-                implementation(compose.components.resources)
-                implementation(libs.org.jetbrains.kotlinx.coroutines.core)
-                implementation(libs.material3)
-                implementation(libs.androidx.lifecycle.viewmodel)
-                implementation(libs.navigation.compose)
-                implementation(libs.coil.core)
-                implementation(libs.coil.compose.core)
-                implementation(libs.coil)
-                implementation(libs.coil.network.ktor)
-                implementation(libs.io.insert.koin.core)
-                implementation(libs.io.insert.koin.compose)
-                implementation(libs.io.insert.koin.compose.viemodel)
-            }
+            implementation(compose.components.resources)
+            implementation(libs.org.jetbrains.kotlinx.coroutines.core)
+            implementation(libs.material3)
+            implementation(libs.androidx.lifecycle.viewmodel)
+            implementation(libs.navigation.compose)
+            implementation(libs.coil.core)
+            implementation(libs.coil.compose.core)
+            implementation(libs.coil)
+            implementation(libs.coil.network.ktor)
+            implementation(libs.io.insert.koin.core)
+            implementation(libs.io.insert.koin.compose)
+            implementation(libs.io.insert.koin.compose.viemodel)
         }
 
-        androidMain {
-            dependencies {
-                implementation(libs.org.jetbrains.kotlinx.coroutines.android)
-                implementation(libs.androidx.compose.ui.tooling.preview)
-            }
+        androidMain.dependencies {
+            implementation(project(":data:database"))
+            implementation(project(":data:network"))
+            implementation(project(":presentation:screens"))
+
+            api(libs.androidx.activity)
+            api(libs.androidx.runtime)
+            api(libs.kotlin.stdlib)
+
+            implementation(libs.androidx.activity.compose)
+            implementation(libs.androidx.compose.material3)
+            implementation(libs.androidx.foundation)
+            implementation(libs.androidx.foundation.layout)
+            implementation(libs.androidx.navigation.common)
+            implementation(libs.androidx.navigation.compose)
+            implementation(libs.androidx.navigation.runtime)
+            implementation(libs.androidx.ui)
+            implementation(libs.androidx.ui.graphics)
+
+            implementation(libs.org.jetbrains.kotlinx.coroutines.android)
+            implementation(libs.androidx.compose.ui.tooling.preview)
         }
 
-        iosMain {
-            dependencies {
-                implementation(libs.app.cash.sqldelight.native.driver)
-            }
+        iosMain.dependencies {
+            implementation(libs.app.cash.sqldelight.native.driver)
         }
     }
 }
@@ -85,27 +113,6 @@ android {
 
     buildFeatures {
         compose = true
-    }
-    dependencies {
-        implementation(project(":data:database"))
-        implementation(project(":data:network"))
-        implementation(project(":presentation:screens"))
-
-        api(libs.androidx.activity)
-        api(libs.androidx.runtime)
-        api(libs.kotlin.stdlib)
-
-        lintChecks(libs.slack.lint.checks)
-
-        implementation(libs.androidx.activity.compose)
-        implementation(libs.androidx.compose.material3)
-        implementation(libs.androidx.foundation)
-        implementation(libs.androidx.foundation.layout)
-        implementation(libs.androidx.navigation.common)
-        implementation(libs.androidx.navigation.compose)
-        implementation(libs.androidx.navigation.runtime)
-        implementation(libs.androidx.ui)
-        implementation(libs.androidx.ui.graphics)
     }
 }
 

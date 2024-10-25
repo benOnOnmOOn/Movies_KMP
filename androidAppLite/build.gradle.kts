@@ -53,6 +53,7 @@ dependencies {
     testImplementation(libs.io.mockk)
     testRuntimeOnly(libs.org.junit.jupiter.engine)
 
+    implementation(libs.androidx.runtime)
     debugRuntimeOnly(libs.androidx.compose.ui.test.manifest)
     debugRuntimeOnly(libs.androidx.compose.ui.tooling)
 

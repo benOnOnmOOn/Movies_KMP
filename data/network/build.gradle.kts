@@ -15,68 +15,67 @@ kover {
 }
 
 kotlin {
-    androidTarget()
+    androidTarget {
+        dependencies {
+            lintChecks(libs.slack.lint.checks)
+
+            api(project(":data:dto"))
+            api(libs.kotlin.stdlib)
+
+            implementation(libs.androidx.core)
+            implementation(libs.androidx.core.ktx)
+            implementation(libs.io.insert.koin.android)
+            testImplementation(libs.org.junit.jupiter.api)
+        }
+    }
 
     iosX64()
     iosArm64()
     iosSimulatorArm64()
 
     sourceSets {
-        commonMain {
-            dependencies {
-                api(project(":data:dto"))
-                implementation(libs.io.ktor.client.core)
-                implementation(libs.io.ktor.serialization.content.negotiation)
-                implementation(libs.io.ktor.serialization.kotlinx.json)
-                implementation(libs.org.jetbrains.kotlinx.coroutines.core)
-                implementation(libs.io.insert.koin.core)
-            }
-        }
-        commonTest {
-            dependencies {
-                implementation(kotlin("test"))
-            }
+        commonMain.dependencies {
+            api(project(":data:dto"))
+            implementation(libs.io.ktor.client.core)
+            implementation(libs.io.ktor.serialization.content.negotiation)
+            implementation(libs.io.ktor.serialization.kotlinx.json)
+            implementation(libs.org.jetbrains.kotlinx.coroutines.core)
+            implementation(libs.io.insert.koin.core)
         }
 
-        androidMain {
-            dependencies {
-                implementation(libs.androidx.core)
-                implementation(libs.androidx.core.ktx)
-                implementation(libs.org.jetbrains.kotlinx.coroutines.android)
-                implementation(libs.io.ktor.client.android)
-                implementation(libs.io.insert.koin.android)
-                implementation(libs.ktor.client.logging)
-                implementation(libs.slf4j.android)
-            }
+        commonTest.dependencies {
+            implementation(kotlin("test"))
         }
 
-        iosMain {
-            dependencies {
-                implementation(libs.io.ktor.client.ios)
-            }
+        androidMain.dependencies {
+            implementation(libs.io.ktor.client.android)
+            api(libs.kotlin.stdlib)
+
+            implementation(libs.io.ktor.http)
+            implementation(libs.io.ktor.serialization)
+            implementation(libs.io.ktor.utils)
+            implementation(libs.kotlinx.serialization.core)
+            implementation(libs.kotlinx.serialization.json)
+            implementation(libs.androidx.core)
+            implementation(libs.androidx.core.ktx)
+
+            implementation(libs.org.jetbrains.kotlinx.coroutines.android)
+            implementation(libs.io.insert.koin.android)
+            implementation(libs.ktor.client.logging)
+            implementation(libs.slf4j.android)
+        }
+
+        androidUnitTest.dependencies {
+            implementation(libs.kotlin.test)
+            implementation(libs.org.junit.jupiter.api)
+        }
+
+        iosMain.dependencies {
+            implementation(libs.io.ktor.client.ios)
         }
     }
 }
 
 android {
     namespace = "com.bz.movies.kmp.network"
-    dependencies {
-        api(project(":data:dto"))
-
-        implementation(libs.io.ktor.client.android)
-        api(libs.kotlin.stdlib)
-
-        implementation(libs.io.ktor.http)
-        implementation(libs.io.ktor.serialization)
-        implementation(libs.io.ktor.utils)
-        implementation(libs.kotlinx.serialization.core)
-        implementation(libs.kotlinx.serialization.json)
-        implementation(libs.androidx.core)
-        implementation(libs.androidx.core.ktx)
-        implementation(libs.io.insert.koin.android)
-
-        lintChecks(libs.slack.lint.checks)
-
-        testImplementation(libs.kotlin.test)
-    }
 }

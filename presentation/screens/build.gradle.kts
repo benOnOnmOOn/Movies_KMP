@@ -18,7 +18,27 @@ kover {
 }
 
 kotlin {
-    androidTarget()
+    androidTarget {
+        dependencies {
+            implementation(project(":data:database"))
+            implementation(project(":data:dto"))
+            implementation(project(":data:network"))
+
+            api(libs.androidx.navigation.common)
+            api(libs.androidx.navigation.runtime)
+            api(libs.kotlin.stdlib)
+
+            implementation(libs.androidx.compose.ui.tooling.preview)
+            implementation(libs.androidx.navigation.compose)
+
+            lintChecks(libs.slack.lint.checks)
+            lintChecks(libs.compose.lint.checks)
+
+            debugImplementation(libs.kermit.android.debug)
+            debugImplementation(libs.kermit.core.android.debug)
+            releaseImplementation(libs.kermit.core)
+        }
+    }
 
     iosX64()
     iosArm64()
@@ -28,45 +48,59 @@ kotlin {
         all {
             languageSettings.optIn("org.koin.core.annotation.KoinExperimentalAPI")
         }
-        commonMain {
-            dependencies {
-                implementation(project(":data:network"))
-                implementation(project(":data:database"))
-                implementation(project(":data:dto"))
+        commonMain.dependencies {
+            implementation(project(":data:network"))
+            implementation(project(":data:database"))
+            implementation(project(":data:dto"))
 
-                implementation(compose.components.resources)
-                implementation(libs.org.jetbrains.kotlinx.coroutines.core)
-                implementation(libs.material3)
-                implementation(libs.androidx.lifecycle.viewmodel)
-                implementation(libs.navigation.compose)
-                implementation(libs.coil.core)
-                implementation(libs.coil.compose.core)
-                implementation(libs.coil)
-                implementation(libs.coil.network.ktor)
-                implementation(libs.io.insert.koin.core)
-                implementation(libs.io.insert.koin.core.viewmodel)
-                implementation(libs.io.insert.koin.compose)
-                implementation(libs.io.insert.koin.compose.viemodel)
+            implementation(compose.components.resources)
+            implementation(libs.org.jetbrains.kotlinx.coroutines.core)
+            implementation(libs.material3)
+            implementation(libs.androidx.lifecycle.viewmodel)
+            implementation(libs.navigation.compose)
+            implementation(libs.coil.core)
+            implementation(libs.coil.compose.core)
+            implementation(libs.coil)
+            implementation(libs.coil.network.ktor)
+            implementation(libs.io.insert.koin.core)
+            implementation(libs.io.insert.koin.core.viewmodel)
+            implementation(libs.io.insert.koin.compose)
+            implementation(libs.io.insert.koin.compose.viemodel)
 
-                implementation(libs.kermit)
-            }
-        }
-        commonTest {
-            dependencies {
-                implementation(kotlin("test"))
-            }
+            implementation(libs.kermit)
         }
 
-        androidMain {
-            dependencies {
-                implementation(libs.org.jetbrains.kotlinx.coroutines.android)
-                implementation(libs.androidx.compose.ui.tooling.preview)
-            }
+        commonTest.dependencies {
+            implementation(kotlin("test"))
         }
 
-        iosMain {
-            dependencies {
-            }
+        androidMain.dependencies {
+            implementation(project(":data:database"))
+            implementation(project(":data:dto"))
+            implementation(project(":data:network"))
+
+            api(libs.androidx.animation)
+            api(libs.androidx.runtime)
+            api(libs.androidx.ui)
+            api(libs.androidx.compose.material3)
+            api(libs.androidx.navigation.common)
+            api(libs.androidx.navigation.runtime)
+            api(libs.kotlin.stdlib)
+
+            implementation(libs.androidx.foundation.layout)
+            implementation(libs.androidx.foundation)
+            implementation(libs.androidx.ui.graphics)
+            implementation(libs.androidx.ui.text)
+            implementation(libs.androidx.ui.unit)
+            implementation(libs.androidx.compose.ui.tooling.preview)
+            implementation(libs.androidx.lifecycle.viewmodel.compose)
+            implementation(libs.androidx.navigation.compose)
+
+            implementation(libs.org.jetbrains.kotlinx.coroutines.android)
+            implementation(libs.androidx.compose.ui.tooling.preview)
+        }
+
+        iosMain.dependencies {
         }
     }
 }
@@ -76,35 +110,6 @@ android {
 
     buildFeatures {
         compose = true
-    }
-    dependencies {
-        implementation(project(":data:database"))
-        implementation(project(":data:dto"))
-        implementation(project(":data:network"))
-
-        api(libs.androidx.animation)
-        api(libs.androidx.runtime)
-        api(libs.androidx.ui)
-        api(libs.androidx.compose.material3)
-        api(libs.androidx.navigation.common)
-        api(libs.androidx.navigation.runtime)
-        api(libs.kotlin.stdlib)
-
-        implementation(libs.androidx.foundation.layout)
-        implementation(libs.androidx.foundation)
-        implementation(libs.androidx.ui.graphics)
-        implementation(libs.androidx.ui.text)
-        implementation(libs.androidx.ui.unit)
-        implementation(libs.androidx.compose.ui.tooling.preview)
-        implementation(libs.androidx.lifecycle.viewmodel.compose)
-        implementation(libs.androidx.navigation.compose)
-
-        lintChecks(libs.slack.lint.checks)
-        lintChecks(libs.compose.lint.checks)
-
-        debugImplementation(libs.kermit.android.debug)
-        debugImplementation(libs.kermit.core.android.debug)
-        releaseImplementation(libs.kermit.core)
     }
 }
 

@@ -17,7 +17,17 @@ kover {
 }
 
 kotlin {
-    androidTarget()
+    androidTarget {
+        dependencies {
+            api(project(":data:dto"))
+            api(libs.kotlin.stdlib)
+
+            lintChecks(libs.slack.lint.checks)
+            implementation(libs.androidx.sqlite)
+            implementation(libs.app.cash.sqldelight.android.driver)
+            implementation(libs.io.insert.koin.android)
+        }
+    }
 
     iosX64()
     iosArm64()
@@ -83,13 +93,4 @@ sqldelight {
 
 android {
     namespace = "com.bz.movies.kmp.database"
-    dependencies {
-        api(project(":data:dto"))
-        api(libs.kotlin.stdlib)
-
-        lintChecks(libs.slack.lint.checks)
-        implementation(libs.androidx.sqlite)
-        implementation(libs.app.cash.sqldelight.android.driver)
-        implementation(libs.io.insert.koin.android)
-    }
 }

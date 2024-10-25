@@ -1,12 +1,3 @@
-public final class com/bz/movies/kmp/database/DriverFactory {
-	public fun <init> (Landroid/content/Context;)V
-	public final fun createDriver ()Lapp/cash/sqldelight/db/SqlDriver;
-}
-
-public final class com/bz/movies/kmp/database/DriverFactoryKt {
-	public static final field MOVIES_DB_NAME Ljava/lang/String;
-}
-
 public final class com/bz/movies/kmp/database/Favaorite {
 	public fun <init> (JLjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;J)V
 	public final fun component1 ()J
