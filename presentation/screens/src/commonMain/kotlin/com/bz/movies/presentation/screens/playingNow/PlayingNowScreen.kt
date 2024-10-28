@@ -21,7 +21,7 @@ internal fun PlayingNowScreen(playingNowViewModel: PlayingNowViewModel = koinVie
 }
 
 @Composable
-private fun PlayingNowScreen(
+internal fun PlayingNowScreen(
     state: MoviesState = MoviesState(),
     sendEvent: (MovieEvent) -> Unit,
 ) {
