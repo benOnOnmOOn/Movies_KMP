@@ -24,7 +24,7 @@ internal fun FavoriteScreen(favoriteScreenViewModel: FavoriteScreenViewModel = k
 }
 
 @Composable
-private fun FavoriteScreen(
+internal fun FavoriteScreen(
     state: MoviesState = MoviesState(),
     sendEvent: (MovieEvent) -> Unit,
 ) {

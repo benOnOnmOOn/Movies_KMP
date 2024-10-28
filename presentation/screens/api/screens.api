@@ -23,41 +23,6 @@ public final class com/bz/movies/presentation/navigation/NavigationComponentsKt 
 	public static final fun BottomNavigationBar (Landroidx/navigation/NavController;Landroidx/compose/runtime/Composer;I)V
 }
 
-public final class com/bz/movies/presentation/screens/preview/details/ComposableSingletons$MovieDetailsScreenKt {
-	public static final field INSTANCE Lcom/bz/movies/presentation/screens/preview/details/ComposableSingletons$MovieDetailsScreenKt;
-	public static field lambda-1 Lkotlin/jvm/functions/Function2;
-	public fun <init> ()V
-	public final fun getLambda-1$screens_release ()Lkotlin/jvm/functions/Function2;
-}
-
-public final class com/bz/movies/presentation/screens/preview/empty/ComposableSingletons$GreetingKt {
-	public static final field INSTANCE Lcom/bz/movies/presentation/screens/preview/empty/ComposableSingletons$GreetingKt;
-	public static field lambda-1 Lkotlin/jvm/functions/Function2;
-	public fun <init> ()V
-	public final fun getLambda-1$screens_release ()Lkotlin/jvm/functions/Function2;
-}
-
-public final class com/bz/movies/presentation/screens/preview/favorite/ComposableSingletons$FavoriteScreenKt {
-	public static final field INSTANCE Lcom/bz/movies/presentation/screens/preview/favorite/ComposableSingletons$FavoriteScreenKt;
-	public static field lambda-1 Lkotlin/jvm/functions/Function2;
-	public fun <init> ()V
-	public final fun getLambda-1$screens_release ()Lkotlin/jvm/functions/Function2;
-}
-
-public final class com/bz/movies/presentation/screens/preview/playingNow/ComposableSingletons$PlayingNowScreenKt {
-	public static final field INSTANCE Lcom/bz/movies/presentation/screens/preview/playingNow/ComposableSingletons$PlayingNowScreenKt;
-	public static field lambda-1 Lkotlin/jvm/functions/Function2;
-	public fun <init> ()V
-	public final fun getLambda-1$screens_release ()Lkotlin/jvm/functions/Function2;
-}
-
-public final class com/bz/movies/presentation/screens/preview/popular/ComposableSingletons$PopularMoviesScreenKt {
-	public static final field INSTANCE Lcom/bz/movies/presentation/screens/preview/popular/ComposableSingletons$PopularMoviesScreenKt;
-	public static field lambda-1 Lkotlin/jvm/functions/Function2;
-	public fun <init> ()V
-	public final fun getLambda-1$screens_release ()Lkotlin/jvm/functions/Function2;
-}
-
 public final class com/bz/movies/presentation/theme/ThemeKt {
 	public static final fun MoviesTheme (ZLkotlin/jvm/functions/Function2;Landroidx/compose/runtime/Composer;II)V
 }

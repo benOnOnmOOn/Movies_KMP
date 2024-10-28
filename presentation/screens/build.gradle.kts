@@ -17,6 +17,12 @@ kover {
     }
 }
 
+dependencyAnalysis {
+    issues {
+        onUnusedDependencies { exclude(libs.ui.tooling.preview) }
+    }
+}
+
 kotlin {
     androidTarget {
         dependencies {
@@ -28,12 +34,14 @@ kotlin {
             api(libs.androidx.navigation.runtime)
             api(libs.kotlin.stdlib)
 
-            implementation(libs.androidx.compose.ui.tooling.preview)
             implementation(libs.androidx.navigation.compose)
 
             lintChecks(libs.slack.lint.checks)
             lintChecks(libs.compose.lint.checks)
 
+            debugImplementation(libs.androidx.compose.ui.tooling.preview)
+            debugImplementation(libs.ui.tooling.preview)
+            debugImplementation(libs.androidx.ui.tooling)
             debugImplementation(libs.kermit.android.debug)
             debugImplementation(libs.kermit.core.android.debug)
             releaseImplementation(libs.kermit.core)
