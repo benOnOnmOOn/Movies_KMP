@@ -4,8 +4,8 @@ import com.example.model.Priority
 import com.example.model.Task
 import io.ktor.http.ContentType
 import io.ktor.server.application.Application
-import io.ktor.server.response.respondText
 import io.ktor.server.response.respond
+import io.ktor.server.response.respondText
 import io.ktor.server.routing.get
 import io.ktor.server.routing.routing
 
@@ -27,7 +27,7 @@ fun Application.configureRouting() {
                     Task("cleaning", "Clean the house", Priority.Low),
                     Task("gardening", "Mow the lawn", Priority.Medium),
                     Task("shopping", "Buy the groceries", Priority.High),
-                    Task("painting", "Paint the fence", Priority.Medium)
+                    Task("painting", "Paint the fence", Priority.Medium),
                 ),
             )
         }
