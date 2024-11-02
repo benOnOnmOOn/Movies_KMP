@@ -1,34 +1,34 @@
 [versions]
 activity-compose = "1.9.3"
-coil = "3.0.0-rc01"
-com-android-plugin = "8.7.1"
+coil = "3.0.0-rc02"
+com-android-plugin = "8.7.2"
 compose-lint-checks = "1.4.2"
-core = "1.13.1"
+core = "1.15.0"
 google-services = "4.4.2"
 kermit = "2.0.4"
 kotlinx-serialization = "1.7.3"
-lifecycle = "2.8.6"
-logback-classic = "1.5.11"
+lifecycle = "2.8.7"
+logback-classic = "1.5.12"
 material3-version = "1.7.0"
 navigation-compose = "2.8.3"
 navigation-compose-version = "2.8.0-alpha10"
 slf4j-android = "1.7.36"
 sqlite = "2.4.0"
 startup-runtime = "1.2.0"
-compose = "1.7.4"
+compose = "1.7.5"
 compose-plugin = "1.7.0"
 kotlin = "2.0.21"
 kotlinx-coroutines = "1.9.0"
 mockk = "1.13.13"
 monitor = "1.7.2"
 junit = "5.11.3"
-material3 = "1.3.0"
-ktor = "3.0.0"
+material3 = "1.3.1"
+ktor = "3.0.1"
 koin = "4.0.0"
 slack-lint-checks = "0.8.2"
 sqldelight = "2.0.2"
 ui-tooling-preview = "1.7.0"
-ui-tooling = "1.7.4"
+ui-tooling = "1.7.5"
 
 [libraries]
 androidx-activity = { module = "androidx.activity:activity", version.ref = "activity-compose" }
@@ -91,6 +91,7 @@ kotlinx-serialization-core = { module = "org.jetbrains.kotlinx:kotlinx-serializa
 kotlinx-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "kotlinx-serialization" }
 ktor-client-logging = { module = "io.ktor:ktor-client-logging", version.ref = "ktor" }
 ktor-server-config-yaml = { module = "io.ktor:ktor-server-config-yaml" }
+ktor-server-content-negotiation = { module = "io.ktor:ktor-server-content-negotiation", version.ref = "ktor" }
 ktor-server-netty-jvm = { module = "io.ktor:ktor-server-netty-jvm" }
 ktor-server-core-jvm = { module = "io.ktor:ktor-server-core-jvm" }
 logback-classic = { module = "ch.qos.logback:logback-classic", version.ref = "logback-classic" }
@@ -110,7 +111,7 @@ com-android-library = { id = "com.android.library", version.ref = "com-android-p
 com-google-gms-google-services = { id = "com.google.gms.google-services", version.ref = "google-services" }
 com_github_ben-manes_versions = { id = "com.github.ben-manes.versions", version = "0.51.0" }
 io_gitlab_arturbosch_detekt = { id = "io.gitlab.arturbosch.detekt", version = "1.23.7" }
-com_autonomousapps_dependency-analysis = { id = "com.autonomousapps.dependency-analysis", version = "2.3.0" }
+com_autonomousapps_dependency-analysis = { id = "com.autonomousapps.dependency-analysis", version = "2.4.1" }
 org_jetbrains_kotlinx_kover = { id = "org.jetbrains.kotlinx.kover", version = "0.8.3" }
 com_osacky_doctor = { id = "com.osacky.doctor", version = "0.10.0" }
 app-cash-sqldelight = { id = "app.cash.sqldelight", version.ref = "sqldelight" }

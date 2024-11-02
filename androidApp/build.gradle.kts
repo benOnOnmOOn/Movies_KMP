@@ -100,7 +100,6 @@ dependencies {
 
     compileOnly(libs.google.services)
 
-    implementation(libs.androidx.runtime)
     debugRuntimeOnly(libs.androidx.compose.ui.test.manifest)
     debugRuntimeOnly(libs.androidx.compose.ui.tooling)
 
