@@ -30,6 +30,6 @@
 
 
 # Repackage all obfuscated classes to packege specific for this module
--repackageclasses com.bz.movies.screens
+-repackageclasses data.database
 
 -dontwarn java.lang.invoke.StringConcatFactory

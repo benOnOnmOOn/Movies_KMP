@@ -217,7 +217,7 @@ org.jetbrains.compose.ui:ui-text:1.7.0
 org.jetbrains.compose.ui:ui-unit:1.7.0
 org.jetbrains.compose.ui:ui-util:1.7.0
 org.jetbrains.compose.ui:ui:1.7.0
-org.jetbrains.kotlin:kotlin-stdlib:2.0.21
+org.jetbrains.kotlin:kotlin-stdlib:2.1.0-RC
 org.jetbrains.kotlinx:atomicfu-jvm:0.23.2
 org.jetbrains.kotlinx:atomicfu:0.23.2
 org.jetbrains.kotlinx:kotlinx-coroutines-android:1.9.0

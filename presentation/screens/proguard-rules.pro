@@ -29,7 +29,7 @@
 }
 
 # Repackage all obfuscated classes to packege specific for this module
--repackageclasses com.bz.movies.kmp.network
+-repackageclasses presentation.screens
 
 -dontwarn java.lang.invoke.StringConcatFactory
 -dontwarn androidx.activity.OnBackPressedCallback

@@ -29,6 +29,6 @@
 }
 
 # Repackage all obfuscated classes to packege specific for this module
--repackageclasses com.bz.movies.kmp.network
+-repackageclasses data.network
 
 -dontwarn java.lang.invoke.StringConcatFactory
