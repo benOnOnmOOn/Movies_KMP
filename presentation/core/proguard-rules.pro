@@ -29,6 +29,6 @@
 }
 
 # Repackage all obfuscated classes to packege specific for this module
--repackageclasses com.bz.movies.core
+-repackageclasses presentation.core
 
 -dontwarn java.lang.invoke.StringConcatFactory

@@ -17,7 +17,7 @@ sqlite = "2.4.0"
 startup-runtime = "1.2.0"
 compose = "1.7.5"
 compose-plugin = "1.7.0"
-kotlin = "2.0.21"
+kotlin = "2.1.0-RC"
 kotlinx-coroutines = "1.9.0"
 mockk = "1.13.13"
 monitor = "1.7.2"
@@ -111,7 +111,7 @@ com-android-library = { id = "com.android.library", version.ref = "com-android-p
 com-google-gms-google-services = { id = "com.google.gms.google-services", version.ref = "google-services" }
 com_github_ben-manes_versions = { id = "com.github.ben-manes.versions", version = "0.51.0" }
 io_gitlab_arturbosch_detekt = { id = "io.gitlab.arturbosch.detekt", version = "1.23.7" }
-com_autonomousapps_dependency-analysis = { id = "com.autonomousapps.dependency-analysis", version = "2.4.1" }
+com_autonomousapps_dependency-analysis = { id = "com.autonomousapps.dependency-analysis", version = "2.4.2" }
 org_jetbrains_kotlinx_kover = { id = "org.jetbrains.kotlinx.kover", version = "0.8.3" }
 com_osacky_doctor = { id = "com.osacky.doctor", version = "0.10.0" }
 app-cash-sqldelight = { id = "app.cash.sqldelight", version.ref = "sqldelight" }
