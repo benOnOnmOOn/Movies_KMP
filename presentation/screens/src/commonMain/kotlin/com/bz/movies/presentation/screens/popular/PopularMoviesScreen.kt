@@ -3,9 +3,9 @@ package com.bz.movies.presentation.screens.popular
 import androidx.compose.foundation.layout.Column
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.NavHostController
 import co.touchlab.kermit.Logger
 import com.bz.movies.presentation.screens.common.MovieEvent
@@ -21,7 +21,7 @@ internal fun PopularMoviesScreen(
     playingNowViewModel: PopularMoviesViewModel = koinViewModel(),
     navController: NavHostController,
 ) {
-    val playingNow by playingNowViewModel.state.collectAsState()
+    val playingNow by playingNowViewModel.state.collectAsStateWithLifecycle()
     PopularMoviesScreen(playingNow, playingNowViewModel::sendEvent) {
         navController.navigate("details/$it")
     }

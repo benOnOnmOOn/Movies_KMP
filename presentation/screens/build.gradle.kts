@@ -30,14 +30,16 @@ kotlin {
             implementation(project(":data:dto"))
             implementation(project(":data:network"))
 
+            lintChecks(libs.slack.lint.checks)
+            lintChecks(libs.compose.lint.checks)
+
             api(libs.androidx.navigation.common)
             api(libs.androidx.navigation.runtime)
             api(libs.kotlin.stdlib)
 
             implementation(libs.androidx.navigation.compose)
-
-            lintChecks(libs.slack.lint.checks)
-            lintChecks(libs.compose.lint.checks)
+            implementation(libs.androidx.lifecycle.common)
+            implementation(libs.androidx.lifecycle.runtime.compose)
 
             debugImplementation(libs.androidx.compose.ui.tooling.preview)
             debugImplementation(libs.ui.tooling.preview)
