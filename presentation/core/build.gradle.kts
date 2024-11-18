@@ -22,7 +22,6 @@ kotlin {
     androidTarget {
         dependencies {
             implementation(project(":data:database"))
-            implementation(project(":data:datastore"))
             implementation(project(":data:network"))
             implementation(project(":presentation:screens"))
 
@@ -82,7 +81,6 @@ kotlin {
 
         androidMain.dependencies {
             implementation(project(":data:database"))
-            implementation(project(":data:datastore"))
             implementation(project(":data:network"))
             implementation(project(":presentation:screens"))
 

@@ -27,6 +27,7 @@ kotlin {
     androidTarget {
         dependencies {
             implementation(project(":data:database"))
+            implementation(project(":data:datastore"))
             implementation(project(":data:dto"))
             implementation(project(":data:network"))
 

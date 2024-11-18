@@ -18,11 +18,17 @@ kover {
 kotlin {
     androidTarget {
         dependencies {
-            api(project(":data:dto"))
             api(libs.kotlin.stdlib)
 
             lintChecks(libs.slack.lint.checks)
+
+            implementation(libs.androidx.datastore)
             implementation(libs.io.insert.koin.android)
+
+            debugImplementation(libs.kermit.android.debug)
+            debugImplementation(libs.kermit.core.android.debug)
+
+            releaseImplementation(libs.kermit.core)
         }
     }
 
@@ -33,7 +39,6 @@ kotlin {
     sourceSets {
         commonMain {
             dependencies {
-                api(project(":data:dto"))
                 implementation(libs.io.insert.koin.core)
                 implementation(libs.org.jetbrains.kotlinx.coroutines.core)
                 implementation(libs.androidx.datastore.core)
@@ -51,7 +56,6 @@ kotlin {
 
         androidMain {
             dependencies {
-                api(project(":data:dto"))
                 implementation(libs.io.insert.koin.android)
             }
         }
