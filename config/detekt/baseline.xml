@@ -1,5 +1,7 @@
 <?xml version="1.0" ?>
 <SmellBaseline>
   <ManuallySuppressedIssues></ManuallySuppressedIssues>
-  <CurrentIssues></CurrentIssues>
+  <CurrentIssues>
+    <ID>LongParameterList:MoveDetailDto.kt$MoveDetailDto$( val id: Int, val posterUrl: String, val publicationDate: String, val language: String, val title: String, val genre: Set&lt;String&gt;, val overview: String, )</ID>
+  </CurrentIssues>
 </SmellBaseline>
