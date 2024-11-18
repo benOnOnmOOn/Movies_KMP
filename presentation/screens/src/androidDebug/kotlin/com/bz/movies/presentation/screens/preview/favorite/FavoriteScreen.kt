@@ -12,6 +12,6 @@ import com.bz.movies.presentation.theme.MoviesTheme
 @Suppress("UnusedPrivateMember")
 private fun PlayingNowScreenPreview() {
     MoviesTheme {
-        FavoriteScreen(state = MoviesState()) {}
+        FavoriteScreen(state = MoviesState(), sendEvent = {})
     }
 }
