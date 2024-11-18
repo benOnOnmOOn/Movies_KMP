@@ -11,6 +11,5 @@ internal actual class InternetConnectionImpl(
         get() =
             connectivityManager
                 ?.getNetworkCapabilities(connectivityManager.activeNetwork)
-                ?.hasCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET)
-                ?: false
+                ?.hasCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET) == true
 }

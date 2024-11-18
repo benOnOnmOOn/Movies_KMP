@@ -1,7 +1,8 @@
+import org.gradle.kotlin.dsl.implementation
+
 plugins {
     alias(libs.plugins.kotlin.multiplatform)
     alias(libs.plugins.com.android.library)
-    alias(libs.plugins.app.cash.sqldelight)
     alias(libs.plugins.org.jetbrains.kotlinx.kover)
     alias(libs.plugins.com.autonomousapps.dependency.analysis) apply true
 }
@@ -21,8 +22,6 @@ kotlin {
             api(libs.kotlin.stdlib)
 
             lintChecks(libs.slack.lint.checks)
-            implementation(libs.androidx.sqlite)
-            implementation(libs.app.cash.sqldelight.android.driver)
             implementation(libs.io.insert.koin.android)
         }
     }
@@ -37,7 +36,11 @@ kotlin {
                 api(project(":data:dto"))
                 implementation(libs.io.insert.koin.core)
                 implementation(libs.org.jetbrains.kotlinx.coroutines.core)
-                implementation(libs.app.cash.sqldelight.coroutines.extensions)
+                implementation(libs.androidx.datastore.core)
+                implementation(libs.kermit)
+                implementation(libs.androidx.datastore.preferences)
+                implementation(libs.androidx.datastore.preferences.core)
+                implementation(libs.kotlinx.datetime)
             }
         }
         commonTest {
@@ -49,27 +52,15 @@ kotlin {
         androidMain {
             dependencies {
                 api(project(":data:dto"))
-                implementation(libs.androidx.sqlite)
-                implementation(libs.app.cash.sqldelight.android.driver)
                 implementation(libs.io.insert.koin.android)
             }
         }
 
         iosMain {
             dependencies {
-                implementation(libs.app.cash.sqldelight.native.driver)
             }
         }
     }
-}
-
-sqldelight {
-    databases {
-        create("MoviesDB2") {
-            packageName.set("com.bz.movies.kmp.database")
-        }
-    }
-    linkSqlite = true
 }
 
 android {

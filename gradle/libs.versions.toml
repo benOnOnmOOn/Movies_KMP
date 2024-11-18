@@ -4,8 +4,10 @@ coil = "3.0.3"
 com-android-plugin = "8.7.2"
 compose-lint-checks = "1.4.2"
 core = "1.15.0"
+datastore-core = "1.1.1"
 google-services = "4.4.2"
 kermit = "2.0.4"
+kotlinx-datetime = "0.6.1"
 kotlinx-serialization = "1.7.3"
 lifecycle = "2.8.7"
 logback-classic = "1.5.12"
@@ -40,6 +42,9 @@ androidx-compose-material3 = { module = "androidx.compose.material3:material3", 
 androidx-compose-ui-test-manifest = { module = "androidx.compose.ui:ui-test-manifest", version.ref = "compose" }
 androidx-core = { module = "androidx.core:core", version.ref = "core" }
 androidx-core-ktx = { module = "androidx.core:core-ktx", version.ref = "core" }
+androidx-datastore-core = { module = "androidx.datastore:datastore-core", version.ref = "datastore-core" }
+androidx-datastore-preferences = { module = "androidx.datastore:datastore-preferences", version.ref = "datastore-core" }
+androidx-datastore-preferences-core = { module = "androidx.datastore:datastore-preferences-core", version.ref = "datastore-core" }
 androidx-foundation = { module = "androidx.compose.foundation:foundation", version.ref = "compose" }
 androidx-foundation-layout = { module = "androidx.compose.foundation:foundation-layout", version.ref = "compose" }
 androidx-lifecycle-runtime = { module = "androidx.lifecycle:lifecycle-runtime", version.ref = "lifecycle" }
@@ -90,6 +95,7 @@ kermit-core-android-debug = { module = "co.touchlab:kermit-core-android-debug", 
 kermit-crashlytics = { module = "co.touchlab:kermit-crashlytics", version.ref = "kermit" }
 kotlin-stdlib = { module = "org.jetbrains.kotlin:kotlin-stdlib", version.ref = "kotlin" }
 kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
+kotlinx-datetime = { module = "org.jetbrains.kotlinx:kotlinx-datetime", version.ref = "kotlinx-datetime" }
 kotlinx-serialization-core = { module = "org.jetbrains.kotlinx:kotlinx-serialization-core", version.ref = "kotlinx-serialization" }
 kotlinx-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "kotlinx-serialization" }
 ktor-client-logging = { module = "io.ktor:ktor-client-logging", version.ref = "ktor" }

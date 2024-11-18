@@ -61,6 +61,7 @@ kotlin {
         commonMain.dependencies {
             implementation(project(":data:network"))
             implementation(project(":data:database"))
+            implementation(project(":data:datastore"))
             implementation(project(":data:dto"))
 
             implementation(compose.components.resources)
@@ -87,6 +88,7 @@ kotlin {
 
         androidMain.dependencies {
             implementation(project(":data:database"))
+            implementation(project(":data:datastore"))
             implementation(project(":data:dto"))
             implementation(project(":data:network"))
 
