@@ -19,6 +19,21 @@ public final class com/bz/movies/presentation/navigation/NavigationComponentsKt 
 	public static final fun BottomNavigationBar (Landroidx/navigation/NavController;Landroidx/compose/runtime/Composer;I)V
 }
 
+public final class com/bz/movies/presentation/screens/common/ComposableSingletons$ErrorDialogKt {
+	public static final field INSTANCE Lcom/bz/movies/presentation/screens/common/ComposableSingletons$ErrorDialogKt;
+	public fun <init> ()V
+	public final fun getLambda-1$screens_release ()Lkotlin/jvm/functions/Function3;
+	public final fun getLambda-10$screens_release ()Lkotlin/jvm/functions/Function2;
+	public final fun getLambda-2$screens_release ()Lkotlin/jvm/functions/Function3;
+	public final fun getLambda-3$screens_release ()Lkotlin/jvm/functions/Function2;
+	public final fun getLambda-4$screens_release ()Lkotlin/jvm/functions/Function2;
+	public final fun getLambda-5$screens_release ()Lkotlin/jvm/functions/Function2;
+	public final fun getLambda-6$screens_release ()Lkotlin/jvm/functions/Function3;
+	public final fun getLambda-7$screens_release ()Lkotlin/jvm/functions/Function3;
+	public final fun getLambda-8$screens_release ()Lkotlin/jvm/functions/Function2;
+	public final fun getLambda-9$screens_release ()Lkotlin/jvm/functions/Function2;
+}
+
 public final class com/bz/movies/presentation/theme/ThemeKt {
 	public static final fun MoviesTheme (ZLkotlin/jvm/functions/Function2;Landroidx/compose/runtime/Composer;II)V
 }
