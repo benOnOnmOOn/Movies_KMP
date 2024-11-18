@@ -264,7 +264,7 @@ subprojects {
 // endregion
 
 ktlint {
-    version.set("1.4.0")
+    version.set("1.4.1")
 }
 
 doctor {
