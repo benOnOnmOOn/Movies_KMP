@@ -9,8 +9,8 @@ import org.koin.dsl.module
 
 val screensModule =
     module {
-        viewModel { PlayingNowViewModel(get(), get()) }
-        viewModel { PopularMoviesViewModel(get(), get()) }
+        viewModel { PlayingNowViewModel(get(), get(), get()) }
+        viewModel { PopularMoviesViewModel(get(), get(), get()) }
         viewModel { FavoriteScreenViewModel(get()) }
         viewModel { MovieDetailsViewModel(get()) }
     }
