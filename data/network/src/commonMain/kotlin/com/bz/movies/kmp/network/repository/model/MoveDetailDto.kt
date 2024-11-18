@@ -1,6 +1,6 @@
 package com.bz.movies.kmp.network.repository.model
 
-data class MoveDetailDto(
+class MoveDetailDto(
     val id: Int,
     val posterUrl: String,
     val publicationDate: String,

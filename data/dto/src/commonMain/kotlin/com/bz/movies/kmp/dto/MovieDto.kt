@@ -1,6 +1,6 @@
 package com.bz.movies.kmp.dto
 
-data class MovieDto(
+class MovieDto(
     val id: Int,
     val posterUrl: String,
     val title: String,
