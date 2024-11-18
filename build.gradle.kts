@@ -92,7 +92,8 @@ tasks.register<Detekt>("detektAll") {
     description = "Runs Detekt for all modules"
     group = "verification"
     jvmTarget = "21"
-    config = files(configFile)
+    config.setFrom(files(configFile))
+    baseline = file(baselineFile)
     setSource(projectSource)
     include(kotlinFiles)
     exclude(resourceFiles, buildFiles)
@@ -109,8 +110,8 @@ tasks.register<DetektCreateBaselineTask>("detektGenerateBaseline") {
     description = "Custom DETEKT build to build baseline for all modules"
     group = "verification"
     setSource(projectSource)
-    baseline.set(baselineFile)
-    config.setFrom(configFile)
+    config.setFrom(files(configFile))
+    baseline = file(baselineFile)
     include(kotlinFiles)
     exclude(resourceFiles, buildFiles)
     jvmTarget = "21"
