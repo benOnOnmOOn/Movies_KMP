@@ -46,4 +46,3 @@ internal fun MovieDetailsApiResponse.toMovieDetailDto() =
         genre = genres?.map { it.name }?.toSet() ?: emptySet(),
         overview = overview.orEmpty(),
     )
-
