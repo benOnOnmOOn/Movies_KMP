@@ -9,4 +9,11 @@
     <string name="playing_now_screen_title">Obecnie wyświetlane w kinach</string>
     <string name="popular_now_screen_title">Popularne obecnie filmy</string>
     <string name="details_screen_title">Szczegóły</string>
+    <string name="generic_error_tittle">Ups!</string>
+    <string name="generic_error_label">Cos poszło nie tak</string>
+    <string name="no_internet_error_title">Brak intrnetu</string>
+    <string name="no_internet_error_label">Spradź połączenie sieciowe</string>
+    <string name="dismiss_error_button_label">Schowaj</string>
+    <string name="confirm_error_button">Potwierdź</string>
+    <string name="try_again_network_error_button_label">Ponów</string>
 </resources>

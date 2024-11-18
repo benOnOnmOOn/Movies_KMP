@@ -13,6 +13,7 @@ import com.bz.movies.presentation.screens.common.MovieEffect
 import com.bz.movies.presentation.screens.common.MovieEvent
 import com.bz.movies.presentation.screens.common.MoviesState
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharedFlow
@@ -24,6 +25,7 @@ import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.flow.onEmpty
+import kotlinx.coroutines.flow.receiveAsFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 
@@ -37,8 +39,8 @@ internal class PopularMoviesViewModel(
     private val _event: MutableSharedFlow<MovieEvent> = MutableSharedFlow()
     private val event: SharedFlow<MovieEvent> = _event.asSharedFlow()
 
-    private val _effect: MutableSharedFlow<MovieEffect> = MutableSharedFlow()
-    val effect = _effect.asSharedFlow()
+    private val _effect: Channel<MovieEffect> = Channel()
+    val effect = _effect.receiveAsFlow()
 
     init {
         collectPopularMovies()
@@ -93,7 +95,7 @@ internal class PopularMoviesViewModel(
                             MovieEffect.UnknownError
                         }
                     }
-                _effect.emit(error)
+                _effect.send(error)
                 _state.update { MoviesState(isLoading = false) }
             }
         }
@@ -112,7 +114,7 @@ internal class PopularMoviesViewModel(
                 }
             }
             .catch {
-                _effect.emit(MovieEffect.UnknownError)
+                _effect.send(MovieEffect.UnknownError)
                 _state.update {
                     MoviesState(
                         isLoading = false,

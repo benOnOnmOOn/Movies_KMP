@@ -9,9 +9,8 @@ import com.bz.movies.presentation.theme.MoviesTheme
 
 @Preview(showBackground = true)
 @Composable
-@Suppress("UnusedPrivateMember")
 private fun PlayingNowScreenPreview() {
     MoviesTheme {
-        FavoriteScreen(state = MoviesState()) {}
+        FavoriteScreen(state = MoviesState(), sendEvent = {})
     }
 }

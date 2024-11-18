@@ -65,6 +65,7 @@ kotlin {
 
             implementation(compose.components.resources)
             implementation(libs.org.jetbrains.kotlinx.coroutines.core)
+            implementation(libs.androidx.lifecycle.runtime)
             implementation(libs.material3)
             implementation(libs.androidx.lifecycle.viewmodel)
             implementation(libs.navigation.compose)
