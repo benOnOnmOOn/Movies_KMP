@@ -7,7 +7,6 @@ import com.bz.movies.presentation.theme.MoviesTheme
 
 @Preview(showBackground = true)
 @Composable
-@Suppress("UnusedPrivateMember")
 private fun PopularMoviesScreenPreview() {
     MoviesTheme {
         PopularMoviesScreen()
