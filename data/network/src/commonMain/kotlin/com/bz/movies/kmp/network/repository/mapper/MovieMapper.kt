@@ -6,7 +6,6 @@ import com.bz.movies.kmp.network.api.model.MovieDetailsApiResponse
 import com.bz.movies.kmp.network.api.model.PlayingNowMoviesApiResponse
 import com.bz.movies.kmp.network.api.model.PopularMoviesPageApiResponse
 import com.bz.movies.kmp.network.repository.model.MoveDetailDto
-import com.bz.movies.kmp.network.repository.model.PopularMoviePageDto
 
 private const val VOTE_MULTIPLIER = 10
 
@@ -48,10 +47,3 @@ internal fun MovieDetailsApiResponse.toMovieDetailDto() =
         overview = overview.orEmpty(),
     )
 
-internal fun PopularMoviesPageApiResponse.toPopularMoviePageDto() =
-    PopularMoviePageDto(
-        page = page,
-        totalPages = totalPages,
-        totalResults = totalResults,
-        popularMovies = movies.map { it.toPopularMovieDto() },
-    )

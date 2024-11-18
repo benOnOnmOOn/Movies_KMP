@@ -12,7 +12,7 @@ import kotlinx.datetime.Instant
 private const val PLAYING_NOW_KEY = "playing_now_refresh_data"
 private const val POPULAR_KEY = "popular_refresh_data"
 
-class DataStoreRepositoryImpl(
+internal class DataStoreRepositoryImpl(
     private val dataStore: DataStore<Preferences>,
 ) : DataStoreRepository {
     val playingNowKey = longPreferencesKey(PLAYING_NOW_KEY)

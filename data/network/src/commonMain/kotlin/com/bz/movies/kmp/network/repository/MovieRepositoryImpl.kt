@@ -8,9 +8,7 @@ import com.bz.movies.kmp.network.api.service.MovieService
 import com.bz.movies.kmp.network.repository.mapper.toMovieDetailDto
 import com.bz.movies.kmp.network.repository.mapper.toMovieDto
 import com.bz.movies.kmp.network.repository.mapper.toPopularMovieDto
-import com.bz.movies.kmp.network.repository.mapper.toPopularMoviePageDto
 import com.bz.movies.kmp.network.repository.model.MoveDetailDto
-import com.bz.movies.kmp.network.repository.model.PopularMoviePageDto
 import com.bz.movies.kmp.network.utils.InternetConnection
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.IO
@@ -47,15 +45,6 @@ internal class MovieRepositoryImpl(
                 apiKey = AUTH_KEY,
                 language = LANGUAGE,
                 movieId = movieId,
-            )
-        }
-
-    override suspend fun getPopularMoviesPage(page: Int): Result<PopularMoviePageDto> =
-        executeApiCall(PopularMoviesPageApiResponse::toPopularMoviePageDto) {
-            movieService.getPopularMoviePage(
-                apiKey = AUTH_KEY,
-                language = LANGUAGE,
-                page = page,
             )
         }
 
