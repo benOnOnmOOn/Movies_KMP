@@ -4,6 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import co.touchlab.kermit.Logger
 import com.bz.movies.kmp.database.repository.LocalMovieRepository
+import com.bz.movies.kmp.datastore.repository.DataStoreRepository
 import com.bz.movies.kmp.dto.MovieDto
 import com.bz.movies.kmp.network.repository.MovieRepository
 import com.bz.movies.kmp.network.repository.NoInternetException
@@ -24,14 +25,16 @@ import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
-import kotlinx.coroutines.flow.onEmpty
+import kotlinx.coroutines.flow.onStart
 import kotlinx.coroutines.flow.receiveAsFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
+import kotlinx.datetime.Clock
 
 internal class PopularMoviesViewModel(
     private val movieRepository: MovieRepository,
     private val localMovieRepository: LocalMovieRepository,
+    private val dataStoreRepository: DataStoreRepository,
 ) : ViewModel() {
     private val _state = MutableStateFlow(MoviesState())
     val state: StateFlow<MoviesState> = _state.asStateFlow()
@@ -74,6 +77,7 @@ internal class PopularMoviesViewModel(
             val result = movieRepository.getPopularMovies(1)
 
             result.onSuccess { data ->
+                dataStoreRepository.insertPopularNowRefreshDate(Clock.System.now())
                 _state.update {
                     MoviesState(
                         isLoading = false,
@@ -104,8 +108,10 @@ internal class PopularMoviesViewModel(
     private fun collectPopularMovies() {
         localMovieRepository.popularMovies
             .flowOn(Dispatchers.Main)
-            .onEmpty { fetchPopularNowMovies() }
+            .onStart { fetchPopularNowMovies() }
             .onEach { data ->
+                val lastDate = dataStoreRepository.getPopularRefreshDate()
+                Logger.d("Last date : $lastDate}")
                 _state.update {
                     MoviesState(
                         isLoading = false,

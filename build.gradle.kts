@@ -86,16 +86,13 @@ detekt {
     parallel = true
     ignoreFailures = false
     autoCorrect = false
-    buildUponDefaultConfig = true
 }
 
 tasks.register<Detekt>("detektAll") {
     description = "Runs Detekt for all modules"
     group = "verification"
     jvmTarget = "21"
-    allRules = false
     config = files(configFile)
-    baseline = file(baselineFile)
     setSource(projectSource)
     include(kotlinFiles)
     exclude(resourceFiles, buildFiles)
@@ -127,6 +124,8 @@ tasks.withType<KotlinCompile>().configureEach {
         jvmTarget.set(JvmTarget.JVM_21)
 
         freeCompilerArgs.addAll(listOf("-Xjvm-default=all", "-Xexpect-actual-classes"))
+        allWarningsAsErrors.set(true)
+        extraWarnings.set(true)
     }
 }
 

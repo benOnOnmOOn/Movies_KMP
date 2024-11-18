@@ -27,6 +27,7 @@ kotlin {
     androidTarget {
         dependencies {
             implementation(project(":data:database"))
+            implementation(project(":data:datastore"))
             implementation(project(":data:dto"))
             implementation(project(":data:network"))
 
@@ -61,8 +62,10 @@ kotlin {
         commonMain.dependencies {
             implementation(project(":data:network"))
             implementation(project(":data:database"))
+            implementation(project(":data:datastore"))
             implementation(project(":data:dto"))
 
+            implementation(libs.kotlinx.datetime)
             implementation(compose.components.resources)
             implementation(libs.org.jetbrains.kotlinx.coroutines.core)
             implementation(libs.androidx.lifecycle.runtime)
@@ -87,6 +90,7 @@ kotlin {
 
         androidMain.dependencies {
             implementation(project(":data:database"))
+            implementation(project(":data:datastore"))
             implementation(project(":data:dto"))
             implementation(project(":data:network"))
 

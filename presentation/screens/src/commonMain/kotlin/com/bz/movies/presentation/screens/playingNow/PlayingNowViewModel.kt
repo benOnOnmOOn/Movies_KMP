@@ -4,6 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import co.touchlab.kermit.Logger
 import com.bz.movies.kmp.database.repository.LocalMovieRepository
+import com.bz.movies.kmp.datastore.repository.DataStoreRepository
 import com.bz.movies.kmp.dto.MovieDto
 import com.bz.movies.kmp.network.repository.MovieRepository
 import com.bz.movies.kmp.network.repository.NoInternetException
@@ -28,10 +29,12 @@ import kotlinx.coroutines.flow.onEmpty
 import kotlinx.coroutines.flow.receiveAsFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
+import kotlinx.datetime.Clock
 
 internal class PlayingNowViewModel(
     private val movieRepository: MovieRepository,
     private val localMovieRepository: LocalMovieRepository,
+    private val dataStoreRepository: DataStoreRepository,
 ) : ViewModel() {
     private val _state = MutableStateFlow(MoviesState())
     val state: StateFlow<MoviesState> = _state.asStateFlow()
@@ -83,6 +86,7 @@ internal class PlayingNowViewModel(
             val result = movieRepository.getPlayingNowMovies()
 
             result.onSuccess { data ->
+                dataStoreRepository.insertPlayingNowRefreshDate(Clock.System.now())
                 localMovieRepository.insertPlayingNowMovies(data)
             }
             result.onFailure {
@@ -108,6 +112,8 @@ internal class PlayingNowViewModel(
             .flowOn(Dispatchers.Main)
             .onEmpty { fetchPlayingNowMovies() }
             .onEach { data ->
+                val lastDate = dataStoreRepository.getPlyingNowRefreshDate()
+                Logger.d("Last date : $lastDate}")
                 _state.update {
                     MoviesState(
                         isLoading = false,
