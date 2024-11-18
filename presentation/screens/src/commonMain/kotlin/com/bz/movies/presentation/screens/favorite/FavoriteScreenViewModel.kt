@@ -11,6 +11,7 @@ import com.bz.movies.presentation.screens.common.MovieEffect
 import com.bz.movies.presentation.screens.common.MovieEvent
 import com.bz.movies.presentation.screens.common.MoviesState
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharedFlow
@@ -21,6 +22,7 @@ import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
+import kotlinx.coroutines.flow.receiveAsFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 
@@ -33,8 +35,8 @@ internal class FavoriteScreenViewModel(
     private val _event: MutableSharedFlow<MovieEvent> = MutableSharedFlow()
     private val event: SharedFlow<MovieEvent> = _event.asSharedFlow()
 
-    private val _effect: MutableSharedFlow<MovieEffect> = MutableSharedFlow()
-    val effect = _effect.asSharedFlow()
+    private val _effect: Channel<MovieEffect> = Channel()
+    val effect = _effect.receiveAsFlow()
 
     init {
         collectFavoriteMovies()
@@ -76,7 +78,7 @@ internal class FavoriteScreenViewModel(
                 }
             }
             .catch {
-                _effect.emit(MovieEffect.UnknownError)
+                _effect.send(MovieEffect.UnknownError)
                 Logger.e(it.cause) { "Failed to fetch favorite movies from local db" }
                 _state.update {
                     MoviesState(
