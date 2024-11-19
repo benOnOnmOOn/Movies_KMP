@@ -17,7 +17,7 @@ private const val BASE_URL = "https://api.themoviedb.org/3/"
 internal expect fun httpClient(config: HttpClientConfig<*>.() -> Unit): HttpClient
 
 internal class MovieService {
-    private val client =
+    private val client by lazy {
         httpClient {
             install(ContentNegotiation) {
                 json(
@@ -29,6 +29,7 @@ internal class MovieService {
                 )
             }
         }
+    }
 
     suspend fun getPopularMoviePage(
         apiKey: String,
