@@ -87,6 +87,7 @@ internal class PlayingNowViewModel(
 
             result.onSuccess { data ->
                 dataStoreRepository.insertPlayingNowRefreshDate(Clock.System.now())
+                    .onFailure { Logger.e(it) { "Failed to insert PlayingNow Refresh Date" } }
                 localMovieRepository.insertPlayingNowMovies(data)
             }
             result.onFailure {
@@ -112,7 +113,9 @@ internal class PlayingNowViewModel(
             .flowOn(Dispatchers.Main)
             .onEmpty { fetchPlayingNowMovies() }
             .onEach { data ->
-                val lastDate = dataStoreRepository.getPlyingNowRefreshDate()
+                val lastDate =
+                    dataStoreRepository.getPlyingNowRefreshDate()
+                        .onFailure { Logger.e(it) { "Failed to get PlyingNow Refresh Date" } }
                 Logger.d("Last date : $lastDate}")
                 _state.update {
                     MoviesState(

@@ -11,6 +11,6 @@ import org.koin.compose.KoinContext
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContent {  KoinContext() { MainScreen() }}
+        setContent { KoinContext { MainScreen() } }
     }
 }
