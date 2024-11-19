@@ -1,5 +1,5 @@
 public final class com/bz/movies/presentation/di/PresentationModuleKt {
-	public static final fun getScreensModule ()Lorg/koin/core/module/Module;
+	public static final fun getScreensModule ()Ljava/util/List;
 }
 
 public final class com/bz/movies/presentation/navigation/ComposableSingletons$MoviesNavHostKt {

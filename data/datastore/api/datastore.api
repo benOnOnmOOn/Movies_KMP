@@ -7,9 +7,9 @@ public final class com/bz/movies/kmp/datastore/di/RepositoryModuleKt {
 }
 
 public abstract interface class com/bz/movies/kmp/datastore/repository/DataStoreRepository {
-	public abstract fun getPlyingNowRefreshDate (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-	public abstract fun getPopularRefreshDate (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-	public abstract fun insertPlayingNowRefreshDate (Lkotlinx/datetime/Instant;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-	public abstract fun insertPopularNowRefreshDate (Lkotlinx/datetime/Instant;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun getPlyingNowRefreshDate-IoAF18A (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun getPopularRefreshDate-IoAF18A (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun insertPlayingNowRefreshDate-gIAlu-s (Lkotlinx/datetime/Instant;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun insertPopularNowRefreshDate-gIAlu-s (Lkotlinx/datetime/Instant;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 }
 
