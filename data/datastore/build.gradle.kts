@@ -18,8 +18,6 @@ kover {
 kotlin {
     androidTarget {
         dependencies {
-            implementation(project(":data:dto"))
-
             api(libs.kotlin.stdlib)
 
             lintChecks(libs.slack.lint.checks)
