@@ -21,8 +21,6 @@ kover {
 kotlin {
     androidTarget {
         dependencies {
-            implementation(project(":data:database"))
-            implementation(project(":data:network"))
             implementation(project(":presentation:screens"))
 
             lintChecks(libs.slack.lint.checks)
@@ -54,6 +52,7 @@ kotlin {
             export(project(":presentation:screens"))
             export(project(":data:network"))
             export(project(":data:database"))
+            export(project(":data:datastore"))
             export(project(":data:dto"))
         }
     }
@@ -61,8 +60,6 @@ kotlin {
     sourceSets {
         commonMain.dependencies {
             api(project(":presentation:screens"))
-            api(project(":data:network"))
-            api(project(":data:database"))
             api(project(":data:dto"))
 
             implementation(compose.components.resources)
@@ -80,8 +77,6 @@ kotlin {
         }
 
         androidMain.dependencies {
-            implementation(project(":data:database"))
-            implementation(project(":data:network"))
             implementation(project(":presentation:screens"))
 
             api(libs.androidx.activity)
