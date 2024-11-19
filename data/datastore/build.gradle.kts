@@ -39,6 +39,7 @@ kotlin {
     sourceSets {
         commonMain {
             dependencies {
+                implementation(project(":data:dto"))
                 implementation(libs.io.insert.koin.core)
                 implementation(libs.org.jetbrains.kotlinx.coroutines.core)
                 implementation(libs.androidx.datastore.core)

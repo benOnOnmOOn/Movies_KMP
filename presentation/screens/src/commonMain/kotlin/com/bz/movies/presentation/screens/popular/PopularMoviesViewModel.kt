@@ -78,6 +78,7 @@ internal class PopularMoviesViewModel(
 
             result.onSuccess { data ->
                 dataStoreRepository.insertPopularNowRefreshDate(Clock.System.now())
+                    .onFailure { Logger.e(it) { "Failed to insert Popular Now Refresh Date" } }
                 _state.update {
                     MoviesState(
                         isLoading = false,
@@ -110,7 +111,9 @@ internal class PopularMoviesViewModel(
             .flowOn(Dispatchers.Main)
             .onStart { fetchPopularNowMovies() }
             .onEach { data ->
-                val lastDate = dataStoreRepository.getPopularRefreshDate()
+                val lastDate =
+                    dataStoreRepository.getPopularRefreshDate()
+                        .onFailure { Logger.e(it) { "Failed to get Popular Now Refresh Date" } }
                 Logger.d("Last date : $lastDate}")
                 _state.update {
                     MoviesState(

@@ -6,5 +6,5 @@ import org.koin.dsl.module
 
 val datastoreRepositoryModule =
     module {
-        factory<DataStoreRepository> { DataStoreRepositoryImpl(get()) }
+        single<DataStoreRepository> { DataStoreRepositoryImpl(get()) }
     }

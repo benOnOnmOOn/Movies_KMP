@@ -11,25 +11,28 @@ import androidx.navigation.compose.rememberNavController
 import com.bz.movies.presentation.navigation.BottomNavigationBar
 import com.bz.movies.presentation.navigation.MoviesNavHost
 import com.bz.movies.presentation.theme.MoviesTheme
+import org.koin.compose.KoinContext
 
 @Composable
 internal fun MainScreen() {
-    val navController = rememberNavController()
+    KoinContext {
+        val navController = rememberNavController()
 
-    MoviesTheme {
-        Scaffold(
-            bottomBar = {
-                BottomNavigationBar(navController = navController)
-            },
-        ) {
-            Surface(
-                modifier = Modifier.fillMaxSize().padding(it),
-                color = MaterialTheme.colorScheme.background,
+        MoviesTheme {
+            Scaffold(
+                bottomBar = {
+                    BottomNavigationBar(navController = navController)
+                },
             ) {
-                MoviesNavHost(
-                    navController = navController,
-                    modifier = Modifier.fillMaxSize(),
-                )
+                Surface(
+                    modifier = Modifier.fillMaxSize().padding(it),
+                    color = MaterialTheme.colorScheme.background,
+                ) {
+                    MoviesNavHost(
+                        navController = navController,
+                        modifier = Modifier.fillMaxSize(),
+                    )
+                }
             }
         }
     }

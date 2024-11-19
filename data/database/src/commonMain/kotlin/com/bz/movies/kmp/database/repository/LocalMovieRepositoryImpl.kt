@@ -16,6 +16,7 @@ import kotlinx.coroutines.IO
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.withContext
+import runSuspendCatching
 
 internal class LocalMovieRepositoryImpl(
     private val queries: MoviesDB2Queries,
@@ -43,42 +44,42 @@ internal class LocalMovieRepositoryImpl(
 
     override suspend fun insertFavoriteMovie(movieDto: MovieDto): Result<Unit> =
         withContext(Dispatchers.IO) {
-            runCatching {
+            runSuspendCatching {
                 queries.insertFavaorite(movieDto.toMovieEntity())
             }
         }
 
     override suspend fun deleteFavoriteMovie(movieDto: MovieDto): Result<Unit> =
         withContext(Dispatchers.IO) {
-            runCatching {
+            runSuspendCatching {
                 queries.deleteFavaorite(movieDto.id.toLong())
             }
         }
 
     override suspend fun insertPlayingNowMovies(movieDto: List<MovieDto>): Result<Unit> =
         withContext(Dispatchers.IO) {
-            runCatching {
+            runSuspendCatching {
                 movieDto.forEach { queries.insertPlayingNow(it.toPlayingNowMovieEntity()) }
             }
         }
 
     override suspend fun clearPlayingNowMovies(): Result<Unit> =
         withContext(Dispatchers.IO) {
-            runCatching {
+            runSuspendCatching {
                 queries.clearPlayingNow()
             }
         }
 
     override suspend fun insertPopularMovies(movieDto: List<MovieDto>): Result<Unit> =
         withContext(Dispatchers.IO) {
-            runCatching {
+            runSuspendCatching {
                 movieDto.forEach { queries.insertPopularNow(it.toPopularMovieEntity()) }
             }
         }
 
     override suspend fun clearPopularMovies(): Result<Unit> =
         withContext(Dispatchers.IO) {
-            runCatching {
+            runSuspendCatching {
                 queries.clearPopularNow()
             }
         }

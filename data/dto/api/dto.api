@@ -1,3 +1,7 @@
+public final class UtilsKt {
+	public static final fun runSuspendCatching (Lkotlin/jvm/functions/Function0;)Ljava/lang/Object;
+}
+
 public final class com/bz/movies/kmp/dto/MovieDto {
 	public fun <init> (ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;I)V
 	public final fun getId ()I
