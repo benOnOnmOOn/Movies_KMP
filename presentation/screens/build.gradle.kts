@@ -26,7 +26,7 @@ dependencyAnalysis {
 kotlin {
     androidTarget {
         dependencies {
-            implementation(project(":data:database"))
+            implementation(project(":data:room"))
             implementation(project(":data:datastore"))
             implementation(project(":data:dto"))
             implementation(project(":data:network"))
@@ -61,7 +61,7 @@ kotlin {
         }
         commonMain.dependencies {
             implementation(project(":data:network"))
-            implementation(project(":data:database"))
+            implementation(project(":data:room"))
             implementation(project(":data:datastore"))
             implementation(project(":data:dto"))
 
@@ -89,7 +89,7 @@ kotlin {
         }
 
         androidMain.dependencies {
-            implementation(project(":data:database"))
+            implementation(project(":data:room"))
             implementation(project(":data:datastore"))
             implementation(project(":data:dto"))
             implementation(project(":data:network"))

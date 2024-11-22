@@ -6,7 +6,7 @@ compose-lint-checks = "1.4.2"
 core = "1.15.0"
 datastore-core = "1.1.1"
 google-services = "4.4.2"
-kermit = "2.0.4"
+kermit = "2.0.5"
 kotlinx-datetime = "0.6.1"
 kotlinx-serialization = "1.7.3"
 lifecycle = "2.8.7"
@@ -20,6 +20,8 @@ startup-runtime = "1.2.0"
 compose = "1.7.5"
 compose-plugin = "1.7.1"
 kotlin = "2.1.0-RC"
+ksp = "2.1.0-RC-1.0.27"
+room = "2.7.0-alpha11"
 kotlinx-coroutines = "1.9.0"
 mockk = "1.13.13"
 monitor = "1.7.2"
@@ -57,6 +59,9 @@ androidx-navigation-compose = { module = "androidx.navigation:navigation-compose
 androidx-navigation-runtime = { module = "androidx.navigation:navigation-runtime", version.ref = "navigation-compose" }
 androidx-lifecycle-viewmodel = { module = "androidx.lifecycle:lifecycle-viewmodel", version.ref = "lifecycle" }
 androidx-lifecycle-viewmodel-compose = { module = "androidx.lifecycle:lifecycle-viewmodel-compose", version.ref = "lifecycle" }
+androidx-room-common = { module = "androidx.room:room-common", version.ref = "room" }
+androidx-room-compiler = { module = "androidx.room:room-compiler", version.ref = "room" }
+androidx-room-runtime = { module = "androidx.room:room-runtime", version.ref = "room" }
 androidx-runtime = { module = "androidx.compose.runtime:runtime", version.ref = "compose" }
 androidx-sqlite = { module = "androidx.sqlite:sqlite", version.ref = "sqlite" }
 androidx-startup-runtime = { module = "androidx.startup:startup-runtime", version.ref = "startup-runtime" }
@@ -121,7 +126,7 @@ com-android-library = { id = "com.android.library", version.ref = "com-android-p
 com-google-gms-google-services = { id = "com.google.gms.google-services", version.ref = "google-services" }
 com_github_ben-manes_versions = { id = "com.github.ben-manes.versions", version = "0.51.0" }
 io_gitlab_arturbosch_detekt = { id = "io.gitlab.arturbosch.detekt", version = "1.23.7" }
-com_autonomousapps_dependency-analysis = { id = "com.autonomousapps.dependency-analysis", version = "2.4.2" }
+com_autonomousapps_dependency-analysis = { id = "com.autonomousapps.dependency-analysis", version = "2.5.0" }
 org_jetbrains_kotlinx_kover = { id = "org.jetbrains.kotlinx.kover", version = "0.8.3" }
 com_osacky_doctor = { id = "com.osacky.doctor", version = "0.10.0" }
 app-cash-sqldelight = { id = "app.cash.sqldelight", version.ref = "sqldelight" }
@@ -139,5 +144,7 @@ dependency-guard = { id = "com.dropbox.dependency-guard", version = "0.5.0" }
 dexcount = { id = "com.getkeepsafe.dexcount", version = "4.0.0" }
 jetbrains-kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
 ktor = { id = "io.ktor.plugin", version.ref = "ktor" }
+ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
+androidx-room = { id = "androidx.room", version.ref = "room" }
 [bundles]
 
