@@ -50,7 +50,9 @@
           "columnNames": [
             "ID"
           ]
-        }
+        },
+        "indices": [],
+        "foreignKeys": []
       },
       {
         "tableName": "PLAYING_NOW_MOVIE_ENTITY",
@@ -98,7 +100,9 @@
           "columnNames": [
             "ID"
           ]
-        }
+        },
+        "indices": [],
+        "foreignKeys": []
       },
       {
         "tableName": "POPULAR_MOVIE_ENTITY",
@@ -146,9 +150,12 @@
           "columnNames": [
             "ID"
           ]
-        }
+        },
+        "indices": [],
+        "foreignKeys": []
       }
     ],
+    "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
       "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'c5e4a03f0046cf9eb1e2b954db465fd5')"
