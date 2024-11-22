@@ -11,5 +11,5 @@ internal interface PopularMovieDAO : BaseDao<PopularMovieEntity> {
     fun observeAllMovies(): Flow<List<PopularMovieEntity>>
 
     @Query("DELETE FROM ${PopularMovieEntity.ENTITY_NAME}")
-    fun clearTable()
+    suspend fun clearTable()
 }
