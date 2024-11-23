@@ -86,3 +86,10 @@ dependencies {
 android {
     namespace = "com.bz.movies.kmp.roomdb"
 }
+
+tasks.withType<org.jetbrains.kotlin.gradle.dsl.KotlinCompile<*>>().configureEach {
+    if (name != "kspCommonMainKotlinMetadata") {
+        dependsOn("kspCommonMainKotlinMetadata")
+    }
+}
+
