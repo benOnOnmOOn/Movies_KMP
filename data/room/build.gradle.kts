@@ -30,7 +30,10 @@ kotlin {
             api(libs.kotlin.stdlib)
 
             lintChecks(libs.slack.lint.checks)
+
+            implementation(libs.androidx.sqlite)
             implementation(libs.io.insert.koin.android)
+
             testImplementation(libs.org.junit.jupiter.api)
         }
     }
@@ -60,6 +63,7 @@ kotlin {
             dependencies {
                 api(project(":data:dto"))
                 implementation(libs.io.insert.koin.android)
+                implementation(libs.androidx.sqlite)
             }
         }
 
