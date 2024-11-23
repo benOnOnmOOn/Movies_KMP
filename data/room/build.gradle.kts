@@ -33,8 +33,6 @@ kotlin {
 
             implementation(libs.androidx.sqlite)
             implementation(libs.io.insert.koin.android)
-
-            testImplementation(libs.org.junit.jupiter.api)
         }
     }
 
