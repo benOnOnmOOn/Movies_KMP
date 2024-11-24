@@ -1,0 +1,20 @@
+public final class com/bz/movies/kmp/database/di/DatabaseModule_androidKt {
+	public static final fun getDatabaseModule ()Lorg/koin/core/module/Module;
+}
+
+public final class com/bz/movies/kmp/database/di/RepositoryModuleKt {
+	public static final fun getRepositoryModule ()Lorg/koin/core/module/Module;
+}
+
+public abstract interface class com/bz/movies/kmp/database/repository/LocalMovieRepository {
+	public abstract fun clearPlayingNowMovies-IoAF18A (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun clearPopularMovies-IoAF18A (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun deleteFavoriteMovie-gIAlu-s (Lcom/bz/movies/kmp/dto/MovieDto;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun getFavoritesMovies ()Lkotlinx/coroutines/flow/Flow;
+	public abstract fun getPlayingNowMovies ()Lkotlinx/coroutines/flow/Flow;
+	public abstract fun getPopularMovies ()Lkotlinx/coroutines/flow/Flow;
+	public abstract fun insertFavoriteMovie-gIAlu-s (Lcom/bz/movies/kmp/dto/MovieDto;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun insertPlayingNowMovies-gIAlu-s (Ljava/util/List;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun insertPopularMovies-gIAlu-s (Ljava/util/List;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+}
+
