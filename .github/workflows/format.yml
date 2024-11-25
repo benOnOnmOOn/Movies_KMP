@@ -1,8 +1,6 @@
 name: format
 
-on:
-  pull_request:
-    branches: [ "main","master" ]
+onn: [workflow_call]
 
 concurrency:
   group: ${{ github.event.pull_request.number }}
