@@ -18,11 +18,6 @@ kover {
     }
 }
 
-
-
-
-
-
 kotlin {
     androidTarget {
         dependencies {
