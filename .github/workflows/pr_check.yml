@@ -1,8 +1,7 @@
 name: Verify PR before margin to main
 
 on:
-  workflow_run:
-    workflows: [ "Format" ]
+  pull_request:
     branches: [ "main","master" ]
 
 concurrency:
