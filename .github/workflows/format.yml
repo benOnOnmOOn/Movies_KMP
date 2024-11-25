@@ -1,12 +1,6 @@
-name: Format
+name: format
 
-on:
-  pull_request:
-    branches: [ "main","master" ]
-
-concurrency:
-  group: ${{ github.event.pull_request.number }}
-  cancel-in-progress: true
+on: [workflow_call]
 
 jobs:
   format-code:
