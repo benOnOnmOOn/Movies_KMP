@@ -6,8 +6,6 @@ on:
     branches: [ main ]
     types:
       - completed
-  pull_request:
-    branches: [ "main","master"]
 
 concurrency:
   group: ${{ github.event.pull_request.number }}
