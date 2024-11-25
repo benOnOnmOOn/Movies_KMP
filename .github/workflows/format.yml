@@ -1,6 +1,8 @@
 name: Format
 
-on: push
+on:
+  pull_request:
+    branches: [ "main","master" ]
 
 concurrency:
   group: ${{ github.event.pull_request.number }}
