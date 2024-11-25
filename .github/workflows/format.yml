@@ -28,6 +28,7 @@ jobs:
 
       - name: Format sources with ktlint
         run: ./gradlew ktlintFormat
+        continue-on-error: true
 
       - name: Update ktlint baseline
         run: ./gradlew ktlintGenerateBaseline
