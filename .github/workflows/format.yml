@@ -1,6 +1,6 @@
 name: format
 
-onn: [workflow_call]
+on: [workflow_call]
 
 concurrency:
   group: ${{ github.event.pull_request.number }}
