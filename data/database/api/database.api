@@ -10,7 +10,11 @@ public final class com/bz/movies/kmp/database/Favaorite {
 	public static synthetic fun copy$default (Lcom/bz/movies/kmp/database/Favaorite;JLjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;JILjava/lang/Object;)Lcom/bz/movies/kmp/database/Favaorite;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getId ()J
-
+	public final fun getLanguage ()Ljava/lang/String;
+	public final fun getPosterUrl ()Ljava/lang/String;
+	public final fun getPublicationDate ()Ljava/lang/String;
+	public final fun getRating ()J
+	public final fun getTitle ()Ljava/lang/String;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
 }
