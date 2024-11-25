@@ -33,7 +33,7 @@ jobs:
       - name: Update ktlint baseline
         run: ./gradlew ktlintGenerateBaseline
 
-      - name: Update detket baseline
+      - name: Update dependency guard baseline
         run: ./gradlew dependencyGuardBaseline
 
       - name: Update android lint baseline
@@ -41,6 +41,9 @@ jobs:
 
       - name: Fix deps using dependency analysis gradle plugin
         run: ./gradlew fixDependencies
+
+      - name: Run api dump
+        run: ./gradlew apiDump
 
       # Commit all changed files back to the repository
       - uses: stefanzweifel/git-auto-commit-action@v5

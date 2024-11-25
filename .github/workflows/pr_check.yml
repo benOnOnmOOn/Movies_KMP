@@ -38,9 +38,6 @@ jobs:
       - name: Run android lint
         run: ./gradlew lint
 
-      - name: Run api dump
-        run: ./gradlew apiDump
-
       - name: Run unit test
         run: ./gradlew testDebugUnitTest
 
