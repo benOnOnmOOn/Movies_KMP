@@ -2,10 +2,6 @@ name: format
 
 on: [workflow_call]
 
-concurrency:
-  group: ${{ github.event.pull_request.number }}
-  cancel-in-progress: true
-
 jobs:
   format-code:
     runs-on: macos-latest
