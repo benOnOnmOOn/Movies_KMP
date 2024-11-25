@@ -43,7 +43,12 @@ internal fun PopularMoviesScreen(
         showErrorDialog = errorDialog.value,
         onNetworkErrorDismiss = { noInternetDialog.value = false },
         onErrorDismiss = { errorDialog.value = false },
-        sendEvent = { navController.navigate("details/$it") },
+        sendEvent = {
+            when (it) {
+                is MovieEvent.OnMovieClicked -> navController.navigate("details/${it.movieItem.id}")
+                MovieEvent.Refresh -> playingNowViewModel.sendEvent(it)
+            }
+        },
     )
 }
 
