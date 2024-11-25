@@ -1,6 +1,11 @@
 name: Verify PR before margin to main
 
 on:
+  workflow_run:
+    workflows: [ "Format" ]
+    branches: [ main ]
+    types:
+      - completed
   pull_request:
     branches: [ "main","master"]
 
@@ -34,6 +39,9 @@ jobs:
 
       - name: Run android lint
         run: ./gradlew lint
+
+      - name: Run api dump
+        run: ./gradlew apiDump
 
       - name: Run unit test
         run: ./gradlew testDebugUnitTest
