@@ -1,18 +1,18 @@
 name: Verify PR before margin to main
 
 on:
-  workflow_run:
-    workflows: [ "format" ]
+  pull_request:
     branches: [ "main","master" ]
-    types:
-      - completed
 
 concurrency:
   group: ${{ github.event.pull_request.number }}
   cancel-in-progress: true
 
 jobs:
+  format:
+    uses: ./.github/workflows/format.yml
   gradle:
+    needs: [format]
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@v4
