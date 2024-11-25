@@ -3,7 +3,7 @@ name: Verify PR before margin to main
 on:
   workflow_run:
     workflows: [ "Format" ]
-    branches: [ main ]
+    branches: [ "main","master" ]
     types:
       - completed
 
