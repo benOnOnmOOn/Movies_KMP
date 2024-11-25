@@ -1,8 +1,11 @@
 name: Verify PR before margin to main
 
 on:
-  pull_request:
-    branches: [ "main","master"]
+  workflow_run:
+    workflows: [ "Format" ]
+    branches: [ main ]
+    types:
+      - completed
 
 concurrency:
   group: ${{ github.event.pull_request.number }}

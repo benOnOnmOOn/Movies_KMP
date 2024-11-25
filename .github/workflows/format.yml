@@ -1,0 +1,56 @@
+name: Format
+
+on:
+  pull_request:
+    branches: [ "main","master" ]
+
+concurrency:
+  group: ${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  format-code:
+    runs-on: macos-latest
+
+    permissions:
+      # Give the default GITHUB_TOKEN write permission to commit and push the
+      # added or changed files to the repository.
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref }}
+
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 21
+
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v4
+        with:
+          cache-encryption-key: ${{ secrets.GRADLE_ENCRYPTION_KEY }}
+
+      - name: Format sources with ktlint
+        run: ./gradlew ktlintFormat
+        continue-on-error: true
+
+      - name: Update ktlint baseline
+        run: ./gradlew ktlintGenerateBaseline
+
+      - name: Update dependency guard baseline
+        run: ./gradlew dependencyGuardBaseline
+
+      - name: Update android lint baseline
+        run: ./gradlew updateLintBaseline
+
+      - name: Fix deps using dependency analysis gradle plugin
+        run: ./gradlew fixDependencies
+
+      - name: Run api dump
+        run: ./gradlew apiDump
+
+      # Commit all changed files back to the repository
+      - uses: stefanzweifel/git-auto-commit-action@v5
+
