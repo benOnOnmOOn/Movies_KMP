@@ -247,6 +247,7 @@ subprojects {
         exclude("androidx.fragment", "fragment-ktx")
 //        exclude("androidx.activity", "activity-ktx") we need to add this to have working compose preview
         exclude("androidx.collection", "collection-ktx")
+        exclude("androidx.savedstate","savedstate-ktx")
         exclude("androidx.lifecycle", "lifecycle-runtime-ktx-android")
         exclude("androidx.lifecycle", "lifecycle-runtime-ktx")
         exclude("androidx.lifecycle", "viewmodel-ktx")

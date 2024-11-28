@@ -34,13 +34,6 @@
   public static void throwUninitializedPropertyAccessException(java.lang.String);
 }
 
-# It was removed by excluding androidx.vectordrawable dep in main build gradle
--dontwarn androidx.vectordrawable.graphics.drawable.AnimatedVectorDrawableCompat
--dontwarn androidx.vectordrawable.graphics.drawable.VectorDrawableCompat
-
--dontwarn org.slf4j.Logger
--dontwarn org.slf4j.LoggerFactory
-
 # Valid rules copy paste from file "proguard-android-optimize.txt"
 
 # For native methods, see https://www.guardsquare.com/manual/configuration/examples#native
@@ -58,4 +51,9 @@
     public static final ** CREATOR;
 }
 
+# It was removed by excluding androidx.vectordrawable dep in main build gradle
+-dontwarn androidx.vectordrawable.graphics.drawable.AnimatedVectorDrawableCompat
+-dontwarn androidx.vectordrawable.graphics.drawable.VectorDrawableCompat
+-dontwarn org.slf4j.Logger
+-dontwarn org.slf4j.LoggerFactory
 -dontwarn androidx.test.platform.app.InstrumentationRegistry
