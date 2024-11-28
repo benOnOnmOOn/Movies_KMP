@@ -12,3 +12,4 @@ public final class com/bz/movies/kmp/dto/MovieDto {
 	public final fun getTitle ()Ljava/lang/String;
 }
 
+
