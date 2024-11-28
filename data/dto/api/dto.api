@@ -8,7 +8,6 @@ public final class com/bz/movies/kmp/dto/MovieDto {
 	public final fun getLanguage ()Ljava/lang/String;
 	public final fun getPosterUrl ()Ljava/lang/String;
 	public final fun getPublicationDate ()Ljava/lang/String;
-	public final fun getRating ()I
 	public final fun getTitle ()Ljava/lang/String;
 }
 
