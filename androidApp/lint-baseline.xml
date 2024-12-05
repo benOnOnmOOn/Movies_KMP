@@ -8,37 +8,4 @@
             file="$GRADLE_USER_HOME/caches/modules-2/files-2.1/io.ktor/ktor-utils-jvm/3.0.2/9a711614b1a2de3e816216c67f13170566c8f0eb/ktor-utils-jvm-3.0.2.jar"/>
     </issue>
 
-    <issue
-        id="NewerVersionAvailable"
-        message="A newer version of com.autonomousapps.dependency-analysis than 2.5.0 is available: 2.6.0"
-        errorLine1="com_autonomousapps_dependency-analysis = { id = &quot;com.autonomousapps.dependency-analysis&quot;, version = &quot;2.5.0&quot; }"
-        errorLine2="                                                                                                    ~~~~~~~">
-        <location
-            file="$HOME/work/Movies_KMP/Movies_KMP/gradle/libs.versions.toml"
-            line="129"
-            column="101"/>
-    </issue>
-
-    <issue
-        id="NewerVersionAvailable"
-        message="A newer version of com.autonomousapps.dependency-analysis than 2.5.0 is available: 2.6.0"
-        errorLine1="com_autonomousapps_dependency-analysis = { id = &quot;com.autonomousapps.dependency-analysis&quot;, version = &quot;2.5.0&quot; }"
-        errorLine2="                                                                                                    ~~~~~~~">
-        <location
-            file="$HOME/work/Movies_KMP/Movies_KMP/gradle/libs.versions.toml"
-            line="129"
-            column="101"/>
-    </issue>
-
-    <issue
-        id="NewerVersionAvailable"
-        message="A newer version of com.autonomousapps.dependency-analysis than 2.5.0 is available: 2.6.0"
-        errorLine1="com_autonomousapps_dependency-analysis = { id = &quot;com.autonomousapps.dependency-analysis&quot;, version = &quot;2.5.0&quot; }"
-        errorLine2="                                                                                                    ~~~~~~~">
-        <location
-            file="$HOME/work/Movies_KMP/Movies_KMP/gradle/libs.versions.toml"
-            line="129"
-            column="101"/>
-    </issue>
-
 </issues>

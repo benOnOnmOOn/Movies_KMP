@@ -50,7 +50,6 @@ android {
         versionName = "1.0"
     }
 
-
     buildTypes {
         release {
             apply<GoogleServicesPlugin>()
