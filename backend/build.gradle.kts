@@ -47,7 +47,5 @@ kotlin {
 dependencyGuard {
 
     // All dependencies included in Production Release APK
-    configuration("nativeCInterop") {
-        tree = true
-    }
+    configuration("nativeCInterop")
 }
