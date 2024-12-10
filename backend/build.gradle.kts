@@ -31,7 +31,6 @@ kotlin {
             dependencies {
                 implementation(libs.kotlin.stdlib)
                 implementation(libs.ktor.server.cio)
-//                implementation("io.ktor:ktor-server-cio:$ktor_version")
                 implementation(libs.io.ktor.http)
                 implementation(libs.ktor.server.content.negotiation)
                 implementation(libs.io.ktor.serialization.kotlinx.json)
