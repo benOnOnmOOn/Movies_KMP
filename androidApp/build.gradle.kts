@@ -74,7 +74,6 @@ dependencies {
     kover(project(":presentation:screens"))
     kover(project(":data:database"))
     kover(project(":data:network"))
-    kover(project(":data:dto"))
 
     implementation(libs.kotlin.stdlib)
 
