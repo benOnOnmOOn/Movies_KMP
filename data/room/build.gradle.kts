@@ -1,10 +1,10 @@
 plugins {
-    alias(libs.plugins.kotlin.multiplatform)
-    alias(libs.plugins.com.android.library)
-    alias(libs.plugins.org.jetbrains.kotlinx.kover)
-    alias(libs.plugins.com.autonomousapps.dependency.analysis) apply true
-    alias(libs.plugins.ksp)
+    alias(libs.plugins.android.library)
     alias(libs.plugins.androidx.room)
+    alias(libs.plugins.dependency.analysis) apply true
+    alias(libs.plugins.kotlin.multiplatform)
+    alias(libs.plugins.kotlinx.kover)
+    alias(libs.plugins.ksp)
 }
 
 kover {
@@ -28,7 +28,7 @@ kotlin {
             lintChecks(libs.slack.lint.checks)
 
             implementation(libs.androidx.sqlite)
-            implementation(libs.io.insert.koin.android)
+            implementation(libs.koin.android)
         }
     }
 
@@ -40,8 +40,8 @@ kotlin {
         commonMain {
             dependencies {
                 api(project(":data:dto"))
-                implementation(libs.io.insert.koin.core)
-                implementation(libs.org.jetbrains.kotlinx.coroutines.core)
+                implementation(libs.koin.core)
+                implementation(libs.kotlinx.coroutines.core)
 
                 implementation(libs.androidx.room.common)
                 implementation(libs.androidx.room.runtime)
@@ -56,7 +56,7 @@ kotlin {
         androidMain {
             dependencies {
                 api(project(":data:dto"))
-                implementation(libs.io.insert.koin.android)
+                implementation(libs.koin.android)
                 implementation(libs.androidx.sqlite)
             }
         }

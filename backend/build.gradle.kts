@@ -1,9 +1,9 @@
 plugins {
-    alias(libs.plugins.ktor)
-    alias(libs.plugins.kotlin.multiplatform)
+    alias(libs.plugins.dependency.analysis) apply true
     alias(libs.plugins.dependency.guard)
-    alias(libs.plugins.com.autonomousapps.dependency.analysis) apply true
+    alias(libs.plugins.kotlin.multiplatform)
     alias(libs.plugins.kotlin.serialization)
+    alias(libs.plugins.ktor)
 }
 
 kotlin {
@@ -30,14 +30,14 @@ kotlin {
         val nativeMain by getting {
             dependencies {
                 implementation(libs.kotlin.stdlib)
-                implementation(libs.ktor.server.cio)
-                implementation(libs.io.ktor.http)
-                implementation(libs.ktor.server.content.negotiation)
-                implementation(libs.io.ktor.serialization.kotlinx.json)
-                implementation(libs.io.ktor.serialization)
-                implementation(libs.io.ktor.utils)
                 implementation(libs.kotlinx.serialization.core)
                 implementation(libs.kotlinx.serialization.json)
+                implementation(libs.ktor.http)
+                implementation(libs.ktor.serialization)
+                implementation(libs.ktor.serialization.kotlinx.json)
+                implementation(libs.ktor.server.cio)
+                implementation(libs.ktor.server.content.negotiation)
+                implementation(libs.ktor.utils)
             }
         }
     }

@@ -2,16 +2,16 @@ import com.google.firebase.crashlytics.buildtools.gradle.CrashlyticsPlugin
 import com.google.gms.googleservices.GoogleServicesPlugin
 
 plugins {
-    alias(libs.plugins.com.android.application)
-    alias(libs.plugins.com.google.gms.google.services) apply false
-    alias(libs.plugins.com.google.firebase.crashlytics.gradle) apply false
-    alias(libs.plugins.org.jetbrains.kotlinx.kover)
-    alias(libs.plugins.kotlin.android)
-    alias(libs.plugins.jetbrains.compose)
+    alias(libs.plugins.android.application)
     alias(libs.plugins.compose.compiler)
+    alias(libs.plugins.dependency.analysis) apply true
     alias(libs.plugins.dependency.guard)
     alias(libs.plugins.dexcount)
-    alias(libs.plugins.com.autonomousapps.dependency.analysis) apply true
+    alias(libs.plugins.firebase.crashlytics) apply false
+    alias(libs.plugins.google.services) apply false
+    alias(libs.plugins.jetbrains.compose)
+    alias(libs.plugins.kotlin.android)
+    alias(libs.plugins.kotlinx.kover)
 }
 
 kover {
@@ -78,8 +78,8 @@ dependencies {
 
     implementation(libs.kotlin.stdlib)
 
-    implementation(libs.io.insert.koin.core)
-    implementation(libs.io.insert.koin.android)
+    implementation(libs.koin.core)
+    implementation(libs.koin.android)
 
     implementation(libs.androidx.startup.runtime)
 
@@ -91,21 +91,21 @@ dependencies {
 
     lintChecks(libs.slack.lint.checks)
 
-    releaseImplementation(libs.com.google.firebase.analytics.ktx)
-    releaseImplementation(libs.com.google.firebase.crashlytics.ktx)
+    releaseImplementation(libs.firebase.analytics.ktx)
+    releaseImplementation(libs.firebase.crashlytics.ktx)
 
-    testImplementation(libs.org.junit.jupiter.api)
-    testImplementation(libs.io.mockk)
-    testRuntimeOnly(libs.org.junit.jupiter.engine)
+    testImplementation(libs.junit.jupiter.api)
+    testImplementation(libs.mockk)
+    testRuntimeOnly(libs.junit.jupiter.engine)
 
     compileOnly(libs.google.services)
 
     debugRuntimeOnly(libs.androidx.compose.ui.test.manifest)
-    debugRuntimeOnly(libs.androidx.compose.ui.tooling)
+    debugRuntimeOnly(libs.androidx.compose.ui.tooling.android)
 
     androidTestImplementation(libs.androidx.monitor)
-    androidTestImplementation(libs.org.junit.jupiter.api)
-    androidTestRuntimeOnly(libs.org.junit.jupiter.engine)
+    androidTestImplementation(libs.junit.jupiter.api)
+    androidTestRuntimeOnly(libs.junit.jupiter.engine)
 }
 
 // configurations.releaseImplementation {

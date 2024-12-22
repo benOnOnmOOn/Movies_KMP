@@ -1,9 +1,9 @@
 plugins {
+    alias(libs.plugins.android.library)
+    alias(libs.plugins.dependency.analysis) apply true
     alias(libs.plugins.kotlin.multiplatform)
     alias(libs.plugins.kotlin.serialization)
-    alias(libs.plugins.com.android.library)
-    alias(libs.plugins.org.jetbrains.kotlinx.kover)
-    alias(libs.plugins.com.autonomousapps.dependency.analysis) apply true
+    alias(libs.plugins.kotlinx.kover)
 }
 
 kover {
@@ -24,8 +24,8 @@ kotlin {
 
             implementation(libs.androidx.core)
             implementation(libs.androidx.core.ktx)
-            implementation(libs.io.insert.koin.android)
-            testImplementation(libs.org.junit.jupiter.api)
+            implementation(libs.koin.android)
+            testImplementation(libs.junit.jupiter.api)
         }
     }
 
@@ -36,11 +36,11 @@ kotlin {
     sourceSets {
         commonMain.dependencies {
             api(project(":data:dto"))
-            implementation(libs.io.ktor.client.core)
-            implementation(libs.io.ktor.serialization.content.negotiation)
-            implementation(libs.io.ktor.serialization.kotlinx.json)
-            implementation(libs.org.jetbrains.kotlinx.coroutines.core)
-            implementation(libs.io.insert.koin.core)
+            implementation(libs.ktor.client.core)
+            implementation(libs.ktor.serialization.content.negotiation)
+            implementation(libs.ktor.serialization.kotlinx.json)
+            implementation(libs.kotlinx.coroutines.core)
+            implementation(libs.koin.core)
         }
 
         commonTest.dependencies {
@@ -48,30 +48,33 @@ kotlin {
         }
 
         androidMain.dependencies {
-            implementation(libs.io.ktor.client.android)
             api(libs.kotlin.stdlib)
 
-            implementation(libs.io.ktor.http)
-            implementation(libs.io.ktor.serialization)
-            implementation(libs.io.ktor.utils)
-            implementation(libs.kotlinx.serialization.core)
-            implementation(libs.kotlinx.serialization.json)
             implementation(libs.androidx.core)
             implementation(libs.androidx.core.ktx)
 
-            implementation(libs.org.jetbrains.kotlinx.coroutines.android)
-            implementation(libs.io.insert.koin.android)
+            implementation(libs.koin.android)
+
+            implementation(libs.kotlinx.coroutines.android)
+            implementation(libs.kotlinx.serialization.core)
+            implementation(libs.kotlinx.serialization.json)
+
+            implementation(libs.ktor.client.android)
             implementation(libs.ktor.client.logging)
+            implementation(libs.ktor.http)
+            implementation(libs.ktor.serialization)
+            implementation(libs.ktor.utils)
+
             implementation(libs.slf4j.android)
         }
 
         androidUnitTest.dependencies {
             implementation(libs.kotlin.test)
-            implementation(libs.org.junit.jupiter.api)
+            implementation(libs.junit.jupiter.api)
         }
 
         iosMain.dependencies {
-            implementation(libs.io.ktor.client.ios)
+            implementation(libs.ktor.client.ios)
         }
     }
 }

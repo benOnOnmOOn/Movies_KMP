@@ -1,12 +1,12 @@
 import com.android.build.gradle.internal.tasks.factory.dependsOn
 
 plugins {
-    alias(libs.plugins.kotlin.multiplatform)
-    alias(libs.plugins.com.android.library)
-    alias(libs.plugins.org.jetbrains.kotlinx.kover)
-    alias(libs.plugins.jetbrains.compose)
+    alias(libs.plugins.android.library)
     alias(libs.plugins.compose.compiler)
-    alias(libs.plugins.com.autonomousapps.dependency.analysis) apply true
+    alias(libs.plugins.dependency.analysis) apply true
+    alias(libs.plugins.jetbrains.compose)
+    alias(libs.plugins.kotlin.multiplatform)
+    alias(libs.plugins.kotlinx.kover)
 }
 
 kover {
@@ -38,15 +38,15 @@ kotlin {
             api(libs.androidx.navigation.runtime)
             api(libs.kotlin.stdlib)
 
-            implementation(libs.androidx.navigation.compose)
             implementation(libs.androidx.lifecycle.common)
             implementation(libs.androidx.lifecycle.runtime.compose)
+            implementation(libs.androidx.navigation.compose)
 
+            debugImplementation(libs.androidx.compose.ui.tooling)
             debugImplementation(libs.androidx.compose.ui.tooling.preview)
-            debugImplementation(libs.ui.tooling.preview)
-            debugImplementation(libs.androidx.ui.tooling)
             debugImplementation(libs.kermit.android.debug)
             debugImplementation(libs.kermit.core.android.debug)
+            debugImplementation(libs.ui.tooling.preview)
             releaseImplementation(libs.kermit.core)
         }
     }
@@ -65,23 +65,28 @@ kotlin {
             implementation(project(":data:datastore"))
             implementation(project(":data:dto"))
 
-            implementation(libs.kotlinx.datetime)
             implementation(compose.components.resources)
-            implementation(libs.org.jetbrains.kotlinx.coroutines.core)
+
             implementation(libs.androidx.lifecycle.runtime)
-            implementation(libs.material3)
             implementation(libs.androidx.lifecycle.viewmodel)
-            implementation(libs.navigation.compose)
-            implementation(libs.coil.core)
-            implementation(libs.coil.compose.core)
+
             implementation(libs.coil)
+            implementation(libs.coil.compose.core)
+            implementation(libs.coil.core)
             implementation(libs.coil.network.ktor)
-            implementation(libs.io.insert.koin.core)
-            implementation(libs.io.insert.koin.core.viewmodel)
-            implementation(libs.io.insert.koin.compose)
-            implementation(libs.io.insert.koin.compose.viemodel)
 
             implementation(libs.kermit)
+
+            implementation(libs.koin.compose)
+            implementation(libs.koin.compose.viemodel)
+            implementation(libs.koin.core)
+            implementation(libs.koin.core.viewmodel)
+
+            implementation(libs.kotlinx.coroutines.core)
+            implementation(libs.kotlinx.datetime)
+
+            implementation(libs.material3)
+            implementation(libs.navigation.compose)
         }
 
         commonTest.dependencies {
@@ -94,25 +99,26 @@ kotlin {
             implementation(project(":data:dto"))
             implementation(project(":data:network"))
 
-            api(libs.androidx.animation)
-            api(libs.androidx.runtime)
-            api(libs.androidx.ui)
+            api(libs.androidx.compose.animation)
             api(libs.androidx.compose.material3)
+            api(libs.androidx.compose.runtime)
+            api(libs.androidx.compose.ui)
             api(libs.androidx.navigation.common)
             api(libs.androidx.navigation.runtime)
+
             api(libs.kotlin.stdlib)
 
-            implementation(libs.androidx.foundation.layout)
-            implementation(libs.androidx.foundation)
-            implementation(libs.androidx.ui.graphics)
-            implementation(libs.androidx.ui.text)
-            implementation(libs.androidx.ui.unit)
+            implementation(libs.androidx.compose.foundation)
+            implementation(libs.androidx.compose.foundation.layout)
+            implementation(libs.androidx.compose.ui.graphics)
+            implementation(libs.androidx.compose.ui.text)
             implementation(libs.androidx.compose.ui.tooling.preview)
+            implementation(libs.androidx.compose.ui.tooling.preview)
+            implementation(libs.androidx.compose.ui.unit)
             implementation(libs.androidx.lifecycle.viewmodel.compose)
             implementation(libs.androidx.navigation.compose)
 
-            implementation(libs.org.jetbrains.kotlinx.coroutines.android)
-            implementation(libs.androidx.compose.ui.tooling.preview)
+            implementation(libs.kotlinx.coroutines.android)
         }
 
         iosMain.dependencies {
