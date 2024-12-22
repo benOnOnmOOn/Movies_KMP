@@ -1,11 +1,11 @@
 plugins {
-    alias(libs.plugins.com.android.application)
+    alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.jetbrains.compose)
     alias(libs.plugins.compose.compiler)
     alias(libs.plugins.dependency.guard)
     alias(libs.plugins.dexcount)
-    alias(libs.plugins.com.autonomousapps.dependency.analysis) apply true
+    alias(libs.plugins.dependency.analysis) apply true
 }
 
 android {
@@ -39,8 +39,8 @@ dependencies {
 
     implementation(libs.kotlin.stdlib)
 
-    implementation(libs.io.insert.koin.core)
-    implementation(libs.io.insert.koin.android)
+    implementation(libs.koin.core)
+    implementation(libs.koin.android)
 
     implementation(libs.androidx.startup.runtime)
 
@@ -49,16 +49,16 @@ dependencies {
     debugImplementation(libs.kermit.core.android.debug)
     releaseImplementation(libs.kermit.core)
 
-    testImplementation(libs.org.junit.jupiter.api)
-    testImplementation(libs.io.mockk)
-    testRuntimeOnly(libs.org.junit.jupiter.engine)
+    testImplementation(libs.junit.jupiter.api)
+    testImplementation(libs.mockk)
+    testRuntimeOnly(libs.junit.jupiter.engine)
 
     debugRuntimeOnly(libs.androidx.compose.ui.test.manifest)
-    debugRuntimeOnly(libs.androidx.compose.ui.tooling)
+    debugRuntimeOnly(libs.androidx.compose.ui.tooling.android)
 
     androidTestImplementation(libs.androidx.monitor)
-    androidTestImplementation(libs.org.junit.jupiter.api)
-    androidTestRuntimeOnly(libs.org.junit.jupiter.engine)
+    androidTestImplementation(libs.junit.jupiter.api)
+    androidTestRuntimeOnly(libs.junit.jupiter.engine)
 }
 configurations.releaseImplementation {
     exclude("org.slf4j", "slf4j-android")

@@ -18,25 +18,25 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 import org.jlleitschuh.gradle.ktlint.KtlintPlugin
 
 plugins {
-    alias(libs.plugins.com.android.application) apply false
-    alias(libs.plugins.com.android.library) apply false
-    alias(libs.plugins.com.github.ben.manes.versions) apply true
-    alias(libs.plugins.io.gitlab.arturbosch.detekt) apply true
-    alias(libs.plugins.com.autonomousapps.dependency.analysis) apply true
-    alias(libs.plugins.com.google.gms.google.services) apply false
-    alias(libs.plugins.org.jetbrains.kotlinx.kover) apply true
-    alias(libs.plugins.com.osacky.doctor) apply true
-    alias(libs.plugins.app.cash.sqldelight) apply false
-    alias(libs.plugins.org.jlleitschuh.gradle.ktlint) apply true
-    alias(libs.plugins.org.gradle.android.cache.fix) apply false
-    alias(libs.plugins.jetbrains.compose) apply false
-    alias(libs.plugins.compose.compiler) apply false
-    alias(libs.plugins.kotlin.multiplatform) apply false
-    alias(libs.plugins.kotlin.android) apply false
-    alias(libs.plugins.kotlin.serialization) apply false
-    alias(libs.plugins.jetbrains.kotlin.jvm) apply false
-    alias(libs.plugins.kotlin.cocoapods) apply false
+    alias(libs.plugins.android.application) apply false
+    alias(libs.plugins.android.cache.fix) apply false
+    alias(libs.plugins.android.library) apply false
     alias(libs.plugins.binary.compatibility)
+    alias(libs.plugins.compose.compiler) apply false
+    alias(libs.plugins.dependency.analysis) apply true
+    alias(libs.plugins.dependency.updates) apply true
+    alias(libs.plugins.detekt) apply true
+    alias(libs.plugins.google.services) apply false
+    alias(libs.plugins.gradle.doctor) apply true
+    alias(libs.plugins.jetbrains.compose) apply false
+    alias(libs.plugins.kotlin.android) apply false
+    alias(libs.plugins.kotlin.cocoapods) apply false
+    alias(libs.plugins.kotlin.jvm) apply false
+    alias(libs.plugins.kotlin.multiplatform) apply false
+    alias(libs.plugins.kotlin.serialization) apply false
+    alias(libs.plugins.kotlinx.kover) apply true
+    alias(libs.plugins.ktlint) apply true
+    alias(libs.plugins.sqldelight) apply false
 }
 
 tasks.register<Delete>("clean") {
@@ -233,39 +233,42 @@ subprojects {
     apply<AndroidCacheFixPlugin>()
     project.plugins.applyBaseConfig(project)
     configurations.all {
-        exclude("androidx.legacy", "legacy-support-core-utils")
-        exclude("androidx.loader", "loader")
-        exclude("androidx.privacysandbox.ads", "ads-adservices-java")
-        exclude("androidx.privacysandbox.ads", "ads-adservices")
+//        exclude("androidx.activity", "activity-ktx") we need to add this to have working compose preview
+        exclude("androidx.appcompat", "appcompat")
+        exclude("androidx.collection", "collection-ktx")
         exclude("androidx.cursoradapter", "cursoradapter")
         exclude("androidx.customview", "customview")
-        exclude("androidx.versionedparcelable", "versionedparcelable")
-        exclude("androidx.vectordrawable", "vectordrawable-animated")
-        exclude("androidx.vectordrawable", "vectordrawable")
         exclude("androidx.drawerlayout", "drawerlayout")
         exclude("androidx.fragment", "fragment")
         exclude("androidx.fragment", "fragment-ktx")
-//        exclude("androidx.activity", "activity-ktx") we need to add this to have working compose preview
-        exclude("androidx.collection", "collection-ktx")
-        exclude("androidx.savedstate", "savedstate-ktx")
-        exclude("androidx.lifecycle", "lifecycle-runtime-ktx-android")
+        exclude("androidx.legacy", "legacy-support-core-utils")
+        exclude("androidx.lifecycle", "lifecycle-common-java8")
         exclude("androidx.lifecycle", "lifecycle-runtime-ktx")
-        exclude("androidx.lifecycle", "viewmodel-ktx")
+        exclude("androidx.lifecycle", "lifecycle-runtime-ktx-android")
         exclude("androidx.lifecycle", "lifecycle-viewmodel-ktx")
+        exclude("androidx.lifecycle", "viewmodel-ktx")
+        exclude("androidx.loader", "loader")
         exclude("androidx.navigation", "navigation-common-ktx")
         exclude("androidx.navigation", "navigation-runtime-ktx")
-        exclude("androidx.appcompat", "appcompat")
-        exclude("org.jetbrains.kotlin", "kotlin-stdlib-jdk7")
-        exclude("org.jetbrains.kotlin", "kotlin-stdlib-jdk8")
+        exclude("androidx.privacysandbox.ads", "ads-adservices")
+        exclude("androidx.privacysandbox.ads", "ads-adservices-java")
+        exclude("androidx.savedstate", "savedstate-ktx")
+        exclude("androidx.vectordrawable", "vectordrawable")
+        exclude("androidx.vectordrawable", "vectordrawable-animated")
+        exclude("androidx.versionedparcelable", "versionedparcelable")
+
         exclude("com.google.code.findbugs", "jsr305")
         exclude("com.google.errorprone", "error_prone_annotations")
         exclude("org.checkerframework", "checker-qual")
+
+        exclude("org.jetbrains.kotlin", "kotlin-stdlib-jdk7")
+        exclude("org.jetbrains.kotlin", "kotlin-stdlib-jdk8")
     }
 }
 // endregion
 
 ktlint {
-    version.set("1.4.1")
+    version.set("1.5.0")
 }
 
 doctor {

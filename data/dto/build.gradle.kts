@@ -1,6 +1,6 @@
 plugins {
     alias(libs.plugins.kotlin.multiplatform)
-    alias(libs.plugins.com.autonomousapps.dependency.analysis) apply true
+    alias(libs.plugins.dependency.analysis) apply true
 }
 
 kotlin {

@@ -1,9 +1,9 @@
 plugins {
+    alias(libs.plugins.android.library)
+    alias(libs.plugins.dependency.analysis) apply true
     alias(libs.plugins.kotlin.multiplatform)
-    alias(libs.plugins.com.android.library)
-    alias(libs.plugins.app.cash.sqldelight)
-    alias(libs.plugins.org.jetbrains.kotlinx.kover)
-    alias(libs.plugins.com.autonomousapps.dependency.analysis) apply true
+    alias(libs.plugins.kotlinx.kover)
+    alias(libs.plugins.sqldelight)
 }
 
 kover {
@@ -22,8 +22,8 @@ kotlin {
 
             lintChecks(libs.slack.lint.checks)
             implementation(libs.androidx.sqlite)
-            implementation(libs.app.cash.sqldelight.android.driver)
-            implementation(libs.io.insert.koin.android)
+            implementation(libs.sqldelight.android.driver)
+            implementation(libs.koin.android)
         }
     }
 
@@ -35,9 +35,9 @@ kotlin {
         commonMain {
             dependencies {
                 api(project(":data:dto"))
-                implementation(libs.io.insert.koin.core)
-                implementation(libs.org.jetbrains.kotlinx.coroutines.core)
-                implementation(libs.app.cash.sqldelight.coroutines.extensions)
+                implementation(libs.koin.core)
+                implementation(libs.kotlinx.coroutines.core)
+                implementation(libs.sqldelight.coroutines.extensions)
             }
         }
         commonTest {
@@ -50,14 +50,14 @@ kotlin {
             dependencies {
                 api(project(":data:dto"))
                 implementation(libs.androidx.sqlite)
-                implementation(libs.app.cash.sqldelight.android.driver)
-                implementation(libs.io.insert.koin.android)
+                implementation(libs.sqldelight.android.driver)
+                implementation(libs.koin.android)
             }
         }
 
         iosMain {
             dependencies {
-                implementation(libs.app.cash.sqldelight.native.driver)
+                implementation(libs.sqldelight.native.driver)
             }
         }
     }
