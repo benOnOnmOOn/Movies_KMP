@@ -2,10 +2,10 @@ package com.bz.movies.kmp.android
 
 import android.os.Build
 import android.os.StrictMode
-import java.util.concurrent.Executors
 import co.touchlab.kermit.Logger
+import java.util.concurrent.Executors
 
-fun enableStrictMode(){
+fun enableStrictMode()  {
     StrictMode.setThreadPolicy(
         StrictMode.ThreadPolicy.Builder()
             .detectAll()
