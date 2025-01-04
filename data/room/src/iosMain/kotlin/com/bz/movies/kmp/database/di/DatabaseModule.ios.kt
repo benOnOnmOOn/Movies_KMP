@@ -10,7 +10,6 @@ import com.bz.movies.kmp.database.dao.PopularMovieDAO
 import kotlinx.cinterop.ExperimentalForeignApi
 import org.koin.core.module.LazyModule
 import org.koin.dsl.lazyModule
-import org.koin.dsl.module
 import platform.Foundation.NSDocumentDirectory
 import platform.Foundation.NSFileManager
 import platform.Foundation.NSUserDomainMask

@@ -13,7 +13,6 @@ import com.bz.movies.presentation.screens.popular.PopularMoviesViewModel
 import org.koin.core.module.Module
 import org.koin.core.module.dsl.viewModel
 import org.koin.dsl.lazyModule
-import org.koin.dsl.module
 
 val screensModule: List<Lazy<Module>> =
     listOf(

@@ -7,7 +7,6 @@ import com.bz.movies.kmp.network.utils.InternetConnectionImpl
 import org.koin.android.ext.koin.androidApplication
 import org.koin.core.module.LazyModule
 import org.koin.dsl.lazyModule
-import org.koin.dsl.module
 
 actual val platformNetworkModule: LazyModule =
     lazyModule {
