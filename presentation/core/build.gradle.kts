@@ -30,15 +30,15 @@ kotlin {
             api(libs.kotlin.stdlib)
 
             implementation(libs.kermit)
+            debugImplementation(libs.kermit.android.debug)
+            debugImplementation(libs.kermit.core.android.debug)
+            releaseImplementation(libs.kermit.core)
 
             implementation(libs.androidx.activity.compose)
             implementation(libs.androidx.navigation.common)
             implementation(libs.androidx.navigation.compose)
             implementation(libs.androidx.navigation.runtime)
-          debugImplementation(libs.kermit.android.debug)
-  debugImplementation(libs.kermit.core.android.debug)
-  releaseImplementation(libs.kermit.core)
-}
+        }
     }
     iosX64()
     iosArm64()
