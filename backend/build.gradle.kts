@@ -3,7 +3,7 @@ plugins {
     alias(libs.plugins.dependency.guard)
     alias(libs.plugins.kotlin.multiplatform)
     alias(libs.plugins.kotlin.serialization)
-    alias(libs.plugins.ktor)
+//    alias(libs.plugins.ktor)
 }
 
 kotlin {
@@ -43,8 +43,11 @@ kotlin {
     }
 }
 
-dependencyGuard {
+configurations.all {
+    exclude("org.jetbrains.kotlin", "kotlin-reflect")
+}
 
+dependencyGuard {
     // All dependencies included in Production Release APK
     configuration("nativeCInterop")
 }
