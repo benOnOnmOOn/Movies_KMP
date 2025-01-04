@@ -9,6 +9,8 @@ import com.bz.movies.kmp.database.dao.MovieDAO
 import com.bz.movies.kmp.database.dao.PlayingNowMovieDAO
 import com.bz.movies.kmp.database.dao.PopularMovieDAO
 import org.koin.android.ext.koin.androidApplication
+import org.koin.core.module.LazyModule
+import org.koin.dsl.lazyModule
 import org.koin.dsl.module
 
 private fun getDatabaseBuilder(ctx: Context): RoomDatabase.Builder<MoviesDatabase> {
@@ -20,8 +22,8 @@ private fun getDatabaseBuilder(ctx: Context): RoomDatabase.Builder<MoviesDatabas
     )
 }
 
-actual val databaseModule =
-    module {
+actual val databaseModule: LazyModule =
+    lazyModule {
         single<MoviesDatabase> { getDatabaseBuilder(androidApplication()).build() }
         single<MovieDAO> { get<MoviesDatabase>().movieDAO() }
         single<PlayingNowMovieDAO> { get<MoviesDatabase>().playingNowMovieDAO() }

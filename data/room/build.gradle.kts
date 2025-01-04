@@ -41,8 +41,8 @@ kotlin {
             dependencies {
                 api(project(":data:dto"))
                 implementation(libs.koin.core)
+                implementation(libs.koin.core.coroutines)
                 implementation(libs.kotlinx.coroutines.core)
-
                 implementation(libs.androidx.room.common)
                 implementation(libs.androidx.room.runtime)
             }

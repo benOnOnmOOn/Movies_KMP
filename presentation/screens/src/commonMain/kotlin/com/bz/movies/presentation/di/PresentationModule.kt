@@ -10,12 +10,14 @@ import com.bz.movies.presentation.screens.details.MovieDetailsViewModel
 import com.bz.movies.presentation.screens.favorite.FavoriteScreenViewModel
 import com.bz.movies.presentation.screens.playingNow.PlayingNowViewModel
 import com.bz.movies.presentation.screens.popular.PopularMoviesViewModel
+import org.koin.core.module.Module
 import org.koin.core.module.dsl.viewModel
+import org.koin.dsl.lazyModule
 import org.koin.dsl.module
 
-val screensModule =
+val screensModule: List<Lazy<Module>> =
     listOf(
-        module {
+        lazyModule {
             viewModel { PlayingNowViewModel(get(), get(), get()) }
             viewModel { PopularMoviesViewModel(get(), get(), get()) }
             viewModel { FavoriteScreenViewModel(get()) }
