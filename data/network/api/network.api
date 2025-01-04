@@ -1,9 +1,9 @@
 public final class com/bz/movies/kmp/network/di/NetworkModuleKt {
-	public static final fun getCommonNetworkModule ()Lorg/koin/core/module/Module;
+	public static final fun getCommonNetworkModule ()Lorg/koin/core/module/LazyModule;
 }
 
 public final class com/bz/movies/kmp/network/di/NetworkModule_androidKt {
-	public static final fun getPlatformNetworkModule ()Lorg/koin/core/module/Module;
+	public static final fun getPlatformNetworkModule ()Lorg/koin/core/module/LazyModule;
 }
 
 public abstract interface class com/bz/movies/kmp/network/repository/MovieRepository {

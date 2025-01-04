@@ -74,6 +74,8 @@ kotlin {
             implementation(libs.koin.compose)
             implementation(libs.koin.compose.viemodel)
             implementation(libs.koin.core)
+            implementation(libs.koin.core.coroutines)
+
             implementation(libs.kotlinx.coroutines.core)
 
             implementation(libs.material3)

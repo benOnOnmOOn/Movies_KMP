@@ -43,10 +43,6 @@ kotlin {
     }
 }
 
-configurations.all {
-    exclude("org.jetbrains.kotlin", "kotlin-reflect")
-}
-
 dependencyGuard {
     // All dependencies included in Production Release APK
     configuration("nativeCInterop")

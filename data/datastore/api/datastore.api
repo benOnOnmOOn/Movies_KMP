@@ -1,9 +1,9 @@
 public final class com/bz/movies/kmp/datastore/di/DataStoreModule_androidKt {
-	public static final fun getDatastoreModule ()Lorg/koin/core/module/Module;
+	public static final fun getDatastoreModule ()Lorg/koin/core/module/LazyModule;
 }
 
 public final class com/bz/movies/kmp/datastore/di/RepositoryModuleKt {
-	public static final fun getDatastoreRepositoryModule ()Lorg/koin/core/module/Module;
+	public static final fun getDatastoreRepositoryModule ()Lorg/koin/core/module/LazyModule;
 }
 
 public abstract interface class com/bz/movies/kmp/datastore/repository/DataStoreRepository {

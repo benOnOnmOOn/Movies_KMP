@@ -8,6 +8,7 @@ import com.bz.movies.kmp.di.presentationModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
 import org.koin.core.context.GlobalContext.startKoin
+import org.koin.core.lazyModules
 import java.util.concurrent.Executors
 
 class MoviesApp : Application() {
@@ -16,7 +17,7 @@ class MoviesApp : Application() {
         startKoin {
             androidLogger()
             androidContext(this@MoviesApp)
-            modules(presentationModule)
+            lazyModules(presentationModule)
         }
 
         StrictMode.setThreadPolicy(

@@ -263,6 +263,7 @@ subprojects {
 
         exclude("org.jetbrains.kotlin", "kotlin-stdlib-jdk7")
         exclude("org.jetbrains.kotlin", "kotlin-stdlib-jdk8")
+        exclude("org.jetbrains.kotlin", "kotlin-reflect")
     }
 }
 // endregion

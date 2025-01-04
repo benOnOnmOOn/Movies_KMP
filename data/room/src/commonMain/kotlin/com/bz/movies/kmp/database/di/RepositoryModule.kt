@@ -2,9 +2,10 @@ package com.bz.movies.kmp.database.di
 
 import com.bz.movies.kmp.database.repository.LocalMovieRepository
 import com.bz.movies.kmp.database.repository.LocalMovieRepositoryImpl
-import org.koin.dsl.module
+import org.koin.core.module.LazyModule
+import org.koin.dsl.lazyModule
 
-val repositoryModule =
-    module {
+val repositoryModule: LazyModule =
+    lazyModule {
         factory<LocalMovieRepository> { LocalMovieRepositoryImpl(get(), get(), get()) }
     }

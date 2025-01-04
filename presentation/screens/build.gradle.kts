@@ -1,4 +1,5 @@
 import com.android.build.gradle.internal.tasks.factory.dependsOn
+import org.gradle.kotlin.dsl.implementation
 
 plugins {
     alias(libs.plugins.android.library)
@@ -80,6 +81,7 @@ kotlin {
             implementation(libs.koin.compose)
             implementation(libs.koin.compose.viemodel)
             implementation(libs.koin.core)
+            implementation(libs.koin.core.coroutines)
             implementation(libs.koin.core.viewmodel)
 
             implementation(libs.kotlinx.coroutines.core)

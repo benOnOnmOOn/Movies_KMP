@@ -38,8 +38,10 @@ dependencies {
     implementation(project(":presentation:screens"))
 
     implementation(libs.kotlin.stdlib)
+    implementation(libs.kotlinx.coroutines.core)
 
     implementation(libs.koin.core)
+    implementation(libs.koin.core.coroutines)
     implementation(libs.koin.android)
 
     implementation(libs.androidx.startup.runtime)

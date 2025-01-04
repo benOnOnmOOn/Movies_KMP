@@ -121,6 +121,8 @@ io.insert-koin:koin-compose-jvm:4.0.1
 io.insert-koin:koin-compose-viewmodel-jvm:4.0.1
 io.insert-koin:koin-compose-viewmodel:4.0.1
 io.insert-koin:koin-compose:4.0.1
+io.insert-koin:koin-core-coroutines-jvm:4.0.1
+io.insert-koin:koin-core-coroutines:4.0.1
 io.insert-koin:koin-core-jvm:4.0.1
 io.insert-koin:koin-core-viewmodel-jvm:4.0.1
 io.insert-koin:koin-core-viewmodel:4.0.1

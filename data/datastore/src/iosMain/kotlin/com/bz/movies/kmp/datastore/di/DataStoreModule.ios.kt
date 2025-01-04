@@ -8,7 +8,7 @@ import androidx.datastore.preferences.core.emptyPreferences
 import co.touchlab.kermit.Logger
 import kotlinx.cinterop.ExperimentalForeignApi
 import okio.Path.Companion.toPath
-import org.koin.dsl.module
+import org.koin.dsl.lazyModule
 import platform.Foundation.NSDocumentDirectory
 import platform.Foundation.NSFileManager
 import platform.Foundation.NSURL
@@ -16,7 +16,7 @@ import platform.Foundation.NSUserDomainMask
 
 @OptIn(ExperimentalForeignApi::class)
 actual val datastoreModule =
-    module {
+    lazyModule {
         single<DataStore<Preferences>> {
             val documentDirectory: NSURL? =
                 NSFileManager.defaultManager.URLForDirectory(

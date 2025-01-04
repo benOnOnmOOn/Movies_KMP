@@ -47,6 +47,7 @@ kotlin {
                 implementation(libs.kermit)
 
                 implementation(libs.koin.core)
+                implementation(libs.koin.core.coroutines)
 
                 implementation(libs.kotlinx.coroutines.core)
                 implementation(libs.kotlinx.datetime)

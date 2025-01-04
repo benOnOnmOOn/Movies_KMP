@@ -1,9 +1,9 @@
 public final class com/bz/movies/kmp/database/di/DatabaseModule_androidKt {
-	public static final fun getDatabaseModule ()Lorg/koin/core/module/Module;
+	public static final fun getDatabaseModule ()Lorg/koin/core/module/LazyModule;
 }
 
 public final class com/bz/movies/kmp/database/di/RepositoryModuleKt {
-	public static final fun getRepositoryModule ()Lorg/koin/core/module/Module;
+	public static final fun getRepositoryModule ()Lorg/koin/core/module/LazyModule;
 }
 
 public abstract interface class com/bz/movies/kmp/database/repository/LocalMovieRepository {
