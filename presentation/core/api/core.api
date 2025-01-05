@@ -9,6 +9,10 @@ public final class com/bz/movies/kmp/android/MainActivity : androidx/activity/Co
 	public fun <init> ()V
 }
 
+public final class com/bz/movies/kmp/android/UtilsKt {
+	public static final fun enableStrictMode ()V
+}
+
 public final class com/bz/movies/kmp/di/PresentationModuleKt {
 	public static final fun getPresentationModule ()Ljava/util/List;
 }

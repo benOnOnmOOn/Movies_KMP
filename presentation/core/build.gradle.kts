@@ -1,4 +1,5 @@
 import com.android.build.gradle.internal.tasks.factory.dependsOn
+import org.gradle.kotlin.dsl.implementation
 
 plugins {
     alias(libs.plugins.android.library)
@@ -27,6 +28,11 @@ kotlin {
 
             api(libs.androidx.activity)
             api(libs.kotlin.stdlib)
+
+            implementation(libs.kermit)
+            debugImplementation(libs.kermit.android.debug)
+            debugImplementation(libs.kermit.core.android.debug)
+            releaseImplementation(libs.kermit.core)
 
             implementation(libs.androidx.activity.compose)
             implementation(libs.androidx.navigation.common)
@@ -88,6 +94,8 @@ kotlin {
             api(libs.androidx.activity)
             api(libs.androidx.compose.runtime)
             api(libs.kotlin.stdlib)
+
+            implementation(libs.kermit)
 
             implementation(libs.androidx.activity.compose)
             implementation(libs.androidx.compose.foundation)
