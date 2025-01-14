@@ -119,6 +119,9 @@ slf4j-android = { module = "org.slf4j:slf4j-android", version.ref = "slf4j-andro
 sqldelight-android-driver = { group = "app.cash.sqldelight", name = "android-driver", version.ref = "sqldelight" }
 sqldelight-coroutines-extensions = { group = "app.cash.sqldelight", name = "coroutines-extensions", version.ref = "sqldelight" }
 sqldelight-native-driver = { group = "app.cash.sqldelight", name = "native-driver", version.ref = "sqldelight" }
+androidx-runner = { group = "androidx.test", name = "runner", version.ref = "runner" }
+core = { group = "androidx.test", name = "core", version.ref = "core-version" }
+androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junit-version" }
 
 # Dependencies of the included build-logic
 android-gradlePlugin = { group = "com.android.tools.build", name = "gradle", version.ref = "android-gradle-plugin" }
@@ -162,6 +165,7 @@ ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
 ktlint = { id = "org.jlleitschuh.gradle.ktlint", version = "12.1.2" }
 ktor = { id = "io.ktor.plugin", version.ref = "ktor" }
 sqldelight = { id = "app.cash.sqldelight", version.ref = "sqldelight" }
+kotlin-multiplatform-android-library = { id = "com.android.kotlin.multiplatform.library", version.ref = "com-android-plugin" }
 
 # Plugins defined by this project
 movies-android-application = { id = "movies.android.application" }

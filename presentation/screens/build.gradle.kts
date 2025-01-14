@@ -1,7 +1,16 @@
+import com.android.build.api.dsl.androidLibrary
+import com.android.build.gradle.internal.tasks.factory.dependsOn
+import org.gradle.kotlin.dsl.assign
+import org.jetbrains.kotlin.gradle.dsl.JvmTarget
+import kotlin.collections.plusAssign
 import com.autonomousapps.DependencyAnalysisSubExtension
 import org.gradle.kotlin.dsl.implementation
 
 plugins {
+    alias(libs.plugins.kotlin.multiplatform.android.library)
+    alias(libs.plugins.compose.compiler)
+    alias(libs.plugins.dependency.analysis) apply true
+    alias(libs.plugins.jetbrains.compose)
     alias(libs.plugins.kotlin.multiplatform)
     alias(libs.plugins.jetbrains.compose)
 
@@ -18,33 +27,42 @@ extensions.findByType<DependencyAnalysisSubExtension>()?.apply {
         onUnusedDependencies { exclude(libs.kotlinx.compose.ui.tooling.preview) }
     }
 }
-
+// TODO: Add kotlin compose mp preview
 kotlin {
-    androidTarget {
-        dependencies {
-            implementation(project(":data:room"))
-            implementation(project(":data:datastore"))
-            implementation(project(":data:dto"))
-            implementation(project(":data:network"))
 
-            lintChecks(libs.lint.slack.checks)
-            lintChecks(libs.lint.compose.checks)
+    @Suppress("UnstableApiUsage")
+    androidLibrary {
+        namespace = "com.bz.presentation.screens"
+        compileSdk = 35
+        buildToolsVersion = "35.0.0"
+        minSdk = 27
 
-            api(libs.androidx.navigation.common)
-            api(libs.androidx.navigation.runtime)
-            api(libs.kotlin.stdlib)
-
-            implementation(libs.androidx.lifecycle.common)
-            implementation(libs.androidx.lifecycle.runtime.compose)
-            implementation(libs.androidx.navigation.compose)
-
-            debugImplementation(libs.androidx.compose.ui.tooling)
-            debugImplementation(libs.androidx.compose.ui.tooling.preview)
-            debugImplementation(libs.kermit.android.debug)
-            debugImplementation(libs.kermit.core.android.debug)
-            debugImplementation(libs.kotlinx.compose.ui.tooling.preview)
-            releaseImplementation(libs.kermit.core)
+        compilations.all {
+            compilerOptions.configure { jvmTarget = JvmTarget.JVM_21 }
         }
+
+        lint {
+            baseline = project.file("lint-baseline.xml")
+            disable += listOf(
+                "NewerVersionAvailable",
+                "GradleDependency",
+                "ObsoleteLintCustomCheck"
+            )
+            abortOnError = true
+            checkAllWarnings = true
+            warningsAsErrors = true
+            checkReleaseBuilds = false
+            checkDependencies = false
+        }
+
+        packaging.resources.excludes +=
+            setOf(
+                "kotlin/**",
+                "META-INF/**",
+                "**.properties",
+                "kotlin-tooling-metadata.json",
+                "DebugProbesKt.bin",
+            )
     }
 
     iosX64()
@@ -121,9 +139,4 @@ kotlin {
         iosMain.dependencies {
         }
     }
-}
-
-afterEvaluate {
-    tasks.findByName("explodeCodeSourceDebug")?.dependsOn("generateActualResourceCollectorsForAndroidMain")
-    tasks.findByName("explodeCodeSourceRelease")?.dependsOn("generateActualResourceCollectorsForAndroidMain")
 }
