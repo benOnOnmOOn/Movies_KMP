@@ -1,6 +1,4 @@
 import com.android.build.api.dsl.androidLibrary
-import com.android.build.gradle.internal.tasks.factory.dependsOn
-import org.gradle.kotlin.dsl.assign
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 import kotlin.collections.plusAssign
 import com.autonomousapps.DependencyAnalysisSubExtension
@@ -43,11 +41,12 @@ kotlin {
 
         lint {
             baseline = project.file("lint-baseline.xml")
-            disable += listOf(
-                "NewerVersionAvailable",
-                "GradleDependency",
-                "ObsoleteLintCustomCheck"
-            )
+            disable +=
+                listOf(
+                    "NewerVersionAvailable",
+                    "GradleDependency",
+                    "ObsoleteLintCustomCheck",
+                )
             abortOnError = true
             checkAllWarnings = true
             warningsAsErrors = true

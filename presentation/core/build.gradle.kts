@@ -1,6 +1,5 @@
 import org.gradle.kotlin.dsl.implementation
 import com.android.build.api.dsl.androidLibrary
-import com.android.build.gradle.internal.tasks.factory.dependsOn
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 
 plugins {
@@ -33,11 +32,12 @@ kotlin {
 
         lint {
             baseline = project.file("lint-baseline.xml")
-            disable += listOf(
-                "NewerVersionAvailable",
-                "GradleDependency",
-                "ObsoleteLintCustomCheck"
-            )
+            disable +=
+                listOf(
+                    "NewerVersionAvailable",
+                    "GradleDependency",
+                    "ObsoleteLintCustomCheck",
+                )
             abortOnError = true
             checkAllWarnings = true
             warningsAsErrors = true
@@ -128,7 +128,6 @@ kotlin {
             implementation(project(":presentation:screens"))
 
 //            lintChecks(libs.slack.lint.checks)
-
         }
 
         iosMain.dependencies {

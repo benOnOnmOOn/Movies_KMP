@@ -30,11 +30,12 @@ kotlin {
 
         lint {
             baseline = project.file("lint-baseline.xml")
-            disable += listOf(
-                "NewerVersionAvailable",
-                "GradleDependency",
-                "ObsoleteLintCustomCheck"
-            )
+            disable +=
+                listOf(
+                    "NewerVersionAvailable",
+                    "GradleDependency",
+                    "ObsoleteLintCustomCheck",
+                )
             abortOnError = true
             checkAllWarnings = true
             warningsAsErrors = true
@@ -96,4 +97,3 @@ kotlin {
         }
     }
 }
-
