@@ -1,7 +1,11 @@
 import org.gradle.kotlin.dsl.implementation
+import com.android.build.api.dsl.androidLibrary
+import com.android.build.gradle.internal.tasks.factory.dependsOn
+import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 
 plugins {
     alias(libs.plugins.kotlin.cocoapods)
+    alias(libs.plugins.kotlin.multiplatform.android.library)
     alias(libs.plugins.kotlin.multiplatform)
     alias(libs.plugins.jetbrains.compose)
 
@@ -16,26 +20,41 @@ plugins {
 }
 
 kotlin {
-    androidTarget {
-        dependencies {
-            implementation(project(":presentation:screens"))
+    @Suppress("UnstableApiUsage")
+    androidLibrary {
+        namespace = "com.bz.core"
+        compileSdk = 35
+        buildToolsVersion = "35.0.0"
+        minSdk = 27
 
-            lintChecks(libs.lint.slack.checks)
-
-            api(libs.androidx.activity)
-            api(libs.kotlin.stdlib)
-
-            implementation(libs.kermit)
-            debugImplementation(libs.kermit.android.debug)
-            debugImplementation(libs.kermit.core.android.debug)
-            releaseImplementation(libs.kermit.core)
-
-            implementation(libs.androidx.activity.compose)
-            implementation(libs.androidx.navigation.common)
-            implementation(libs.androidx.navigation.compose)
-            implementation(libs.androidx.navigation.runtime)
+        compilations.all {
+            compilerOptions.configure { jvmTarget = JvmTarget.JVM_21 }
         }
+
+        lint {
+            baseline = project.file("lint-baseline.xml")
+            disable += listOf(
+                "NewerVersionAvailable",
+                "GradleDependency",
+                "ObsoleteLintCustomCheck"
+            )
+            abortOnError = true
+            checkAllWarnings = true
+            warningsAsErrors = true
+            checkReleaseBuilds = false
+            checkDependencies = false
+        }
+
+        packaging.resources.excludes +=
+            setOf(
+                "kotlin/**",
+                "META-INF/**",
+                "**.properties",
+                "kotlin-tooling-metadata.json",
+                "DebugProbesKt.bin",
+            )
     }
+
     iosX64()
     iosArm64()
     iosSimulatorArm64()
@@ -105,15 +124,15 @@ kotlin {
             implementation(libs.androidx.navigation.runtime)
 
             implementation(libs.kotlinx.coroutines.android)
+
+            implementation(project(":presentation:screens"))
+
+//            lintChecks(libs.slack.lint.checks)
+
         }
 
         iosMain.dependencies {
             implementation(libs.sqldelight.native.driver)
         }
     }
-}
-
-afterEvaluate {
-    tasks.findByName("explodeCodeSourceDebug")?.dependsOn("generateActualResourceCollectorsForAndroidMain")
-    tasks.findByName("explodeCodeSourceRelease")?.dependsOn("generateActualResourceCollectorsForAndroidMain")
 }
