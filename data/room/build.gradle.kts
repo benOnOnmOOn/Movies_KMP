@@ -1,22 +1,12 @@
 plugins {
-    alias(libs.plugins.android.library)
-    alias(libs.plugins.androidx.room)
-    alias(libs.plugins.dependency.analysis) apply true
     alias(libs.plugins.kotlin.multiplatform)
-    alias(libs.plugins.kotlinx.kover)
-    alias(libs.plugins.ksp)
-}
 
-kover {
-    currentProject {
-        createVariant("custom") {
-            add("debug")
-        }
-    }
-}
-
-room {
-    schemaDirectory("$projectDir/schemas/")
+    alias(libs.plugins.movies.dependency.analysis)
+    alias(libs.plugins.movies.android.library)
+    alias(libs.plugins.movies.android.room)
+    alias(libs.plugins.movies.binary.compatibility)
+    alias(libs.plugins.movies.kover)
+    alias(libs.plugins.movies.strict.dependencies)
 }
 
 kotlin {
@@ -73,8 +63,4 @@ dependencies {
     add("kspIosSimulatorArm64", libs.androidx.room.compiler)
     add("kspIosX64", libs.androidx.room.compiler)
     add("kspIosArm64", libs.androidx.room.compiler)
-}
-
-android {
-    namespace = "com.bz.movies.kmp.roomdb"
 }

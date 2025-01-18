@@ -2,22 +2,18 @@ import com.android.build.gradle.internal.tasks.factory.dependsOn
 import org.gradle.kotlin.dsl.implementation
 
 plugins {
-    alias(libs.plugins.android.library)
-    alias(libs.plugins.compose.compiler)
-    alias(libs.plugins.dependency.analysis) apply true
-    alias(libs.plugins.jetbrains.compose)
     alias(libs.plugins.kotlin.cocoapods)
     alias(libs.plugins.kotlin.multiplatform)
-    alias(libs.plugins.kotlinx.kover)
+    alias(libs.plugins.jetbrains.compose)
+
+    alias(libs.plugins.movies.dependency.analysis)
+    alias(libs.plugins.movies.android.library)
+    alias(libs.plugins.movies.android.library.compose)
+    alias(libs.plugins.movies.binary.compatibility)
+    alias(libs.plugins.movies.kover)
+    alias(libs.plugins.movies.strict.dependencies)
 }
 
-kover {
-    currentProject {
-        createVariant("custom") {
-            add("debug")
-        }
-    }
-}
 
 kotlin {
     androidTarget {
@@ -114,14 +110,6 @@ kotlin {
         iosMain.dependencies {
             implementation(libs.sqldelight.native.driver)
         }
-    }
-}
-
-android {
-    namespace = "com.bz.core"
-
-    buildFeatures {
-        compose = true
     }
 }
 
