@@ -4,7 +4,7 @@ import io.gitlab.arturbosch.detekt.DetektCreateBaselineTask
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 import org.jlleitschuh.gradle.ktlint.KtlintPlugin
-//import org.gradle.android.AndroidCacheFixPlugin
+// import org.gradle.android.AndroidCacheFixPlugin
 
 plugins {
     alias(libs.plugins.android.application) apply false
@@ -129,7 +129,6 @@ tasks.withType<KotlinCompile>().configureEach {
 
 //endregion
 
-
 subprojects {
     apply<KtlintPlugin>()
 //    apply<AndroidCacheFixPlugin>()
@@ -140,7 +139,7 @@ ktlint {
     version.set("1.5.0")
 }
 
-//doctor {
+// doctor {
 //    daggerThreshold.set(100)
 //    negativeAvoidanceThreshold.set(50)
-//}
+// }

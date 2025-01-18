@@ -14,7 +14,6 @@ plugins {
     alias(libs.plugins.movies.strict.dependencies)
 }
 
-
 kotlin {
     androidTarget {
         dependencies {

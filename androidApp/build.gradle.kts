@@ -1,6 +1,3 @@
-import com.google.firebase.crashlytics.buildtools.gradle.CrashlyticsPlugin
-import com.google.gms.googleservices.GoogleServicesPlugin
-
 plugins {
     alias(libs.plugins.dexcount)
 

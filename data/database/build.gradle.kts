@@ -66,4 +66,3 @@ sqldelight {
     }
     linkSqlite = true
 }
-
