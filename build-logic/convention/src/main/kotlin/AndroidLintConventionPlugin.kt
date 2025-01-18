@@ -26,11 +26,12 @@ class AndroidLintConventionPlugin : Plugin<Project> {
 
 private fun Lint.configure(project: Project) {
     baseline = project.file("lint-baseline.xml")
-    disable += listOf(
-        "NewerVersionAvailable",
-        "GradleDependency",
-        "RawDispatchersUse"
-    )
+    disable +=
+        listOf(
+            "NewerVersionAvailable",
+            "GradleDependency",
+            "RawDispatchersUse",
+        )
     abortOnError = true
     checkAllWarnings = true
     warningsAsErrors = true

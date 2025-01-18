@@ -45,8 +45,18 @@ class StrictDependenciesConventionPlugin : Plugin<Project> {
                 // force deps
                 resolutionStrategy {
                     libs.libraryAliases.forEach {
-                        val lib = libs.findLibrary(it).get().get().module
-                        val version = libs.findLibrary(it).get().get().versionConstraint
+                        val lib =
+                            libs
+                                .findLibrary(it)
+                                .get()
+                                .get()
+                                .module
+                        val version =
+                            libs
+                                .findLibrary(it)
+                                .get()
+                                .get()
+                                .versionConstraint
                         logger.info("Forcing library $lib with version:$version")
                         force("$lib:$version")
                     }

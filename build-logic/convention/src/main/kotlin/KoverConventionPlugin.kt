@@ -45,7 +45,7 @@ private fun KoverProjectExtension.configure() {
                     "*_HiltModules*",
                     "*Hilt_*",
                     "*_Impl*",
-                    "com.bz.movies.core.CrashlyticsLogTree"
+                    "com.bz.movies.core.CrashlyticsLogTree",
                 )
                 packages(
                     "hilt_aggregated_deps",
@@ -54,14 +54,14 @@ private fun KoverProjectExtension.configure() {
                     "com.bz.movies.presentation.theme",
                     "com.bz.movies.presentation.navigation",
                     "com.bz.movies.presentation.screens.utils",
-                    "com.bz.movies.core"
+                    "com.bz.movies.core",
                 )
                 annotatedBy(
                     "*Generated*",
                     "*Composable*",
                     "*Module*",
                     "*HiltAndroidApp*",
-                    "*AndroidEntryPoint*"
+                    "*AndroidEntryPoint*",
                 )
             }
         }

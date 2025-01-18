@@ -18,11 +18,10 @@ class BinaryCompatibilityConventionPlugin : Plugin<Project> {
                     listOf(
                         "dagger.internal.DaggerGenerated",
                         "javax.annotation.processing.Generated",
-                        "dagger.hilt.codegen.OriginatingElement"
-                    )
+                        "dagger.hilt.codegen.OriginatingElement",
+                    ),
                 )
             }
-
         }
     }
 }
