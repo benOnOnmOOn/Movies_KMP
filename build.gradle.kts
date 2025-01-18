@@ -29,6 +29,8 @@ plugins {
     alias(libs.plugins.kotlinx.kover) apply false
     alias(libs.plugins.ksp) apply false
 
+    alias(libs.plugins.movies.dependency.analysis) apply true
+
     alias(libs.plugins.detekt) apply true
 //    alias(libs.plugins.gradle.doctor) apply true
     alias(libs.plugins.ktlint) apply true
