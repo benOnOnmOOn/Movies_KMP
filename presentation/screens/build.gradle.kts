@@ -1,4 +1,5 @@
 import com.android.build.gradle.internal.tasks.factory.dependsOn
+import com.autonomousapps.DependencyAnalysisSubExtension
 import org.gradle.kotlin.dsl.implementation
 
 plugins {
@@ -21,7 +22,7 @@ kover {
     }
 }
 
-dependencyAnalysis {
+extensions.findByType<DependencyAnalysisSubExtension>()?.apply {
     issues {
         onUnusedDependencies { exclude(libs.ui.tooling.preview) }
     }
@@ -140,6 +141,6 @@ android {
 }
 
 afterEvaluate {
-    tasks.named("explodeCodeSourceDebug").dependsOn("generateActualResourceCollectorsForAndroidMain")
-    tasks.named("explodeCodeSourceRelease").dependsOn("generateActualResourceCollectorsForAndroidMain")
+    tasks.findByName("explodeCodeSourceDebug")?.dependsOn("generateActualResourceCollectorsForAndroidMain")
+    tasks.findByName("explodeCodeSourceRelease")?.dependsOn("generateActualResourceCollectorsForAndroidMain")
 }

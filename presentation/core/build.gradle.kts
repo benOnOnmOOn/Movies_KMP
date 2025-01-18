@@ -113,6 +113,6 @@ kotlin {
 }
 
 afterEvaluate {
-    tasks.named("explodeCodeSourceDebug").dependsOn("generateActualResourceCollectorsForAndroidMain")
-    tasks.named("explodeCodeSourceRelease").dependsOn("generateActualResourceCollectorsForAndroidMain")
+    tasks.findByName("explodeCodeSourceDebug")?.dependsOn("generateActualResourceCollectorsForAndroidMain")
+    tasks.findByName("explodeCodeSourceRelease")?.dependsOn("generateActualResourceCollectorsForAndroidMain")
 }
