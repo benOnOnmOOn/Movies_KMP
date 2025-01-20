@@ -8,27 +8,27 @@ import org.jlleitschuh.gradle.ktlint.KtlintPlugin
 
 plugins {
     alias(libs.plugins.android.application) apply false
-//    alias(libs.plugins.android.cache.fix) apply false
     alias(libs.plugins.android.library) apply false
     alias(libs.plugins.androidx.room) apply false
     alias(libs.plugins.binary.compatibility) apply false
     alias(libs.plugins.compose.compiler) apply false
     alias(libs.plugins.dependency.analysis) apply false
     alias(libs.plugins.dependency.guard) apply false
-    alias(libs.plugins.google.services) apply false
     alias(libs.plugins.firebase.crashlytics) apply false
     alias(libs.plugins.firebase.perf) apply false
+    alias(libs.plugins.google.services) apply false
     alias(libs.plugins.jetbrains.compose) apply false
     alias(libs.plugins.kotlin.android) apply false
     alias(libs.plugins.kotlin.cocoapods) apply false
     alias(libs.plugins.kotlin.jvm) apply false
     alias(libs.plugins.kotlin.multiplatform) apply false
     alias(libs.plugins.kotlin.serialization) apply false
-    alias(libs.plugins.sqldelight) apply false
-    alias(libs.plugins.dependency.updates) apply false
     alias(libs.plugins.kotlinx.kover) apply false
     alias(libs.plugins.ksp) apply false
+    alias(libs.plugins.sqldelight) apply false
+//    alias(libs.plugins.android.cache.fix) apply false
 
+    alias(libs.plugins.dependency.updates) apply true
     alias(libs.plugins.movies.dependency.analysis) apply true
 
     alias(libs.plugins.detekt) apply true

@@ -5,9 +5,9 @@ plugins {
     alias(libs.plugins.movies.android.application.compose)
     alias(libs.plugins.movies.android.application.firebase)
     alias(libs.plugins.movies.binary.compatibility)
+    alias(libs.plugins.movies.dependency.analysis)
     alias(libs.plugins.movies.kover)
     alias(libs.plugins.movies.strict.dependencies)
-    alias(libs.plugins.movies.dependency.analysis)
 }
 
 android {

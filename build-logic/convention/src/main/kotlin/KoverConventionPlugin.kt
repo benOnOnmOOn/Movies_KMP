@@ -27,42 +27,17 @@ private fun KoverProjectExtension.configure() {
     }
 
     reports {
-        total {
-            html {
+        variant("custom") {
+            xml {
                 onCheck.set(true)
             }
-            xml {
+            html {
                 onCheck.set(true)
             }
         }
         filters {
             excludes {
-                classes(
-                    // moshi json adapter
-                    "com.bz.network.api.model.*JsonAdapter",
-                    "*ComposableSingletons*",
-                    "*_Factor*y",
-                    "*_HiltModules*",
-                    "*Hilt_*",
-                    "*_Impl*",
-                    "com.bz.movies.core.CrashlyticsLogTree",
-                )
-                packages(
-                    "hilt_aggregated_deps",
-                    "dagger.hilt.internal.aggregatedroot.codegen",
-                    "com.bz.movies.database.dao",
-                    "com.bz.movies.presentation.theme",
-                    "com.bz.movies.presentation.navigation",
-                    "com.bz.movies.presentation.screens.utils",
-                    "com.bz.movies.core",
-                )
-                annotatedBy(
-                    "*Generated*",
-                    "*Composable*",
-                    "*Module*",
-                    "*HiltAndroidApp*",
-                    "*AndroidEntryPoint*",
-                )
+                annotatedBy("*Generated*", "*Composable*")
             }
         }
     }

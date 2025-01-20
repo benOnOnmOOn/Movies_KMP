@@ -1,10 +1,10 @@
 plugins {
     alias(libs.plugins.dexcount)
 
-    alias(libs.plugins.movies.dependency.analysis)
     alias(libs.plugins.movies.android.application)
     alias(libs.plugins.movies.android.application.compose)
     alias(libs.plugins.movies.binary.compatibility)
+    alias(libs.plugins.movies.dependency.analysis)
     alias(libs.plugins.movies.strict.dependencies)
 }
 
