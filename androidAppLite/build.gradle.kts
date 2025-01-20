@@ -1,34 +1,15 @@
 plugins {
-    alias(libs.plugins.android.application)
-    alias(libs.plugins.kotlin.android)
-    alias(libs.plugins.jetbrains.compose)
-    alias(libs.plugins.compose.compiler)
-    alias(libs.plugins.dependency.guard)
     alias(libs.plugins.dexcount)
-    alias(libs.plugins.dependency.analysis) apply true
+
+    alias(libs.plugins.movies.android.application)
+    alias(libs.plugins.movies.android.application.compose)
+    alias(libs.plugins.movies.binary.compatibility)
+    alias(libs.plugins.movies.dependency.analysis)
+    alias(libs.plugins.movies.strict.dependencies)
 }
 
 android {
     namespace = "com.bz.movies.kmp.android"
-
-    defaultConfig {
-        applicationId = "com.bz.movies.kmp"
-        versionCode = 1
-        versionName = "1.0"
-    }
-
-    buildTypes {
-        release {
-            isMinifyEnabled = true
-            isShrinkResources = true
-            proguardFiles("proguard-rules.pro")
-            signingConfig = signingConfigs.getByName("debug")
-        }
-    }
-
-    buildFeatures {
-        compose = true
-    }
 }
 
 dependencies {

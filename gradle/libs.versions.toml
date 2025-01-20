@@ -1,12 +1,14 @@
 [versions]
-activity-compose = "1.9.3"
+androidTools = "31.8.0"
+activity-compose = "1.10.0"
+androidxLintGradle = "1.0.0-alpha03"
 coil = "3.0.4"
-com-android-plugin = "8.9.0-alpha08"
-compose = "1.8.0-alpha07"
+com-android-plugin = "8.9.0-alpha09"
+compose = "1.8.0-alpha08"
 compose-lint-checks = "1.4.2"
 compose-plugin = "1.8.0-alpha01"
 core = "1.15.0"
-datastore-core = "1.1.1"
+datastore-core = "1.1.2"
 google-services = "4.4.2"
 junit = "5.11.4"
 kermit = "2.0.5"
@@ -18,7 +20,7 @@ kotlinx-serialization = "1.8.0"
 ksp = "2.1.20-Beta1-1.0.29"
 ktor = "3.0.3"
 lifecycle = "2.9.0-alpha08"
-material3 = "1.4.0-alpha05"
+material3 = "1.4.0-alpha06"
 mockk = "1.13.14"
 monitor = "1.7.2"
 navigation-compose = "2.8.5"
@@ -29,6 +31,7 @@ slf4j-android = "1.7.36"
 sqldelight = "2.0.2"
 sqlite = "2.5.0-alpha12"
 startup-runtime = "1.2.0"
+truth = "1.4.4"
 
 [libraries]
 androidx-activity = { module = "androidx.activity:activity", version.ref = "activity-compose" }
@@ -57,6 +60,7 @@ androidx-lifecycle-runtime = { module = "androidx.lifecycle:lifecycle-runtime", 
 androidx-lifecycle-runtime-compose = { module = "androidx.lifecycle:lifecycle-runtime-compose", version.ref = "lifecycle" }
 androidx-lifecycle-viewmodel = { module = "androidx.lifecycle:lifecycle-viewmodel", version.ref = "lifecycle" }
 androidx-lifecycle-viewmodel-compose = { module = "androidx.lifecycle:lifecycle-viewmodel-compose", version.ref = "lifecycle" }
+androidx-lint-gradle = { group = "androidx.lint", name = "lint-gradle", version.ref = "androidxLintGradle" }
 androidx-monitor = { module = "androidx.test:monitor", version.ref = "monitor" }
 androidx-navigation-common = { module = "androidx.navigation:navigation-common", version.ref = "navigation-compose" }
 androidx-navigation-compose = { module = "androidx.navigation:navigation-compose", version.ref = "navigation-compose" }
@@ -71,8 +75,9 @@ coil-compose-core = { module = "io.coil-kt.coil3:coil-compose-core", version.ref
 coil-core = { module = "io.coil-kt.coil3:coil-core", version.ref = "coil" }
 coil-network-ktor = { module = "io.coil-kt.coil3:coil-network-ktor3", version.ref = "coil" }
 compose-lint-checks = { module = "com.slack.lint.compose:compose-lint-checks", version.ref = "compose-lint-checks" }
-firebase-analytics-ktx = { module = "com.google.firebase:firebase-analytics-ktx", version = "22.1.2" }
-firebase-crashlytics-ktx = { module = "com.google.firebase:firebase-crashlytics-ktx", version = "19.3.0" }
+firebase-analytics-ktx = { module = "com.google.firebase:firebase-analytics-ktx", version = "22.2.0" }
+firebase-crashlytics-ktx = { module = "com.google.firebase:firebase-crashlytics-ktx", version = "19.4.0" }
+firebase-perf = { module = "com.google.firebase:firebase-perf", version = "21.0.3" }
 google-services = { module = "com.google.gms:google-services", version.ref = "google-services" }
 junit-jupiter-api = { group = "org.junit.jupiter", name = "junit-jupiter-api", version.ref = "junit" }
 junit-jupiter-engine = { group = "org.junit.jupiter", name = "junit-jupiter-engine", version.ref = "junit" }
@@ -114,19 +119,36 @@ sqldelight-android-driver = { group = "app.cash.sqldelight", name = "android-dri
 sqldelight-coroutines-extensions = { group = "app.cash.sqldelight", name = "coroutines-extensions", version.ref = "sqldelight" }
 sqldelight-native-driver = { group = "app.cash.sqldelight", name = "native-driver", version.ref = "sqldelight" }
 ui-tooling-preview = { module = "org.jetbrains.compose.ui:ui-tooling-preview", version.ref = "compose-plugin" }
+truth = { group = "com.google.truth", name = "truth", version.ref = "truth" }
+
+# Dependencies of the included build-logic
+android-gradlePlugin = { group = "com.android.tools.build", name = "gradle", version.ref = "com-android-plugin" }
+android-tools-common = { group = "com.android.tools", name = "common", version.ref = "androidTools" }
+compose-gradlePlugin = { module = "org.jetbrains.kotlin:compose-compiler-gradle-plugin", version.ref = "kotlin" }
+firebase-crashlytics-gradlePlugin = { group = "com.google.firebase", name = "firebase-crashlytics-gradle", version = "3.0.2" }
+firebase-performance-gradlePlugin = { group = "com.google.firebase", name = "perf-plugin", version = "1.4.2" }
+kotlin-gradlePlugin = { group = "org.jetbrains.kotlin", name = "kotlin-gradle-plugin", version.ref = "kotlin" }
+ksp-gradlePlugin = { group = "com.google.devtools.ksp", name = "com.google.devtools.ksp.gradle.plugin", version.ref = "ksp" }
+room-gradlePlugin = { group = "androidx.room", name = "room-gradle-plugin", version.ref = "room" }
+kover-gradlePlugin = { group = "org.jetbrains.kotlinx.kover", name = "org.jetbrains.kotlinx.kover.gradle.plugin", version = "0.9.1" }
+binary-compatibility-gradlePlugin = { group = "org.jetbrains.kotlinx.binary-compatibility-validator", name = "org.jetbrains.kotlinx.binary-compatibility-validator.gradle.plugin",  version = "0.17.0" }
+dependency-analysis-gradlePlugin = { group = "com.autonomousapps.dependency-analysis", name = "com.autonomousapps.dependency-analysis.gradle.plugin", version = "2.7.0" }
+
 [plugins]
 android-application = { id = "com.android.application", version.ref = "com-android-plugin" }
 android-cache-fix = { id = "org.gradle.android.cache-fix", version = "3.0.1" }
 android-library = { id = "com.android.library", version.ref = "com-android-plugin" }
+android-lint = { id = "com.android.lint", version.ref = "com-android-plugin" }
 androidx-room = { id = "androidx.room", version.ref = "room" }
 binary-compatibility = { id = "org.jetbrains.kotlinx.binary-compatibility-validator", version = "0.17.0" }
 compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
-dependency-analysis = { id = "com.autonomousapps.dependency-analysis", version = "2.6.1" }
+dependency-analysis = { id = "com.autonomousapps.dependency-analysis", version = "2.7.0" }
 dependency-guard = { id = "com.dropbox.dependency-guard", version = "0.5.0" }
 dependency-updates = { id = "com.github.ben-manes.versions", version = "0.51.0" }
 detekt = { id = "io.gitlab.arturbosch.detekt", version = "1.23.7" }
 dexcount = { id = "com.getkeepsafe.dexcount", version = "4.0.0" }
 firebase-crashlytics = { id = "com.google.firebase.crashlytics", version = "3.0.2" }
+firebase-perf = { id = "com.google.firebase.firebase-perf", version = "1.4.2" }
 google-services = { id = "com.google.gms.google-services", version.ref = "google-services" }
 gradle_doctor = { id = "com.osacky.doctor", version = "0.10.0" }
 jetbrains-compose = { id = "org.jetbrains.compose", version.ref = "compose-plugin" }
@@ -135,10 +157,25 @@ kotlin-cocoapods = { id = "org.jetbrains.kotlin.native.cocoapods", version.ref =
 kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
 kotlin-multiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
 kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
-kotlinx-kover = { id = "org.jetbrains.kotlinx.kover", version = "0.9.0" }
+kotlinx-kover = { id = "org.jetbrains.kotlinx.kover", version = "0.9.1" }
 ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
 ktlint = { id = "org.jlleitschuh.gradle.ktlint", version = "12.1.2" }
 ktor = { id = "io.ktor.plugin", version.ref = "ktor" }
 sqldelight = { id = "app.cash.sqldelight", version.ref = "sqldelight" }
+
+# Plugins defined by this project
+movies-android-application = { id = "movies.android.application" }
+movies-android-application-compose = { id = "movies.android.application.compose" }
+movies-android-application-firebase = { id = "movies.android.application.firebase" }
+movies-android-library = { id = "movies.android.library" }
+movies-android-library-compose = { id = "movies.android.library.compose" }
+movies-android-lint = { id = "movies.android.lint" }
+movies-android-room = { id = "movies.android.room" }
+movies-android-test = { id = "movies.android.test" }
+movies-jvm-library = { id = "movies.jvm.library" }
+movies-kover = { id = "movies.kover" }
+movies-binary-compatibility = { id = "movies.binary.compatibility" }
+movies-strict-dependencies = { id = "movies.strict.dependencies" }
+movies-dependency-analysis = { id = "movies.dependency.analysis" }
 [bundles]
 

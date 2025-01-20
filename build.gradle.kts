@@ -1,42 +1,39 @@
-import com.android.build.api.dsl.AndroidResources
-import com.android.build.api.dsl.BuildFeatures
-import com.android.build.api.dsl.BuildType
-import com.android.build.api.dsl.CommonExtension
-import com.android.build.api.dsl.DefaultConfig
-import com.android.build.api.dsl.Installation
-import com.android.build.api.dsl.LibraryExtension
-import com.android.build.api.dsl.ProductFlavor
-import com.android.build.gradle.AppPlugin
-import com.android.build.gradle.LibraryPlugin
-import com.android.build.gradle.internal.dsl.BaseAppModuleExtension
 import com.github.benmanes.gradle.versions.updates.DependencyUpdatesTask
 import io.gitlab.arturbosch.detekt.Detekt
 import io.gitlab.arturbosch.detekt.DetektCreateBaselineTask
-import org.gradle.android.AndroidCacheFixPlugin
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 import org.jlleitschuh.gradle.ktlint.KtlintPlugin
+// import org.gradle.android.AndroidCacheFixPlugin
 
 plugins {
     alias(libs.plugins.android.application) apply false
-    alias(libs.plugins.android.cache.fix) apply false
     alias(libs.plugins.android.library) apply false
-    alias(libs.plugins.binary.compatibility)
+    alias(libs.plugins.androidx.room) apply false
+    alias(libs.plugins.binary.compatibility) apply false
     alias(libs.plugins.compose.compiler) apply false
-    alias(libs.plugins.dependency.analysis) apply true
-    alias(libs.plugins.dependency.updates) apply true
-    alias(libs.plugins.detekt) apply true
+    alias(libs.plugins.dependency.analysis) apply false
+    alias(libs.plugins.dependency.guard) apply false
+    alias(libs.plugins.firebase.crashlytics) apply false
+    alias(libs.plugins.firebase.perf) apply false
     alias(libs.plugins.google.services) apply false
-    alias(libs.plugins.gradle.doctor) apply true
     alias(libs.plugins.jetbrains.compose) apply false
     alias(libs.plugins.kotlin.android) apply false
     alias(libs.plugins.kotlin.cocoapods) apply false
     alias(libs.plugins.kotlin.jvm) apply false
     alias(libs.plugins.kotlin.multiplatform) apply false
     alias(libs.plugins.kotlin.serialization) apply false
-    alias(libs.plugins.kotlinx.kover) apply true
-    alias(libs.plugins.ktlint) apply true
+    alias(libs.plugins.kotlinx.kover) apply false
+    alias(libs.plugins.ksp) apply false
     alias(libs.plugins.sqldelight) apply false
+//    alias(libs.plugins.android.cache.fix) apply false
+
+    alias(libs.plugins.dependency.updates) apply true
+    alias(libs.plugins.movies.dependency.analysis) apply true
+
+    alias(libs.plugins.detekt) apply true
+//    alias(libs.plugins.gradle.doctor) apply true
+    alias(libs.plugins.ktlint) apply true
 }
 
 tasks.register<Delete>("clean") {
@@ -132,139 +129,9 @@ tasks.withType<KotlinCompile>().configureEach {
 
 //endregion
 
-dependencyAnalysis {
-    issues {
-        all { onAny { severity("fail") } }
-    }
-}
-
-fun PluginContainer.applyBaseConfig(project: Project) {
-    whenPluginAdded {
-        when (this) {
-            is AppPlugin -> {
-                project.extensions.getByType<BaseAppModuleExtension>().baseConfig(project)
-            }
-
-            is LibraryPlugin -> {
-                project.extensions.getByType<LibraryExtension>().baseConfig(project)
-            }
-        }
-    }
-}
-
-//region Global android configuration
-fun <
-    BF : BuildFeatures,
-    BT : BuildType,
-    DC : DefaultConfig,
-    PF : ProductFlavor,
-    AR : AndroidResources,
-    IN : Installation,
-> CommonExtension<BF, BT, DC, PF, AR, IN>.defaultBaseConfig(
-    project: Project,
-) {
-    compileSdk = 35
-    buildToolsVersion = "35.0.0"
-
-    defaultConfig {
-        minSdk = 27
-
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-        resourceConfigurations.addAll(listOf("en", "pl"))
-    }
-
-    lint {
-        baseline = project.file("lint-baseline.xml")
-        disable += listOf("NewerVersionAvailable", "GradleDependency", "ObsoleteLintCustomCheck")
-        abortOnError = true
-        checkAllWarnings = true
-        warningsAsErrors = true
-        checkReleaseBuilds = false
-        checkDependencies = false
-    }
-
-    compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_21
-        targetCompatibility = JavaVersion.VERSION_21
-    }
-
-    buildTypes {
-        release {
-            isMinifyEnabled = true
-            proguardFiles("proguard-rules.pro")
-        }
-    }
-
-    @Suppress("UnstableApiUsage")
-    testOptions {
-        unitTests.isReturnDefaultValues = true
-        unitTests.all {
-            it.useJUnitPlatform()
-        }
-    }
-
-    packaging.resources.excludes +=
-        setOf(
-            "kotlin/**",
-            "META-INF/**",
-            "**.properties",
-            "kotlin-tooling-metadata.json",
-            "DebugProbesKt.bin",
-        )
-}
-
-fun LibraryExtension.baseConfig(project: Project) {
-    defaultBaseConfig(project)
-    defaultConfig {
-        consumerProguardFiles("consumer-rules.pro")
-    }
-}
-
-fun BaseAppModuleExtension.baseConfig(project: Project) {
-    defaultBaseConfig(project)
-    dependenciesInfo.apply {
-        includeInApk = false
-        includeInBundle = false
-    }
-}
-
 subprojects {
     apply<KtlintPlugin>()
-    apply<AndroidCacheFixPlugin>()
-    project.plugins.applyBaseConfig(project)
-    configurations.all {
-//        exclude("androidx.activity", "activity-ktx") we need to add this to have working compose preview
-        exclude("androidx.appcompat", "appcompat")
-        exclude("androidx.collection", "collection-ktx")
-        exclude("androidx.cursoradapter", "cursoradapter")
-        exclude("androidx.customview", "customview")
-        exclude("androidx.drawerlayout", "drawerlayout")
-        exclude("androidx.fragment", "fragment")
-        exclude("androidx.fragment", "fragment-ktx")
-        exclude("androidx.legacy", "legacy-support-core-utils")
-        exclude("androidx.lifecycle", "lifecycle-common-java8")
-        exclude("androidx.lifecycle", "lifecycle-runtime-ktx")
-        exclude("androidx.lifecycle", "lifecycle-runtime-ktx-android")
-        exclude("androidx.lifecycle", "lifecycle-viewmodel-ktx")
-        exclude("androidx.lifecycle", "viewmodel-ktx")
-        exclude("androidx.loader", "loader")
-        exclude("androidx.navigation", "navigation-common-ktx")
-        exclude("androidx.navigation", "navigation-runtime-ktx")
-        exclude("androidx.privacysandbox.ads", "ads-adservices")
-        exclude("androidx.privacysandbox.ads", "ads-adservices-java")
-        exclude("androidx.savedstate", "savedstate-ktx")
-        exclude("androidx.vectordrawable", "vectordrawable")
-        exclude("androidx.vectordrawable", "vectordrawable-animated")
-        exclude("androidx.versionedparcelable", "versionedparcelable")
-
-        exclude("com.google.code.findbugs", "jsr305")
-        exclude("com.google.errorprone", "error_prone_annotations")
-        exclude("org.checkerframework", "checker-qual")
-
-        exclude("org.jetbrains.kotlin", "kotlin-stdlib-jdk7")
-        exclude("org.jetbrains.kotlin", "kotlin-stdlib-jdk8")
-        exclude("org.jetbrains.kotlin", "kotlin-reflect")
-    }
+//    apply<AndroidCacheFixPlugin>()
 }
 // endregion
 
@@ -272,7 +139,7 @@ ktlint {
     version.set("1.5.0")
 }
 
-doctor {
-    daggerThreshold.set(100)
-    negativeAvoidanceThreshold.set(50)
-}
+// doctor {
+//    daggerThreshold.set(100)
+//    negativeAvoidanceThreshold.set(50)
+// }

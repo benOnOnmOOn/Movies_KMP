@@ -1,8 +1,10 @@
 plugins {
-    alias(libs.plugins.dependency.analysis) apply true
     alias(libs.plugins.dependency.guard)
     alias(libs.plugins.kotlin.multiplatform)
     alias(libs.plugins.kotlin.serialization)
+
+    alias(libs.plugins.movies.dependency.analysis)
+    alias(libs.plugins.movies.strict.dependencies)
 //    alias(libs.plugins.ktor)
 }
 
