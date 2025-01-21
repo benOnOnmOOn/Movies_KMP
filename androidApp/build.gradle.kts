@@ -17,11 +17,15 @@ android {
 dependencies {
     implementation(project(":presentation:core"))
     implementation(project(":presentation:screens"))
+    val enableKover =
+        providers.gradleProperty("movies.enableKover").getOrElse("true").toBoolean()
 
-    kover(project(":presentation:core"))
-    kover(project(":presentation:screens"))
-    kover(project(":data:database"))
-    kover(project(":data:network"))
+    if (enableKover) {
+        add("kover", project(":presentation:core"))
+        add("kover", project(":presentation:screens"))
+        add("kover", project(":data:database"))
+        add("kover", project(":data:network"))
+    }
 
     implementation(libs.kotlin.stdlib)
     implementation(libs.kotlinx.coroutines.core)

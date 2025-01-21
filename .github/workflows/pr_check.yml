@@ -49,6 +49,9 @@ jobs:
       - name: Run gradle check
         run: ./gradlew check
 
+      - name: Check build-logic
+        run: ./gradlew :build-logic:convention:check
+
 #      - name: Upload coverage reports
 #        id: kover
 #        uses: mi-kas/kover-report@v1

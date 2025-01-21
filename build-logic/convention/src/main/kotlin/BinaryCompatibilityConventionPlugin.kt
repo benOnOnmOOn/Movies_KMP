@@ -6,9 +6,9 @@ import org.gradle.kotlin.dsl.configure
 class BinaryCompatibilityConventionPlugin : Plugin<Project> {
     override fun apply(target: Project) {
         with(target) {
-            val enableApiDump =
-                properties.getOrDefault("movies.enableApiDump", true).toString().toBoolean()
-            if (!enableApiDump) return
+            val enablePlugin =
+                providers.gradleProperty("movies.enableApiDump").getOrElse("true").toBoolean()
+            if (!enablePlugin) return
 
             pluginManager.apply("org.jetbrains.kotlinx.binary-compatibility-validator")
 

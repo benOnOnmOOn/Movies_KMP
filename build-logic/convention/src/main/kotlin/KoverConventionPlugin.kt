@@ -6,6 +6,10 @@ import org.gradle.kotlin.dsl.configure
 class KoverConventionPlugin : Plugin<Project> {
     override fun apply(target: Project) {
         with(target) {
+            val enablePlugin =
+                providers.gradleProperty("movies.enableKover").getOrElse("true").toBoolean()
+            if (!enablePlugin) return
+
             pluginManager.apply("org.jetbrains.kotlinx.kover")
 
             when {
