@@ -9,14 +9,6 @@ plugins {
     alias(libs.plugins.movies.strict.dependencies)
 }
 
-kover {
-    currentProject {
-        createVariant("custom") {
-            add("debug")
-        }
-    }
-}
-
 kotlin {
     androidTarget {
         dependencies {

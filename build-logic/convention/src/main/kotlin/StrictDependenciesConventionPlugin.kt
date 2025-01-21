@@ -6,9 +6,9 @@ import org.gradle.kotlin.dsl.exclude
 class StrictDependenciesConventionPlugin : Plugin<Project> {
     override fun apply(target: Project) {
         with(target) {
-            val enableApiDump =
-                properties.getOrDefault("movies.enableStrictDependency", true).toString().toBoolean()
-            if (!enableApiDump) return
+            val enablePlugin =
+                providers.gradleProperty("movies.enableStrictDependency").getOrElse("true").toBoolean()
+            if (!enablePlugin) return
 
             target.configurations.configureEach {
                 exclude("androidx.appcompat", "appcompat")
