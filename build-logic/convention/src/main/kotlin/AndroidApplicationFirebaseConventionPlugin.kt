@@ -7,6 +7,10 @@ import org.gradle.kotlin.dsl.configure
 class AndroidApplicationFirebaseConventionPlugin : Plugin<Project> {
     override fun apply(target: Project) {
         with(target) {
+            val enablePlugin =
+                providers.gradleProperty("movies.enableFirebase").getOrElse("true").toBoolean()
+            if (!enablePlugin) return
+
             extensions.configure<ApplicationExtension> {
                 buildTypes {
                     release {

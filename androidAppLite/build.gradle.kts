@@ -3,8 +3,10 @@ plugins {
 
     alias(libs.plugins.movies.android.application)
     alias(libs.plugins.movies.android.application.compose)
+    alias(libs.plugins.movies.android.lint)
     alias(libs.plugins.movies.binary.compatibility)
     alias(libs.plugins.movies.dependency.analysis)
+    alias(libs.plugins.movies.ktlint)
     alias(libs.plugins.movies.strict.dependencies)
 }
 
@@ -13,7 +15,7 @@ android {
 }
 
 dependencies {
-    lintChecks(libs.slack.lint.checks)
+    lintChecks(libs.lint.slack.checks)
 
     implementation(project(":presentation:core"))
     implementation(project(":presentation:screens"))

@@ -4,6 +4,7 @@ plugins {
     alias(libs.plugins.movies.android.application)
     alias(libs.plugins.movies.android.application.compose)
     alias(libs.plugins.movies.android.application.firebase)
+    alias(libs.plugins.movies.android.lint)
     alias(libs.plugins.movies.binary.compatibility)
     alias(libs.plugins.movies.dependency.analysis)
     alias(libs.plugins.movies.kover)
@@ -42,7 +43,7 @@ dependencies {
     releaseImplementation(libs.kermit.crashlytics)
     releaseImplementation(libs.kermit.core)
 
-    lintChecks(libs.slack.lint.checks)
+    lintChecks(libs.lint.slack.checks)
 
     releaseImplementation(libs.firebase.analytics.ktx)
     releaseImplementation(libs.firebase.crashlytics.ktx)
