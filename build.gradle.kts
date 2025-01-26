@@ -23,7 +23,7 @@ plugins {
     alias(libs.plugins.kotlin.serialization) apply false
     alias(libs.plugins.kotlinx.kover) apply false
     alias(libs.plugins.ksp) apply false
-    alias(libs.plugins.movies.ktlint) apply false
+    alias(libs.plugins.ktlint) apply false
     alias(libs.plugins.sqldelight) apply false
 
     alias(libs.plugins.dependency.updates) apply true
