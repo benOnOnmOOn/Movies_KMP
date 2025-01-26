@@ -23,21 +23,24 @@ internal class LocalMovieRepositoryImpl(
 ) : LocalMovieRepository {
     override val favoritesMovies: Flow<List<MovieDto>>
         get() =
-            queries.selectAllFavaoriteMovies()
+            queries
+                .selectAllFavaoriteMovies()
                 .asFlow()
                 .mapToList(Dispatchers.IO)
                 .map { it.map(Favaorite::toMovieDto) }
 
     override val playingNowMovies: Flow<List<MovieDto>>
         get() =
-            queries.selectAllPlayingNowMovies()
+            queries
+                .selectAllPlayingNowMovies()
                 .asFlow()
                 .mapToList(Dispatchers.IO)
                 .map { it.map(PlayingNow::toMovieDto) }
 
     override val popularMovies: Flow<List<MovieDto>>
         get() =
-            queries.selectAllPopularNowMovies()
+            queries
+                .selectAllPopularNowMovies()
                 .asFlow()
                 .mapToList(Dispatchers.IO)
                 .map { it.map(PopularNow::toMovieDto) }

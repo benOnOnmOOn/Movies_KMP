@@ -7,7 +7,5 @@ import app.cash.sqldelight.driver.native.NativeSqliteDriver
 
 @Suppress("EXPECT_ACTUAL_CLASSIFIERS_ARE_IN_BETA_WARNING")
 internal actual class DriverFactory {
-    actual fun createDriver(): SqlDriver {
-        return NativeSqliteDriver(MoviesDB2.Schema, MOVIES_DB_NAME)
-    }
+    actual fun createDriver(): SqlDriver = NativeSqliteDriver(MoviesDB2.Schema, MOVIES_DB_NAME)
 }
