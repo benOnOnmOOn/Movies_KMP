@@ -144,7 +144,10 @@ gradlePlugin {
             implementationClass = "DependencyAnalysisConventionPlugin"
         }
         register("ktlintConventionPlugin") {
-            id = libs.plugins.movies.ktlint.get().pluginId
+            id =
+                libs.plugins.movies.ktlint
+                    .get()
+                    .pluginId
             implementationClass = "KtlintConventionPlugin"
         }
     }
