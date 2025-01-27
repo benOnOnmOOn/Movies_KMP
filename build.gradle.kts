@@ -3,8 +3,6 @@ import io.gitlab.arturbosch.detekt.Detekt
 import io.gitlab.arturbosch.detekt.DetektCreateBaselineTask
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
-import org.jlleitschuh.gradle.ktlint.KtlintPlugin
-// import org.gradle.android.AndroidCacheFixPlugin
 
 plugins {
     alias(libs.plugins.android.application) apply false
@@ -25,15 +23,13 @@ plugins {
     alias(libs.plugins.kotlin.serialization) apply false
     alias(libs.plugins.kotlinx.kover) apply false
     alias(libs.plugins.ksp) apply false
+    alias(libs.plugins.ktlint) apply false
     alias(libs.plugins.sqldelight) apply false
-//    alias(libs.plugins.android.cache.fix) apply false
 
     alias(libs.plugins.dependency.updates) apply true
     alias(libs.plugins.movies.dependency.analysis) apply true
 
     alias(libs.plugins.detekt) apply true
-//    alias(libs.plugins.gradle.doctor) apply true
-    alias(libs.plugins.ktlint) apply true
 }
 
 tasks.register<Delete>("clean") {
@@ -116,7 +112,6 @@ tasks.register<DetektCreateBaselineTask>("detektGenerateBaseline") {
 
 //endregion
 
-//region Global kotlin configuration
 tasks.withType<KotlinCompile>().configureEach {
     compilerOptions {
         jvmTarget.set(JvmTarget.JVM_21)
@@ -126,20 +121,3 @@ tasks.withType<KotlinCompile>().configureEach {
         extraWarnings.set(true)
     }
 }
-
-//endregion
-
-subprojects {
-    apply<KtlintPlugin>()
-//    apply<AndroidCacheFixPlugin>()
-}
-// endregion
-
-ktlint {
-    version.set("1.5.0")
-}
-
-// doctor {
-//    daggerThreshold.set(100)
-//    negativeAvoidanceThreshold.set(50)
-// }

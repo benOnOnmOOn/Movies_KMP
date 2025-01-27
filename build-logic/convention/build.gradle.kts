@@ -37,6 +37,7 @@ dependencies {
     compileOnly(libs.kotlin.gradlePlugin)
     compileOnly(libs.ksp.gradlePlugin)
     compileOnly(libs.room.gradlePlugin)
+    compileOnly(libs.ktlint.gradlePlugin)
     lintChecks(libs.androidx.lint.gradle)
 }
 
@@ -141,6 +142,13 @@ gradlePlugin {
                     .get()
                     .pluginId
             implementationClass = "DependencyAnalysisConventionPlugin"
+        }
+        register("ktlintConventionPlugin") {
+            id =
+                libs.plugins.movies.ktlint
+                    .get()
+                    .pluginId
+            implementationClass = "KtlintConventionPlugin"
         }
     }
 }

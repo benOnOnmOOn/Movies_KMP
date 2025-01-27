@@ -37,13 +37,14 @@ internal class MovieService {
         page: Int,
     ): PopularMoviesPageApiResponse {
         val url = BASE_URL.plus("movie/popular")
-        return client.get(url) {
-            url {
-                parameters.append("api_key", apiKey)
-                parameters.append("language", language)
-                parameters.append("page", page.toString())
-            }
-        }.body()
+        return client
+            .get(url) {
+                url {
+                    parameters.append("api_key", apiKey)
+                    parameters.append("language", language)
+                    parameters.append("page", page.toString())
+                }
+            }.body()
     }
 
     suspend fun getNowPlayingMovies(
@@ -52,13 +53,14 @@ internal class MovieService {
         page: Int,
     ): PlayingNowMoviesApiResponse {
         val url = BASE_URL.plus("movie/now_playing")
-        return client.get(url) {
-            url {
-                parameters.append("api_key", apiKey)
-                parameters.append("language", language)
-                parameters.append("page", page.toString())
-            }
-        }.body()
+        return client
+            .get(url) {
+                url {
+                    parameters.append("api_key", apiKey)
+                    parameters.append("language", language)
+                    parameters.append("page", page.toString())
+                }
+            }.body()
     }
 
     suspend fun getMovieDetails(
@@ -67,12 +69,13 @@ internal class MovieService {
         apiKey: String,
     ): MovieDetailsApiResponse {
         val url = BASE_URL.plus("movie")
-        return client.get(url) {
-            url {
-                parameters.append("api_key", apiKey)
-                parameters.append("language", language)
-                appendPathSegments(movieId.toString())
-            }
-        }.body()
+        return client
+            .get(url) {
+                url {
+                    parameters.append("api_key", apiKey)
+                    parameters.append("language", language)
+                    appendPathSegments(movieId.toString())
+                }
+            }.body()
     }
 }

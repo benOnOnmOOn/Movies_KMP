@@ -1,4 +1,3 @@
-import com.android.build.gradle.internal.tasks.factory.dependsOn
 import com.autonomousapps.DependencyAnalysisSubExtension
 import org.gradle.kotlin.dsl.implementation
 
@@ -16,7 +15,7 @@ plugins {
 
 extensions.findByType<DependencyAnalysisSubExtension>()?.apply {
     issues {
-        onUnusedDependencies { exclude(libs.ui.tooling.preview) }
+        onUnusedDependencies { exclude(libs.kotlinx.compose.ui.tooling.preview) }
     }
 }
 
@@ -28,8 +27,8 @@ kotlin {
             implementation(project(":data:dto"))
             implementation(project(":data:network"))
 
-            lintChecks(libs.slack.lint.checks)
-            lintChecks(libs.compose.lint.checks)
+            lintChecks(libs.lint.slack.checks)
+            lintChecks(libs.lint.compose.checks)
 
             api(libs.androidx.navigation.common)
             api(libs.androidx.navigation.runtime)
@@ -43,7 +42,7 @@ kotlin {
             debugImplementation(libs.androidx.compose.ui.tooling.preview)
             debugImplementation(libs.kermit.android.debug)
             debugImplementation(libs.kermit.core.android.debug)
-            debugImplementation(libs.ui.tooling.preview)
+            debugImplementation(libs.kotlinx.compose.ui.tooling.preview)
             releaseImplementation(libs.kermit.core)
         }
     }
@@ -83,8 +82,8 @@ kotlin {
             implementation(libs.kotlinx.coroutines.core)
             implementation(libs.kotlinx.datetime)
 
-            implementation(libs.material3)
-            implementation(libs.navigation.compose)
+            implementation(libs.kotlinx.compose.material3)
+            implementation(libs.kotlinx.compose.navigation)
         }
 
         commonTest.dependencies {
@@ -121,14 +120,6 @@ kotlin {
 
         iosMain.dependencies {
         }
-    }
-}
-
-android {
-    namespace = "com.bz.presentation.screens"
-
-    buildFeatures {
-        compose = true
     }
 }
 

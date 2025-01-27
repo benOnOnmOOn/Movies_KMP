@@ -3,16 +3,18 @@ plugins {
     alias(libs.plugins.kotlin.serialization)
 
     alias(libs.plugins.movies.android.library)
+    alias(libs.plugins.movies.android.lint)
     alias(libs.plugins.movies.binary.compatibility)
     alias(libs.plugins.movies.dependency.analysis)
     alias(libs.plugins.movies.kover)
+    alias(libs.plugins.movies.ktlint)
     alias(libs.plugins.movies.strict.dependencies)
 }
 
 kotlin {
     androidTarget {
         dependencies {
-            lintChecks(libs.slack.lint.checks)
+            lintChecks(libs.lint.slack.checks)
 
             api(project(":data:dto"))
             api(libs.kotlin.stdlib)
@@ -73,8 +75,4 @@ kotlin {
             implementation(libs.ktor.client.ios)
         }
     }
-}
-
-android {
-    namespace = "com.bz.movies.kmp.network"
 }

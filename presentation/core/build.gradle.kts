@@ -1,4 +1,3 @@
-import com.android.build.gradle.internal.tasks.factory.dependsOn
 import org.gradle.kotlin.dsl.implementation
 
 plugins {
@@ -8,9 +7,11 @@ plugins {
 
     alias(libs.plugins.movies.android.library)
     alias(libs.plugins.movies.android.library.compose)
+    alias(libs.plugins.movies.android.lint)
     alias(libs.plugins.movies.binary.compatibility)
     alias(libs.plugins.movies.dependency.analysis)
     alias(libs.plugins.movies.kover)
+    alias(libs.plugins.movies.ktlint)
     alias(libs.plugins.movies.strict.dependencies)
 }
 
@@ -19,7 +20,7 @@ kotlin {
         dependencies {
             implementation(project(":presentation:screens"))
 
-            lintChecks(libs.slack.lint.checks)
+            lintChecks(libs.lint.slack.checks)
 
             api(libs.androidx.activity)
             api(libs.kotlin.stdlib)
@@ -79,8 +80,8 @@ kotlin {
 
             implementation(libs.kotlinx.coroutines.core)
 
-            implementation(libs.material3)
-            implementation(libs.navigation.compose)
+            implementation(libs.kotlinx.compose.material3)
+            implementation(libs.kotlinx.compose.navigation)
         }
 
         androidMain.dependencies {

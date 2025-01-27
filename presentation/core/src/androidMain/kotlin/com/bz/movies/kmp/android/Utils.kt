@@ -7,7 +7,8 @@ import java.util.concurrent.Executors
 
 fun enableStrictMode() {
     StrictMode.setThreadPolicy(
-        StrictMode.ThreadPolicy.Builder()
+        StrictMode.ThreadPolicy
+            .Builder()
             .detectAll()
             .apply {
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
@@ -17,12 +18,12 @@ fun enableStrictMode() {
                 } else {
                     penaltyLog()
                 }
-            }
-            .build(),
+            }.build(),
     )
 
     StrictMode.setVmPolicy(
-        StrictMode.VmPolicy.Builder()
+        StrictMode.VmPolicy
+            .Builder()
             .detectAll()
             .apply {
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
@@ -32,7 +33,6 @@ fun enableStrictMode() {
                 } else {
                     penaltyLog()
                 }
-            }
-            .build(),
+            }.build(),
     )
 }
