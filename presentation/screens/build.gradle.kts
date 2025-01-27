@@ -123,14 +123,6 @@ kotlin {
     }
 }
 
-android {
-    namespace = "com.bz.presentation.screens"
-
-    buildFeatures {
-        compose = true
-    }
-}
-
 afterEvaluate {
     tasks.findByName("explodeCodeSourceDebug")?.dependsOn("generateActualResourceCollectorsForAndroidMain")
     tasks.findByName("explodeCodeSourceRelease")?.dependsOn("generateActualResourceCollectorsForAndroidMain")

@@ -76,7 +76,3 @@ kotlin {
         }
     }
 }
-
-android {
-    namespace = "com.bz.movies.kmp.network"
-}

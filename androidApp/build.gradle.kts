@@ -47,6 +47,7 @@ dependencies {
 
     releaseImplementation(libs.firebase.analytics.ktx)
     releaseImplementation(libs.firebase.crashlytics.ktx)
+    releaseImplementation(libs.firebase.perf)
 
     testImplementation(libs.junit.jupiter.api)
     testImplementation(libs.mockk)
