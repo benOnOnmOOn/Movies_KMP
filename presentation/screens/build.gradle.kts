@@ -2,6 +2,7 @@ import com.android.build.api.dsl.androidLibrary
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 import kotlin.collections.plusAssign
 import com.autonomousapps.DependencyAnalysisSubExtension
+import org.jetbrains.compose.resources.ResourcesExtension.ResourceClassGeneration
 
 plugins {
     alias(libs.plugins.kotlin.multiplatform.android.library)
