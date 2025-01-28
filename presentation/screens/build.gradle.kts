@@ -2,18 +2,13 @@ import com.android.build.api.dsl.androidLibrary
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 import kotlin.collections.plusAssign
 import com.autonomousapps.DependencyAnalysisSubExtension
-import org.gradle.kotlin.dsl.implementation
 
 plugins {
     alias(libs.plugins.kotlin.multiplatform.android.library)
     alias(libs.plugins.compose.compiler)
-    alias(libs.plugins.dependency.analysis) apply true
-    alias(libs.plugins.jetbrains.compose)
     alias(libs.plugins.kotlin.multiplatform)
     alias(libs.plugins.jetbrains.compose)
 
-    alias(libs.plugins.movies.android.library)
-    alias(libs.plugins.movies.android.library.compose)
     alias(libs.plugins.movies.binary.compatibility)
     alias(libs.plugins.movies.dependency.analysis)
     alias(libs.plugins.movies.kover)

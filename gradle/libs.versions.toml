@@ -119,9 +119,6 @@ slf4j-android = { module = "org.slf4j:slf4j-android", version.ref = "slf4j-andro
 sqldelight-android-driver = { group = "app.cash.sqldelight", name = "android-driver", version.ref = "sqldelight" }
 sqldelight-coroutines-extensions = { group = "app.cash.sqldelight", name = "coroutines-extensions", version.ref = "sqldelight" }
 sqldelight-native-driver = { group = "app.cash.sqldelight", name = "native-driver", version.ref = "sqldelight" }
-androidx-runner = { group = "androidx.test", name = "runner", version.ref = "runner" }
-core = { group = "androidx.test", name = "core", version.ref = "core-version" }
-androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junit-version" }
 
 # Dependencies of the included build-logic
 android-gradlePlugin = { group = "com.android.tools.build", name = "gradle", version.ref = "android-gradle-plugin" }
