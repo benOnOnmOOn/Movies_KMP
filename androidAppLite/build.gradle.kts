@@ -18,6 +18,7 @@ dependencies {
     lintChecks(libs.lint.slack.checks)
 
     implementation(project(":presentation:core"))
+    implementation(project(":presentation:screens"))
 
     implementation(libs.kotlin.stdlib)
     implementation(libs.kotlinx.coroutines.core)
