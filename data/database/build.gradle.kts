@@ -2,13 +2,10 @@ import com.android.build.api.dsl.androidLibrary
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 
 plugins {
-    alias(libs.plugins.dependency.analysis) apply true
     alias(libs.plugins.kotlin.multiplatform)
     alias(libs.plugins.kotlin.multiplatform.android.library)
-    alias(libs.plugins.kotlinx.kover)
     alias(libs.plugins.sqldelight)
 
-    alias(libs.plugins.movies.android.library)
     alias(libs.plugins.movies.android.lint)
     alias(libs.plugins.movies.binary.compatibility)
     alias(libs.plugins.movies.dependency.analysis)

@@ -1,4 +1,3 @@
-import org.gradle.kotlin.dsl.implementation
 import com.android.build.api.dsl.androidLibrary
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 
@@ -6,10 +5,9 @@ plugins {
     alias(libs.plugins.kotlin.cocoapods)
     alias(libs.plugins.kotlin.multiplatform.android.library)
     alias(libs.plugins.kotlin.multiplatform)
+    alias(libs.plugins.compose.compiler)
     alias(libs.plugins.jetbrains.compose)
 
-    alias(libs.plugins.movies.android.library)
-    alias(libs.plugins.movies.android.library.compose)
     alias(libs.plugins.movies.android.lint)
     alias(libs.plugins.movies.binary.compatibility)
     alias(libs.plugins.movies.dependency.analysis)

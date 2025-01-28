@@ -4,10 +4,8 @@ import kotlin.collections.plusAssign
 
 plugins {
     alias(libs.plugins.kotlin.multiplatform.android.library)
-    alias(libs.plugins.dependency.analysis) apply true
     alias(libs.plugins.kotlin.multiplatform)
 
-    alias(libs.plugins.movies.android.library)
     alias(libs.plugins.movies.android.lint)
     alias(libs.plugins.movies.binary.compatibility)
     alias(libs.plugins.movies.dependency.analysis)
