@@ -5,10 +5,10 @@ public final class com/bz/movies/presentation/di/PresentationModuleKt {
 public final class com/bz/movies/presentation/navigation/ComposableSingletons$MoviesNavHostKt {
 	public static final field INSTANCE Lcom/bz/movies/presentation/navigation/ComposableSingletons$MoviesNavHostKt;
 	public fun <init> ()V
-	public final fun getLambda$-1227946140$screens_release ()Lkotlin/jvm/functions/Function4;
-	public final fun getLambda$-998764822$screens_release ()Lkotlin/jvm/functions/Function4;
-	public final fun getLambda$1309394018$screens_release ()Lkotlin/jvm/functions/Function4;
-	public final fun getLambda$40723939$screens_release ()Lkotlin/jvm/functions/Function4;
+	public final fun getLambda$-1227946140$screens ()Lkotlin/jvm/functions/Function4;
+	public final fun getLambda$-998764822$screens ()Lkotlin/jvm/functions/Function4;
+	public final fun getLambda$1309394018$screens ()Lkotlin/jvm/functions/Function4;
+	public final fun getLambda$40723939$screens ()Lkotlin/jvm/functions/Function4;
 }
 
 public final class com/bz/movies/presentation/navigation/MoviesNavHostKt {
@@ -22,16 +22,16 @@ public final class com/bz/movies/presentation/navigation/NavigationComponentsKt 
 public final class com/bz/movies/presentation/screens/common/ComposableSingletons$ErrorDialogKt {
 	public static final field INSTANCE Lcom/bz/movies/presentation/screens/common/ComposableSingletons$ErrorDialogKt;
 	public fun <init> ()V
-	public final fun getLambda$-1005477175$screens_release ()Lkotlin/jvm/functions/Function2;
-	public final fun getLambda$-1703946158$screens_release ()Lkotlin/jvm/functions/Function3;
-	public final fun getLambda$-338725544$screens_release ()Lkotlin/jvm/functions/Function2;
-	public final fun getLambda$-940198866$screens_release ()Lkotlin/jvm/functions/Function3;
-	public final fun getLambda$1449144278$screens_release ()Lkotlin/jvm/functions/Function2;
-	public final fun getLambda$1950726698$screens_release ()Lkotlin/jvm/functions/Function2;
-	public final fun getLambda$333286248$screens_release ()Lkotlin/jvm/functions/Function2;
-	public final fun getLambda$555209367$screens_release ()Lkotlin/jvm/functions/Function2;
-	public final fun getLambda$677241584$screens_release ()Lkotlin/jvm/functions/Function3;
-	public final fun getLambda$83923664$screens_release ()Lkotlin/jvm/functions/Function3;
+	public final fun getLambda$-1005477175$screens ()Lkotlin/jvm/functions/Function2;
+	public final fun getLambda$-1703946158$screens ()Lkotlin/jvm/functions/Function3;
+	public final fun getLambda$-338725544$screens ()Lkotlin/jvm/functions/Function2;
+	public final fun getLambda$-940198866$screens ()Lkotlin/jvm/functions/Function3;
+	public final fun getLambda$1449144278$screens ()Lkotlin/jvm/functions/Function2;
+	public final fun getLambda$1950726698$screens ()Lkotlin/jvm/functions/Function2;
+	public final fun getLambda$333286248$screens ()Lkotlin/jvm/functions/Function2;
+	public final fun getLambda$555209367$screens ()Lkotlin/jvm/functions/Function2;
+	public final fun getLambda$677241584$screens ()Lkotlin/jvm/functions/Function3;
+	public final fun getLambda$83923664$screens ()Lkotlin/jvm/functions/Function3;
 }
 
 public final class com/bz/movies/presentation/theme/ThemeKt {

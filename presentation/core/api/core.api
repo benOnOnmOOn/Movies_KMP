@@ -1,7 +1,7 @@
 public final class com/bz/movies/kmp/android/ComposableSingletons$MainActivityKt {
 	public static final field INSTANCE Lcom/bz/movies/kmp/android/ComposableSingletons$MainActivityKt;
 	public fun <init> ()V
-	public final fun getLambda$1124355947$core_release ()Lkotlin/jvm/functions/Function2;
+	public final fun getLambda$1124355947$core ()Lkotlin/jvm/functions/Function2;
 }
 
 public final class com/bz/movies/kmp/android/MainActivity : androidx/activity/ComponentActivity {
@@ -20,6 +20,6 @@ public final class com/bz/movies/kmp/di/PresentationModuleKt {
 public final class com/bz/movies/kmp/main/ComposableSingletons$MainScreenKt {
 	public static final field INSTANCE Lcom/bz/movies/kmp/main/ComposableSingletons$MainScreenKt;
 	public fun <init> ()V
-	public final fun getLambda$828882595$core_release ()Lkotlin/jvm/functions/Function2;
+	public final fun getLambda$828882595$core ()Lkotlin/jvm/functions/Function2;
 }
 
