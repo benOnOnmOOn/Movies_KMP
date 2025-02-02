@@ -5,7 +5,6 @@ import kotlin.collections.plusAssign
 plugins {
     alias(libs.plugins.kotlin.multiplatform)
     alias(libs.plugins.kotlin.multiplatform.android.library)
-    alias(libs.plugins.movies.android.lint)
 
     alias(libs.plugins.movies.android.room)
     alias(libs.plugins.movies.binary.compatibility)

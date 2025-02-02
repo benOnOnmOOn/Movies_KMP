@@ -6,7 +6,6 @@ plugins {
     alias(libs.plugins.kotlin.multiplatform.android.library)
     alias(libs.plugins.sqldelight)
 
-    alias(libs.plugins.movies.android.lint)
     alias(libs.plugins.movies.binary.compatibility)
     alias(libs.plugins.movies.dependency.analysis)
     alias(libs.plugins.movies.kover)
