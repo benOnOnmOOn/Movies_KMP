@@ -40,6 +40,7 @@ kotlin {
             warningsAsErrors = true
             checkReleaseBuilds = false
             checkDependencies = false
+            checkGeneratedSources = false
         }
 
         packaging.resources.excludes +=
