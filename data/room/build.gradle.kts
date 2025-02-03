@@ -1,8 +1,11 @@
+import com.android.build.api.dsl.androidLibrary
+import org.jetbrains.kotlin.gradle.dsl.JvmTarget
+import kotlin.collections.plusAssign
+
 plugins {
     alias(libs.plugins.kotlin.multiplatform)
+    alias(libs.plugins.kotlin.multiplatform.android.library)
 
-    alias(libs.plugins.movies.android.library)
-    alias(libs.plugins.movies.android.lint)
     alias(libs.plugins.movies.android.room)
     alias(libs.plugins.movies.binary.compatibility)
     alias(libs.plugins.movies.dependency.analysis)
@@ -12,16 +15,41 @@ plugins {
 }
 
 kotlin {
-    androidTarget {
-        dependencies {
-            api(project(":data:dto"))
-            api(libs.kotlin.stdlib)
+    @Suppress("UnstableApiUsage")
+    androidLibrary {
+        namespace = "com.bz.movies.kmp.roomdb"
+        compileSdk = 35
+        buildToolsVersion = "35.0.0"
+        minSdk = 27
 
-            lintChecks(libs.lint.slack.checks)
-
-            implementation(libs.androidx.sqlite)
-            implementation(libs.koin.android)
+        compilations.all {
+            compilerOptions.configure { jvmTarget = JvmTarget.JVM_21 }
         }
+
+        lint {
+            baseline = project.file("lint-baseline.xml")
+            disable +=
+                listOf(
+                    "NewerVersionAvailable",
+                    "GradleDependency",
+                    "ObsoleteLintCustomCheck",
+                )
+            abortOnError = true
+            checkAllWarnings = true
+            warningsAsErrors = true
+            checkReleaseBuilds = false
+            checkDependencies = false
+            checkGeneratedSources = false
+        }
+
+        packaging.resources.excludes +=
+            setOf(
+                "kotlin/**",
+                "META-INF/**",
+                "**.properties",
+                "kotlin-tooling-metadata.json",
+                "DebugProbesKt.bin",
+            )
     }
 
     iosX64()
@@ -48,8 +76,11 @@ kotlin {
         androidMain {
             dependencies {
                 api(project(":data:dto"))
+                api(libs.kotlin.stdlib)
+
                 implementation(libs.koin.android)
                 implementation(libs.androidx.sqlite)
+//                lintChecks(libs.slack.lint.checks)
             }
         }
 

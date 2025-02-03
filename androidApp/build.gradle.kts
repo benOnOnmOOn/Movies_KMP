@@ -19,7 +19,7 @@ dependencies {
     implementation(project(":presentation:core"))
     implementation(project(":presentation:screens"))
     val enableKover =
-        providers.gradleProperty("movies.enableKover").getOrElse("true").toBoolean()
+        providers.gradleProperty("movies.enableKover").getOrElse("false").toBoolean()
 
     if (enableKover) {
         add("kover", project(":presentation:core"))

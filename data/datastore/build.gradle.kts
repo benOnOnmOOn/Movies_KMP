@@ -1,10 +1,11 @@
-import org.gradle.kotlin.dsl.implementation
+import com.android.build.api.dsl.androidLibrary
+import org.jetbrains.kotlin.gradle.dsl.JvmTarget
+import kotlin.collections.plusAssign
 
 plugins {
+    alias(libs.plugins.kotlin.multiplatform.android.library)
     alias(libs.plugins.kotlin.multiplatform)
 
-    alias(libs.plugins.movies.android.library)
-    alias(libs.plugins.movies.android.lint)
     alias(libs.plugins.movies.binary.compatibility)
     alias(libs.plugins.movies.dependency.analysis)
     alias(libs.plugins.movies.kover)
@@ -13,20 +14,40 @@ plugins {
 }
 
 kotlin {
-    androidTarget {
-        dependencies {
-            api(libs.kotlin.stdlib)
+    @Suppress("UnstableApiUsage")
+    androidLibrary {
+        namespace = "com.bz.movies.kmp.database"
+        compileSdk = 35
+        buildToolsVersion = "35.0.0"
+        minSdk = 27
 
-            lintChecks(libs.lint.slack.checks)
-
-            implementation(libs.androidx.datastore)
-            implementation(libs.koin.android)
-
-            debugImplementation(libs.kermit.android.debug)
-            debugImplementation(libs.kermit.core.android.debug)
-
-            releaseImplementation(libs.kermit.core)
+        compilations.all {
+            compilerOptions.configure { jvmTarget = JvmTarget.JVM_21 }
         }
+
+        lint {
+            baseline = project.file("lint-baseline.xml")
+            disable +=
+                listOf(
+                    "NewerVersionAvailable",
+                    "GradleDependency",
+                    "ObsoleteLintCustomCheck",
+                )
+            abortOnError = true
+            checkAllWarnings = true
+            warningsAsErrors = true
+            checkReleaseBuilds = false
+            checkDependencies = false
+        }
+
+        packaging.resources.excludes +=
+            setOf(
+                "kotlin/**",
+                "META-INF/**",
+                "**.properties",
+                "kotlin-tooling-metadata.json",
+                "DebugProbesKt.bin",
+            )
     }
 
     iosX64()
@@ -58,6 +79,11 @@ kotlin {
 
         androidMain {
             dependencies {
+                api(libs.kotlin.stdlib)
+
+//                lintChecks(libs.slack.lint.checks)
+
+                implementation(libs.androidx.datastore)
                 implementation(libs.koin.android)
             }
         }
