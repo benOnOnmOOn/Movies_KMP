@@ -53,7 +53,7 @@ dependencies {
     testImplementation(libs.mockk)
     testRuntimeOnly(libs.junit.jupiter.engine)
 
-    compileOnly(libs.google.services)
+    compileOnly(libs.firebase.google.services)
 
     debugRuntimeOnly(libs.androidx.compose.ui.test.manifest)
     debugRuntimeOnly(libs.androidx.compose.ui.tooling.android)
