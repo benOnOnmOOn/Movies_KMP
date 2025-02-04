@@ -12,9 +12,8 @@ class KotlinAndroidLibraryConventionPlugin : Plugin<Project> {
             pluginManager.apply("org.jetbrains.kotlin.multiplatform")
             pluginManager.apply("com.android.kotlin.multiplatform.library")
 
-            extensions.configure < KotlinMultiplatformExtension> {
+            extensions.configure<KotlinMultiplatformExtension> {
                 androidLibrary {
-
                     namespace = "com.bz.movies" + target.project.path.replace(':', '.')
                     compileSdk = 35
                     buildToolsVersion = "35.0.0"
@@ -35,7 +34,6 @@ class KotlinAndroidLibraryConventionPlugin : Plugin<Project> {
                         checkDependencies = false
                         checkGeneratedSources = false
                     }
-
 
                     compilations.configureEach {
                         @Suppress("deprecated")
