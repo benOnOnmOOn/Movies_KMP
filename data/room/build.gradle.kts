@@ -1,5 +1,3 @@
-import com.android.build.api.dsl.androidLibrary
-import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 import kotlin.collections.plusAssign
 
 plugins {
