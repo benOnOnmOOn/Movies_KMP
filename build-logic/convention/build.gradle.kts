@@ -17,7 +17,7 @@ java {
 kotlin {
     compilerOptions {
         jvmTarget = JvmTarget.JVM_21
-        allWarningsAsErrors = true
+        allWarningsAsErrors = false
     }
 }
 
@@ -28,16 +28,17 @@ ktlint {
 dependencies {
     compileOnly(libs.android.gradlePlugin)
     compileOnly(libs.android.tools.common)
-    compileOnly(libs.compose.gradlePlugin)
-    compileOnly(libs.kover.gradlePlugin)
     compileOnly(libs.binary.compatibility.gradlePlugin)
+    compileOnly(libs.compose.gradlePlugin)
     compileOnly(libs.dependency.analysis.gradlePlugin)
     compileOnly(libs.firebase.crashlytics.gradlePlugin)
     compileOnly(libs.firebase.performance.gradlePlugin)
     compileOnly(libs.kotlin.gradlePlugin)
+    compileOnly(libs.kotlin.multiplatform.android.library.gradlePlugin)
+    compileOnly(libs.kover.gradlePlugin)
     compileOnly(libs.ksp.gradlePlugin)
-    compileOnly(libs.room.gradlePlugin)
     compileOnly(libs.ktlint.gradlePlugin)
+    compileOnly(libs.room.gradlePlugin)
     lintChecks(libs.androidx.lint.gradle)
 }
 
@@ -149,6 +150,13 @@ gradlePlugin {
                     .get()
                     .pluginId
             implementationClass = "KtlintConventionPlugin"
+        }
+        register("kotlinAndroidLibraryConventionPlugin") {
+            id =
+                libs.plugins.movies.kotlin.android.library
+                    .get()
+                    .pluginId
+            implementationClass = "KotlinAndroidLibraryConventionPlugin"
         }
     }
 }

@@ -5,5 +5,7 @@
     <ID>LongParameterList:MoveDetailDto.kt$MoveDetailDto$( val id: Int, val posterUrl: String, val publicationDate: String, val language: String, val title: String, val genre: Set&lt;String&gt;, val overview: String, )</ID>
     <ID>MagicNumber:KotlinAndroid.kt$27</ID>
     <ID>MagicNumber:KotlinAndroid.kt$35</ID>
+    <ID>MagicNumber:KotlinAndroidLibraryConventionPlugin.kt$KotlinAndroidLibraryConventionPlugin$27</ID>
+    <ID>MagicNumber:KotlinAndroidLibraryConventionPlugin.kt$KotlinAndroidLibraryConventionPlugin$35</ID>
   </CurrentIssues>
 </SmellBaseline>

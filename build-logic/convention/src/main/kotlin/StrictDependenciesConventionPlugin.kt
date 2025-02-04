@@ -16,7 +16,6 @@ class StrictDependenciesConventionPlugin : Plugin<Project> {
                 exclude("androidx.cursoradapter", "cursoradapter")
                 exclude("androidx.customview", "customview")
                 exclude("androidx.drawerlayout", "drawerlayout")
-                exclude("androidx.fragment", "fragment")
                 exclude("androidx.fragment", "fragment-ktx")
                 exclude("androidx.legacy", "legacy-support-core-utils")
                 exclude("androidx.lifecycle", "lifecycle-common-java8")
