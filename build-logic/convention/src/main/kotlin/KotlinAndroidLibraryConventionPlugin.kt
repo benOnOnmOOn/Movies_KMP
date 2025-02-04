@@ -1,16 +1,9 @@
-import com.android.build.api.dsl.KotlinMultiplatformAndroidLibraryTarget
-import com.android.build.api.variant.LibraryAndroidComponentsExtension
-import com.android.build.gradle.LibraryExtension
-import com.bz.movies.configureKotlinAndroid
-import com.bz.movies.disableUnnecessaryAndroidTests
+import com.android.build.api.dsl.androidLibrary
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.configure
-import com.android.build.api.dsl.androidLibrary
-import com.android.builder.model.AndroidLibrary
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 import org.jetbrains.kotlin.gradle.dsl.KotlinMultiplatformExtension
-import kotlin.plus
 
 @Suppress("UnstableApiUsage", "Deprecated")
 class KotlinAndroidLibraryConventionPlugin : Plugin<Project> {
@@ -41,6 +34,12 @@ class KotlinAndroidLibraryConventionPlugin : Plugin<Project> {
                         checkReleaseBuilds = false
                         checkDependencies = false
                         checkGeneratedSources = false
+                    }
+
+
+                    compilations.configureEach {
+                        @Suppress("deprecated")
+                        compilerOptions.configure { jvmTarget.set(JvmTarget.JVM_21) }
                     }
 
                     packaging.resources.excludes +=

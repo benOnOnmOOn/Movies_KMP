@@ -46,6 +46,7 @@ dependencies {
     androidTestRuntimeOnly(libs.junit.jupiter.engine)
 }
 configurations.releaseImplementation {
+    exclude("androidx.fragment", "fragment")
     exclude("org.slf4j", "slf4j-android")
     exclude("org.slf4j", "slf4j-api")
     exclude("io.ktor", "ktor-websocket-serialization-jvm")
