@@ -1,35 +1,38 @@
 [versions]
-android-gradle-plugin = "8.8.2"
-android-sqlite = "2.5.0-rc01"
-android-tools = "31.8.2"
+android-gradle-plugin = "8.9.0"
+android-sqlite = "2.5.0-rc02"
+android-tools = "31.9.0"
 androidx-activity = "1.10.1"
-androidx-compose = "1.8.0-beta03"
+androidx-compose = "1.8.0-rc01"
 androidx-core = "1.15.0"
 androidx-datastore = "1.1.3"
-androidx-lifecycle = "2.9.0-alpha11"
+androidx-lifecycle = "2.9.0-alpha12"
 androidx-lint = "1.0.0-alpha03"
-androidx-material3 = "1.4.0-alpha09"
+androidx-material3 = "1.4.0-alpha10"
 androidx-monitor = "1.7.2"
-androidx-navigation-compose = "2.8.8"
-androidx-room = "2.7.0-rc01"
+androidx-navigation-compose = "2.8.9"
+androidx-room = "2.7.0-rc02"
 androidx-startup-runtime = "1.2.0"
-coil = "3.0.4"
+coil = "3.1.0"
 dependency-analysis = "2.10.1"
-firebase-crashlytics-gradle = "3.0.3"
+firebase-analytics = "22.3.0"
+firebase-crashlytics = "19.4.1"
 firebase-google-services = "4.4.2"
-firebase-perf-gradle = "1.4.2"
+firebase-gradle-crashlytics = "3.0.3"
+firebase-gradle-perf = "1.4.2"
+firebase-perf = "21.0.4"
 junit = "5.11.4"
 kermit = "2.0.5"
 koin = "4.0.1"
-kotlin = "2.1.20-RC"
+kotlin = "2.1.20-RC2"
 kotlinx-compose-navigation = "2.8.0-alpha11"
-kotlinx-compose-plugin = "1.8.0-alpha03"
+kotlinx-compose-plugin = "1.8.0-alpha04"
 kotlinx-coroutines = "1.10.1"
 kotlinx-datetime = "0.6.1"
 kotlinx-kover = "0.9.1"
-kotlinx-ksp = "2.1.20-RC-1.0.30"
+kotlinx-ksp = "2.1.20-RC2-1.0.31"
 kotlinx-serialization = "1.8.0"
-ktlint-gradle-plugin = "12.1.2"
+ktlint-gradle-plugin = "12.2.0"
 ktor = "3.0.3"
 lint-compose-checks = "1.4.2"
 lint-slack-checks = "0.8.2"
@@ -78,10 +81,10 @@ coil = { module = "io.coil-kt.coil3:coil", version.ref = "coil" }
 coil-compose-core = { module = "io.coil-kt.coil3:coil-compose-core", version.ref = "coil" }
 coil-core = { module = "io.coil-kt.coil3:coil-core", version.ref = "coil" }
 coil-network-ktor = { module = "io.coil-kt.coil3:coil-network-ktor3", version.ref = "coil" }
-firebase-analytics-ktx = { module = "com.google.firebase:firebase-analytics-ktx", version = "22.2.0" }
-firebase-crashlytics-ktx = { module = "com.google.firebase:firebase-crashlytics-ktx", version = "19.4.0" }
+firebase-analytics-ktx = { module = "com.google.firebase:firebase-analytics-ktx", version.ref ="firebase-analytics"  }
+firebase-crashlytics-ktx = { module = "com.google.firebase:firebase-crashlytics-ktx", version.ref ="firebase-crashlytics" }
 firebase-google-services = { module = "com.google.gms:google-services", version.ref = "firebase-google-services" }
-firebase-perf = { module = "com.google.firebase:firebase-perf", version = "21.0.4" }
+firebase-perf = { module = "com.google.firebase:firebase-perf", version.ref ="firebase-perf" }
 junit-jupiter-api = { group = "org.junit.jupiter", name = "junit-jupiter-api", version.ref = "junit" }
 junit-jupiter-engine = { group = "org.junit.jupiter", name = "junit-jupiter-engine", version.ref = "junit" }
 kermit = { module = "co.touchlab:kermit", version.ref = "kermit" }
@@ -130,8 +133,8 @@ android-tools-common = { group = "com.android.tools", name = "common", version.r
 binary-compatibility-gradlePlugin = { group = "org.jetbrains.kotlinx.binary-compatibility-validator", name = "org.jetbrains.kotlinx.binary-compatibility-validator.gradle.plugin", version = "0.17.0" }
 compose-gradlePlugin = { module = "org.jetbrains.kotlin:compose-compiler-gradle-plugin", version.ref = "kotlin" }
 dependency-analysis-gradlePlugin = { group = "com.autonomousapps.dependency-analysis", name = "com.autonomousapps.dependency-analysis.gradle.plugin", version.ref = "dependency-analysis" }
-firebase-crashlytics-gradlePlugin = { group = "com.google.firebase", name = "firebase-crashlytics-gradle",  version.ref = "firebase-crashlytics-gradle" }
-firebase-performance-gradlePlugin = { group = "com.google.firebase", name = "perf-plugin",  version.ref = "firebase-perf-gradle" }
+firebase-crashlytics-gradlePlugin = { group = "com.google.firebase", name = "firebase-crashlytics-gradle",  version.ref = "firebase-gradle-crashlytics" }
+firebase-performance-gradlePlugin = { group = "com.google.firebase", name = "perf-plugin",  version.ref = "firebase-gradle-perf" }
 kotlin-gradlePlugin = { group = "org.jetbrains.kotlin", name = "kotlin-gradle-plugin", version.ref = "kotlin" }
 kotlin-multiplatform-android-library-gradlePlugin = { module = "com.android.kotlin.multiplatform.library:com.android.kotlin.multiplatform.library.gradle.plugin", version.ref = "android-gradle-plugin" }
 kover-gradlePlugin = { group = "org.jetbrains.kotlinx.kover", name = "org.jetbrains.kotlinx.kover.gradle.plugin", version.ref = "kotlinx-kover" }
@@ -152,8 +155,8 @@ dependency-guard = { id = "com.dropbox.dependency-guard", version = "0.5.0" }
 dependency-updates = { id = "com.github.ben-manes.versions", version = "0.52.0" }
 detekt = { id = "io.gitlab.arturbosch.detekt", version = "1.23.8" }
 dexcount = { id = "com.getkeepsafe.dexcount", version = "4.0.0" }
-firebase-crashlytics = { id = "com.google.firebase.crashlytics", version.ref = "firebase-crashlytics-gradle" }
-firebase-perf = { id = "com.google.firebase.firebase-perf", version.ref = "firebase-perf-gradle" }
+firebase-crashlytics = { id = "com.google.firebase.crashlytics", version.ref = "firebase-gradle-crashlytics" }
+firebase-perf = { id = "com.google.firebase.firebase-perf", version.ref = "firebase-gradle-perf" }
 google-services = { id = "com.google.gms.google-services", version.ref = "firebase-google-services" }
 gradle_doctor = { id = "com.osacky.doctor", version = "0.10.0" }
 jetbrains-compose = { id = "org.jetbrains.compose", version.ref = "kotlinx-compose-plugin" }
