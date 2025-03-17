@@ -1,5 +1,6 @@
 package com.bz.movies.presentation.navigation
 
+import PostflopMainScreen
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
@@ -35,13 +36,13 @@ private fun MoviesNavHostInternal(
             PlayingNowScreen()
         }
         composable(RootRoute.Popular.route) {
-            PopularMoviesScreen(navController = navController)
+            PopularMoviesScreen(goToDetails = { navController.navigate("details/${it}") })
         }
         composable(RootRoute.Favorite.route) {
             FavoriteScreen()
         }
         composable(RootRoute.More.route) {
-            Greeting(RootRoute.More.route)
+            PostflopMainScreen()
         }
         composable(
             route = RootRoute.Details.route,

@@ -25,7 +25,7 @@ import org.koin.compose.viewmodel.koinViewModel
 @Composable
 internal fun PopularMoviesScreen(
     playingNowViewModel: PopularMoviesViewModel = koinViewModel(),
-    navController: NavHostController,
+    goToDetails : (Int) -> Unit
 ) {
     val noInternetDialog = remember { mutableStateOf(false) }
     val errorDialog = remember { mutableStateOf(false) }
@@ -45,7 +45,7 @@ internal fun PopularMoviesScreen(
         onErrorDismiss = { errorDialog.value = false },
         sendEvent = {
             when (it) {
-                is MovieEvent.OnMovieClicked -> navController.navigate("details/${it.movieItem.id}")
+                is MovieEvent.OnMovieClicked -> goToDetails(it.movieItem.id)
                 MovieEvent.Refresh -> playingNowViewModel.sendEvent(it)
             }
         },

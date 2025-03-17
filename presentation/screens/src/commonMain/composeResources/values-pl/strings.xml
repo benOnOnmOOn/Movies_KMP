@@ -16,4 +16,16 @@
     <string name="dismiss_error_button_label">Schowaj</string>
     <string name="confirm_error_button">Potwierdź</string>
     <string name="try_again_network_error_button_label">Ponów</string>
+
+    <!--  Post flop action  -->
+    <string name="postflop_screen_title">Post flop action solver!</string>
+    <string name="postflop_screen_range_editor">Edycja zakresów</string>
+    <string name="postflop_screen_ip_range">IP zakres</string>
+    <string name="postflop_screen_oop_range">OOP zakres</string>
+    <string name="postflop_screen_tree_config">Konfiguracja drzewa gry</string>
+    <string name="postflop_screen_flop">Flop</string>
+    <string name="postflop_screen_run_solver">uruchom solvera</string>
+    <string name="postflop_screen_solver_is_running">Solver działa</string>
+    <string name="postflop_screen_show_result">Wyniki</string>
+    <!--  Post flop action  -->
 </resources>

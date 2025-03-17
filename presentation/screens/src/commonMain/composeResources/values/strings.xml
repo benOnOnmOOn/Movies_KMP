@@ -15,4 +15,17 @@
     <string name="dismiss_error_button_label">Dismiss</string>
     <string name="confirm_error_button">Confirm</string>
     <string name="try_again_network_error_button_label">Try again</string>
+
+    <!--  Post flop action  -->
+    <string name="postflop_screen_title">Post flop action solver!</string>
+    <string name="postflop_screen_range_editor">Range editor</string>
+    <string name="postflop_screen_ip_range">IP range</string>
+    <string name="postflop_screen_oop_range">OOP Range</string>
+    <string name="postflop_screen_tree_config">Tree configuration</string>
+    <string name="postflop_screen_flop">Flop</string>
+    <string name="postflop_screen_run_solver">Run solver</string>
+    <string name="postflop_screen_solver_is_running">Solver is running</string>
+    <string name="postflop_screen_show_result">Results</string>
+    <!--  Post flop action  -->
+
 </resources>
