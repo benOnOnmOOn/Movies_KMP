@@ -27,6 +27,7 @@
     <string name="postflop_screen_solver_is_running">Solver is running</string>
     <string name="postflop_screen_show_result">Results</string>
     <string name="postflop_range_screen_title">Edit and store custom ranges</string>
+    <string name="postflop_range_clear">Clear</string>
     <!--  Post flop action  -->
 
 </resources>

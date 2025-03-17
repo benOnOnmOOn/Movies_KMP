@@ -28,5 +28,6 @@
     <string name="postflop_screen_solver_is_running">Solver działa</string>
     <string name="postflop_screen_show_result">Wyniki</string>
     <string name="postflop_range_screen_title">Edycja zakresów</string>
+    <string name="postflop_range_clear">Wyczyść</string>
     <!--  Post flop action  -->
 </resources>
