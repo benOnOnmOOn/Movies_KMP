@@ -41,7 +41,28 @@ private fun MoviesNavHostInternal(
         composable(RootRoute.Favorite.route) {
             FavoriteScreen()
         }
-        composable(RootRoute.More.route) {
+        composable(RootRoute.Postflop.route) {
+            PostflopMainScreen()
+        }
+        composable(RootRoute.PostflopRange.route) {
+            PostflopMainScreen()
+        }
+        composable(RootRoute.PostflopIPRange.route) {
+            PostflopMainScreen()
+        }
+        composable(RootRoute.PostflopOOPRange.route) {
+            PostflopMainScreen()
+        }
+        composable(RootRoute.PostflopTreeConfig.route) {
+            PostflopMainScreen()
+        }
+        composable(RootRoute.PostflopBoard.route) {
+            PostflopMainScreen()
+        }
+        composable(RootRoute.PostflopRun.route) {
+            PostflopMainScreen()
+        }
+        composable(RootRoute.PostflopResult.route) {
             PostflopMainScreen()
         }
         composable(
