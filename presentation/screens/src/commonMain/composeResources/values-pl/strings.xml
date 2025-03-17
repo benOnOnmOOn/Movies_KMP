@@ -23,9 +23,10 @@
     <string name="postflop_screen_ip_range">IP zakres</string>
     <string name="postflop_screen_oop_range">OOP zakres</string>
     <string name="postflop_screen_tree_config">Konfiguracja drzewa gry</string>
-    <string name="postflop_screen_flop">Flop</string>
+    <string name="postflop_screen_board">Karty z flopa</string>
     <string name="postflop_screen_run_solver">uruchom solvera</string>
     <string name="postflop_screen_solver_is_running">Solver działa</string>
     <string name="postflop_screen_show_result">Wyniki</string>
+    <string name="postflop_range_screen_title">Edycja zakresów</string>
     <!--  Post flop action  -->
 </resources>
