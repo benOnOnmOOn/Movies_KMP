@@ -2,6 +2,7 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
@@ -16,12 +17,8 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -31,9 +28,11 @@ import com.bz.movies.presentation.screens.postflop.RANKS
 import com.bz.movies.presentation.screens.postflop.RangeEditEvent
 import movies_kmp.presentation.screens.generated.resources.Res
 import movies_kmp.presentation.screens.generated.resources.postflop_range_clear
+import movies_kmp.presentation.screens.generated.resources.postflop_range_combination
 import movies_kmp.presentation.screens.generated.resources.postflop_range_screen_title
 import org.jetbrains.compose.resources.stringResource
 import org.koin.compose.viewmodel.koinViewModel
+import kotlin.math.roundToInt
 
 
 @Composable
@@ -99,10 +98,27 @@ internal fun PostflopRangeScreen(
                 .padding(8.dp)
                 .fillMaxWidth(),
         )
-        Button(
-            modifier = modifier.padding(8.dp),
-            onClick = { viewmodel.sendEvent(RangeEditEvent.Clear) }) {
-            Text(text = stringResource(Res.string.postflop_range_clear))
+        Row {
+            val combination = state.selectedHands.count { it }
+            val percent: Float = combination * 100 / 169.0F
+            val dec = percent.roundToDecimals(2)
+            Text(
+                text = stringResource(Res.string.postflop_range_combination, combination, dec),
+                modifier = modifier.padding(8.dp).weight(1f),
+            )
+
+            Button(
+                modifier = modifier.padding(8.dp),
+                onClick = { viewmodel.sendEvent(RangeEditEvent.Clear) }) {
+                Text(text = stringResource(Res.string.postflop_range_clear))
+            }
         }
     }
+}
+
+fun Float.roundToDecimals(decimals: Int): Float {
+    var dotAt = 1
+    repeat(decimals) { dotAt *= 10 }
+    val roundedValue = (this * dotAt).roundToInt()
+    return (roundedValue / dotAt) + (roundedValue % dotAt).toFloat() / dotAt
 }

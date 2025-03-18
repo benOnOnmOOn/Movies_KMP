@@ -29,5 +29,6 @@
     <string name="postflop_screen_show_result">Wyniki</string>
     <string name="postflop_range_screen_title">Edycja zakresów</string>
     <string name="postflop_range_clear">Wyczyść</string>
+    <string name="postflop_range_combination">%1$s kombinacje (%2$s%)</string>
     <!--  Post flop action  -->
 </resources>
