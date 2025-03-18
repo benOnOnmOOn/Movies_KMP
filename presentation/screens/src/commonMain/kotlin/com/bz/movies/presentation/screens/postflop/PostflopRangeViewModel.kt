@@ -48,6 +48,12 @@ internal class PostflopRangeViewModel(
                 val result: RangeState = it.copy(selectedHands = newList )
                 result
             }
+
+            is RangeEditEvent.OnRangeUpdated -> {
+                _state.update {
+                    _state.value.copy(range = event.range)
+                }
+            }
         }
     }
 
