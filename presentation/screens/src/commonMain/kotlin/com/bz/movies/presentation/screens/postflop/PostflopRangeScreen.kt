@@ -10,6 +10,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
+import androidx.compose.foundation.lazy.grid.itemsIndexed
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Button
@@ -30,6 +31,7 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.bz.movies.presentation.screens.postflop.PostflopRangeViewModel
 import com.bz.movies.presentation.screens.postflop.RANKS
 import com.bz.movies.presentation.screens.postflop.RangeEditEvent
+import com.bz.movies.presentation.utils.roundToDecimals
 import movies_kmp.presentation.screens.generated.resources.Res
 import movies_kmp.presentation.screens.generated.resources.postflop_range_clear
 import movies_kmp.presentation.screens.generated.resources.postflop_range_combination
@@ -57,43 +59,9 @@ internal fun PostflopRangeScreen(
             modifier = modifier.padding(8.dp),
         )
 
-        LazyVerticalGrid(
-            userScrollEnabled = false,
-            columns = GridCells.Fixed(13),
-            modifier = modifier
-                .fillMaxSize()
-                .aspectRatio(1.0f)
-                .padding(12.dp)
-                .border(width = 1.dp, color = Color.Black)
-        ) {
-            items(state.selectedHands.size) { handId ->
-                val firstRank = 12 - handId % 13
-                val secondRank = 12 - handId / 13
-                val firstRankChar = RANKS[firstRank]
-                val secondRankChar = RANKS[secondRank]
-                val cardRank = if (firstRank == secondRank) {
-                    "$firstRankChar$secondRankChar"
-                } else if (firstRank > secondRank) {
-                    "$firstRankChar${secondRankChar}o"
-                } else {
-                    "$secondRankChar${firstRankChar}s"
-                }
-                val unselectedColor = if (firstRank == secondRank) Color.LightGray else Color.Gray
-                val cellColor = if (state.selectedHands[handId]) Color.Yellow else unselectedColor
-
-                Text(
-                    fontSize = 8.sp,
-                    modifier = modifier
-                        .border(width = 1.dp, color = Color.Black)
-                        .background(color = cellColor)
-                        .fillMaxSize()
-                        .padding(2.dp)
-                        .clickable { viewmodel.sendEvent(RangeEditEvent.OnCardClicked(handId)) },
-                    text = cardRank,
-                    textAlign = TextAlign.Center,
-                )
-            }
-        }
+        HandGrid(
+            selectedHands = state.selectedHands,
+            onSelectedChanged = { viewmodel.sendEvent(RangeEditEvent.OnCardClicked(it)) })
 
         TextField(
             value = state.range,
@@ -102,43 +70,103 @@ internal fun PostflopRangeScreen(
                 .padding(8.dp)
                 .fillMaxWidth(),
         )
-        Row {
-            val combination = state.selectedHands.count { it }
-            val percent: Float = combination * 100 / 169.0F
-            val dec = percent.roundToDecimals(2)
-            Text(
-                text = stringResource(Res.string.postflop_range_combination, combination, dec),
-                modifier = modifier.padding(8.dp).weight(1f),
-            )
 
-            Button(
-                modifier = modifier.padding(8.dp),
-                onClick = { viewmodel.sendEvent(RangeEditEvent.Clear) }) {
-                Text(text = stringResource(Res.string.postflop_range_clear))
+        CombinationCounter(
+            selectedHands = state.selectedHands,
+            onClear = { viewmodel.sendEvent(RangeEditEvent.Clear) }
+        )
+
+        HandSlider()
+
+    }
+}
+
+@Composable
+internal fun HandGrid(
+    modifier: Modifier = Modifier,
+    selectedHands: List<Boolean>,
+    onSelectedChanged: (Int) -> Unit
+) {
+    LazyVerticalGrid(
+        userScrollEnabled = false,
+        columns = GridCells.Fixed(13),
+        modifier = modifier
+            .fillMaxSize()
+            .aspectRatio(1.0f)
+            .padding(12.dp)
+            .border(width = 1.dp, color = Color.Black)
+    ) {
+        itemsIndexed(selectedHands) { handId, isSelected ->
+            val firstRank = 12 - handId % 13
+            val secondRank = 12 - handId / 13
+            val firstRankChar = RANKS[firstRank]
+            val secondRankChar = RANKS[secondRank]
+            val cardRank = if (firstRank == secondRank) {
+                "$firstRankChar$secondRankChar"
+            } else if (firstRank > secondRank) {
+                "$firstRankChar${secondRankChar}o"
+            } else {
+                "$secondRankChar${firstRankChar}s"
             }
-        }
+            val unselectedColor = if (firstRank == secondRank) Color.LightGray else Color.Gray
+            val cellColor = if (isSelected) Color.Yellow else unselectedColor
 
-        Row(
-            modifier = modifier.padding(8.dp),
-        ) {
-            var sliderPosition by remember { mutableFloatStateOf(0f) }
-
-            Slider(
-                modifier = modifier.padding(8.dp).weight(1f),
-                value = sliderPosition,
-                onValueChange = { sliderPosition = it }
-            )
             Text(
-                modifier = modifier.fillMaxWidth(0.1f),
-                text = sliderPosition.roundToDecimals(2).toString()
+                fontSize = 8.sp,
+                modifier = modifier
+                    .border(width = 1.dp, color = Color.Black)
+                    .background(color = cellColor)
+                    .fillMaxSize()
+                    .padding(2.dp)
+                    .clickable { onSelectedChanged(handId) },
+                text = cardRank,
+                textAlign = TextAlign.Center,
             )
         }
     }
 }
 
-fun Float.roundToDecimals(decimals: Int): Float {
-    var dotAt = 1
-    repeat(decimals) { dotAt *= 10 }
-    val roundedValue = (this * dotAt).roundToInt()
-    return (roundedValue / dotAt) + (roundedValue % dotAt).toFloat() / dotAt
+@Composable
+internal fun CombinationCounter(
+    modifier: Modifier = Modifier,
+    selectedHands: List<Boolean>,
+    onClear: () -> Unit
+) {
+    Row {
+        val combination = selectedHands.count { it }
+        val percent: Float = combination * 100 / 169.0F
+        val dec = percent.roundToDecimals(2)
+        Text(
+            text = stringResource(Res.string.postflop_range_combination, combination, dec),
+            modifier = modifier.padding(8.dp).weight(1f),
+        )
+
+        Button(
+            modifier = modifier.padding(8.dp),
+            onClick = { onClear() }) {
+            Text(text = stringResource(Res.string.postflop_range_clear))
+        }
+    }
 }
+
+
+@Composable
+internal fun HandSlider(modifier: Modifier = Modifier) {
+    Row(
+        modifier = modifier.padding(8.dp),
+    ) {
+        var sliderPosition by remember { mutableFloatStateOf(0f) }
+
+        Slider(
+            modifier = modifier.padding(8.dp).weight(1f),
+            value = sliderPosition,
+            onValueChange = { sliderPosition = it }
+        )
+        Text(
+            modifier = modifier.fillMaxWidth(0.1f),
+            text = sliderPosition.roundToDecimals(2).toString()
+        )
+    }
+}
+
+

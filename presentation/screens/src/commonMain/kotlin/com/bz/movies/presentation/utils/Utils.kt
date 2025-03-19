@@ -11,6 +11,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.withContext
+import kotlin.math.roundToInt
 
 @Suppress("ComposableNaming", "ComposeUnstableReceiver", "DeprecatedCall")
 @Composable
@@ -29,4 +30,11 @@ internal fun <T> Flow<T>.collectInLaunchedEffectWithLifecycle(
             }
         }
     }
+}
+
+internal fun Float.roundToDecimals(decimals: Int): Float {
+    var dotAt = 1
+    repeat(decimals) { dotAt *= 10 }
+    val roundedValue = (this * dotAt).roundToInt()
+    return (roundedValue / dotAt) + (roundedValue % dotAt).toFloat() / dotAt
 }

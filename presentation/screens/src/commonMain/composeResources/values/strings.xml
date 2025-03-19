@@ -29,6 +29,62 @@
     <string name="postflop_range_screen_title">Edit and store custom ranges</string>
     <string name="postflop_range_clear">Clear</string>
     <string name="postflop_range_combination">%1$s combos (%2$s%)</string>
+    <string name="postflop_board_title">Board</string>
+    <string name="postflop_tree_configuration_title">Tree configuration</string>
+    <string-array name="cards" translatable="false">
+        <item>🂢</item>
+        <item>🂣</item>
+        <item>🂤</item>
+        <item>🂥</item>
+        <item>🂦</item>
+        <item>🂧</item>
+        <item>🂨</item>
+        <item>🂩</item>
+        <item>🂪</item>
+        <item>🂫</item>
+        <item>🂭</item>
+        <item>🂮</item>
+        <item>🂡</item>
+        <item>🂲</item>
+        <item>🂳</item>
+        <item>🂴</item>
+        <item>🂵</item>
+        <item>🂶</item>
+        <item>🂷</item>
+        <item>🂸</item>
+        <item>🂹</item>
+        <item>🂺</item>
+        <item>🂻</item>
+        <item>🂽</item>
+        <item>🂾</item>
+        <item>🂱</item>
+        <item>🃂</item>
+        <item>🃃</item>
+        <item>🃄</item>
+        <item>🃅</item>
+        <item>🃆</item>
+        <item>🃇</item>
+        <item>🃈</item>
+        <item>🃉</item>
+        <item>🃊</item>
+        <item>🃋</item>
+        <item>🃍</item>
+        <item>🃎</item>
+        <item>🃁</item>
+        <item>🃒</item>
+        <item>🃓</item>
+        <item>🃔</item>
+        <item>🃕</item>
+        <item>🃖</item>
+        <item>🃗</item>
+        <item>🃘</item>
+        <item>🃙</item>
+        <item>🃚</item>
+        <item>🃛</item>
+        <item>🃝</item>
+        <item>🃞</item>
+        <item>🃑</item>
+    </string-array>
     <!--  Post flop action  -->
 
 </resources>

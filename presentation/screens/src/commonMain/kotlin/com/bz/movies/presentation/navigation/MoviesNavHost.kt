@@ -1,7 +1,9 @@
 package com.bz.movies.presentation.navigation
 
+import PostflopBoardScreen
 import PostflopMainScreen
 import PostflopRangeScreen
+import PostflopTreeConfigurationScreen
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
@@ -52,7 +54,7 @@ private fun MoviesNavHostInternal(
                     RootRoute.PostflopTreeConfig ,
                     RootRoute.PostflopRun ,
                     RootRoute.PostflopResult -> navController.navigate(it.route)
-                    else -> error("Wrong navigation destination ${it}")
+                    else -> error("Wrong navigation destination $it")
                 }
             })
         }
@@ -66,10 +68,10 @@ private fun MoviesNavHostInternal(
             Greeting("Screen name = RootRoute.PostflopOOPRange")
         }
         composable(RootRoute.PostflopTreeConfig.route) {
-            Greeting("Screen name = RootRoute.PostflopTreeConfig")
+            PostflopTreeConfigurationScreen()
         }
         composable(RootRoute.PostflopBoard.route) {
-            Greeting("Screen name = RootRoute.PostflopBoard")
+            PostflopBoardScreen()
         }
         composable(RootRoute.PostflopRun.route) {
             Greeting("Screen name = RootRoute.PostflopRun")
