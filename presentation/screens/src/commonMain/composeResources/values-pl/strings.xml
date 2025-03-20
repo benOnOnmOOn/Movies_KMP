@@ -30,7 +30,10 @@
     <string name="postflop_range_screen_title">Edycja zakresów</string>
     <string name="postflop_range_clear">Wyczyść</string>
     <string name="postflop_range_combination">%1$s kombinacje (%2$s%)</string>
+    <string name="postflop_range_slider_weight">Waga: </string>
+    <string name="postflop_range_slider_percent">%1$s</string>
     <string name="postflop_board_title">Flop</string>
     <string name="postflop_tree_configuration_title">Konfiguracja drzewa</string>
+
     <!--  Post flop action  -->
 </resources>

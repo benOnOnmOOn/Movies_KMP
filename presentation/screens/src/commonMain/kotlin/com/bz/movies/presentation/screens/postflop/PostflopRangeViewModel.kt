@@ -41,41 +41,7 @@ internal class PostflopRangeViewModel(
     private suspend fun handleEvent(event: RangeEditEvent) {
         when (event) {
             RangeEditEvent.Clear -> _state.update { RangeState() }
-            is RangeEditEvent.OnCardClicked -> {
-                val firstRank = event.firstRank
-                val secondRank = event.secondRank
-                val newRange = Range(state.value.range.data.copyOf())
-                if (firstRank == secondRank) {
-                    val currentWeight = state.value.range.getWeightPair(firstRank)
-                    if (currentWeight > 0.001f) {
-                        newRange.setWeightPair(firstRank, 0.0f)
-                    } else {
-                        newRange.setWeightPair(firstRank, 1.0f)
-                    }
-                } else if (firstRank > secondRank) {
-                    val currentWeight = state.value.range.getWeightOffsuit(firstRank, secondRank)
-                    if (currentWeight > 0.001f) {
-                        newRange.setWeightOffsuit(firstRank, secondRank, 0.0f)
-                    } else {
-                        newRange.setWeightOffsuit(firstRank, secondRank, 1.0f)
-                    }
-                } else {
-                    val currentWeight = state.value.range.getWeightSuited(firstRank, secondRank)
-                    if (currentWeight > 0.001f) {
-                        newRange.setWeightSuited(firstRank, secondRank, 0.0f)
-                    } else {
-                        newRange.setWeightSuited(firstRank, secondRank, 1.0f)
-                    }
-                }
-
-                _state.update {
-                    _state.value.copy(
-                        range = newRange,
-                        inputRange = newRange.toString(),
-                        inputError = false
-                    )
-                }
-            }
+            is RangeEditEvent.OnCardClicked -> onCardClicked(event)
 
             is RangeEditEvent.OnRangeUpdated -> {
                 _state.update {
@@ -94,7 +60,48 @@ internal class PostflopRangeViewModel(
                     }
 
             }
+
+            is RangeEditEvent.OnWeightUpdated -> {
+                _state.update {
+                    _state.value.copy(weight = event.weight)
+                }
+            }
         }
     }
 
+    private fun onCardClicked(event: RangeEditEvent.OnCardClicked) {
+        val firstRank = event.firstRank
+        val secondRank = event.secondRank
+        val newRange = Range(state.value.range.data.copyOf())
+        if (firstRank == secondRank) {
+            val currentWeight = state.value.range.getWeightPair(firstRank)
+            if (currentWeight > 0.001f) {
+                newRange.setWeightPair(firstRank, 0.0f)
+            } else {
+                newRange.setWeightPair(firstRank, 1.0f)
+            }
+        } else if (firstRank > secondRank) {
+            val currentWeight = state.value.range.getWeightOffsuit(firstRank, secondRank)
+            if (currentWeight > 0.001f) {
+                newRange.setWeightOffsuit(firstRank, secondRank, 0.0f)
+            } else {
+                newRange.setWeightOffsuit(firstRank, secondRank, 1.0f)
+            }
+        } else {
+            val currentWeight = state.value.range.getWeightSuited(firstRank, secondRank)
+            if (currentWeight > 0.001f) {
+                newRange.setWeightSuited(firstRank, secondRank, 0.0f)
+            } else {
+                newRange.setWeightSuited(firstRank, secondRank, 1.0f)
+            }
+        }
+
+        _state.update {
+            _state.value.copy(
+                range = newRange,
+                inputRange = newRange.toString(),
+                inputError = false
+            )
+        }
+    }
 }

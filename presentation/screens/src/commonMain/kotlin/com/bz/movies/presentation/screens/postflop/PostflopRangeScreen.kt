@@ -8,9 +8,13 @@ import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.wrapContentHeight
+import androidx.compose.foundation.layout.wrapContentWidth
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Button
 import androidx.compose.material3.OutlinedTextField
@@ -18,13 +22,12 @@ import androidx.compose.material3.Slider
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableFloatStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -44,6 +47,8 @@ import movies_kmp.presentation.screens.generated.resources.Res
 import movies_kmp.presentation.screens.generated.resources.postflop_range_clear
 import movies_kmp.presentation.screens.generated.resources.postflop_range_combination
 import movies_kmp.presentation.screens.generated.resources.postflop_range_screen_title
+import movies_kmp.presentation.screens.generated.resources.postflop_range_slider_percent
+import movies_kmp.presentation.screens.generated.resources.postflop_range_slider_weight
 import org.jetbrains.compose.resources.stringResource
 import org.koin.compose.viewmodel.koinViewModel
 import kotlin.math.roundToInt
@@ -88,7 +93,10 @@ internal fun PostflopRangeScreen(
             onRangeUpdated = { viewmodel.sendEvent(RangeEditEvent.OnRangeUpdated(it)) },
         )
 
-        HandSlider()
+        HandSlider(
+            sliderPosition = state.weight,
+            onSliderPositionChanged = { viewmodel.sendEvent(RangeEditEvent.OnWeightUpdated(it)) },
+        )
     }
 
     if (errorDialog.value) {
@@ -191,21 +199,42 @@ internal fun CombinationCounter(
 
 
 @Composable
-internal fun HandSlider(modifier: Modifier = Modifier) {
+internal fun HandSlider(
+    modifier: Modifier = Modifier,
+    sliderPosition: Float,
+    onSliderPositionChanged: (Float) -> Unit,
+
+    ) {
     Row(
-        modifier = modifier.padding(8.dp),
+        modifier = modifier.padding(8.dp).fillMaxWidth(),
         verticalAlignment = Alignment.CenterVertically
     ) {
-        var sliderPosition by remember { mutableFloatStateOf(0f) }
 
-        Slider(
-            modifier = modifier.padding(8.dp).weight(1f),
-            value = sliderPosition,
-            onValueChange = { sliderPosition = it }
-        )
         Text(
-            modifier = modifier.fillMaxWidth(0.1f),
-            text = sliderPosition.roundToDecimals(2).toString()
+            modifier = modifier,
+            text = stringResource(Res.string.postflop_range_slider_weight)
+        )
+        Slider(
+            modifier = modifier.padding(8.dp).weight(1.0f).wrapContentHeight(),
+            value = sliderPosition,
+            onValueChange = { onSliderPositionChanged(it) },
+        )
+
+        OutlinedTextField(
+            value = stringResource(
+                Res.string.postflop_range_slider_percent,
+                (sliderPosition * 100).roundToDecimals(1)
+            ),
+            onValueChange = { onSliderPositionChanged((it.toFloatOrNull() ?: 0f) / 100) },
+            modifier = modifier.padding(2.dp).width(96.dp),
+            maxLines = 1,
+            keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
+            suffix = {
+                Text(
+                    text = "%",
+                    modifier = modifier.wrapContentWidth(Alignment.End)
+                )
+            }
         )
     }
 }
