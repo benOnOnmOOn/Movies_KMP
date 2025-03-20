@@ -14,9 +14,9 @@ class RangeTest {
         for (i in 0..51) {
             for (j in (i + 1)..51) {
                 println("k:$k , i:$i , j:$j")
-                assertEquals(actual = cardPairToIndex(i.toByte(), j.toByte()), expected = k)
-                assertEquals(actual = cardPairToIndex(j.toByte(), i.toByte()), expected = k)
-                assertEquals(actual = indexToCardPair(k), expected = i.toByte() to j.toByte())
+                assertEquals(actual = cardPairToIndex(i, j), expected = k)
+                assertEquals(actual = cardPairToIndex(j, i), expected = k)
+                assertEquals(actual = indexToCardPair(k), expected = i to j)
                 k += 1
             }
         }

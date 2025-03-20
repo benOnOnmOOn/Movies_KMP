@@ -10,7 +10,6 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
-import androidx.compose.foundation.lazy.grid.itemsIndexed
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Button
@@ -20,6 +19,7 @@ import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableFloatStateOf
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
@@ -28,9 +28,16 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import com.bz.movies.presentation.screens.common.ErrorDialog
 import com.bz.movies.presentation.screens.postflop.PostflopRangeViewModel
 import com.bz.movies.presentation.screens.postflop.RANKS
+import com.bz.movies.presentation.screens.postflop.Range
 import com.bz.movies.presentation.screens.postflop.RangeEditEvent
+import com.bz.movies.presentation.screens.postflop.RangeEffect
+import com.bz.movies.presentation.screens.postflop.getWeightOffsuit
+import com.bz.movies.presentation.screens.postflop.getWeightPair
+import com.bz.movies.presentation.screens.postflop.getWeightSuited
+import com.bz.movies.presentation.utils.collectInLaunchedEffectWithLifecycle
 import com.bz.movies.presentation.utils.roundToDecimals
 import movies_kmp.presentation.screens.generated.resources.Res
 import movies_kmp.presentation.screens.generated.resources.postflop_range_clear
@@ -48,6 +55,12 @@ internal fun PostflopRangeScreen(
 ) {
 
     val state by viewmodel.state.collectAsStateWithLifecycle()
+    val errorDialog = remember { mutableStateOf(false) }
+    viewmodel.effect.collectInLaunchedEffectWithLifecycle {
+        when (it) {
+            RangeEffect.RangeParsingError -> errorDialog.value = true
+        }
+    }
 
     Column(
         modifier = Modifier
@@ -60,11 +73,14 @@ internal fun PostflopRangeScreen(
         )
 
         HandGrid(
-            selectedHands = state.selectedHands,
-            onSelectedChanged = { viewmodel.sendEvent(RangeEditEvent.OnCardClicked(it)) })
+            range = state.range,
+            onSelectedChanged = { first, second ->
+                viewmodel.sendEvent(RangeEditEvent.OnCardClicked(first, second))
+            }
+        )
 
         TextField(
-            value = state.range,
+            value = state.range.toString(),
             onValueChange = { viewmodel.sendEvent(RangeEditEvent.OnRangeUpdated(it)) },
             modifier = modifier
                 .padding(8.dp)
@@ -72,20 +88,26 @@ internal fun PostflopRangeScreen(
         )
 
         CombinationCounter(
-            selectedHands = state.selectedHands,
+            range = state.range,
             onClear = { viewmodel.sendEvent(RangeEditEvent.Clear) }
         )
 
         HandSlider()
+    }
 
+    if (errorDialog.value) {
+        ErrorDialog(
+            onDismissRequest = { errorDialog.value = false },
+            onConfirmation = { errorDialog.value = false },
+        )
     }
 }
 
 @Composable
 internal fun HandGrid(
     modifier: Modifier = Modifier,
-    selectedHands: List<Boolean>,
-    onSelectedChanged: (Int) -> Unit
+    range: Range,
+    onSelectedChanged: (Int, Int) -> Unit
 ) {
     LazyVerticalGrid(
         userScrollEnabled = false,
@@ -96,7 +118,7 @@ internal fun HandGrid(
             .padding(12.dp)
             .border(width = 1.dp, color = Color.Black)
     ) {
-        itemsIndexed(selectedHands) { handId, isSelected ->
+        items(169) { handId ->
             val firstRank = 12 - handId % 13
             val secondRank = 12 - handId / 13
             val firstRankChar = RANKS[firstRank]
@@ -108,6 +130,14 @@ internal fun HandGrid(
             } else {
                 "$secondRankChar${firstRankChar}s"
             }
+            val weight = if (firstRank == secondRank) {
+                range.getWeightPair(firstRank)
+            } else if (firstRank > secondRank) {
+                range.getWeightOffsuit(firstRank, secondRank)
+            } else {
+                range.getWeightSuited(firstRank, secondRank)
+            }
+            val isSelected = weight > 0.0f
             val unselectedColor = if (firstRank == secondRank) Color.LightGray else Color.Gray
             val cellColor = if (isSelected) Color.Yellow else unselectedColor
 
@@ -118,8 +148,8 @@ internal fun HandGrid(
                     .background(color = cellColor)
                     .fillMaxSize()
                     .padding(2.dp)
-                    .clickable { onSelectedChanged(handId) },
-                text = cardRank,
+                    .clickable { onSelectedChanged(firstRank, secondRank) },
+                text = cardRank + "\n" + weight.roundToInt(),
                 textAlign = TextAlign.Center,
             )
         }
@@ -129,12 +159,12 @@ internal fun HandGrid(
 @Composable
 internal fun CombinationCounter(
     modifier: Modifier = Modifier,
-    selectedHands: List<Boolean>,
+    range: Range,
     onClear: () -> Unit
 ) {
     Row {
-        val combination = selectedHands.count { it }
-        val percent: Float = combination * 100 / 169.0F
+        val combination = range.data.sum()
+        val percent: Float = combination / range.data.size
         val dec = percent.roundToDecimals(2)
         Text(
             text = stringResource(Res.string.postflop_range_combination, combination, dec),
