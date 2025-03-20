@@ -2,6 +2,8 @@ package com.bz.movies.presentation.screens.postflop
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.bz.movies.presentation.utils.eq
+import com.bz.movies.presentation.utils.roundToDecimals
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -63,7 +65,7 @@ internal class PostflopRangeViewModel(
 
             is RangeEditEvent.OnWeightUpdated -> {
                 _state.update {
-                    _state.value.copy(weight = event.weight)
+                    _state.value.copy(weight = event.weight.coerceIn(0.0f, 1.0f).roundToDecimals(2))
                 }
             }
         }
@@ -73,26 +75,27 @@ internal class PostflopRangeViewModel(
         val firstRank = event.firstRank
         val secondRank = event.secondRank
         val newRange = Range(state.value.range.data.copyOf())
+        val weight = state.value.weight
         if (firstRank == secondRank) {
             val currentWeight = state.value.range.getWeightPair(firstRank)
-            if (currentWeight > 0.001f) {
+            if (currentWeight.eq(weight, 0.01f)) {
                 newRange.setWeightPair(firstRank, 0.0f)
             } else {
-                newRange.setWeightPair(firstRank, 1.0f)
+                newRange.setWeightPair(firstRank, weight)
             }
         } else if (firstRank > secondRank) {
             val currentWeight = state.value.range.getWeightOffsuit(firstRank, secondRank)
-            if (currentWeight > 0.001f) {
+            if (currentWeight.eq(weight, 0.01f)) {
                 newRange.setWeightOffsuit(firstRank, secondRank, 0.0f)
             } else {
-                newRange.setWeightOffsuit(firstRank, secondRank, 1.0f)
+                newRange.setWeightOffsuit(firstRank, secondRank, weight)
             }
         } else {
             val currentWeight = state.value.range.getWeightSuited(firstRank, secondRank)
-            if (currentWeight > 0.001f) {
+            if (currentWeight.eq(weight, 0.01f)) {
                 newRange.setWeightSuited(firstRank, secondRank, 0.0f)
             } else {
-                newRange.setWeightSuited(firstRank, secondRank, 1.0f)
+                newRange.setWeightSuited(firstRank, secondRank, weight)
             }
         }
 

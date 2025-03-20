@@ -11,6 +11,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.withContext
+import kotlin.math.abs
 import kotlin.math.roundToInt
 
 @Suppress("ComposableNaming", "ComposeUnstableReceiver", "DeprecatedCall")
@@ -38,3 +39,6 @@ internal fun Float.roundToDecimals(decimals: Int): Float {
     val roundedValue = (this * dotAt).roundToInt()
     return (roundedValue / dotAt) + (roundedValue % dotAt).toFloat() / dotAt
 }
+
+
+fun Float.eq(other: Float, epsilon: Float = 0.00000001f) = abs(this - other) < epsilon

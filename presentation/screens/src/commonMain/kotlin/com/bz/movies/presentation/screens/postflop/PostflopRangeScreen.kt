@@ -1,15 +1,16 @@
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxHeight
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.wrapContentHeight
+import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.foundation.layout.wrapContentWidth
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
@@ -51,7 +52,6 @@ import movies_kmp.presentation.screens.generated.resources.postflop_range_slider
 import movies_kmp.presentation.screens.generated.resources.postflop_range_slider_weight
 import org.jetbrains.compose.resources.stringResource
 import org.koin.compose.viewmodel.koinViewModel
-import kotlin.math.roundToInt
 
 
 @Composable
@@ -114,10 +114,9 @@ internal fun HandGrid(
     onSelectedChanged: (Int, Int) -> Unit
 ) {
     LazyVerticalGrid(
-        userScrollEnabled = false,
         columns = GridCells.Fixed(13),
         modifier = modifier
-            .fillMaxSize()
+            .fillMaxWidth()
             .aspectRatio(1.0f)
             .padding(12.dp)
             .border(width = 1.dp, color = Color.Black)
@@ -144,18 +143,29 @@ internal fun HandGrid(
             val isSelected = weight > 0.0f
             val unselectedColor = if (firstRank == secondRank) Color.LightGray else Color.Gray
             val cellColor = if (isSelected) Color.Yellow else unselectedColor
-
-            Text(
-                fontSize = 8.sp,
+            Box(
                 modifier = modifier
+                    .padding(0.dp)
                     .border(width = 1.dp, color = Color.Black)
                     .background(color = cellColor)
-                    .fillMaxSize()
-                    .padding(2.dp)
+                    .aspectRatio(1.0f)
                     .clickable { onSelectedChanged(firstRank, secondRank) },
-                text = cardRank + "\n" + weight.roundToInt(),
-                textAlign = TextAlign.Center,
-            )
+            ) {
+                Text(
+                    fontSize = 8.sp,
+                    modifier = modifier.align(Alignment.Center),
+                    text = cardRank,
+                    textAlign = TextAlign.Center,
+                )
+                if (weight > 0 && weight < 1) {
+                    Text(
+                        fontSize = 4.sp,
+                        modifier = modifier.align(Alignment.BottomStart).wrapContentSize(),
+                        text = weight.roundToDecimals(1).toString(),
+                        textAlign = TextAlign.Center,
+                    )
+                }
+            }
         }
     }
 }
@@ -171,7 +181,7 @@ internal fun CombinationCounter(
 ) {
     Row {
         val combination = range.data.sum()
-        val percent: Float = combination / range.data.size
+        val percent: Float = combination / range.data.size * 100
         val dec = percent.roundToDecimals(2)
 
         OutlinedTextField(
@@ -186,6 +196,7 @@ internal fun CombinationCounter(
                     modifier = modifier.fillMaxWidth(),
                 )
             },
+            maxLines = 2,
             isError = isInputError
         )
 
@@ -223,12 +234,12 @@ internal fun HandSlider(
         OutlinedTextField(
             value = stringResource(
                 Res.string.postflop_range_slider_percent,
-                (sliderPosition * 100).roundToDecimals(1)
+                sliderPosition * 100
             ),
             onValueChange = { onSliderPositionChanged((it.toFloatOrNull() ?: 0f) / 100) },
             modifier = modifier.padding(2.dp).width(96.dp),
             maxLines = 1,
-            keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
+            keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Decimal),
             suffix = {
                 Text(
                     text = "%",
