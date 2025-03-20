@@ -69,19 +69,28 @@ internal class PostflopRangeViewModel(
                 }
 
                 _state.update {
-                    _state.value.copy(range = newRange)
+                    _state.value.copy(
+                        range = newRange,
+                        inputRange = newRange.toString(),
+                        inputError = false
+                    )
                 }
             }
 
             is RangeEditEvent.OnRangeUpdated -> {
+                _state.update {
+                    _state.value.copy(inputRange = event.range)
+                }
                 runCatching { event.range.toRange() }
                     .onSuccess {
                         _state.update {
-                            _state.value.copy(range = event.range.toRange())
+                            _state.value.copy(range = event.range.toRange(), inputError = false)
                         }
                     }
                     .onFailure {
-                        _effect.send(RangeEffect.RangeParsingError)
+                        _state.update {
+                            _state.value.copy(inputError = true)
+                        }
                     }
 
             }

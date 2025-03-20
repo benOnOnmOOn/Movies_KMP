@@ -13,15 +13,16 @@ import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Button
+import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Slider
 import androidx.compose.material3.Text
-import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableFloatStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextAlign
@@ -79,17 +80,12 @@ internal fun PostflopRangeScreen(
             }
         )
 
-        TextField(
-            value = state.range.toString(),
-            onValueChange = { viewmodel.sendEvent(RangeEditEvent.OnRangeUpdated(it)) },
-            modifier = modifier
-                .padding(8.dp)
-                .fillMaxWidth(),
-        )
-
         CombinationCounter(
             range = state.range,
-            onClear = { viewmodel.sendEvent(RangeEditEvent.Clear) }
+            onClear = { viewmodel.sendEvent(RangeEditEvent.Clear) },
+            inputRange = state.inputRange,
+            isInputError = state.inputError,
+            onRangeUpdated = { viewmodel.sendEvent(RangeEditEvent.OnRangeUpdated(it)) },
         )
 
         HandSlider()
@@ -160,15 +156,29 @@ internal fun HandGrid(
 internal fun CombinationCounter(
     modifier: Modifier = Modifier,
     range: Range,
-    onClear: () -> Unit
+    inputRange: String,
+    onClear: () -> Unit,
+    onRangeUpdated: (String) -> Unit,
+    isInputError: Boolean = false
 ) {
     Row {
         val combination = range.data.sum()
         val percent: Float = combination / range.data.size
         val dec = percent.roundToDecimals(2)
-        Text(
-            text = stringResource(Res.string.postflop_range_combination, combination, dec),
-            modifier = modifier.padding(8.dp).weight(1f),
+
+        OutlinedTextField(
+            value = inputRange,
+            onValueChange = { onRangeUpdated(it) },
+            modifier = modifier
+                .padding(8.dp)
+                .weight(1f),
+            supportingText = {
+                Text(
+                    text = stringResource(Res.string.postflop_range_combination, combination, dec),
+                    modifier = modifier.fillMaxWidth(),
+                )
+            },
+            isError = isInputError
         )
 
         Button(
@@ -184,6 +194,7 @@ internal fun CombinationCounter(
 internal fun HandSlider(modifier: Modifier = Modifier) {
     Row(
         modifier = modifier.padding(8.dp),
+        verticalAlignment = Alignment.CenterVertically
     ) {
         var sliderPosition by remember { mutableFloatStateOf(0f) }
 
