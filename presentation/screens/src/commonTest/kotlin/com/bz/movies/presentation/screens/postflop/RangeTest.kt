@@ -138,5 +138,4 @@ class RangeTest {
             assertEquals(expected, range.toString())
         }
     }
-
 }

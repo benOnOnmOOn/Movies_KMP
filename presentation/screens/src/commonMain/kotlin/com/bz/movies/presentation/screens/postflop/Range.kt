@@ -31,7 +31,7 @@ internal data class Range(
         suitSpecifiedStrings(result)
         return result.joinToString(",")
     }
-    
+
 }
 
 typealias Card = Int
@@ -180,9 +180,7 @@ internal fun indexToCardPair(index: Int): Pair<Card, Card> {
  */
 private fun Range.updateWithDashRange(range: String, weight: Float) {
     val comboPair = range.split('-')
-    if (comboPair.size != 2) {
-        error("Invalid range format: $range")
-    }
+    check(comboPair.size != 2) { "Invalid range format: $range" }
 
     val (rank11, rank12, suitedness) = parseSingleton(comboPair[0])
     val (rank21, rank22, suitedness2) = parseSingleton(comboPair[1])
@@ -190,25 +188,21 @@ private fun Range.updateWithDashRange(range: String, weight: Float) {
     val gap = rank11 - rank12
     val gap2 = rank21 - rank22
 
-    if (suitedness != suitedness2) {
-        error("Suitedness does not match: $range")
-    } else if (gap == gap2) {
+    check(suitedness != suitedness2) { "Suitedness does not match: $range" }
+
+    if (gap == gap2) {
         // Same gap (e.g., 88-55, KQo-JTo)
-        if (rank11 > rank21) {
-            for (i in rank21..rank11) {
-                setWeight(indicesWithSuitedness(i, i - gap, suitedness), weight)
-            }
-        } else {
-            error("Range must be in descending order: $range")
+        check(rank11 <= rank21) { "Range must be in descending order: $range" }
+
+        for (i in rank21..rank11) {
+            setWeight(indicesWithSuitedness(i, i - gap, suitedness), weight)
         }
+
     } else if (rank11 == rank21) {
         // Same first rank (e.g., A5s-A2s)
-        if (rank12 > rank22) {
-            for (i in rank22..rank12) {
-                setWeight(indicesWithSuitedness(rank11, i, suitedness), weight)
-            }
-        } else {
-            error("Range must be in descending order: $range")
+        check(rank12 <= rank22) { "Range must be in descending order: $range" }
+        for (i in rank22..rank12) {
+            setWeight(indicesWithSuitedness(rank11, i, suitedness), weight)
         }
     } else {
         error("Invalid range: $range")
@@ -318,15 +312,15 @@ private fun parseCompoundSingleton(combo: String): Triple<Int, Int, Suitedness> 
         when (combo[2]) {
             's' -> Suitedness.Suited
             'o' -> Suitedness.Offsuit
-            else -> throw IllegalStateException("Invalid suitedness: $combo")
+            else -> error("Invalid suitedness: $combo")
         }
     }
 
-    if (rank1 < rank2) {
-        throw IllegalStateException("The first rank must be equal or higher than the second rank: $combo")
+    check(rank1 < rank2) {
+        "The first rank must be equal or higher than the second rank: $combo"
     }
-    if (rank1 == rank2 && suitedness != Suitedness.All) {
-        throw IllegalStateException("A pair with suitedness is not allowed: $combo")
+    check(rank1 == rank2 && suitedness != Suitedness.All) {
+        "A pair with suitedness is not allowed: $combo"
     }
     return Triple(rank1, rank2, suitedness)
 }
@@ -344,11 +338,10 @@ internal fun String.toRange(): Range {
 
     for (rangeStr in ranges) {
         val matchResult = RANGE_REGEX.toRegex().find(rangeStr)
-        if (matchResult == null) {
-            error("Failed to parse range: $rangeStr")
-        }
+        requireNotNull(matchResult) { "Failed to parse range: $rangeStr" }
 
-        val range = matchResult.groups["range"]?.value ?: error("Failed to parse range: $rangeStr")
+        val range = matchResult.groups["range"]?.value
+        requireNotNull(range) { "Failed to parse range: $rangeStr" }
         val weight = matchResult.groups["weight"]?.value?.toFloatOrNull() ?: 1.0f
         checkWeight(weight)
 
@@ -369,8 +362,8 @@ internal fun String.toRange(): Range {
  * @throws IllegalStateException if the weight is not in the valid range.
  */
 private fun checkWeight(weight: Float) {
-    if (weight < 0.0 || weight > 1.0) {
-        error("Invalid weight: $weight")
+    check(weight < 0.0 || weight > 1.0) {
+        "Invalid weight: $weight"
     }
 }
 
@@ -397,7 +390,9 @@ private fun Range.getAverageWeight(indices: List<Int>): Float {
  * @throws IllegalArgumentException if `card1` or `card2` is not less than 52 or `card1` is equal to `card2`.
  */
 internal fun Range.getWeightByCards(card1: Card, card2: Card): Float {
-    require(card1 in 0..51 && card2 in 0..51) { "card1 and card2 must be between 0 and 51" }
+    require(card1 in 0..51 && card2 in 0..51) {
+        "card1 and card2 must be between 0 and 51"
+    }
     require(card1 != card2) { "card1 and card2 must be different" }
     return data[cardPairToIndex(card1, card2)]
 }
@@ -510,7 +505,7 @@ private fun Range.pairsStrings(result: MutableList<String>) {
     var start: Pair<Int, Float>? = null
 
     for (i in 12 downTo -1) {
-        val rank = i.toInt()
+        val rank = i
         val prevRank = i + 1
 
         if (start != null && (i == -1 || !isSameWeight(pairIndices(rank)) || start.second != getWeightPair(
