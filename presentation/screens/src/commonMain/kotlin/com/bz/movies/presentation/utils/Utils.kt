@@ -41,4 +41,4 @@ internal fun Float.roundToDecimals(decimals: Int): Float {
 }
 
 
-fun Float.eq(other: Float, epsilon: Float = 0.00000001f) = abs(this - other) < epsilon
+internal fun Float.eq(other: Float, epsilon: Float = 0.00000001f) = abs(this - other) < epsilon

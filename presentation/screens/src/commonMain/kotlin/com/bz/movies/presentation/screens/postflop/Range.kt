@@ -3,7 +3,7 @@ package com.bz.movies.presentation.screens.postflop
 import kotlin.math.ceil
 import kotlin.math.sqrt
 
-data class Range(
+internal data class Range(
     val data: FloatArray = FloatArray(52 * 51 / 2)
 ) {
     override fun equals(other: Any?): Boolean {
@@ -36,19 +36,20 @@ data class Range(
 
 typealias Card = Int
 
-sealed class Suitedness {
+internal sealed class Suitedness {
     data object Suited : Suitedness()
     data object Offsuit : Suitedness()
     data object All : Suitedness()
     data class Specific(val first: Int, val second: Int) : Suitedness()
 }
 
-const val COMBO_PAT = "(?:(?:[AaKkQqJjTt2-9]{2}[os]?)|(?:(?:[AaKkQqJjTt2-9][cdhs]){2}))"
-const val WEIGHT_PAT = "(?:(?:[01](\\.\\d*)?)|(?:\\.\\d+))"
+internal const val COMBO_PAT = "(?:(?:[AaKkQqJjTt2-9]{2}[os]?)|(?:(?:[AaKkQqJjTt2-9][cdhs]){2}))"
+
+internal const val WEIGHT_PAT = "(?:(?:[01](\\.\\d*)?)|(?:\\.\\d+))"
 
 const val RANGE_REGEX = "^(?<range>$COMBO_PAT(?:\\+|(-$COMBO_PAT))?)(?::(?<weight>$WEIGHT_PAT))?$"
 
-fun pairIndices(rank: Int): List<Int> {
+internal fun pairIndices(rank: Int): List<Int> {
     return buildList(6) {
         for (i in 0..3) {
             for (j in i + 1..3) {
@@ -58,7 +59,7 @@ fun pairIndices(rank: Int): List<Int> {
     }
 }
 
-fun nonpairIndices(rank1: Int, rank2: Int): List<Int> {
+internal fun nonpairIndices(rank1: Int, rank2: Int): List<Int> {
     return buildList(16) {
         for (i in 0..3) {
             for (j in 0..3) {
@@ -68,7 +69,7 @@ fun nonpairIndices(rank1: Int, rank2: Int): List<Int> {
     }
 }
 
-fun suitedIndices(rank1: Int, rank2: Int): List<Int> {
+internal fun suitedIndices(rank1: Int, rank2: Int): List<Int> {
     return buildList {
         for (i in 0..3) {
             add(cardPairToIndex(4 * rank1 + i, 4 * rank2 + i))
@@ -76,7 +77,7 @@ fun suitedIndices(rank1: Int, rank2: Int): List<Int> {
     }
 }
 
-fun offsuitIndices(rank1: Int, rank2: Int): List<Int> {
+internal fun offsuitIndices(rank1: Int, rank2: Int): List<Int> {
     return buildList(12) {
         for (i in 0..3) {
             for (j in 0..3) {
@@ -88,7 +89,7 @@ fun offsuitIndices(rank1: Int, rank2: Int): List<Int> {
     }
 }
 
-fun indicesWithSuitedness(rank1: Int, rank2: Int, suitedness: Suitedness): List<Int> {
+internal fun indicesWithSuitedness(rank1: Int, rank2: Int, suitedness: Suitedness): List<Int> {
     return if (rank1 == rank2) {
         when (suitedness) {
             Suitedness.All -> pairIndices(rank1)
@@ -112,7 +113,7 @@ fun indicesWithSuitedness(rank1: Int, rank2: Int, suitedness: Suitedness): List<
     }
 }
 
-fun charToRank(c: Char): Int {
+internal fun charToRank(c: Char): Int {
     return when (c) {
         'A', 'a' -> 12
         'K', 'k' -> 11
@@ -124,7 +125,7 @@ fun charToRank(c: Char): Int {
     }
 }
 
-fun charToSuit(c: Char): Int {
+internal fun charToSuit(c: Char): Int {
     return when (c) {
         'c' -> 0
         'd' -> 1
@@ -134,7 +135,7 @@ fun charToSuit(c: Char): Int {
     }
 }
 
-fun rankToChar(rank: Int): Char {
+internal fun rankToChar(rank: Int): Char {
     return when (rank) {
         12 -> 'A'
         11 -> 'K'
@@ -146,7 +147,7 @@ fun rankToChar(rank: Int): Char {
     }
 }
 
-fun suitToChar(suit: Int): Char {
+internal fun suitToChar(suit: Int): Char {
     return when (suit) {
         0 -> 'c'
         1 -> 'd'
@@ -156,7 +157,7 @@ fun suitToChar(suit: Int): Char {
     }
 }
 
-fun cardPairToIndex(card1: Card, card2: Card): Int {
+internal fun cardPairToIndex(card1: Card, card2: Card): Int {
     return if (card1 > card2) {
         card2 * (101 - card2) / 2 + card1 - 1
     } else {
@@ -164,7 +165,7 @@ fun cardPairToIndex(card1: Card, card2: Card): Int {
     }
 }
 
-fun indexToCardPair(index: Int): Pair<Card, Card> {
+internal fun indexToCardPair(index: Int): Pair<Card, Card> {
     val card1 = (103 - ceil(sqrt(103.0 * 103.0 - 8.0 * index)).toInt()) / 2
     val card2 = index - card1 * (101 - card1) / 2 + 1
     return Pair(card1, card2)
@@ -335,7 +336,7 @@ private fun parseCompoundSingleton(combo: String): Triple<Int, Int, Suitedness> 
  * @return A new Range object populated from the string.
  * @throws IllegalStateException if the string is not a valid range.
  */
-fun String.toRange(): Range {
+internal fun String.toRange(): Range {
     val ranges = filter { !it.isWhitespace() }.split(",").filter { it.isNotBlank() }.reversed()
 
     val result = Range()
@@ -394,7 +395,7 @@ private fun Range.getAverageWeight(indices: List<Int>): Float {
  * @return The weight of the specified hand.
  * @throws IllegalArgumentException if `card1` or `card2` is not less than 52 or `card1` is equal to `card2`.
  */
-fun Range.getWeightByCards(card1: Card, card2: Card): Float {
+internal fun Range.getWeightByCards(card1: Card, card2: Card): Float {
     require(card1 in 0..51 && card2 in 0..51) { "card1 and card2 must be between 0 and 51" }
     require(card1 != card2) { "card1 and card2 must be different" }
     return data[cardPairToIndex(card1, card2)]
@@ -407,7 +408,7 @@ fun Range.getWeightByCards(card1: Card, card2: Card): Float {
  * @return The average weight of the specified pair hands.
  * @throws IllegalArgumentException if `rank` is not less than 13.
  */
-fun Range.getWeightPair(rank: Int): Float {
+internal fun Range.getWeightPair(rank: Int): Float {
     require(rank in 0..12) { "rank must be between 0 and 12" }
     return getAverageWeight(pairIndices(rank))
 }
@@ -420,7 +421,7 @@ fun Range.getWeightPair(rank: Int): Float {
  * @return The average weight of the specified suited hands.
  * @throws IllegalArgumentException if `rank1` or `rank2` is not less than 13 or `rank1` is equal to `rank2`.
  */
-fun Range.getWeightSuited(rank1: Int, rank2: Int): Float {
+internal fun Range.getWeightSuited(rank1: Int, rank2: Int): Float {
     require(rank1 in 0..12 && rank2 in 0..12) { "rank1 and rank2 must be between 0 and 12" }
     require(rank1 != rank2) { "rank1 and rank2 must be different" }
     return getAverageWeight(suitedIndices(rank1, rank2))
@@ -434,7 +435,7 @@ fun Range.getWeightSuited(rank1: Int, rank2: Int): Float {
  * @return The average weight of the specified offsuit hands.
  * @throws IllegalArgumentException if `rank1` or `rank2` is not less than 13 or `rank1` is equal to `rank2`.
  */
-fun Range.getWeightOffsuit(rank1: Int, rank2: Int): Float {
+internal fun Range.getWeightOffsuit(rank1: Int, rank2: Int): Float {
     require(rank1 in 0..12 && rank2 in 0..12) { "rank1 and rank2 must be between 0 and 12" }
     require(rank1 != rank2) { "rank1 and rank2 must be different" }
     return getAverageWeight(offsuitIndices(rank1, rank2))
@@ -448,7 +449,7 @@ fun Range.getWeightOffsuit(rank1: Int, rank2: Int): Float {
  * @param weight The weight to set (0.0-1.0).
  * @throws IllegalArgumentException if `card1` or `card2` is not less than 52 or `card1` is equal to `card2` or `weight` is not in the range `[0.0, 1.0]`.
  */
-fun Range.setWeightByCards(card1: Int, card2: Int, weight: Float) {
+internal fun Range.setWeightByCards(card1: Int, card2: Int, weight: Float) {
     require(card1 in 0..51 && card2 in 0..51) { "card1 and card2 must be between 0 and 51" }
     require(card1 != card2) { "card1 and card2 must be different" }
     require(weight in 0.0..1.0) { "weight must be between 0.0 and 1.0" }
@@ -463,7 +464,7 @@ fun Range.setWeightByCards(card1: Int, card2: Int, weight: Float) {
  * @param weight The weight to set (0.0-1.0).
  * @throws IllegalArgumentException if `rank` is not less than 13 or `weight` is not in the range `[0.0, 1.0]`.
  */
-fun Range.setWeightPair(rank: Int, weight: Float) {
+internal fun Range.setWeightPair(rank: Int, weight: Float) {
     require(rank in 0..12) { "rank must be between 0 and 12" }
     require(weight in 0.0..1.0) { "weight must be between 0.0 and 1.0" }
     setWeight(pairIndices(rank), weight)
@@ -477,7 +478,7 @@ fun Range.setWeightPair(rank: Int, weight: Float) {
  * @param weight The weight to set (0.0-1.0).
  * @throws IllegalArgumentException if `rank1` or `rank2` is not less than 13 or `rank1` is equal to `rank2` or `weight` is not in the range `[0.0, 1.0]`.
  */
-fun Range.setWeightSuited(rank1: Int, rank2: Int, weight: Float) {
+internal fun Range.setWeightSuited(rank1: Int, rank2: Int, weight: Float) {
     require(rank1 in 0..12 && rank2 in 0..12) { "rank1 and rank2 must be between 0 and 12" }
     require(rank1 != rank2) { "rank1 and rank2 must be different" }
     require(weight in 0.0..1.0) { "weight must be between 0.0 and 1.0" }
@@ -492,7 +493,7 @@ fun Range.setWeightSuited(rank1: Int, rank2: Int, weight: Float) {
  * @param weight The weight to set (0.0-1.0).
  * @throws IllegalArgumentException if `rank1` or `rank2` is not less than 13 or `rank1` is equal to `rank2` or `weight` is not in the range `[0.0, 1.0]`.
  */
-fun Range.setWeightOffsuit(rank1: Int, rank2: Int, weight: Float) {
+internal fun Range.setWeightOffsuit(rank1: Int, rank2: Int, weight: Float) {
     require(rank1 in 0..12 && rank2 in 0..12) { "rank1 and rank2 must be between 0 and 12" }
     require(rank1 != rank2) { "rank1 and rank2 must be different" }
     require(weight in 0.0..1.0) { "weight must be between 0.0 and 1.0" }
