@@ -13,7 +13,6 @@ import org.gradle.api.Project
 import org.gradle.api.plugins.JavaPluginExtension
 import org.gradle.kotlin.dsl.configure
 import org.jetbrains.kotlin.gradle.dsl.KotlinBaseExtension
-import kotlin.collections.plusAssign
 
 fun ApplicationExtension.baseConfig() {
     defaultBaseConfig()
@@ -22,7 +21,7 @@ fun ApplicationExtension.baseConfig() {
         includeInBundle = false
     }
 
-    @Suppress("UnstableApiUsage", "MissingResourcesProperties")
+    @Suppress("UnstableApiUsage")
     androidResources.generateLocaleConfig = true
 
     defaultConfig {
@@ -82,7 +81,6 @@ fun <
         }
     }
 
-    @Suppress("UnstableApiUsage")
     testOptions {
         unitTests.isReturnDefaultValues = true
         animationsDisabled = true

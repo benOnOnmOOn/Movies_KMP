@@ -44,12 +44,12 @@ internal fun PlayingNowScreen(playingNowViewModel: PlayingNowViewModel = koinVie
 
 @Composable
 internal fun PlayingNowScreen(
-    state: MoviesState = MoviesState(),
     sendEvent: (MovieEvent) -> Unit,
+    state: MoviesState = MoviesState(),
     showNoInternetDialog: Boolean = false,
     showErrorDialog: Boolean = false,
     onNetworkErrorDismiss: () -> Unit = {},
-    onErrorDismiss: () -> Unit = {},
+    onErrorDismiss: () -> Unit = {}
 ) {
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,

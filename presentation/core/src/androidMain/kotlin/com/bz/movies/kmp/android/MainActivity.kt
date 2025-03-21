@@ -1,5 +1,3 @@
-@file:Suppress("FunctionNaming")
-
 package com.bz.movies.kmp.android
 
 import android.os.Bundle

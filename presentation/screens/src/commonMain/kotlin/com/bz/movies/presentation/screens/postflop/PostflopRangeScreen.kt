@@ -56,8 +56,8 @@ import org.koin.compose.viewmodel.koinViewModel
 
 @Composable
 internal fun PostflopRangeScreen(
-    viewmodel: PostflopRangeViewModel = koinViewModel(),
     modifier: Modifier = Modifier,
+    viewmodel: PostflopRangeViewModel = koinViewModel()
 ) {
 
     val state by viewmodel.state.collectAsStateWithLifecycle()
@@ -109,13 +109,13 @@ internal fun PostflopRangeScreen(
 
 @Composable
 internal fun HandGrid(
-    modifier: Modifier = Modifier,
     range: Range,
+    modifier: Modifier = Modifier,
     onSelectedChanged: (Int, Int) -> Unit
 ) {
     LazyVerticalGrid(
         columns = GridCells.Fixed(13),
-        modifier = modifier
+        modifier = Modifier
             .fillMaxWidth()
             .aspectRatio(1.0f)
             .padding(12.dp)
@@ -144,7 +144,7 @@ internal fun HandGrid(
             val unselectedColor = if (firstRank == secondRank) Color.LightGray else Color.Gray
             val cellColor = if (isSelected) Color.Yellow else unselectedColor
             Box(
-                modifier = modifier
+                modifier = Modifier
                     .padding(0.dp)
                     .border(width = 1.dp, color = Color.Black)
                     .background(color = cellColor)
@@ -172,11 +172,11 @@ internal fun HandGrid(
 
 @Composable
 internal fun CombinationCounter(
-    modifier: Modifier = Modifier,
     range: Range,
     inputRange: String,
     onClear: () -> Unit,
     onRangeUpdated: (String) -> Unit,
+    modifier: Modifier = Modifier,
     isInputError: Boolean = false
 ) {
     Row {
@@ -187,13 +187,13 @@ internal fun CombinationCounter(
         OutlinedTextField(
             value = inputRange,
             onValueChange = { onRangeUpdated(it) },
-            modifier = modifier
+            modifier = Modifier
                 .padding(8.dp)
                 .weight(1f),
             supportingText = {
                 Text(
                     text = stringResource(Res.string.postflop_range_combination, combination, dec),
-                    modifier = modifier.fillMaxWidth(),
+                    modifier = Modifier.fillMaxWidth(),
                 )
             },
             maxLines = 2,
@@ -201,7 +201,7 @@ internal fun CombinationCounter(
         )
 
         Button(
-            modifier = modifier.padding(8.dp),
+            modifier = Modifier.padding(8.dp),
             onClick = { onClear() }) {
             Text(text = stringResource(Res.string.postflop_range_clear))
         }
@@ -211,22 +211,20 @@ internal fun CombinationCounter(
 
 @Composable
 internal fun HandSlider(
-    modifier: Modifier = Modifier,
     sliderPosition: Float,
-    onSliderPositionChanged: (Float) -> Unit,
-
-    ) {
+    modifier: Modifier = Modifier,
+    onSliderPositionChanged: (Float) -> Unit
+) {
     Row(
-        modifier = modifier.padding(8.dp).fillMaxWidth(),
+        modifier = Modifier.padding(8.dp).fillMaxWidth(),
         verticalAlignment = Alignment.CenterVertically
     ) {
 
         Text(
-            modifier = modifier,
             text = stringResource(Res.string.postflop_range_slider_weight)
         )
         Slider(
-            modifier = modifier.padding(8.dp).weight(1.0f).wrapContentHeight(),
+            modifier = Modifier.padding(8.dp).weight(1.0f).wrapContentHeight(),
             value = sliderPosition,
             onValueChange = { onSliderPositionChanged(it) },
         )
@@ -237,7 +235,7 @@ internal fun HandSlider(
                 sliderPosition * 100
             ),
             onValueChange = { onSliderPositionChanged((it.toFloatOrNull() ?: 0f) / 100) },
-            modifier = modifier.padding(2.dp).width(96.dp),
+            modifier = Modifier.padding(2.dp).width(96.dp),
             maxLines = 1,
             keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Decimal),
             suffix = {

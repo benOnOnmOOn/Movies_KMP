@@ -21,12 +21,12 @@ import movies_kmp.presentation.screens.generated.resources.details_screen_title
 import org.jetbrains.compose.resources.stringResource
 import org.koin.compose.viewmodel.koinViewModel
 
+@Suppress("ComposeViewModelForwarding")
 @Composable
 internal fun MovieDetailsScreen(
     id: Int?,
     movieDetailsViewModel: MovieDetailsViewModel = koinViewModel(),
 ) {
-    @Suppress("DeprecatedCall")
     LaunchedEffect(id) {
         if (id != null) {
             movieDetailsViewModel.fetchMovieDetails(id)

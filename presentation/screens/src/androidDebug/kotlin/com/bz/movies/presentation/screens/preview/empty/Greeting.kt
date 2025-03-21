@@ -7,7 +7,6 @@ import com.bz.movies.presentation.theme.MoviesTheme
 
 @Preview(showBackground = true)
 @Composable
-@SuppressWarnings("UnusedPrivateMember")
 private fun GreetingPreview() {
     MoviesTheme {
         Greeting("Android")

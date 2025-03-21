@@ -20,9 +20,9 @@ import com.bz.movies.presentation.components.MovieContent
 @Composable
 internal fun MoviesContentWithPullToRefresh(
     playingNowState: MoviesState,
-    refresh: () -> Unit = {},
     onMovieClicked: (MovieItem) -> Unit,
     isRefreshing: Boolean,
+    refresh: () -> Unit = {}
 ) {
     val state = rememberPullToRefreshState()
 
