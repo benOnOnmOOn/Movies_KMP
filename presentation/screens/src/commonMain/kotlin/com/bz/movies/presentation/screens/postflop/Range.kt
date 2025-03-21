@@ -47,7 +47,8 @@ internal const val COMBO_PAT = "(?:(?:[AaKkQqJjTt2-9]{2}[os]?)|(?:(?:[AaKkQqJjTt
 
 internal const val WEIGHT_PAT = "(?:(?:[01](\\.\\d*)?)|(?:\\.\\d+))"
 
-const val RANGE_REGEX = "^(?<range>$COMBO_PAT(?:\\+|(-$COMBO_PAT))?)(?::(?<weight>$WEIGHT_PAT))?$"
+internal const val RANGE_REGEX =
+    "^(?<range>$COMBO_PAT(?:\\+|(-$COMBO_PAT))?)(?::(?<weight>$WEIGHT_PAT))?$"
 
 internal fun pairIndices(rank: Int): List<Int> {
     return buildList(6) {
