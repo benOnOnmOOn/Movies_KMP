@@ -40,7 +40,7 @@ internal val TOP_LEVEL_DESTINATIONS =
             iconTextId = Res.string.favorite,
         ),
         TopLevelDestination(
-            rootRoute = RootRoute.More,
+            rootRoute = RootRoute.Postflop,
             unselectedIcon = Res.drawable.ic_more,
             selectedIcon = Res.drawable.ic_more,
             iconTextId = Res.string.more,

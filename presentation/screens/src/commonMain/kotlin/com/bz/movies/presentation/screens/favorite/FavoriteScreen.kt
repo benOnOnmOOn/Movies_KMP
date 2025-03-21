@@ -47,12 +47,12 @@ internal fun FavoriteScreen(favoriteScreenViewModel: FavoriteScreenViewModel = k
 
 @Composable
 internal fun FavoriteScreen(
-    state: MoviesState = MoviesState(),
     sendEvent: (MovieEvent) -> Unit,
+    state: MoviesState = MoviesState(),
     showNoInternetDialog: Boolean = false,
     showErrorDialog: Boolean = false,
     onNetworkErrorDismiss: () -> Unit = {},
-    onErrorDismiss: () -> Unit = {},
+    onErrorDismiss: () -> Unit = {}
 ) {
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,

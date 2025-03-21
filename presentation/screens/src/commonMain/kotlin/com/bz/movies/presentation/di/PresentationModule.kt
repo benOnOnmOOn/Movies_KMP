@@ -10,6 +10,8 @@ import com.bz.movies.presentation.screens.details.MovieDetailsViewModel
 import com.bz.movies.presentation.screens.favorite.FavoriteScreenViewModel
 import com.bz.movies.presentation.screens.playingNow.PlayingNowViewModel
 import com.bz.movies.presentation.screens.popular.PopularMoviesViewModel
+import com.bz.movies.presentation.screens.postflop.PostflopMainViewModel
+import com.bz.movies.presentation.screens.postflop.PostflopRangeViewModel
 import org.koin.core.module.Module
 import org.koin.core.module.dsl.viewModel
 import org.koin.dsl.lazyModule
@@ -21,6 +23,8 @@ val screensModule: List<Lazy<Module>> =
             viewModel { PopularMoviesViewModel(get(), get(), get()) }
             viewModel { FavoriteScreenViewModel(get()) }
             viewModel { MovieDetailsViewModel(get()) }
+            viewModel { PostflopMainViewModel() }
+            viewModel { PostflopRangeViewModel() }
         },
         commonNetworkModule,
         platformNetworkModule,

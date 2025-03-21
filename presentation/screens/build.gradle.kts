@@ -1,5 +1,4 @@
 import com.autonomousapps.DependencyAnalysisSubExtension
-import org.gradle.kotlin.dsl.implementation
 
 plugins {
     alias(libs.plugins.kotlin.multiplatform)
@@ -44,6 +43,7 @@ kotlin {
             debugImplementation(libs.kermit.core.android.debug)
             debugImplementation(libs.kotlinx.compose.ui.tooling.preview)
             releaseImplementation(libs.kermit.core)
+            testImplementation(libs.junit.jupiter.api)
         }
     }
 
@@ -124,6 +124,8 @@ kotlin {
 }
 
 afterEvaluate {
-    tasks.findByName("explodeCodeSourceDebug")?.dependsOn("generateActualResourceCollectorsForAndroidMain")
-    tasks.findByName("explodeCodeSourceRelease")?.dependsOn("generateActualResourceCollectorsForAndroidMain")
+    tasks.findByName("explodeCodeSourceDebug")
+        ?.dependsOn("generateActualResourceCollectorsForAndroidMain")
+    tasks.findByName("explodeCodeSourceRelease")
+        ?.dependsOn("generateActualResourceCollectorsForAndroidMain")
 }

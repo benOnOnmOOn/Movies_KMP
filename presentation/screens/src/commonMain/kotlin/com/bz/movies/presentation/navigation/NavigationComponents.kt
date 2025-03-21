@@ -18,7 +18,7 @@ import org.jetbrains.compose.resources.stringResource
 @Composable
 fun BottomNavigationBar(navController: NavController) {
     val currentRootRoute by navController.currentRootRouteAsState()
-
+    if ( currentRootRoute.isNavigationBarVisible == false) return
     NavigationBar(
         modifier = Modifier.fillMaxWidth(),
         containerColor = MaterialTheme.colorScheme.surface,

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<issues format="6" by="lint 8.7.3" type="baseline" client="gradle" dependencies="false" name="AGP (8.7.3)" variant="all" version="8.7.3">
+<issues format="6" by="lint 8.9.0" type="baseline" client="gradle" dependencies="false" name="AGP (8.9.0)" variant="all" version="8.9.0">
 
     <issue
         id="InvalidPackage"
         message="Invalid package reference in io.ktor:ktor-utils-jvm; not included in Android: `java.lang.management`. Referenced from `io.ktor.util.debug.IntellijIdeaDebugDetector`.">
         <location
-            file="$GRADLE_USER_HOME/caches/modules-2/files-2.1/io.ktor/ktor-utils-jvm/3.0.3/8938221fdf8253200824443515b7a2bef4d09d3/ktor-utils-jvm-3.0.3.jar"/>
+            file="$GRADLE_USER_HOME/caches/modules-2/files-2.1/io.ktor/ktor-utils-jvm/3.1.1/d2d27d54bd684f2bf6fcba83f5db4aebc64a2bb1/ktor-utils-jvm-3.1.1.jar"/>
     </issue>
 
 </issues>

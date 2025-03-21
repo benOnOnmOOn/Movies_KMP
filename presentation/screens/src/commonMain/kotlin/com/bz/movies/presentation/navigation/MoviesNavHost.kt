@@ -1,5 +1,9 @@
 package com.bz.movies.presentation.navigation
 
+import PostflopBoardScreen
+import PostflopMainScreen
+import PostflopRangeScreen
+import PostflopTreeConfigurationScreen
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
@@ -35,13 +39,45 @@ private fun MoviesNavHostInternal(
             PlayingNowScreen()
         }
         composable(RootRoute.Popular.route) {
-            PopularMoviesScreen(navController = navController)
+            PopularMoviesScreen(goToDetails = { navController.navigate("details/${it}") })
         }
         composable(RootRoute.Favorite.route) {
             FavoriteScreen()
         }
-        composable(RootRoute.More.route) {
-            Greeting(RootRoute.More.route)
+        composable(RootRoute.Postflop.route) {
+            PostflopMainScreen(goToScreenEditor = {
+                when (it) {
+                    RootRoute.PostflopRange ,
+                    RootRoute.PostflopIPRange ,
+                    RootRoute.PostflopOOPRange ,
+                    RootRoute.PostflopBoard ,
+                    RootRoute.PostflopTreeConfig ,
+                    RootRoute.PostflopRun ,
+                    RootRoute.PostflopResult -> navController.navigate(it.route)
+                    else -> error("Wrong navigation destination $it")
+                }
+            })
+        }
+        composable(RootRoute.PostflopRange.route) {
+           PostflopRangeScreen()
+        }
+        composable(RootRoute.PostflopIPRange.route) {
+            Greeting("Screen name = RootRoute.PostflopIPRange")
+        }
+        composable(RootRoute.PostflopOOPRange.route) {
+            Greeting("Screen name = RootRoute.PostflopOOPRange")
+        }
+        composable(RootRoute.PostflopTreeConfig.route) {
+            PostflopTreeConfigurationScreen()
+        }
+        composable(RootRoute.PostflopBoard.route) {
+            PostflopBoardScreen()
+        }
+        composable(RootRoute.PostflopRun.route) {
+            Greeting("Screen name = RootRoute.PostflopRun")
+        }
+        composable(RootRoute.PostflopResult.route) {
+            Greeting("Screen name = RootRoute.PostflopResult")
         }
         composable(
             route = RootRoute.Details.route,

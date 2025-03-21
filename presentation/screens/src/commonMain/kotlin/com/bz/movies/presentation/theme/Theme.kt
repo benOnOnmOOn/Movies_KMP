@@ -1,5 +1,3 @@
-@file:Suppress("FunctionNaming")
-
 package com.bz.movies.presentation.theme
 
 import androidx.compose.foundation.isSystemInDarkTheme

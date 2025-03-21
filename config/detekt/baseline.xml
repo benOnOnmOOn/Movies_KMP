@@ -1,11 +1,58 @@
 <?xml version="1.0" ?>
 <SmellBaseline>
-  <ManuallySuppressedIssues></ManuallySuppressedIssues>
+  <ManuallySuppressedIssues/>
   <CurrentIssues>
+    <ID>ComplexCondition:Range.kt$(sameSuited &amp;&amp; sameOffsuit &amp;&amp; weightSuited != weightOffsuit) || (sameSuited != sameOffsuit &amp;&amp; weightSuited &gt; 0.0f &amp;&amp; weightOffsuit &gt; 0.0f)</ID>
+    <ID>ComplexCondition:Range.kt$i &gt;= 0 &amp;&amp; isSameWeight(getter(rank1, rank2)) &amp;&amp; getAverageWeight( getter(rank1, rank2) ) &gt; 0.0f &amp;&amp; start == null</ID>
+    <ID>ComplexCondition:Range.kt$i &gt;= 0 &amp;&amp; isSameWeight(pairIndices(rank)) &amp;&amp; getWeightPair(rank) &gt; 0.0f &amp;&amp; start == null</ID>
+    <ID>ComplexCondition:Range.kt$start != null &amp;&amp; (i == -1 || !isSameWeight( getter(rank1, rank2) ) || start.second != getAverageWeight(getter(rank1, rank2)))</ID>
+    <ID>ComplexCondition:Range.kt$start != null &amp;&amp; (i == -1 || !isSameWeight(pairIndices(rank)) || start.second != getWeightPair( rank ))</ID>
+    <ID>CyclomaticComplexMethod:Range.kt$private fun Range.highCardsStrings( result: MutableList&lt;String&gt;, rank1: Int, suitedness: Suitedness )</ID>
+    <ID>EmptyDefaultConstructor:PostflopMainViewModel.kt$PostflopMainViewModel$( )</ID>
+    <ID>EmptyDefaultConstructor:PostflopRangeViewModel.kt$PostflopRangeViewModel$( )</ID>
+    <ID>ForbiddenComment:PostflopMainViewModel.kt$PostflopMainViewModel$// TODO: Add this later</ID>
     <ID>LongParameterList:MoveDetailDto.kt$MoveDetailDto$( val id: Int, val posterUrl: String, val publicationDate: String, val language: String, val title: String, val genre: Set&lt;String&gt;, val overview: String, )</ID>
     <ID>MagicNumber:KotlinAndroid.kt$27</ID>
     <ID>MagicNumber:KotlinAndroid.kt$35</ID>
     <ID>MagicNumber:KotlinAndroidLibraryConventionPlugin.kt$KotlinAndroidLibraryConventionPlugin$27</ID>
     <ID>MagicNumber:KotlinAndroidLibraryConventionPlugin.kt$KotlinAndroidLibraryConventionPlugin$35</ID>
+    <ID>MagicNumber:PostflopBoardScreen.kt$15</ID>
+    <ID>MagicNumber:PostflopBoardScreen.kt$4</ID>
+    <ID>MagicNumber:PostflopBoardScreen.kt$52</ID>
+    <ID>MagicNumber:PostflopRangeScreen.kt$100</ID>
+    <ID>MagicNumber:PostflopRangeScreen.kt$12</ID>
+    <ID>MagicNumber:PostflopRangeScreen.kt$13</ID>
+    <ID>MagicNumber:PostflopRangeScreen.kt$169</ID>
+    <ID>MagicNumber:PostflopRangeViewModel.kt$PostflopRangeViewModel$0.01f</ID>
+    <ID>MagicNumber:Range.kt$10</ID>
+    <ID>MagicNumber:Range.kt$101</ID>
+    <ID>MagicNumber:Range.kt$103</ID>
+    <ID>MagicNumber:Range.kt$103.0</ID>
+    <ID>MagicNumber:Range.kt$11</ID>
+    <ID>MagicNumber:Range.kt$12</ID>
+    <ID>MagicNumber:Range.kt$16</ID>
+    <ID>MagicNumber:Range.kt$3</ID>
+    <ID>MagicNumber:Range.kt$4</ID>
+    <ID>MagicNumber:Range.kt$51</ID>
+    <ID>MagicNumber:Range.kt$6</ID>
+    <ID>MagicNumber:Range.kt$7</ID>
+    <ID>MagicNumber:Range.kt$8</ID>
+    <ID>MagicNumber:Range.kt$8.0</ID>
+    <ID>MagicNumber:Range.kt$9</ID>
+    <ID>MagicNumber:Range.kt$Range$51</ID>
+    <ID>MagicNumber:Range.kt$Range$52</ID>
+    <ID>MagicNumber:Utils.kt$10</ID>
+    <ID>MaxLineLength:Range.kt$*</ID>
+    <ID>NestedBlockDepth:Range.kt$private fun Range.suitSpecifiedStrings(result: MutableList&lt;String&gt;)</ID>
+    <ID>NewLineAtEndOfFile:Range.kt$com.bz.movies.presentation.screens.postflop.Range.kt</ID>
+    <ID>NewLineAtEndOfFile:RangeTest.kt$com.bz.movies.presentation.screens.postflop.RangeTest.kt</ID>
+    <ID>NewLineAtEndOfFile:Utils.kt$com.bz.movies.presentation.utils.Utils.kt</ID>
+    <ID>ThrowsCount:Range.kt$private fun parseCompoundSingleton(combo: String): Triple&lt;Int, Int, Suitedness&gt;</ID>
+    <ID>TooManyFunctions:Range.kt$com.bz.movies.presentation.screens.postflop.Range.kt</ID>
+    <ID>UnusedParameter:PostflopMainViewModel.kt$PostflopMainViewModel$event: MovieEvent</ID>
+    <ID>UseCheckOrError:Range.kt$throw IllegalStateException("A pair with suitedness is not allowed: $combo")</ID>
+    <ID>UseCheckOrError:Range.kt$throw IllegalStateException("Expected compound combo of 2-3 characters, got ${combo.length}: $combo")</ID>
+    <ID>UseCheckOrError:Range.kt$throw IllegalStateException("Invalid suitedness: $combo")</ID>
+    <ID>UseCheckOrError:Range.kt$throw IllegalStateException("The first rank must be equal or higher than the second rank: $combo")</ID>
   </CurrentIssues>
 </SmellBaseline>

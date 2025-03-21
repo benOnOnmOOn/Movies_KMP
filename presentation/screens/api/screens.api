@@ -1,3 +1,20 @@
+public final class ComposableSingletons$PostflopMainScreenKt {
+	public static final field INSTANCE LComposableSingletons$PostflopMainScreenKt;
+	public fun <init> ()V
+	public final fun getLambda$-120613083$screens_release ()Lkotlin/jvm/functions/Function3;
+	public final fun getLambda$-1238689280$screens_release ()Lkotlin/jvm/functions/Function3;
+	public final fun getLambda$1058383752$screens_release ()Lkotlin/jvm/functions/Function3;
+	public final fun getLambda$1451382697$screens_release ()Lkotlin/jvm/functions/Function3;
+	public final fun getLambda$272385862$screens_release ()Lkotlin/jvm/functions/Function3;
+	public final fun getLambda$665384807$screens_release ()Lkotlin/jvm/functions/Function3;
+}
+
+public final class ComposableSingletons$PostflopRangeScreenKt {
+	public static final field INSTANCE LComposableSingletons$PostflopRangeScreenKt;
+	public fun <init> ()V
+	public final fun getLambda$223916959$screens_release ()Lkotlin/jvm/functions/Function3;
+}
+
 public final class com/bz/movies/presentation/di/PresentationModuleKt {
 	public static final fun getScreensModule ()Ljava/util/List;
 }
@@ -6,9 +23,15 @@ public final class com/bz/movies/presentation/navigation/ComposableSingletons$Mo
 	public static final field INSTANCE Lcom/bz/movies/presentation/navigation/ComposableSingletons$MoviesNavHostKt;
 	public fun <init> ()V
 	public final fun getLambda$-1227946140$screens_release ()Lkotlin/jvm/functions/Function4;
+	public final fun getLambda$-142683562$screens_release ()Lkotlin/jvm/functions/Function4;
+	public final fun getLambda$-2007659160$screens_release ()Lkotlin/jvm/functions/Function4;
+	public final fun getLambda$-738989081$screens_release ()Lkotlin/jvm/functions/Function4;
 	public final fun getLambda$-998764822$screens_release ()Lkotlin/jvm/functions/Function4;
+	public final fun getLambda$1018638057$screens_release ()Lkotlin/jvm/functions/Function4;
+	public final fun getLambda$1125986517$screens_release ()Lkotlin/jvm/functions/Function4;
 	public final fun getLambda$1309394018$screens_release ()Lkotlin/jvm/functions/Function4;
-	public final fun getLambda$40723939$screens_release ()Lkotlin/jvm/functions/Function4;
+	public final fun getLambda$1798351077$screens_release ()Lkotlin/jvm/functions/Function4;
+	public final fun getLambda$529680998$screens_release ()Lkotlin/jvm/functions/Function4;
 }
 
 public final class com/bz/movies/presentation/navigation/MoviesNavHostKt {
