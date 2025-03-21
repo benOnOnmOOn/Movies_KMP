@@ -44,7 +44,8 @@ kotlin {
             debugImplementation(libs.kermit.core.android.debug)
             debugImplementation(libs.kotlinx.compose.ui.tooling.preview)
             releaseImplementation(libs.kermit.core)
-        }
+          testImplementation(libs.junit.jupiter.api)
+}
     }
 
     iosX64()
