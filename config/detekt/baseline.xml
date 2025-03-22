@@ -7,8 +7,8 @@
     <ID>ComplexCondition:Range.kt$i &gt;= 0 &amp;&amp; isSameWeight &amp;&amp; weightPair &gt; 0.0f &amp;&amp; start == null</ID>
     <ID>ComplexCondition:Range.kt$start != null &amp;&amp; (i == -1 || !isSameWeight || start.second != averageWeight)</ID>
     <ID>ComplexCondition:Range.kt$start != null &amp;&amp; (i == -1 || !isSameWeight || start.second != weightPair)</ID>
-    <ID>CyclomaticComplexMethod:Range.kt$private fun Range.highCardsStrings( result: MutableList&lt;String&gt;, rank1: Int, suitedness: Suitedness )</ID>
     <ID>CyclomaticComplexMethod:Range.kt$private fun Range.pairsStrings(result: MutableList&lt;String&gt;)</ID>
+    <ID>CyclomaticComplexMethod:Range.kt$private inline fun Range.highCardsStrings( result: MutableList&lt;String&gt;, rank1: Int, suitChar: String, getter: (Int, Int) -&gt; List&lt;Int&gt;, )</ID>
     <ID>EmptyDefaultConstructor:PostflopMainViewModel.kt$PostflopMainViewModel$( )</ID>
     <ID>EmptyDefaultConstructor:PostflopRangeViewModel.kt$PostflopRangeViewModel$( )</ID>
     <ID>ForbiddenComment:PostflopMainViewModel.kt$PostflopMainViewModel$// TODO: Add this later</ID>
