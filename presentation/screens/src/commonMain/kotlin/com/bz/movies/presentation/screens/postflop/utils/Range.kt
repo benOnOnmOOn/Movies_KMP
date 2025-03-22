@@ -616,6 +616,7 @@ private fun Range.pairsStrings(result: MutableList<String>) {
     }
 }
 
+
 /**
  * Generates strings for high card combinations and adds them to the result list.
  *
@@ -628,14 +629,31 @@ private fun Range.highCardsStrings(
     rank1: Int,
     suitedness: Suitedness
 ) {
-    val rank1Char = rankToChar(rank1)
-    var start: Pair<Int, Float>? = null
-    val (getter: (Int, Int) -> List<Int>, suitChar) = when (suitedness) {
-        Suitedness.Suited -> Pair(::suitedIndices, "s")
-        Suitedness.Offsuit -> Pair(::offsuitIndices, "o")
-        Suitedness.All -> Pair(::nonPairIndices, "")
+    when (suitedness) {
+        Suitedness.Suited -> highCardsStrings(result, rank1, "s", ::suitedIndices)
+        Suitedness.Offsuit -> highCardsStrings(result, rank1, "o", ::offsuitIndices)
+        Suitedness.All -> highCardsStrings(result, rank1, "", ::nonPairIndices)
         else -> error("highCardsStrings: invalid suitedness")
     }
+}
+
+
+/**
+ * Generates strings for high card combinations and adds them to the result list.
+ *
+ * @param result The list to which high card strings will be added.
+ * @param rank1 The high card rank.
+ * @param suitChar The card suite char
+ */
+private inline fun Range.highCardsStrings(
+    result: MutableList<String>,
+    rank1: Int,
+    suitChar: String,
+    getter: (Int, Int) -> List<Int>,
+) {
+    val rank1Char = rankToChar(rank1)
+    var start: Pair<Int, Float>? = null
+
     for (i in (rank1 - 1) downTo -1) {
         val rank2 = i
         val prevRank2 = i + 1
