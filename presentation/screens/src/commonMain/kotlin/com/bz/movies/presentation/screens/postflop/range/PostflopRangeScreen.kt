@@ -35,13 +35,8 @@ import androidx.compose.ui.unit.sp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.bz.movies.presentation.screens.common.ErrorDialog
 import com.bz.movies.presentation.screens.postflop.range.PostflopRangeViewModel
-import com.bz.movies.presentation.screens.postflop.range.RANKS
 import com.bz.movies.presentation.screens.postflop.range.RangeEditEvent
 import com.bz.movies.presentation.screens.postflop.range.RangeEffect
-import com.bz.movies.presentation.screens.postflop.utils.Range
-import com.bz.movies.presentation.screens.postflop.utils.getWeightOffsuit
-import com.bz.movies.presentation.screens.postflop.utils.getWeightPair
-import com.bz.movies.presentation.screens.postflop.utils.getWeightSuited
 import com.bz.movies.presentation.utils.collectInLaunchedEffectWithLifecycle
 import com.bz.movies.presentation.utils.roundToDecimals
 import movies_kmp.presentation.screens.generated.resources.Res
@@ -79,22 +74,24 @@ internal fun PostflopRangeScreen(
         )
 
         HandGrid(
-            range = state.range,
-            onSelectedChanged = { first, second ->
-                viewmodel.sendEvent(RangeEditEvent.OnCardClicked(first, second))
+            weights = state.weights,
+            cardsSingletons = state.cardsSingleton,
+            onSelectedChanged = { handId ->
+                viewmodel.sendEvent(RangeEditEvent.OnCardClicked(handId))
             }
         )
 
         CombinationCounter(
-            range = state.range,
+            combinations = state.combinations,
+            combinationsPercent = state.compinationPercent,
             onClear = { viewmodel.sendEvent(RangeEditEvent.Clear) },
             inputRange = state.inputRange,
             isInputError = state.inputError,
-            onRangeUpdated = { viewmodel.sendEvent(RangeEditEvent.OnRangeUpdated(it)) },
+            onRangeUpdated = { viewmodel.sendEvent(RangeEditEvent.OnRangeUpdated(range = it)) },
         )
 
         HandSlider(
-            sliderPosition = state.weight,
+            sliderPosition = state.inputWeight,
             onSliderPositionChanged = { viewmodel.sendEvent(RangeEditEvent.OnWeightUpdated(it)) },
         )
     }
@@ -109,9 +106,10 @@ internal fun PostflopRangeScreen(
 
 @Composable
 internal fun HandGrid(
-    range: Range,
+    weights: FloatArray,
+    cardsSingletons: List<String>,
     modifier: Modifier = Modifier,
-    onSelectedChanged: (Int, Int) -> Unit
+    onSelectedChanged: (Int) -> Unit
 ) {
     LazyVerticalGrid(
         columns = GridCells.Fixed(13),
@@ -121,27 +119,11 @@ internal fun HandGrid(
             .padding(12.dp)
             .border(width = 1.dp, color = Color.Black)
     ) {
-        items(169) { handId ->
-            val firstRank = 12 - handId % 13
-            val secondRank = 12 - handId / 13
-            val firstRankChar = RANKS[firstRank]
-            val secondRankChar = RANKS[secondRank]
-            val cardRank = if (firstRank == secondRank) {
-                "$firstRankChar$secondRankChar"
-            } else if (firstRank > secondRank) {
-                "$firstRankChar${secondRankChar}o"
-            } else {
-                "$secondRankChar${firstRankChar}s"
-            }
-            val weight = if (firstRank == secondRank) {
-                range.getWeightPair(firstRank)
-            } else if (firstRank > secondRank) {
-                range.getWeightOffsuit(firstRank, secondRank)
-            } else {
-                range.getWeightSuited(firstRank, secondRank)
-            }
+        items(weights.size) { handId ->
+            val weight = weights[handId]
+            val singleton = cardsSingletons[handId]
             val isSelected = weight > 0.0f
-            val unselectedColor = if (firstRank == secondRank) Color.LightGray else Color.Gray
+            val unselectedColor = if (singleton.length == 2) Color.LightGray else Color.Gray
             val cellColor = if (isSelected) Color.Yellow else unselectedColor
             Box(
                 modifier = Modifier
@@ -149,12 +131,12 @@ internal fun HandGrid(
                     .border(width = 1.dp, color = Color.Black)
                     .background(color = cellColor)
                     .aspectRatio(1.0f)
-                    .clickable { onSelectedChanged(firstRank, secondRank) },
+                    .clickable { onSelectedChanged(handId) },
             ) {
                 Text(
                     fontSize = 8.sp,
                     modifier = modifier.align(Alignment.Center),
-                    text = cardRank,
+                    text = singleton,
                     textAlign = TextAlign.Center,
                 )
                 if (weight > 0 && weight < 1) {
@@ -172,18 +154,15 @@ internal fun HandGrid(
 
 @Composable
 internal fun CombinationCounter(
-    range: Range,
     inputRange: String,
     onClear: () -> Unit,
+    combinations: Float,
+    combinationsPercent: Float,
     onRangeUpdated: (String) -> Unit,
     modifier: Modifier = Modifier,
     isInputError: Boolean = false
 ) {
     Row {
-        val combination = range.data.sum()
-        val percent: Float = combination / range.data.size * 100
-        val dec = percent.roundToDecimals(2)
-
         OutlinedTextField(
             value = inputRange,
             onValueChange = { onRangeUpdated(it) },
@@ -192,7 +171,11 @@ internal fun CombinationCounter(
                 .weight(1f),
             supportingText = {
                 Text(
-                    text = stringResource(Res.string.postflop_range_combination, combination, dec),
+                    text = stringResource(
+                        Res.string.postflop_range_combination,
+                        combinations,
+                        combinationsPercent
+                    ),
                     modifier = Modifier.fillMaxWidth(),
                 )
             },
