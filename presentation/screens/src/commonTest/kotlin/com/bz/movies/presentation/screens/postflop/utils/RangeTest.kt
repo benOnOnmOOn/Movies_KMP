@@ -1,4 +1,4 @@
-package com.bz.movies.presentation.screens.postflop
+package com.bz.movies.presentation.screens.postflop.utils
 
 import kotlin.test.Test
 import kotlin.test.assertEquals
@@ -13,7 +13,6 @@ class RangeTest {
         var k = 0
         for (i in 0..51) {
             for (j in (i + 1)..51) {
-                println("k:$k , i:$i , j:$j")
                 assertEquals(actual = cardPairToIndex(i, j), expected = k)
                 assertEquals(actual = cardPairToIndex(j, i), expected = k)
                 assertEquals(actual = indexToCardPair(k), expected = i to j)
@@ -121,14 +120,14 @@ class RangeTest {
     @Test
     fun testRangeToString() {
         val tests = listOf(
-//            "AA,KK" to "KK+",
-//            "KK,QQ" to "KK-QQ",
-//            "66-22,TT+" to "TT+,66-22",
-//            "AA:0.5, KK:1.0, QQ:1.0, JJ:0.5" to "AA:0.5,KK-QQ,JJ:0.5",
-//            "AA,AK,AQ" to "AA,AQ+",
-//            "AK,AQ,AJs" to "AJs+,AQo+",
-//            "KQ,KT,K9,K8,K6,K5" to "KQ,KT-K8,K6-K5",
-//            "AhAs-QhQs,JJ" to "JJ,AsAh,KsKh,QsQh",
+            "AA,KK" to "KK+",
+            "KK,QQ" to "KK-QQ",
+            "66-22,TT+" to "TT+,66-22",
+            "AA:0.5, KK:1.0, QQ:1.0, JJ:0.5" to "AA:0.5,KK-QQ,JJ:0.5",
+            "AA,AK,AQ" to "AA,AQ+",
+            "AK,AQ,AJs" to "AJs+,AQo+",
+            "KQ,KT,K9,K8,K6,K5" to "KQ,KT-K8,K6-K5",
+            "AhAs-QhQs,JJ" to "JJ,AsAh,KsKh,QsQh",
             "KJs+,KQo,KsJh" to "KJs+,KQo,KsJh",
             "KcQh,KJ" to "KJ,KcQh",
         )

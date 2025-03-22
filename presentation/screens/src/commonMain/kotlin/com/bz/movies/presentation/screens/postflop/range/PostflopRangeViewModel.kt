@@ -1,7 +1,15 @@
-package com.bz.movies.presentation.screens.postflop
+package com.bz.movies.presentation.screens.postflop.range
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.bz.movies.presentation.screens.postflop.utils.Range
+import com.bz.movies.presentation.screens.postflop.utils.getWeightOffsuit
+import com.bz.movies.presentation.screens.postflop.utils.getWeightPair
+import com.bz.movies.presentation.screens.postflop.utils.getWeightSuited
+import com.bz.movies.presentation.screens.postflop.utils.setWeightOffsuit
+import com.bz.movies.presentation.screens.postflop.utils.setWeightPair
+import com.bz.movies.presentation.screens.postflop.utils.setWeightSuited
+import com.bz.movies.presentation.screens.postflop.utils.toRange
 import com.bz.movies.presentation.utils.eq
 import com.bz.movies.presentation.utils.roundToDecimals
 import kotlinx.coroutines.channels.Channel

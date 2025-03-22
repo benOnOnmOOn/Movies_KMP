@@ -1,4 +1,6 @@
-package com.bz.movies.presentation.screens.postflop
+package com.bz.movies.presentation.screens.postflop.range
+
+import com.bz.movies.presentation.screens.postflop.utils.Range
 
 internal data class RangeState(
     val range: Range = Range(),
