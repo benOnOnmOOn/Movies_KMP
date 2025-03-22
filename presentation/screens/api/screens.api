@@ -1,12 +1,12 @@
 public final class ComposableSingletons$PostflopMainScreenKt {
 	public static final field INSTANCE LComposableSingletons$PostflopMainScreenKt;
 	public fun <init> ()V
-	public final fun getLambda$-120613083$screens_release ()Lkotlin/jvm/functions/Function3;
-	public final fun getLambda$-1238689280$screens_release ()Lkotlin/jvm/functions/Function3;
-	public final fun getLambda$1058383752$screens_release ()Lkotlin/jvm/functions/Function3;
-	public final fun getLambda$1451382697$screens_release ()Lkotlin/jvm/functions/Function3;
-	public final fun getLambda$272385862$screens_release ()Lkotlin/jvm/functions/Function3;
-	public final fun getLambda$665384807$screens_release ()Lkotlin/jvm/functions/Function3;
+	public final fun getLambda$-142333796$screens_release ()Lkotlin/jvm/functions/Function3;
+	public final fun getLambda$-1653408938$screens_release ()Lkotlin/jvm/functions/Function3;
+	public final fun getLambda$-535332741$screens_release ()Lkotlin/jvm/functions/Function3;
+	public final fun getLambda$1036663039$screens_release ()Lkotlin/jvm/functions/Function3;
+	public final fun getLambda$250665149$screens_release ()Lkotlin/jvm/functions/Function3;
+	public final fun getLambda$643664094$screens_release ()Lkotlin/jvm/functions/Function3;
 }
 
 public final class ComposableSingletons$PostflopRangeScreenKt {

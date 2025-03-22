@@ -3,11 +3,12 @@
   <ManuallySuppressedIssues/>
   <CurrentIssues>
     <ID>ComplexCondition:Range.kt$(sameSuited &amp;&amp; sameOffsuit &amp;&amp; weightSuited != weightOffsuit) || (sameSuited != sameOffsuit &amp;&amp; weightSuited &gt; 0.0f &amp;&amp; weightOffsuit &gt; 0.0f)</ID>
-    <ID>ComplexCondition:Range.kt$i &gt;= 0 &amp;&amp; isSameWeight(getter(rank1, rank2)) &amp;&amp; getAverageWeight( getter(rank1, rank2) ) &gt; 0.0f &amp;&amp; start == null</ID>
-    <ID>ComplexCondition:Range.kt$i &gt;= 0 &amp;&amp; isSameWeight(pairIndices(rank)) &amp;&amp; getWeightPair(rank) &gt; 0.0f &amp;&amp; start == null</ID>
-    <ID>ComplexCondition:Range.kt$start != null &amp;&amp; (i == -1 || !isSameWeight( getter(rank1, rank2) ) || start.second != getAverageWeight(getter(rank1, rank2)))</ID>
-    <ID>ComplexCondition:Range.kt$start != null &amp;&amp; (i == -1 || !isSameWeight(pairIndices(rank)) || start.second != getWeightPair( rank ))</ID>
-    <ID>CyclomaticComplexMethod:Range.kt$private fun Range.highCardsStrings( result: MutableList&lt;String&gt;, rank1: Int, suitedness: Suitedness )</ID>
+    <ID>ComplexCondition:Range.kt$i &gt;= 0 &amp;&amp; isSameWeight &amp;&amp; averageWeight &gt; 0.0f &amp;&amp; start == null</ID>
+    <ID>ComplexCondition:Range.kt$i &gt;= 0 &amp;&amp; isSameWeight &amp;&amp; weightPair &gt; 0.0f &amp;&amp; start == null</ID>
+    <ID>ComplexCondition:Range.kt$start != null &amp;&amp; (i == -1 || !isSameWeight || start.second != averageWeight)</ID>
+    <ID>ComplexCondition:Range.kt$start != null &amp;&amp; (i == -1 || !isSameWeight || start.second != weightPair)</ID>
+    <ID>CyclomaticComplexMethod:Range.kt$private fun Range.pairsStrings(result: MutableList&lt;String&gt;)</ID>
+    <ID>CyclomaticComplexMethod:Range.kt$private inline fun Range.highCardsStrings( result: MutableList&lt;String&gt;, rank1: Int, suitChar: String, getter: (Int, Int) -&gt; List&lt;Int&gt;, )</ID>
     <ID>EmptyDefaultConstructor:PostflopMainViewModel.kt$PostflopMainViewModel$( )</ID>
     <ID>EmptyDefaultConstructor:PostflopRangeViewModel.kt$PostflopRangeViewModel$( )</ID>
     <ID>ForbiddenComment:PostflopMainViewModel.kt$PostflopMainViewModel$// TODO: Add this later</ID>
@@ -42,17 +43,9 @@
     <ID>MagicNumber:Range.kt$Range$51</ID>
     <ID>MagicNumber:Range.kt$Range$52</ID>
     <ID>MagicNumber:Utils.kt$10</ID>
-    <ID>MaxLineLength:Range.kt$*</ID>
     <ID>NestedBlockDepth:Range.kt$private fun Range.suitSpecifiedStrings(result: MutableList&lt;String&gt;)</ID>
-    <ID>NewLineAtEndOfFile:Range.kt$com.bz.movies.presentation.screens.postflop.Range.kt</ID>
-    <ID>NewLineAtEndOfFile:RangeTest.kt$com.bz.movies.presentation.screens.postflop.RangeTest.kt</ID>
-    <ID>NewLineAtEndOfFile:Utils.kt$com.bz.movies.presentation.utils.Utils.kt</ID>
-    <ID>ThrowsCount:Range.kt$private fun parseCompoundSingleton(combo: String): Triple&lt;Int, Int, Suitedness&gt;</ID>
-    <ID>TooManyFunctions:Range.kt$com.bz.movies.presentation.screens.postflop.Range.kt</ID>
+    <ID>TooManyFunctions:Range.kt$com.bz.movies.presentation.screens.postflop.utils.Range.kt</ID>
     <ID>UnusedParameter:PostflopMainViewModel.kt$PostflopMainViewModel$event: MovieEvent</ID>
-    <ID>UseCheckOrError:Range.kt$throw IllegalStateException("A pair with suitedness is not allowed: $combo")</ID>
-    <ID>UseCheckOrError:Range.kt$throw IllegalStateException("Expected compound combo of 2-3 characters, got ${combo.length}: $combo")</ID>
     <ID>UseCheckOrError:Range.kt$throw IllegalStateException("Invalid suitedness: $combo")</ID>
-    <ID>UseCheckOrError:Range.kt$throw IllegalStateException("The first rank must be equal or higher than the second rank: $combo")</ID>
   </CurrentIssues>
 </SmellBaseline>

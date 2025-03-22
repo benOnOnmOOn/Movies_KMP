@@ -19,7 +19,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import com.bz.movies.presentation.screens.postflop.PostflopRangeViewModel
+import com.bz.movies.presentation.screens.postflop.range.PostflopRangeViewModel
 import movies_kmp.presentation.screens.generated.resources.Res
 import movies_kmp.presentation.screens.generated.resources.cards
 import movies_kmp.presentation.screens.generated.resources.postflop_board_title
@@ -30,8 +30,8 @@ import org.koin.compose.viewmodel.koinViewModel
 
 @Composable
 internal fun PostflopBoardScreen(
-    viewmodel: PostflopRangeViewModel = koinViewModel(),
     modifier: Modifier = Modifier,
+    viewmodel: PostflopRangeViewModel = koinViewModel(),
 ) {
 
     val state by viewmodel.state.collectAsStateWithLifecycle()
@@ -46,7 +46,7 @@ internal fun PostflopBoardScreen(
             modifier = modifier.padding(8.dp),
         )
 
-        CardGrid() {}
+        CardGrid {}
     }
 }
 
@@ -58,7 +58,7 @@ internal fun CardGrid(
     val cards = stringArrayResource(Res.array.cards)
     LazyHorizontalGrid(
         rows = GridCells.Fixed(4),
-        modifier = modifier
+        modifier = Modifier
             .aspectRatio(1.0f)
             .padding(12.dp)
             .border(width = 1.dp, color = Color.Black)
@@ -75,7 +75,7 @@ internal fun CardGrid(
             Text(
                 fontSize = 64.sp,
                 color = cellColor,
-                modifier = modifier
+                modifier = Modifier
                     .wrapContentSize()
                     .padding(2.dp)
                     .border(width = 2.dp, color = Color.Black, shape = RoundedCornerShape(15))

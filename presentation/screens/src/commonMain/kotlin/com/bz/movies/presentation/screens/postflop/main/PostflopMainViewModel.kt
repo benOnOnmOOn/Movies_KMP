@@ -1,4 +1,4 @@
-package com.bz.movies.presentation.screens.postflop
+package com.bz.movies.presentation.screens.postflop.main
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
