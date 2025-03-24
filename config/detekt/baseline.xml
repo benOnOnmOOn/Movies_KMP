@@ -21,10 +21,11 @@
     <ID>MagicNumber:PostflopBoardScreen.kt$4</ID>
     <ID>MagicNumber:PostflopBoardScreen.kt$52</ID>
     <ID>MagicNumber:PostflopRangeScreen.kt$100</ID>
-    <ID>MagicNumber:PostflopRangeScreen.kt$12</ID>
     <ID>MagicNumber:PostflopRangeScreen.kt$13</ID>
-    <ID>MagicNumber:PostflopRangeScreen.kt$169</ID>
     <ID>MagicNumber:PostflopRangeViewModel.kt$PostflopRangeViewModel$0.01f</ID>
+    <ID>MagicNumber:PostflopRangeViewModel.kt$PostflopRangeViewModel$100</ID>
+    <ID>MagicNumber:PostflopRangeViewModel.kt$PostflopRangeViewModel$12</ID>
+    <ID>MagicNumber:PostflopRangeViewModel.kt$PostflopRangeViewModel$13</ID>
     <ID>MagicNumber:Range.kt$10</ID>
     <ID>MagicNumber:Range.kt$101</ID>
     <ID>MagicNumber:Range.kt$103</ID>
@@ -42,6 +43,8 @@
     <ID>MagicNumber:Range.kt$9</ID>
     <ID>MagicNumber:Range.kt$Range$51</ID>
     <ID>MagicNumber:Range.kt$Range$52</ID>
+    <ID>MagicNumber:RangeState.kt$12</ID>
+    <ID>MagicNumber:RangeState.kt$13</ID>
     <ID>MagicNumber:Utils.kt$10</ID>
     <ID>NestedBlockDepth:Range.kt$private fun Range.suitSpecifiedStrings(result: MutableList&lt;String&gt;)</ID>
     <ID>TooManyFunctions:Range.kt$com.bz.movies.presentation.screens.postflop.utils.Range.kt</ID>

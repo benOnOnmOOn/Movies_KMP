@@ -34,6 +34,13 @@ internal class PostflopRangeViewModel(
     private val _effect: Channel<RangeEffect> = Channel()
     val effect = _effect.receiveAsFlow()
 
+    /**
+     * Combinations range for all possible card combination.
+     * We are displaying only card singletons data,
+     * and reuse all of this data when updating any weight in range
+     */
+    private var range: Range = Range()
+
     init {
         handleEvent()
     }
@@ -59,9 +66,8 @@ internal class PostflopRangeViewModel(
                 }
                 runCatching { event.range.toRange() }
                     .onSuccess {
-                        _state.update {
-                            _state.value.copy(range = event.range.toRange(), inputError = false)
-                        }
+                        range = it
+                        updateRangeState()
                     }
                     .onFailure {
                         _state.update {
@@ -73,46 +79,48 @@ internal class PostflopRangeViewModel(
 
             is RangeEditEvent.OnWeightUpdated -> {
                 _state.update {
-                    _state.value.copy(weight = event.weight.coerceIn(0.0f, 1.0f).roundToDecimals(2))
+                    _state.value.copy(
+                        inputWeight = event.weight.coerceIn(0.0f, 1.0f).roundToDecimals(2)
+                    )
                 }
             }
         }
     }
 
-    private fun onCardClicked(event: RangeEditEvent.OnCardClicked) {
-        val firstRank = event.firstRank
-        val secondRank = event.secondRank
-        val newRange = Range(state.value.range.data.copyOf())
-        val weight = state.value.weight
-        if (firstRank == secondRank) {
-            val currentWeight = state.value.range.getWeightPair(firstRank)
-            if (currentWeight.eq(weight, 0.01f)) {
-                newRange.setWeightPair(firstRank, 0.0f)
-            } else {
-                newRange.setWeightPair(firstRank, weight)
-            }
-        } else if (firstRank > secondRank) {
-            val currentWeight = state.value.range.getWeightOffsuit(firstRank, secondRank)
-            if (currentWeight.eq(weight, 0.01f)) {
-                newRange.setWeightOffsuit(firstRank, secondRank, 0.0f)
-            } else {
-                newRange.setWeightOffsuit(firstRank, secondRank, weight)
-            }
-        } else {
-            val currentWeight = state.value.range.getWeightSuited(firstRank, secondRank)
-            if (currentWeight.eq(weight, 0.01f)) {
-                newRange.setWeightSuited(firstRank, secondRank, 0.0f)
-            } else {
-                newRange.setWeightSuited(firstRank, secondRank, weight)
-            }
-        }
+    fun updateRangeState() {
+        val combination = range.data.sum()
+        val percent: Float = combination / range.data.size * 100
+        val dec = percent.roundToDecimals(2)
 
         _state.update {
             _state.value.copy(
-                range = newRange,
-                inputRange = newRange.toString(),
+                weights = range.toUiWeight(),
+                combinations = combination,
+                compinationPercent = dec,
+                inputRange = range.toString(),
                 inputError = false
             )
         }
+    }
+
+    private fun onCardClicked(event: RangeEditEvent.OnCardClicked) {
+        val firstRank = 12 - event.handId % 13
+        val secondRank = 12 - event.handId / 13
+        val weight = state.value.inputWeight
+        if (firstRank == secondRank) {
+            val currentWeight = range.getWeightPair(firstRank)
+            val newWeight = if (currentWeight.eq(weight, 0.01f)) 0.0f else weight
+            range.setWeightPair(firstRank, newWeight)
+        } else if (firstRank > secondRank) {
+            val currentWeight = range.getWeightOffsuit(firstRank, secondRank)
+            val newWeight = if (currentWeight.eq(weight, 0.01f)) 0.0f else weight
+            range.setWeightOffsuit(firstRank, secondRank, newWeight)
+        } else {
+            val currentWeight = range.getWeightSuited(firstRank, secondRank)
+            val newWeight = if (currentWeight.eq(weight, 0.01f)) 0.0f else weight
+            range.setWeightSuited(firstRank, secondRank, newWeight)
+        }
+
+        updateRangeState()
     }
 }
