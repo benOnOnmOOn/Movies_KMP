@@ -129,14 +129,14 @@ internal fun HandGrid(
             ) {
                 Text(
                     fontSize = 8.sp,
-                    modifier = modifier.align(Alignment.Center),
+                    modifier = Modifier.align(Alignment.Center),
                     text = singleton,
                     textAlign = TextAlign.Center,
                 )
                 if (weight > 0 && weight < 1) {
                     Text(
                         fontSize = 4.sp,
-                        modifier = modifier.align(Alignment.BottomStart).wrapContentSize(),
+                        modifier = Modifier.align(Alignment.BottomStart).wrapContentSize(),
                         text = weight.roundToDecimals(1).toString(),
                         textAlign = TextAlign.Center,
                     )
@@ -218,7 +218,7 @@ internal fun HandSlider(
             suffix = {
                 Text(
                     text = "%",
-                    modifier = modifier.wrapContentWidth(Alignment.End)
+                    modifier = Modifier.wrapContentWidth(Alignment.End)
                 )
             }
         )

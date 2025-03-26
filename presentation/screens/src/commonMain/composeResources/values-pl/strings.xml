@@ -22,7 +22,21 @@
     <string name="postflop_screen_range_editor">Edycja zakresów</string>
     <string name="postflop_screen_ip_range">IP zakres</string>
     <string name="postflop_screen_oop_range">OOP zakres</string>
+
     <string name="postflop_screen_tree_config">Konfiguracja drzewa gry</string>
+    <string name="postflop_screen_tree_starting_pot">Pula początkowa</string>
+    <string name="postflop_screen_tree_effective_stack">Efektywny stack</string>
+    <string name="postflop_screen_tree_rake">Opłata</string>
+    <string name="postflop_screen_tree_rake_cap">Limit opłaty</string>
+    <string name="postflop_screen_tree_OOP_bet_sizes">Rozmiary zakładów gracza bez pozycji</string>
+    <string name="postflop_screen_tree_OOP_donk_size">Inny rozmiar donk betów</string>
+    <string name="postflop_screen_tree_IP_bet_sizes">Rozmiary zakładów gracza z pozycją</string>
+    <string name="postflop_screen_how_to_input">Jak wprowadzić dane</string>
+    <string name="postflop_screen_tree_add_all_in_threshold">Dodaj próg dla all-in</string>
+    <string name="postflop_screen_tree_force_all_in_threshold">Wymuś próg dla all-i</string>
+    <string name="postflop_screen_tree_merging_threshold">Próg mergowania zakładów</string>
+    <string name="postflop_screen_tree_preview">Podgląd i edycja drzewa</string>
+
     <string name="postflop_screen_board">Karty z flopa</string>
     <string name="postflop_screen_run_solver">uruchom solvera</string>
     <string name="postflop_screen_solver_is_running">Solver działa</string>
@@ -36,4 +50,22 @@
     <string name="postflop_tree_configuration_title">Konfiguracja drzewa</string>
 
     <!--  Post flop action  -->
+
+    <!-- Common postflop texts-->
+    <string name="postflop_screen_flop">Flop</string>
+    <string name="postflop_screen_turn">Turn</string>
+    <string name="postflop_screen_river">River</string>
+    <string name="postflop_screen_bet">Zakład</string>
+    <string name="postflop_screen_raise">Podbicie</string>
+    <string name="postflop_screen_percent">%</string>
+
+    <string name="postflop_screen_load">Wczytaj</string>
+    <string name="postflop_screen_save">Zapisz</string>
+    <string name="postflop_screen_rename">Zmień nazwę</string>
+    <string name="postflop_screen_add_group">Dodaj grupe</string>
+    <string name="postflop_screen_delete">Usuń</string>
+    <string name="postflop_screen_import_json">Wczytaj z pliku</string>
+    <string name="postflop_screen_export_json">Zapisz do pliku</string>
+    <!-- Common postflop texts-->
+
 </resources>

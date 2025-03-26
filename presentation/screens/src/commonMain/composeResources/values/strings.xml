@@ -21,7 +21,21 @@
     <string name="postflop_screen_range_editor">Range editor</string>
     <string name="postflop_screen_ip_range">IP range</string>
     <string name="postflop_screen_oop_range">OOP Range</string>
+
     <string name="postflop_screen_tree_config">Tree configuration</string>
+    <string name="postflop_screen_tree_starting_pot">Starting pot</string>
+    <string name="postflop_screen_tree_effective_stack">Effective stack</string>
+    <string name="postflop_screen_tree_rake">Rake</string>
+    <string name="postflop_screen_tree_rake_cap">Rake cap</string>
+    <string name="postflop_screen_tree_OOP_bet_sizes">OOP bet sizes</string>
+    <string name="postflop_screen_tree_OOP_donk_size">Use different sizes for donk bets</string>
+    <string name="postflop_screen_tree_IP_bet_sizes">IP bet sizes</string>
+    <string name="postflop_screen_how_to_input">How to input</string>
+    <string name="postflop_screen_tree_add_all_in_threshold">Add all-in threshold</string>
+    <string name="postflop_screen_tree_force_all_in_threshold">Force all-in threshold</string>
+    <string name="postflop_screen_tree_merging_threshold">Merging threshold</string>
+    <string name="postflop_screen_tree_preview">Preview &amp; Edit Tree</string>
+
     <string name="postflop_screen_board">Board</string>
     <string name="postflop_screen_run_solver">Run solver</string>
     <string name="postflop_screen_solver_is_running">Solver is running</string>
@@ -33,6 +47,24 @@
     <string name="postflop_range_slider_percent">%1$s</string>
     <string name="postflop_board_title">Board</string>
     <string name="postflop_tree_configuration_title">Tree configuration</string>
+
+    <!-- Common postflop texts-->
+    <string name="postflop_screen_flop">Flop</string>
+    <string name="postflop_screen_turn">Turn</string>
+    <string name="postflop_screen_river">River</string>
+    <string name="postflop_screen_bet">Bet</string>
+    <string name="postflop_screen_raise">Raise</string>
+    <string name="postflop_screen_percent">%</string>
+
+    <string name="postflop_screen_load">Load</string>
+    <string name="postflop_screen_save">Save</string>
+    <string name="postflop_screen_rename">Rename</string>
+    <string name="postflop_screen_add_group">Add Group</string>
+    <string name="postflop_screen_delete">Delete</string>
+    <string name="postflop_screen_import_json">Import file</string>
+    <string name="postflop_screen_export_json">Export file</string>
+    <!-- Common postflop texts-->
+
     <string-array name="cards" translatable="false">
         <item>🂢</item>
         <item>🂣</item>
