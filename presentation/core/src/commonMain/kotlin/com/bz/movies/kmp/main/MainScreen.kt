@@ -10,6 +10,7 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.compose.rememberNavController
 import com.bz.movies.presentation.navigation.BottomNavigationBar
 import com.bz.movies.presentation.navigation.MoviesNavHost
+import com.bz.movies.presentation.navigation.TopNavigationBar
 import com.bz.movies.presentation.theme.MoviesTheme
 import org.koin.compose.KoinContext
 
@@ -23,6 +24,9 @@ internal fun MainScreen() {
                 bottomBar = {
                     BottomNavigationBar(navController = navController)
                 },
+                topBar = {
+                    TopNavigationBar(navController = navController)
+                }
             ) {
                 Surface(
                     modifier = Modifier.fillMaxSize().padding(it),

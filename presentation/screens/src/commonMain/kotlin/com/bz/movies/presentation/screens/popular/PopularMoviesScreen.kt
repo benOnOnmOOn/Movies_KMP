@@ -1,14 +1,12 @@
 package com.bz.movies.presentation.screens.popular
 
 import androidx.compose.foundation.layout.Column
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import androidx.navigation.NavHostController
 import co.touchlab.kermit.Logger
 import com.bz.movies.presentation.screens.common.ErrorDialog
 import com.bz.movies.presentation.screens.common.MovieEffect
@@ -17,9 +15,6 @@ import com.bz.movies.presentation.screens.common.MoviesContentWithPullToRefresh
 import com.bz.movies.presentation.screens.common.MoviesState
 import com.bz.movies.presentation.screens.common.NoInternetDialog
 import com.bz.movies.presentation.utils.collectInLaunchedEffectWithLifecycle
-import movies_kmp.presentation.screens.generated.resources.Res
-import movies_kmp.presentation.screens.generated.resources.popular_now_screen_title
-import org.jetbrains.compose.resources.stringResource
 import org.koin.compose.viewmodel.koinViewModel
 
 @Composable
@@ -65,8 +60,6 @@ internal fun PopularMoviesScreen(
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
-        Text(text = stringResource(Res.string.popular_now_screen_title))
-
         MoviesContentWithPullToRefresh(
             playingNowState = state,
             refresh = { sendEvent(MovieEvent.Refresh) },

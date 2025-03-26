@@ -16,7 +16,6 @@ import movies_kmp.presentation.screens.generated.resources.postflop_screen_ip_ra
 import movies_kmp.presentation.screens.generated.resources.postflop_screen_oop_range
 import movies_kmp.presentation.screens.generated.resources.postflop_screen_range_editor
 import movies_kmp.presentation.screens.generated.resources.postflop_screen_show_result
-import movies_kmp.presentation.screens.generated.resources.postflop_screen_title
 import movies_kmp.presentation.screens.generated.resources.postflop_screen_tree_config
 import org.jetbrains.compose.resources.stringResource
 import org.koin.compose.viewmodel.koinViewModel
@@ -33,10 +32,6 @@ internal fun PostflopMainScreen(
             .fillMaxHeight()
             .verticalScroll(rememberScrollState())
     ) {
-        Text(
-            text = stringResource(Res.string.postflop_screen_title),
-            modifier = Modifier.padding(8.dp),
-        )
         Button(
             modifier = Modifier.padding(8.dp),
             onClick = { goToScreenEditor(RootRoute.PostflopRange) }) {

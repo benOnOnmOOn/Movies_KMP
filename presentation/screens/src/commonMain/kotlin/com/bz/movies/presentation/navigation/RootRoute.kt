@@ -27,7 +27,7 @@ internal enum class RootRoute(val route: String, val isNavigationBarVisible : Bo
 
 internal fun NavController.navigateToRootRoute(rootRoute: RootRoute) {
     navigate(rootRoute.route) {
-        popUpTo(graph.findStartDestination().route!!) {
+        popUpTo(requireNotNull(graph.findStartDestination().route)) {
             saveState = true
         }
 
