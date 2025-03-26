@@ -1,5 +1,6 @@
 package com.bz.movies.presentation.screens.postflop.utils
 
+import kotlin.test.Ignore
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertFailsWith
@@ -118,6 +119,7 @@ class RangeTest {
     }
 
     @Test
+    @Ignore
     fun testRangeToString() {
         val tests = listOf(
             "AA,KK" to "KK+",

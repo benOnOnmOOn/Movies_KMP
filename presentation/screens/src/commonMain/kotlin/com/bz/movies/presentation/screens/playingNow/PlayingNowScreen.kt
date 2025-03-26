@@ -1,7 +1,6 @@
 package com.bz.movies.presentation.screens.playingNow
 
 import androidx.compose.foundation.layout.Column
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -15,9 +14,6 @@ import com.bz.movies.presentation.screens.common.MoviesContentWithPullToRefresh
 import com.bz.movies.presentation.screens.common.MoviesState
 import com.bz.movies.presentation.screens.common.NoInternetDialog
 import com.bz.movies.presentation.utils.collectInLaunchedEffectWithLifecycle
-import movies_kmp.presentation.screens.generated.resources.Res
-import movies_kmp.presentation.screens.generated.resources.playing_now_screen_title
-import org.jetbrains.compose.resources.stringResource
 import org.koin.compose.viewmodel.koinViewModel
 
 @Composable
@@ -54,8 +50,6 @@ internal fun PlayingNowScreen(
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
-        Text(text = stringResource(Res.string.playing_now_screen_title))
-
         MoviesContentWithPullToRefresh(
             playingNowState = state,
             refresh = { sendEvent(MovieEvent.Refresh) },

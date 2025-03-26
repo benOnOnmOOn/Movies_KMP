@@ -42,7 +42,6 @@ import com.bz.movies.presentation.utils.roundToDecimals
 import movies_kmp.presentation.screens.generated.resources.Res
 import movies_kmp.presentation.screens.generated.resources.postflop_range_clear
 import movies_kmp.presentation.screens.generated.resources.postflop_range_combination
-import movies_kmp.presentation.screens.generated.resources.postflop_range_screen_title
 import movies_kmp.presentation.screens.generated.resources.postflop_range_slider_percent
 import movies_kmp.presentation.screens.generated.resources.postflop_range_slider_weight
 import org.jetbrains.compose.resources.stringResource
@@ -68,11 +67,6 @@ internal fun PostflopRangeScreen(
             .fillMaxHeight()
             .verticalScroll(rememberScrollState())
     ) {
-        Text(
-            text = stringResource(Res.string.postflop_range_screen_title),
-            modifier = modifier.padding(8.dp),
-        )
-
         HandGrid(
             weights = state.weights,
             cardsSingletons = state.cardsSingleton,

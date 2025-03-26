@@ -22,9 +22,7 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.bz.movies.presentation.screens.postflop.range.PostflopRangeViewModel
 import movies_kmp.presentation.screens.generated.resources.Res
 import movies_kmp.presentation.screens.generated.resources.cards
-import movies_kmp.presentation.screens.generated.resources.postflop_board_title
 import org.jetbrains.compose.resources.stringArrayResource
-import org.jetbrains.compose.resources.stringResource
 import org.koin.compose.viewmodel.koinViewModel
 
 
@@ -41,11 +39,6 @@ internal fun PostflopBoardScreen(
             .fillMaxHeight()
             .verticalScroll(rememberScrollState())
     ) {
-        Text(
-            text = stringResource(Res.string.postflop_board_title),
-            modifier = modifier.padding(8.dp),
-        )
-
         CardGrid {}
     }
 }
