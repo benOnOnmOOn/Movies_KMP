@@ -26,7 +26,7 @@ internal fun MainScreen() {
                 },
                 topBar = {
                     TopNavigationBar(navController = navController)
-                }
+                },
             ) {
                 Surface(
                     modifier = Modifier.fillMaxSize().padding(it),

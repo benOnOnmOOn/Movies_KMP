@@ -39,7 +39,8 @@ public final class com/bz/movies/presentation/navigation/MoviesNavHostKt {
 }
 
 public final class com/bz/movies/presentation/navigation/NavigationComponentsKt {
-	public static final fun BottomNavigationBar (Landroidx/navigation/NavController;Landroidx/compose/runtime/Composer;I)V
+	public static final fun BottomNavigationBar (Landroidx/navigation/NavController;Landroidx/compose/ui/Modifier;Landroidx/compose/runtime/Composer;II)V
+	public static final fun TopNavigationBar (Landroidx/navigation/NavController;Landroidx/compose/ui/Modifier;Landroidx/compose/runtime/Composer;II)V
 }
 
 public final class com/bz/movies/presentation/screens/common/ComposableSingletons$ErrorDialogKt {
