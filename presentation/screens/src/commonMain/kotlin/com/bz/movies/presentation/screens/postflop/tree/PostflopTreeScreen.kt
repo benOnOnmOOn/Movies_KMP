@@ -163,7 +163,7 @@ private fun StackAndRakeConfig(
             label = {
                 Text(text = stringResource(Res.string.postflop_screen_tree_rake_cap))
             },
-            onValueChange = { viewmodel.sendEvent(TreeEditEvent.OnRangeUpdated(it)) },
+            onValueChange = { sendTreeEvent(TreeEditEvent.OnRangeUpdated(it)) },
             modifier = Modifier.padding(2.dp).weight(1.0f),
             maxLines = 1,
             keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Decimal),
