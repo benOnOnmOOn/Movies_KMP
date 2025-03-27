@@ -37,6 +37,8 @@ dependencies {
     testImplementation(libs.junit.jupiter.api)
     testImplementation(libs.mockk)
     testRuntimeOnly(libs.junit.jupiter.engine)
+    //noinspection UseTomlInstead
+    testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 
     debugRuntimeOnly(libs.androidx.compose.ui.test.manifest)
     debugRuntimeOnly(libs.androidx.compose.ui.tooling.android)

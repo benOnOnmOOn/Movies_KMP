@@ -52,6 +52,8 @@ dependencies {
     testImplementation(libs.junit.jupiter.api)
     testImplementation(libs.mockk)
     testRuntimeOnly(libs.junit.jupiter.engine)
+    //noinspection UseTomlInstead
+    testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 
     compileOnly(libs.firebase.google.services)
 
