@@ -12,7 +12,21 @@ public final class ComposableSingletons$PostflopMainScreenKt {
 public final class ComposableSingletons$PostflopRangeScreenKt {
 	public static final field INSTANCE LComposableSingletons$PostflopRangeScreenKt;
 	public fun <init> ()V
+	public final fun getLambda$-1896107580$screens_release ()Lkotlin/jvm/functions/Function2;
 	public final fun getLambda$360278094$screens_release ()Lkotlin/jvm/functions/Function3;
+}
+
+public final class ComposableSingletons$PostflopTreeScreenKt {
+	public static final field INSTANCE LComposableSingletons$PostflopTreeScreenKt;
+	public fun <init> ()V
+	public final fun getLambda$-1033267657$screens_release ()Lkotlin/jvm/functions/Function2;
+	public final fun getLambda$-1215000906$screens_release ()Lkotlin/jvm/functions/Function2;
+	public final fun getLambda$-1423711553$screens_release ()Lkotlin/jvm/functions/Function2;
+	public final fun getLambda$-1532582616$screens_release ()Lkotlin/jvm/functions/Function2;
+	public final fun getLambda$-1607291099$screens_release ()Lkotlin/jvm/functions/Function2;
+	public final fun getLambda$-851534408$screens_release ()Lkotlin/jvm/functions/Function2;
+	public final fun getLambda$1682083542$screens_release ()Lkotlin/jvm/functions/Function2;
+	public final fun getLambda$282448191$screens_release ()Lkotlin/jvm/functions/Function2;
 }
 
 public final class com/bz/movies/presentation/di/PresentationModuleKt {
