@@ -14,21 +14,28 @@ internal data class TreeState(
 )
 
 internal data class BetSize(
-    val berFlop: List<Int> = emptyList(),
+    val betFlop: List<Int> = emptyList(),
     val betTurn: List<Int> = emptyList(),
     val betRiver: List<Int> = emptyList(),
+    val raiseFlop: List<Int> = emptyList(),
+    val raiseTurn: List<Int> = emptyList(),
+    val raiseRiver: List<Int> = emptyList(),
     val donkTurn: List<Int> = emptyList(),
     val donkRiver: List<Int> = emptyList(),
 )
 
 internal sealed class TreeEditEvent {
-    data class OnStartingPotUpdated(val startingPot: Int) : TreeEditEvent()
+    data class StartingPotUpdated(val startingPot: String) : TreeEditEvent()
+    data class EffectiveStackUpdated(val effectiveStack: String) : TreeEditEvent()
 
-    data class OnDonksEnabled(val isEnabled: Boolean) : TreeEditEvent()
+    data class RakeUpdated(val rake: String) : TreeEditEvent()
 
-    data class OnRangeUpdated(val range: String) : TreeEditEvent()
+    data class RakeCapUpdated(val rakeCap: String) : TreeEditEvent()
 
-    data class OnWeightUpdated(val weight: Float) : TreeEditEvent()
+    data class DonksSwitched(val isEnabled: Boolean) : TreeEditEvent()
+    data class AddAllInThresholdUpdated(val value: String) : TreeEditEvent()
+    data class ForceAllInThresholdUpdated(val value: String) : TreeEditEvent()
+    data class MergingThresholdUpdated(val value: String) : TreeEditEvent()
 
     data object Clear : TreeEditEvent()
 }

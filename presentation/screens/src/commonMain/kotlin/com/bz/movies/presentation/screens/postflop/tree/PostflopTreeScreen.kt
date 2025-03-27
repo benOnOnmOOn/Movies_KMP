@@ -3,8 +3,7 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.width
-import androidx.compose.foundation.layout.wrapContentWidth
+import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.verticalScroll
@@ -20,17 +19,28 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import com.bz.movies.presentation.components.PercentSuffix
+import com.bz.movies.presentation.screens.postflop.tree.BetSize
 import com.bz.movies.presentation.screens.postflop.tree.PostflopTreViewModel
 import com.bz.movies.presentation.screens.postflop.tree.TreeEditEvent
 import com.bz.movies.presentation.screens.postflop.tree.TreeState
 import com.bz.movies.presentation.utils.roundToDecimals
 import movies_kmp.presentation.screens.generated.resources.Res
+import movies_kmp.presentation.screens.generated.resources.postflop_screen_bet
+import movies_kmp.presentation.screens.generated.resources.postflop_screen_flop
+import movies_kmp.presentation.screens.generated.resources.postflop_screen_raise
+import movies_kmp.presentation.screens.generated.resources.postflop_screen_river
+import movies_kmp.presentation.screens.generated.resources.postflop_screen_tree_IP_bet_sizes
 import movies_kmp.presentation.screens.generated.resources.postflop_screen_tree_OOP_bet_sizes
 import movies_kmp.presentation.screens.generated.resources.postflop_screen_tree_OOP_donk_size
+import movies_kmp.presentation.screens.generated.resources.postflop_screen_tree_add_all_in_threshold
 import movies_kmp.presentation.screens.generated.resources.postflop_screen_tree_effective_stack
+import movies_kmp.presentation.screens.generated.resources.postflop_screen_tree_force_all_in_threshold
+import movies_kmp.presentation.screens.generated.resources.postflop_screen_tree_merging_threshold
 import movies_kmp.presentation.screens.generated.resources.postflop_screen_tree_rake
 import movies_kmp.presentation.screens.generated.resources.postflop_screen_tree_rake_cap
 import movies_kmp.presentation.screens.generated.resources.postflop_screen_tree_starting_pot
+import movies_kmp.presentation.screens.generated.resources.postflop_screen_turn
 import org.jetbrains.compose.resources.stringResource
 import org.koin.compose.viewmodel.koinViewModel
 
@@ -68,43 +78,54 @@ internal fun PostflopTreeConfigurationScreen(
             )
             Checkbox(
                 checked = state.isDonksEnabled,
-                onCheckedChange = { viewmodel.sendEvent(TreeEditEvent.OnDonksEnabled(it)) }
+                onCheckedChange = { viewmodel.sendEvent(TreeEditEvent.DonksSwitched(it)) }
             )
         }
 
-        Row(
-            modifier = Modifier.padding(8.dp).fillMaxWidth(),
-            verticalAlignment = Alignment.CenterVertically
-        ) {
+        BoardOOP(state = state, sendTreeEvent = viewmodel::sendEvent)
 
-            OutlinedTextField(
-                value = state.rake.roundToDecimals(2).toString(),
-                label = {
-                    Text(text = stringResource(Res.string.postflop_screen_tree_rake))
-                },
-                onValueChange = { viewmodel.sendEvent(TreeEditEvent.OnRangeUpdated(it)) },
-                modifier = Modifier.padding(2.dp).width(96.dp),
-                maxLines = 1,
-                keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Decimal),
-                suffix = {
-                    Text(
-                        text = "%",
-                        modifier = Modifier.wrapContentWidth(Alignment.End)
-                    )
-                }
-            )
+        Text(
+            style = MaterialTheme.typography.titleMedium,
+            modifier = Modifier.align(Alignment.Start).padding(vertical = 16.dp),
+            text = stringResource(Res.string.postflop_screen_tree_IP_bet_sizes),
+            textAlign = TextAlign.Center,
+        )
 
-            OutlinedTextField(
-                value = state.rakeCap.toString(),
-                label = {
-                    Text(text = stringResource(Res.string.postflop_screen_tree_rake_cap))
-                },
-                onValueChange = { viewmodel.sendEvent(TreeEditEvent.OnRangeUpdated(it)) },
-                modifier = Modifier.padding(2.dp).width(96.dp),
-                maxLines = 1,
-                keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Decimal),
-            )
-        }
+        BoardIP(state = state, sendTreeEvent = viewmodel::sendEvent)
+
+
+        OutlinedTextField(
+            value = state.startingPot.toString(),
+            label = {
+                Text(text = stringResource(Res.string.postflop_screen_tree_add_all_in_threshold))
+            },
+            onValueChange = { viewmodel.sendEvent(TreeEditEvent.AddAllInThresholdUpdated(it)) },
+            modifier = Modifier.padding(2.dp).wrapContentHeight(),
+            maxLines = 1,
+            keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Decimal),
+        )
+
+        OutlinedTextField(
+            value = state.startingPot.toString(),
+            label = {
+                Text(text = stringResource(Res.string.postflop_screen_tree_force_all_in_threshold))
+            },
+            onValueChange = { viewmodel.sendEvent(TreeEditEvent.ForceAllInThresholdUpdated(it)) },
+            modifier = Modifier.padding(2.dp).wrapContentHeight(),
+            maxLines = 1,
+            keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Decimal),
+        )
+
+        OutlinedTextField(
+            value = state.startingPot.toString(),
+            label = {
+                Text(text = stringResource(Res.string.postflop_screen_tree_merging_threshold))
+            },
+            onValueChange = { viewmodel.sendEvent(TreeEditEvent.MergingThresholdUpdated(it)) },
+            modifier = Modifier.padding(2.dp).wrapContentHeight(),
+            maxLines = 1,
+            keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Decimal),
+        )
 
     }
 }
@@ -124,7 +145,7 @@ private fun StackAndRakeConfig(
             label = {
                 Text(text = stringResource(Res.string.postflop_screen_tree_starting_pot))
             },
-            onValueChange = { sendTreeEvent(TreeEditEvent.OnRangeUpdated(it)) },
+            onValueChange = { sendTreeEvent(TreeEditEvent.StartingPotUpdated(it)) },
             modifier = Modifier.padding(2.dp).weight(1.0f),
             maxLines = 1,
             keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Decimal),
@@ -135,7 +156,7 @@ private fun StackAndRakeConfig(
             label = {
                 Text(text = stringResource(Res.string.postflop_screen_tree_effective_stack))
             },
-            onValueChange = { sendTreeEvent(TreeEditEvent.OnRangeUpdated(it)) },
+            onValueChange = { sendTreeEvent(TreeEditEvent.EffectiveStackUpdated(it)) },
             modifier = Modifier.padding(2.dp).weight(1.0f),
             maxLines = 1,
             keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Decimal),
@@ -146,16 +167,11 @@ private fun StackAndRakeConfig(
             label = {
                 Text(text = stringResource(Res.string.postflop_screen_tree_rake))
             },
-            onValueChange = { sendTreeEvent(TreeEditEvent.OnRangeUpdated(it)) },
+            onValueChange = { sendTreeEvent(TreeEditEvent.RakeUpdated(it)) },
             modifier = Modifier.padding(2.dp).weight(1.0f),
             maxLines = 1,
             keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Decimal),
-            suffix = {
-                Text(
-                    text = "%",
-                    modifier = Modifier.wrapContentWidth(Alignment.End)
-                )
-            }
+            suffix = { PercentSuffix() }
         )
 
         OutlinedTextField(
@@ -163,7 +179,7 @@ private fun StackAndRakeConfig(
             label = {
                 Text(text = stringResource(Res.string.postflop_screen_tree_rake_cap))
             },
-            onValueChange = { sendTreeEvent(TreeEditEvent.OnRangeUpdated(it)) },
+            onValueChange = { sendTreeEvent(TreeEditEvent.RakeCapUpdated(it)) },
             modifier = Modifier.padding(2.dp).weight(1.0f),
             maxLines = 1,
             keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Decimal),
@@ -171,3 +187,127 @@ private fun StackAndRakeConfig(
     }
 }
 
+@Composable
+private fun BoardOOP(
+    state: TreeState,
+    sendTreeEvent: (TreeEditEvent) -> Unit,
+) {
+    Board(
+        sendTreeEvent = sendTreeEvent,
+        betSize = state.oopBetSize,
+        isDonksEnabled = state.isDonksEnabled
+    )
+}
+
+@Composable
+private fun BoardIP(
+    state: TreeState,
+    sendTreeEvent: (TreeEditEvent) -> Unit,
+) {
+    Board(
+        sendTreeEvent = sendTreeEvent,
+        betSize = state.ipBetSize,
+        isDonksEnabled = false
+    )
+}
+
+@Composable
+private fun Board(
+//    state: TreeState,
+    sendTreeEvent: (TreeEditEvent) -> Unit,
+    betSize: BetSize,
+    isDonksEnabled: Boolean,
+) {
+    Row(
+        modifier = Modifier.padding(8.dp).fillMaxWidth(),
+        verticalAlignment = Alignment.CenterVertically
+    ) {
+        Street(
+            onBetUpdated = {},
+            onRaiseUpdated = {},
+            onDonkUpdated = {},
+            bet = betSize.betFlop.joinToString(),
+            raise = betSize.raiseFlop.joinToString(),
+            streetName = stringResource(Res.string.postflop_screen_flop),
+            modifier = Modifier.weight(1.0f),
+            donk = null
+        )
+        Street(
+            onBetUpdated = {},
+            onRaiseUpdated = {},
+            onDonkUpdated = {},
+            bet = betSize.betTurn.joinToString(),
+            raise = betSize.raiseTurn.joinToString(),
+            streetName = stringResource(Res.string.postflop_screen_turn),
+            modifier = Modifier.weight(1.0f),
+            donk = if (isDonksEnabled) betSize.donkTurn.joinToString() else null
+        )
+        Street(
+            onBetUpdated = {},
+            onRaiseUpdated = {},
+            onDonkUpdated = {},
+            bet = betSize.betRiver.joinToString(),
+            raise = betSize.raiseRiver.joinToString(),
+            streetName = stringResource(Res.string.postflop_screen_river),
+            modifier = Modifier.weight(1.0f),
+            donk = if (isDonksEnabled) betSize.donkRiver.joinToString() else null
+        )
+    }
+}
+
+@Composable
+private fun Street(
+    onBetUpdated: (String) -> Unit,
+    onRaiseUpdated: (String) -> Unit,
+    onDonkUpdated: (String) -> Unit,
+    bet: String,
+    raise: String,
+    donk: String?,
+    streetName: String,
+    modifier: Modifier = Modifier
+) {
+    Column(
+        modifier = modifier
+            .wrapContentHeight()
+            .padding(4.dp)
+    ) {
+        Text(
+            style = MaterialTheme.typography.titleSmall,
+            modifier = Modifier.align(Alignment.Start).padding(vertical = 16.dp),
+            text = streetName,
+            textAlign = TextAlign.Center,
+        )
+
+        OutlinedTextField(
+            value = bet,
+            label = { Text(text = stringResource(Res.string.postflop_screen_bet)) },
+            onValueChange = { onBetUpdated(it) },
+            modifier = Modifier.padding(2.dp).wrapContentHeight(),
+            maxLines = 1,
+            keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Decimal),
+            suffix = { PercentSuffix() }
+        )
+
+        OutlinedTextField(
+            value = raise,
+            label = { Text(text = stringResource(Res.string.postflop_screen_raise)) },
+            onValueChange = { onRaiseUpdated(it) },
+            modifier = Modifier.padding(2.dp).wrapContentHeight(),
+            maxLines = 1,
+            keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Decimal),
+            suffix = { PercentSuffix() }
+        )
+
+        if (donk != null) {
+            OutlinedTextField(
+                value = raise,
+                label = { Text(text = stringResource(Res.string.postflop_screen_tree_OOP_donk_size)) },
+                onValueChange = { onDonkUpdated(it) },
+                modifier = Modifier.padding(2.dp).wrapContentHeight(),
+                maxLines = 1,
+                keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Decimal),
+                suffix = { PercentSuffix() }
+            )
+        }
+    }
+}
