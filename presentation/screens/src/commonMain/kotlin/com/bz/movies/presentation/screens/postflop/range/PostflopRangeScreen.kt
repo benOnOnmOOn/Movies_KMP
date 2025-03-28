@@ -11,7 +11,6 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.layout.wrapContentSize
-import androidx.compose.foundation.layout.wrapContentWidth
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.rememberScrollState
@@ -33,6 +32,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import com.bz.movies.presentation.components.PercentSuffix
 import com.bz.movies.presentation.screens.common.ErrorDialog
 import com.bz.movies.presentation.screens.postflop.range.PostflopRangeViewModel
 import com.bz.movies.presentation.screens.postflop.range.RangeEditEvent
@@ -215,12 +215,7 @@ internal fun HandSlider(
             modifier = Modifier.padding(2.dp).width(96.dp),
             maxLines = 1,
             keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Decimal),
-            suffix = {
-                Text(
-                    text = "%",
-                    modifier = Modifier.wrapContentWidth(Alignment.End)
-                )
-            }
+            suffix = { PercentSuffix() }
         )
     }
 }
