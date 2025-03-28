@@ -16,6 +16,7 @@
     <ID>ForbiddenComment:PostflopMainViewModel.kt$PostflopMainViewModel$// TODO: Add this later</ID>
     <ID>LongMethod:PostflopTreeScreen.kt$@Composable internal fun PostflopTreeConfigurationScreen( modifier: Modifier = Modifier, viewmodel: PostflopTreViewModel = koinViewModel(), )</ID>
     <ID>LongParameterList:MoveDetailDto.kt$MoveDetailDto$( val id: Int, val posterUrl: String, val publicationDate: String, val language: String, val title: String, val genre: Set&lt;String&gt;, val overview: String, )</ID>
+    <ID>LongParameterList:PostflopTreeScreen.kt$( onBetUpdated: (String) -&gt; Unit, onRaiseUpdated: (String) -&gt; Unit, onDonkUpdated: (String) -&gt; Unit, bet: String, raise: String, donk: String?, streetName: String, modifier: Modifier = Modifier )</ID>
     <ID>MagicNumber:KotlinAndroid.kt$27</ID>
     <ID>MagicNumber:KotlinAndroid.kt$35</ID>
     <ID>MagicNumber:KotlinAndroidLibraryConventionPlugin.kt$KotlinAndroidLibraryConventionPlugin$27</ID>
@@ -50,6 +51,8 @@
     <ID>MagicNumber:RangeState.kt$13</ID>
     <ID>MagicNumber:Utils.kt$10</ID>
     <ID>NestedBlockDepth:Range.kt$private fun Range.suitSpecifiedStrings(result: MutableList&lt;String&gt;)</ID>
+    <ID>NewLineAtEndOfFile:PercentSuffix.kt$com.bz.movies.presentation.components.PercentSuffix.kt</ID>
+    <ID>NewLineAtEndOfFile:PostflopTreeScreen.kt$.PostflopTreeScreen.kt</ID>
     <ID>TooManyFunctions:Range.kt$com.bz.movies.presentation.screens.postflop.utils.Range.kt</ID>
     <ID>UnusedParameter:PostflopMainViewModel.kt$PostflopMainViewModel$event: MovieEvent</ID>
     <ID>UnusedParameter:PostflopTreViewModel.kt$PostflopTreViewModel$event: TreeEditEvent</ID>
