@@ -7,16 +7,16 @@
     <ID>ComplexCondition:Range.kt$i &gt;= 0 &amp;&amp; isSameWeight &amp;&amp; weightPair &gt; 0.0f &amp;&amp; start == null</ID>
     <ID>ComplexCondition:Range.kt$start != null &amp;&amp; (i == -1 || !isSameWeight || start.second != averageWeight)</ID>
     <ID>ComplexCondition:Range.kt$start != null &amp;&amp; (i == -1 || !isSameWeight || start.second != weightPair)</ID>
+    <ID>CyclomaticComplexMethod:PostflopTreViewModel.kt$PostflopTreViewModel$private suspend fun handleEvent(event: TreeEditEvent)</ID>
     <ID>CyclomaticComplexMethod:Range.kt$private fun Range.pairsStrings(result: MutableList&lt;String&gt;)</ID>
     <ID>CyclomaticComplexMethod:Range.kt$private inline fun Range.highCardsStrings( result: MutableList&lt;String&gt;, rank1: Int, suitChar: String, getter: (Int, Int) -&gt; List&lt;Int&gt;, )</ID>
     <ID>EmptyDefaultConstructor:PostflopMainViewModel.kt$PostflopMainViewModel$( )</ID>
     <ID>EmptyDefaultConstructor:PostflopRangeViewModel.kt$PostflopRangeViewModel$( )</ID>
     <ID>EmptyDefaultConstructor:PostflopTreViewModel.kt$PostflopTreViewModel$( )</ID>
-    <ID>EmptyFunctionBlock:PostflopTreViewModel.kt$PostflopTreViewModel${ }</ID>
     <ID>ForbiddenComment:PostflopMainViewModel.kt$PostflopMainViewModel$// TODO: Add this later</ID>
     <ID>LongMethod:PostflopTreeScreen.kt$@Composable internal fun PostflopTreeConfigurationScreen( modifier: Modifier = Modifier, viewmodel: PostflopTreViewModel = koinViewModel(), )</ID>
     <ID>LongParameterList:MoveDetailDto.kt$MoveDetailDto$( val id: Int, val posterUrl: String, val publicationDate: String, val language: String, val title: String, val genre: Set&lt;String&gt;, val overview: String, )</ID>
-    <ID>LongParameterList:PostflopTreeScreen.kt$( onBetUpdated: (String) -&gt; Unit, onRaiseUpdated: (String) -&gt; Unit, onDonkUpdated: (String) -&gt; Unit, bet: String, raise: String, donk: String?, streetName: String, modifier: Modifier = Modifier )</ID>
+    <ID>LongParameterList:PostflopTreeScreen.kt$( onBetUpdated: (String) -&gt; Unit, onRaiseUpdated: (String) -&gt; Unit, onDonkUpdated: (String) -&gt; Unit, bet: String, raise: String, donk: String?, streetName: String, isDonksEnabled: Boolean, modifier: Modifier = Modifier )</ID>
     <ID>MagicNumber:KotlinAndroid.kt$27</ID>
     <ID>MagicNumber:KotlinAndroid.kt$35</ID>
     <ID>MagicNumber:KotlinAndroidLibraryConventionPlugin.kt$KotlinAndroidLibraryConventionPlugin$27</ID>
@@ -55,7 +55,6 @@
     <ID>NewLineAtEndOfFile:PostflopTreeScreen.kt$.PostflopTreeScreen.kt</ID>
     <ID>TooManyFunctions:Range.kt$com.bz.movies.presentation.screens.postflop.utils.Range.kt</ID>
     <ID>UnusedParameter:PostflopMainViewModel.kt$PostflopMainViewModel$event: MovieEvent</ID>
-    <ID>UnusedParameter:PostflopTreViewModel.kt$PostflopTreViewModel$event: TreeEditEvent</ID>
     <ID>UnusedPrivateProperty:PostflopTreViewModel.kt$PostflopTreViewModel$/** * Combinations range for all possible card combination. * We are displaying only card singletons data, * and reuse all of this data when updating any weight in range */ private var range: Range = Range()</ID>
     <ID>UseCheckOrError:Range.kt$throw IllegalStateException("Invalid suitedness: $combo")</ID>
   </CurrentIssues>
