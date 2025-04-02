@@ -98,6 +98,108 @@ internal class PostflopTreViewModel(
                     _state.update { _state.value.copy(startingPot = startingPot) }
                 }
             }
+
+            is TreeEditEvent.BetUpdated -> {
+                val newBets = event.value.split(",").mapNotNull { bet -> bet.toIntOrNull() }
+                _state.update {
+                    when (event.betType) {
+                        BetType.OOP -> {
+                            when (event.streetType) {
+                                StreetType.FLOP -> {
+                                    it.copy(oopBetSize = it.oopBetSize.copy(betFlop = newBets))
+                                }
+
+                                StreetType.TURN -> {
+                                    it.copy(oopBetSize = it.oopBetSize.copy(betTurn = newBets))
+                                }
+
+                                StreetType.RIVER -> {
+                                    it.copy(oopBetSize = it.oopBetSize.copy(betRiver = newBets))
+                                }
+                            }
+                        }
+
+                        BetType.IP -> {
+                            when (event.streetType) {
+                                StreetType.FLOP -> {
+                                    it.copy(ipBetSize = it.ipBetSize.copy(betFlop = newBets))
+                                }
+
+                                StreetType.TURN -> {
+                                    it.copy(ipBetSize = it.ipBetSize.copy(betTurn = newBets))
+                                }
+
+                                StreetType.RIVER -> {
+                                    it.copy(ipBetSize = it.ipBetSize.copy(betRiver = newBets))
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            is TreeEditEvent.DonkUpdated -> {
+                val newBets = event.value.split(",").mapNotNull { bet -> bet.toIntOrNull() }
+                _state.update {
+                    when (event.betType) {
+                        BetType.OOP -> {
+                            when (event.streetType) {
+                                StreetType.FLOP -> error("Donk's not allowed in FLOP")
+                                StreetType.TURN -> {
+                                    it.copy(oopBetSize = it.oopBetSize.copy(donkTurn = newBets))
+                                }
+
+                                StreetType.RIVER -> {
+                                    it.copy(oopBetSize = it.oopBetSize.copy(donkRiver = newBets))
+                                }
+                            }
+                        }
+
+                        BetType.IP -> {
+                            error("Donk bet can be made only OOP")
+                        }
+                    }
+                }
+            }
+
+            is TreeEditEvent.RaiseUpdated -> {
+                val newBets = event.value.split(",").mapNotNull { bet -> bet.toIntOrNull() }
+                _state.update {
+                    when (event.betType) {
+                        BetType.OOP -> {
+                            when (event.streetType) {
+                                StreetType.FLOP -> {
+                                    it.copy(oopBetSize = it.oopBetSize.copy(raiseFlop = newBets))
+                                }
+
+                                StreetType.TURN -> {
+                                    it.copy(oopBetSize = it.oopBetSize.copy(raiseTurn = newBets))
+                                }
+
+                                StreetType.RIVER -> {
+                                    it.copy(oopBetSize = it.oopBetSize.copy(raiseRiver = newBets))
+                                }
+                            }
+                        }
+
+                        BetType.IP -> {
+                            when (event.streetType) {
+                                StreetType.FLOP -> {
+                                    it.copy(ipBetSize = it.ipBetSize.copy(raiseFlop = newBets))
+                                }
+
+                                StreetType.TURN -> {
+                                    it.copy(ipBetSize = it.ipBetSize.copy(raiseTurn = newBets))
+                                }
+
+                                StreetType.RIVER -> {
+                                    it.copy(ipBetSize = it.ipBetSize.copy(raiseRiver = newBets))
+                                }
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
 }

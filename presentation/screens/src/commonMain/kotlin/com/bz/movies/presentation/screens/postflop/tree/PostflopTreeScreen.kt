@@ -21,7 +21,9 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.bz.movies.presentation.components.PercentSuffix
 import com.bz.movies.presentation.screens.postflop.tree.BetSize
+import com.bz.movies.presentation.screens.postflop.tree.BetType
 import com.bz.movies.presentation.screens.postflop.tree.PostflopTreViewModel
+import com.bz.movies.presentation.screens.postflop.tree.StreetType
 import com.bz.movies.presentation.screens.postflop.tree.TreeEditEvent
 import com.bz.movies.presentation.screens.postflop.tree.TreeState
 import com.bz.movies.presentation.utils.roundToDecimals
@@ -195,7 +197,8 @@ private fun BoardOOP(
     Board(
         sendTreeEvent = sendTreeEvent,
         betSize = state.oopBetSize,
-        isDonksEnabled = state.isDonksEnabled
+        isDonksEnabled = state.isDonksEnabled,
+        betType = BetType.OOP,
     )
 }
 
@@ -207,14 +210,15 @@ private fun BoardIP(
     Board(
         sendTreeEvent = sendTreeEvent,
         betSize = state.ipBetSize,
-        isDonksEnabled = false
+        isDonksEnabled = false,
+        betType = BetType.IP,
     )
 }
 
 @Composable
 private fun Board(
-//    state: TreeState,
     sendTreeEvent: (TreeEditEvent) -> Unit,
+    betType: BetType,
     betSize: BetSize,
     isDonksEnabled: Boolean,
 ) {
@@ -223,36 +227,49 @@ private fun Board(
         verticalAlignment = Alignment.Top
     ) {
         Street(
-            onBetUpdated = {},
-            onRaiseUpdated = {},
+            onBetUpdated = {
+                sendTreeEvent(TreeEditEvent.BetUpdated(betType, StreetType.FLOP, it))
+            },
+            onRaiseUpdated = {
+                sendTreeEvent(TreeEditEvent.RaiseUpdated(betType, StreetType.FLOP, it))
+            },
             onDonkUpdated = {},
             bet = betSize.betFlop.joinToString(),
             raise = betSize.raiseFlop.joinToString(),
             streetName = stringResource(Res.string.postflop_screen_flop),
             modifier = Modifier.weight(1.0f).fillMaxHeight(),
-            isDonksEnabled = isDonksEnabled,
             donk = null
         )
         Street(
-            onBetUpdated = {},
-            onRaiseUpdated = {},
-            onDonkUpdated = {},
+            onBetUpdated = {
+                sendTreeEvent(TreeEditEvent.BetUpdated(betType, StreetType.TURN, it))
+            },
+            onRaiseUpdated = {
+                sendTreeEvent(TreeEditEvent.RaiseUpdated(betType, StreetType.TURN, it))
+            },
+            onDonkUpdated = {
+                sendTreeEvent(TreeEditEvent.DonkUpdated(betType, StreetType.TURN, it))
+            },
             bet = betSize.betTurn.joinToString(),
             raise = betSize.raiseTurn.joinToString(),
             streetName = stringResource(Res.string.postflop_screen_turn),
             modifier = Modifier.weight(1.0f),
-            isDonksEnabled = isDonksEnabled,
             donk = if (isDonksEnabled) betSize.donkTurn.joinToString() else null
         )
         Street(
-            onBetUpdated = {},
-            onRaiseUpdated = {},
-            onDonkUpdated = {},
+            onBetUpdated = {
+                sendTreeEvent(TreeEditEvent.BetUpdated(betType, StreetType.RIVER, it))
+            },
+            onRaiseUpdated = {
+                sendTreeEvent(TreeEditEvent.RaiseUpdated(betType, StreetType.RIVER, it))
+            },
+            onDonkUpdated = {
+                sendTreeEvent(TreeEditEvent.DonkUpdated(betType, StreetType.RIVER, it))
+            },
             bet = betSize.betRiver.joinToString(),
             raise = betSize.raiseRiver.joinToString(),
             streetName = stringResource(Res.string.postflop_screen_river),
             modifier = Modifier.weight(1.0f),
-            isDonksEnabled = isDonksEnabled,
             donk = if (isDonksEnabled) betSize.donkRiver.joinToString() else null
         )
     }
@@ -267,7 +284,6 @@ private fun Street(
     raise: String,
     donk: String?,
     streetName: String,
-    isDonksEnabled: Boolean,
     modifier: Modifier = Modifier
 ) {
     Column(
@@ -304,7 +320,7 @@ private fun Street(
 
         if (donk != null) {
             OutlinedTextField(
-                value = raise,
+                value = donk,
                 label = { Text(text = stringResource(Res.string.postflop_screen_donk)) },
                 onValueChange = { onDonkUpdated(it) },
                 modifier = Modifier.padding(2.dp).wrapContentHeight(),
