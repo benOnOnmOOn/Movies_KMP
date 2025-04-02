@@ -22,17 +22,17 @@ public final class ComposableSingletons$PostflopTreeScreenKt {
 	public final fun getLambda$-1033267657$screens_release ()Lkotlin/jvm/functions/Function2;
 	public final fun getLambda$-1215000906$screens_release ()Lkotlin/jvm/functions/Function2;
 	public final fun getLambda$-1385648807$screens_release ()Lkotlin/jvm/functions/Function2;
-	public final fun getLambda$-138809544$screens_release ()Lkotlin/jvm/functions/Function2;
-	public final fun getLambda$-1559000602$screens_release ()Lkotlin/jvm/functions/Function2;
+	public final fun getLambda$-1581535035$screens_release ()Lkotlin/jvm/functions/Function2;
 	public final fun getLambda$-1607291099$screens_release ()Lkotlin/jvm/functions/Function2;
-	public final fun getLambda$-1651071665$screens_release ()Lkotlin/jvm/functions/Function2;
 	public final fun getLambda$-1670784710$screens_release ()Lkotlin/jvm/functions/Function2;
+	public final fun getLambda$-1852715185$screens_release ()Lkotlin/jvm/functions/Function2;
+	public final fun getLambda$-1953584932$screens_release ()Lkotlin/jvm/functions/Function2;
 	public final fun getLambda$-851534408$screens_release ()Lkotlin/jvm/functions/Function2;
+	public final fun getLambda$-867015181$screens_release ()Lkotlin/jvm/functions/Function2;
+	public final fun getLambda$1446258721$screens_release ()Lkotlin/jvm/functions/Function2;
 	public final fun getLambda$1466937169$screens_release ()Lkotlin/jvm/functions/Function2;
-	public final fun getLambda$1647902241$screens_release ()Lkotlin/jvm/functions/Function2;
-	public final fun getLambda$234156715$screens_release ()Lkotlin/jvm/functions/Function2;
 	public final fun getLambda$282448191$screens_release ()Lkotlin/jvm/functions/Function2;
-	public final fun getLambda$920803709$screens_release ()Lkotlin/jvm/functions/Function2;
+	public final fun getLambda$487379338$screens_release ()Lkotlin/jvm/functions/Function2;
 }
 
 public final class com/bz/movies/presentation/components/PercentSuffixKt {
