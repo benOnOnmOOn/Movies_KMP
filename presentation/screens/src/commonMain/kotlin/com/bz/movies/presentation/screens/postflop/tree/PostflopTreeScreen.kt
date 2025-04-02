@@ -27,6 +27,7 @@ import com.bz.movies.presentation.screens.postflop.tree.TreeState
 import com.bz.movies.presentation.utils.roundToDecimals
 import movies_kmp.presentation.screens.generated.resources.Res
 import movies_kmp.presentation.screens.generated.resources.postflop_screen_bet
+import movies_kmp.presentation.screens.generated.resources.postflop_screen_donk
 import movies_kmp.presentation.screens.generated.resources.postflop_screen_flop
 import movies_kmp.presentation.screens.generated.resources.postflop_screen_raise
 import movies_kmp.presentation.screens.generated.resources.postflop_screen_river
@@ -64,7 +65,7 @@ internal fun PostflopTreeConfigurationScreen(
 
         Text(
             style = MaterialTheme.typography.titleMedium,
-            modifier = Modifier.align(Alignment.Start).padding(vertical = 16.dp),
+            modifier = Modifier.align(Alignment.Start).padding(vertical = 8.dp),
             text = stringResource(Res.string.postflop_screen_tree_OOP_bet_sizes),
             textAlign = TextAlign.Center,
         )
@@ -86,27 +87,26 @@ internal fun PostflopTreeConfigurationScreen(
 
         Text(
             style = MaterialTheme.typography.titleMedium,
-            modifier = Modifier.align(Alignment.Start).padding(vertical = 16.dp),
+            modifier = Modifier.align(Alignment.Start).padding(vertical = 8.dp),
             text = stringResource(Res.string.postflop_screen_tree_IP_bet_sizes),
             textAlign = TextAlign.Center,
         )
 
         BoardIP(state = state, sendTreeEvent = viewmodel::sendEvent)
 
-
         OutlinedTextField(
-            value = state.startingPot.toString(),
+            value = state.allInThreshold.toString(),
             label = {
                 Text(text = stringResource(Res.string.postflop_screen_tree_add_all_in_threshold))
             },
-            onValueChange = { viewmodel.sendEvent(TreeEditEvent.AddAllInThresholdUpdated(it)) },
+            onValueChange = { viewmodel.sendEvent(TreeEditEvent.AllInThresholdUpdated(it)) },
             modifier = Modifier.padding(2.dp).wrapContentHeight(),
             maxLines = 1,
             keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Decimal),
         )
 
         OutlinedTextField(
-            value = state.startingPot.toString(),
+            value = state.forceAllInThreshold.toString(),
             label = {
                 Text(text = stringResource(Res.string.postflop_screen_tree_force_all_in_threshold))
             },
@@ -117,7 +117,7 @@ internal fun PostflopTreeConfigurationScreen(
         )
 
         OutlinedTextField(
-            value = state.startingPot.toString(),
+            value = state.mergingThreshold.toString(),
             label = {
                 Text(text = stringResource(Res.string.postflop_screen_tree_merging_threshold))
             },
@@ -219,8 +219,8 @@ private fun Board(
     isDonksEnabled: Boolean,
 ) {
     Row(
-        modifier = Modifier.padding(8.dp).fillMaxWidth(),
-        verticalAlignment = Alignment.CenterVertically
+        modifier = Modifier.padding(8.dp),
+        verticalAlignment = Alignment.Top
     ) {
         Street(
             onBetUpdated = {},
@@ -229,7 +229,8 @@ private fun Board(
             bet = betSize.betFlop.joinToString(),
             raise = betSize.raiseFlop.joinToString(),
             streetName = stringResource(Res.string.postflop_screen_flop),
-            modifier = Modifier.weight(1.0f),
+            modifier = Modifier.weight(1.0f).fillMaxHeight(),
+            isDonksEnabled = isDonksEnabled,
             donk = null
         )
         Street(
@@ -240,6 +241,7 @@ private fun Board(
             raise = betSize.raiseTurn.joinToString(),
             streetName = stringResource(Res.string.postflop_screen_turn),
             modifier = Modifier.weight(1.0f),
+            isDonksEnabled = isDonksEnabled,
             donk = if (isDonksEnabled) betSize.donkTurn.joinToString() else null
         )
         Street(
@@ -250,6 +252,7 @@ private fun Board(
             raise = betSize.raiseRiver.joinToString(),
             streetName = stringResource(Res.string.postflop_screen_river),
             modifier = Modifier.weight(1.0f),
+            isDonksEnabled = isDonksEnabled,
             donk = if (isDonksEnabled) betSize.donkRiver.joinToString() else null
         )
     }
@@ -264,6 +267,7 @@ private fun Street(
     raise: String,
     donk: String?,
     streetName: String,
+    isDonksEnabled: Boolean,
     modifier: Modifier = Modifier
 ) {
     Column(
@@ -273,7 +277,7 @@ private fun Street(
     ) {
         Text(
             style = MaterialTheme.typography.titleSmall,
-            modifier = Modifier.align(Alignment.Start).padding(vertical = 16.dp),
+            modifier = Modifier.align(Alignment.Start).padding(2.dp),
             text = streetName,
             textAlign = TextAlign.Center,
         )
@@ -301,7 +305,7 @@ private fun Street(
         if (donk != null) {
             OutlinedTextField(
                 value = raise,
-                label = { Text(text = stringResource(Res.string.postflop_screen_tree_OOP_donk_size)) },
+                label = { Text(text = stringResource(Res.string.postflop_screen_donk)) },
                 onValueChange = { onDonkUpdated(it) },
                 modifier = Modifier.padding(2.dp).wrapContentHeight(),
                 maxLines = 1,
@@ -309,5 +313,6 @@ private fun Street(
                 suffix = { PercentSuffix() }
             )
         }
+
     }
 }

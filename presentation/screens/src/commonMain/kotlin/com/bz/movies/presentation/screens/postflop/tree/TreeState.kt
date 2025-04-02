@@ -33,7 +33,7 @@ internal sealed class TreeEditEvent {
     data class RakeCapUpdated(val rakeCap: String) : TreeEditEvent()
 
     data class DonksSwitched(val isEnabled: Boolean) : TreeEditEvent()
-    data class AddAllInThresholdUpdated(val value: String) : TreeEditEvent()
+    data class AllInThresholdUpdated(val value: String) : TreeEditEvent()
     data class ForceAllInThresholdUpdated(val value: String) : TreeEditEvent()
     data class MergingThresholdUpdated(val value: String) : TreeEditEvent()
 

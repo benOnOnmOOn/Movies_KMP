@@ -53,6 +53,7 @@
     <string name="postflop_screen_turn">Turn</string>
     <string name="postflop_screen_river">River</string>
     <string name="postflop_screen_bet">Bet</string>
+    <string name="postflop_screen_donk">Donk</string>
     <string name="postflop_screen_raise">Raise</string>
     <string name="postflop_screen_percent">%</string>
 
