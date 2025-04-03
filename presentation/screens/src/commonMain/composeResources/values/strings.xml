@@ -49,6 +49,7 @@
     <string name="postflop_tree_configuration_title">Tree configuration</string>
 
     <!-- Common postflop texts-->
+    <string name="postflop_screen_range">Range</string>
     <string name="postflop_screen_flop">Flop</string>
     <string name="postflop_screen_turn">Turn</string>
     <string name="postflop_screen_river">River</string>
