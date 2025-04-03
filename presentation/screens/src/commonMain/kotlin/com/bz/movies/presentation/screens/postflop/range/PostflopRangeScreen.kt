@@ -6,11 +6,11 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxHeight
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.wrapContentHeight
-import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.rememberScrollState
@@ -27,9 +27,13 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.SpanStyle
+import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.em
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.bz.movies.presentation.components.PercentSuffix
@@ -44,6 +48,7 @@ import movies_kmp.presentation.screens.generated.resources.postflop_range_clear
 import movies_kmp.presentation.screens.generated.resources.postflop_range_combination
 import movies_kmp.presentation.screens.generated.resources.postflop_range_slider_percent
 import movies_kmp.presentation.screens.generated.resources.postflop_range_slider_weight
+import movies_kmp.presentation.screens.generated.resources.postflop_screen_range
 import org.jetbrains.compose.resources.stringResource
 import org.koin.compose.viewmodel.koinViewModel
 
@@ -119,10 +124,31 @@ internal fun HandGrid(
             val isSelected = weight > 0.0f
             val unselectedColor = if (singleton.length == 2) Color.LightGray else Color.Gray
             val cellColor = if (isSelected) Color.Yellow else unselectedColor
+
+            val text = buildAnnotatedString {
+
+                if (weight > 0 && weight < 1) {
+                    val weight = stringResource(
+                        Res.string.postflop_range_slider_percent,
+                        (weight * 100).roundToDecimals(2)
+                    )
+                    withStyle(SpanStyle(fontSize = 4.sp)) {
+                        appendLine()
+                    }
+                    append(singleton)
+                    withStyle(SpanStyle(fontSize = 4.sp)) {
+                        appendLine()
+                        append(weight)
+                    }
+                } else {
+                    append(singleton)
+                }
+            }
+
             Box(
                 modifier = Modifier
-                    .padding(0.dp)
                     .border(width = 1.dp, color = Color.Black)
+                    .fillMaxSize()
                     .background(color = cellColor)
                     .aspectRatio(1.0f)
                     .clickable { onSelectedChanged(handId) },
@@ -130,17 +156,10 @@ internal fun HandGrid(
                 Text(
                     fontSize = 8.sp,
                     modifier = Modifier.align(Alignment.Center),
-                    text = singleton,
+                    text = text,
+                    lineHeight = 1.em,
                     textAlign = TextAlign.Center,
                 )
-                if (weight > 0 && weight < 1) {
-                    Text(
-                        fontSize = 4.sp,
-                        modifier = Modifier.align(Alignment.BottomStart).wrapContentSize(),
-                        text = weight.roundToDecimals(1).toString(),
-                        textAlign = TextAlign.Center,
-                    )
-                }
             }
         }
     }
@@ -159,6 +178,9 @@ internal fun CombinationCounter(
     Row {
         OutlinedTextField(
             value = inputRange,
+            label = {
+                Text(text = stringResource(Res.string.postflop_screen_range))
+            },
             onValueChange = { onRangeUpdated(it) },
             modifier = Modifier
                 .padding(8.dp)

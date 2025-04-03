@@ -52,6 +52,7 @@
     <!--  Post flop action  -->
 
     <!-- Common postflop texts-->
+    <string name="postflop_screen_range">Zakres</string>
     <string name="postflop_screen_flop">Flop</string>
     <string name="postflop_screen_turn">Turn</string>
     <string name="postflop_screen_river">River</string>

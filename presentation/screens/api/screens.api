@@ -13,6 +13,7 @@ public final class ComposableSingletons$PostflopRangeScreenKt {
 	public static final field INSTANCE LComposableSingletons$PostflopRangeScreenKt;
 	public fun <init> ()V
 	public final fun getLambda$-1896107580$screens_release ()Lkotlin/jvm/functions/Function2;
+	public final fun getLambda$1981689060$screens_release ()Lkotlin/jvm/functions/Function2;
 	public final fun getLambda$360278094$screens_release ()Lkotlin/jvm/functions/Function3;
 }
 
