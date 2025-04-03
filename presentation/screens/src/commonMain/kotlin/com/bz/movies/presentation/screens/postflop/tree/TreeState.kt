@@ -33,11 +33,31 @@ internal sealed class TreeEditEvent {
     data class RakeCapUpdated(val rakeCap: String) : TreeEditEvent()
 
     data class DonksSwitched(val isEnabled: Boolean) : TreeEditEvent()
-    data class AddAllInThresholdUpdated(val value: String) : TreeEditEvent()
+    data class AllInThresholdUpdated(val value: String) : TreeEditEvent()
     data class ForceAllInThresholdUpdated(val value: String) : TreeEditEvent()
     data class MergingThresholdUpdated(val value: String) : TreeEditEvent()
 
+    data class BetUpdated(
+        val betType: BetType, val streetType: StreetType, val value: String
+    ) : TreeEditEvent()
+
+    data class RaiseUpdated(
+        val betType: BetType, val streetType: StreetType, val value: String
+    ) : TreeEditEvent()
+
+    data class DonkUpdated(
+        val betType: BetType, val streetType: StreetType, val value: String
+    ) : TreeEditEvent()
+
     data object Clear : TreeEditEvent()
+}
+
+internal enum class BetType {
+    OOP, IP
+}
+
+internal enum class StreetType {
+    FLOP, TURN, RIVER
 }
 
 internal sealed class TreeEditEffect {
