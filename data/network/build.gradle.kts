@@ -16,7 +16,7 @@ kotlin {
         dependencies {
             lintChecks(libs.lint.slack.checks)
 
-            api(project(":data:dto"))
+            api(projects.data.dto)
             api(libs.kotlin.stdlib)
 
             implementation(libs.androidx.core)
@@ -32,7 +32,7 @@ kotlin {
 
     sourceSets {
         commonMain.dependencies {
-            api(project(":data:dto"))
+            api(projects.data.dto)
             implementation(libs.ktor.client.core)
             implementation(libs.ktor.serialization.content.negotiation)
             implementation(libs.ktor.serialization.kotlinx.json)

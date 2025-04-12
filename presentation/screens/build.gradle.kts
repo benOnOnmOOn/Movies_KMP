@@ -21,10 +21,10 @@ extensions.findByType<DependencyAnalysisSubExtension>()?.apply {
 kotlin {
     androidTarget {
         dependencies {
-            implementation(project(":data:room"))
-            implementation(project(":data:datastore"))
-            implementation(project(":data:dto"))
-            implementation(project(":data:network"))
+            implementation(projects.data.room)
+            implementation(projects.data.datastore)
+            implementation(projects.data.dto)
+            implementation(projects.data.network)
 
             lintChecks(libs.lint.slack.checks)
             lintChecks(libs.lint.compose.checks)
@@ -56,10 +56,10 @@ kotlin {
             languageSettings.optIn("org.koin.core.annotation.KoinExperimentalAPI")
         }
         commonMain.dependencies {
-            implementation(project(":data:network"))
-            implementation(project(":data:room"))
-            implementation(project(":data:datastore"))
-            implementation(project(":data:dto"))
+            implementation(projects.data.network)
+            implementation(projects.data.room)
+            implementation(projects.data.datastore)
+            implementation(projects.data.dto)
 
             implementation(compose.components.resources)
 
@@ -91,10 +91,10 @@ kotlin {
         }
 
         androidMain.dependencies {
-            implementation(project(":data:room"))
-            implementation(project(":data:datastore"))
-            implementation(project(":data:dto"))
-            implementation(project(":data:network"))
+            implementation(projects.data.room)
+            implementation(projects.data.datastore)
+            implementation(projects.data.dto)
+            implementation(projects.data.network)
 
             api(libs.androidx.compose.animation)
             api(libs.androidx.compose.material3)
