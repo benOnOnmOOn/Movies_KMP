@@ -17,7 +17,7 @@ kotlin {
     sourceSets {
         commonMain {
             dependencies {
-                api(project(":data:dto"))
+                api(projects.data.dto)
                 implementation(libs.koin.core)
                 implementation(libs.kotlinx.coroutines.core)
                 implementation(libs.sqldelight.coroutines.extensions)
@@ -31,7 +31,7 @@ kotlin {
 
         androidMain {
             dependencies {
-                api(project(":data:dto"))
+                api(projects.data.dto)
                 implementation(libs.androidx.sqlite)
                 implementation(libs.sqldelight.android.driver)
                 implementation(libs.koin.android)

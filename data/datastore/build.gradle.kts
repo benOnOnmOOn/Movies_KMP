@@ -1,5 +1,3 @@
-import kotlin.collections.plusAssign
-
 plugins {
     alias(libs.plugins.movies.binary.compatibility)
     alias(libs.plugins.movies.dependency.analysis)
@@ -18,7 +16,7 @@ kotlin {
     sourceSets {
         commonMain {
             dependencies {
-                implementation(project(":data:dto"))
+                implementation(projects.data.dto)
                 implementation(libs.androidx.datastore.core)
                 implementation(libs.androidx.datastore.preferences)
                 implementation(libs.androidx.datastore.preferences.core)

@@ -1,5 +1,3 @@
-import kotlin.collections.plusAssign
-
 plugins {
     alias(libs.plugins.movies.android.room)
     alias(libs.plugins.movies.binary.compatibility)
@@ -19,7 +17,7 @@ kotlin {
     sourceSets {
         commonMain {
             dependencies {
-                api(project(":data:dto"))
+                api(projects.data.dto)
                 implementation(libs.koin.core)
                 implementation(libs.koin.core.coroutines)
                 implementation(libs.kotlinx.coroutines.core)
@@ -35,7 +33,7 @@ kotlin {
 
         androidMain {
             dependencies {
-                api(project(":data:dto"))
+                api(projects.data.dto)
                 api(libs.kotlin.stdlib)
 
                 implementation(libs.koin.android)

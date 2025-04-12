@@ -1,5 +1,3 @@
-import org.gradle.kotlin.dsl.implementation
-
 plugins {
     alias(libs.plugins.kotlin.cocoapods)
     alias(libs.plugins.kotlin.multiplatform)
@@ -18,7 +16,7 @@ plugins {
 kotlin {
     androidTarget {
         dependencies {
-            implementation(project(":presentation:screens"))
+            implementation(projects.presentation.screens)
 
             lintChecks(libs.lint.slack.checks)
 
@@ -51,18 +49,18 @@ kotlin {
             linkerOpts.add("-lsqlite3")
             baseName = "presentationCore"
             isStatic = true
-            export(project(":presentation:screens"))
-            export(project(":data:network"))
-            export(project(":data:database"))
-            export(project(":data:datastore"))
-            export(project(":data:dto"))
+            export(projects.presentation.screens)
+            export(projects.data.network)
+            export(projects.data.database)
+            export(projects.data.datastore)
+            export(projects.data.dto)
         }
     }
 
     sourceSets {
         commonMain.dependencies {
-            api(project(":presentation:screens"))
-            api(project(":data:dto"))
+            api(projects.presentation.screens)
+            api(projects.data.dto)
 
             implementation(compose.components.resources)
 
@@ -85,7 +83,7 @@ kotlin {
         }
 
         androidMain.dependencies {
-            implementation(project(":presentation:screens"))
+            implementation(projects.presentation.screens)
 
             api(libs.androidx.activity)
             api(libs.androidx.compose.runtime)
