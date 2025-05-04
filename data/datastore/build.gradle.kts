@@ -42,6 +42,8 @@ kotlin {
 
 //                lintChecks(libs.slack.lint.checks)
 
+                implementation(libs.androidx.datastore.preferences.core.jvm)
+
                 implementation(libs.androidx.datastore)
                 implementation(libs.koin.android)
             }
