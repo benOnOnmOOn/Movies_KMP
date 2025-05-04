@@ -30,7 +30,7 @@ import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.resources.stringResource
 
 @Composable
-fun BottomNavigationBar(navController: NavController, modifier: Modifier = Modifier) {
+internal fun BottomNavigationBar(navController: NavController, modifier: Modifier = Modifier) {
     val currentRootRoute by navController.currentRootRouteAsState()
     if (!currentRootRoute.isNavigationBarVisible) return
     NavigationBar(
@@ -95,7 +95,7 @@ private fun NavIcon(
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun TopNavigationBar(navController: NavController, modifier: Modifier = Modifier) {
+internal fun TopNavigationBar(navController: NavController, modifier: Modifier = Modifier) {
     val currentRootRoute by navController.currentRootRouteAsState()
 
     val title = when (currentRootRoute) {
