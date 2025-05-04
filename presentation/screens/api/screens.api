@@ -36,10 +36,6 @@ public final class ComposableSingletons$PostflopTreeScreenKt {
 	public final fun getLambda$487379338$screens_release ()Lkotlin/jvm/functions/Function2;
 }
 
-public final class com/bz/movies/presentation/components/PercentSuffixKt {
-	public static final fun PercentSuffix (Landroidx/compose/ui/Modifier;Landroidx/compose/runtime/Composer;II)V
-}
-
 public final class com/bz/movies/presentation/di/PresentationModuleKt {
 	public static final fun getScreensModule ()Ljava/util/List;
 }
@@ -59,15 +55,6 @@ public final class com/bz/movies/presentation/navigation/ComposableSingletons$Mo
 	public final fun getLambda$529680998$screens_release ()Lkotlin/jvm/functions/Function4;
 }
 
-public final class com/bz/movies/presentation/navigation/MoviesNavHostKt {
-	public static final fun MoviesNavHost (Landroidx/navigation/NavHostController;Landroidx/compose/ui/Modifier;Landroidx/compose/runtime/Composer;II)V
-}
-
-public final class com/bz/movies/presentation/navigation/NavigationComponentsKt {
-	public static final fun BottomNavigationBar (Landroidx/navigation/NavController;Landroidx/compose/ui/Modifier;Landroidx/compose/runtime/Composer;II)V
-	public static final fun TopNavigationBar (Landroidx/navigation/NavController;Landroidx/compose/ui/Modifier;Landroidx/compose/runtime/Composer;II)V
-}
-
 public final class com/bz/movies/presentation/screens/common/ComposableSingletons$ErrorDialogKt {
 	public static final field INSTANCE Lcom/bz/movies/presentation/screens/common/ComposableSingletons$ErrorDialogKt;
 	public fun <init> ()V
@@ -81,6 +68,10 @@ public final class com/bz/movies/presentation/screens/common/ComposableSingleton
 	public final fun getLambda$555209367$screens_release ()Lkotlin/jvm/functions/Function2;
 	public final fun getLambda$677241584$screens_release ()Lkotlin/jvm/functions/Function3;
 	public final fun getLambda$83923664$screens_release ()Lkotlin/jvm/functions/Function3;
+}
+
+public final class com/bz/movies/presentation/screens/main/MainScreenKt {
+	public static final fun MainMoviesScreen (Landroidx/navigation/NavHostController;Landroidx/compose/ui/Modifier;Landroidx/compose/runtime/Composer;II)V
 }
 
 public final class com/bz/movies/presentation/theme/ThemeKt {
