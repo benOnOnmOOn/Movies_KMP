@@ -52,6 +52,7 @@
     <ID>MagicNumber:RangeState.kt$13</ID>
     <ID>MagicNumber:Utils.kt$10</ID>
     <ID>NestedBlockDepth:Range.kt$private fun Range.suitSpecifiedStrings(result: MutableList&lt;String&gt;)</ID>
+    <ID>NewLineAtEndOfFile:MainScreen.kt$com.bz.movies.presentation.screens.main.MainScreen.kt</ID>
     <ID>NewLineAtEndOfFile:PercentSuffix.kt$com.bz.movies.presentation.components.PercentSuffix.kt</ID>
     <ID>NewLineAtEndOfFile:PostflopTreeScreen.kt$.PostflopTreeScreen.kt</ID>
     <ID>TooManyFunctions:Range.kt$com.bz.movies.presentation.screens.postflop.utils.Range.kt</ID>

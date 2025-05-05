@@ -10,7 +10,7 @@ import movies_kmp.presentation.screens.generated.resources.postflop_screen_perce
 import org.jetbrains.compose.resources.stringResource
 
 @Composable
-fun PercentSuffix(modifier: Modifier = Modifier) {
+internal fun PercentSuffix(modifier: Modifier = Modifier) {
     Text(
         text = stringResource(Res.string.postflop_screen_percent),
         modifier = Modifier.wrapContentWidth(Alignment.End)
