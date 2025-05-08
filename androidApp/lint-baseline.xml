@@ -20,61 +20,6 @@
     </issue>
 
     <issue
-        id="GradleDependency"
-        message="A newer version of androidx.datastore:datastore than 1.1.4 is available: 1.1.6"
-        errorLine1="androidx-datastore = &quot;1.1.4&quot;"
-        errorLine2="                     ~~~~~~~">
-        <location
-            file="$HOME/work/Movies_KMP/Movies_KMP/gradle/libs.versions.toml"
-            line="8"
-            column="22"/>
-    </issue>
-
-    <issue
-        id="GradleDependency"
-        message="A newer version of androidx.datastore:datastore-core than 1.1.4 is available: 1.1.6"
-        errorLine1="androidx-datastore = &quot;1.1.4&quot;"
-        errorLine2="                     ~~~~~~~">
-        <location
-            file="$HOME/work/Movies_KMP/Movies_KMP/gradle/libs.versions.toml"
-            line="8"
-            column="22"/>
-    </issue>
-
-    <issue
-        id="GradleDependency"
-        message="A newer version of androidx.datastore:datastore-preferences than 1.1.4 is available: 1.1.6"
-        errorLine1="androidx-datastore = &quot;1.1.4&quot;"
-        errorLine2="                     ~~~~~~~">
-        <location
-            file="$HOME/work/Movies_KMP/Movies_KMP/gradle/libs.versions.toml"
-            line="8"
-            column="22"/>
-    </issue>
-
-    <issue
-        id="GradleDependency"
-        message="A newer version of androidx.datastore:datastore-preferences-core than 1.1.4 is available: 1.1.6"
-        errorLine1="androidx-datastore = &quot;1.1.4&quot;"
-        errorLine2="                     ~~~~~~~">
-        <location
-            file="$HOME/work/Movies_KMP/Movies_KMP/gradle/libs.versions.toml"
-            line="8"
-            column="22"/>
-    </issue>
-
-    <issue
-        id="GradleDependency"
-        message="A newer version of androidx.datastore:datastore-preferences-core-jvm than 1.1.4 is available: 1.1.6"
-        errorLine1="androidx-datastore = &quot;1.1.4&quot;"
-        errorLine2="                     ~~~~~~~">
-        <location
-            file="$HOME/work/Movies_KMP/Movies_KMP/gradle/libs.versions.toml"
-            line="8"
-            column="22"/>
-    </issue>
-
-    <issue
         id="NewerVersionAvailable"
         message="A newer version of io.mockk:mockk than 1.13.17 is available: 1.14.2"
         errorLine1="mockk = &quot;1.13.17&quot;"
