@@ -9,17 +9,6 @@
     </issue>
 
     <issue
-        id="AndroidGradlePluginVersion"
-        message="A newer version of Gradle than 8.12 is available: 8.14"
-        errorLine1="distributionUrl=https\://services.gradle.org/distributions/gradle-8.12-bin.zip"
-        errorLine2="                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
-        <location
-            file="$HOME/work/Movies_KMP/Movies_KMP/gradle/wrapper/gradle-wrapper.properties"
-            line="3"
-            column="17"/>
-    </issue>
-
-    <issue
         id="NewerVersionAvailable"
         message="A newer version of io.mockk:mockk than 1.13.17 is available: 1.14.2"
         errorLine1="mockk = &quot;1.13.17&quot;"
