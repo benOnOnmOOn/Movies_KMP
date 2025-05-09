@@ -15,18 +15,13 @@ class KotlinAndroidLibraryConventionPlugin : Plugin<Project> {
             extensions.configure<KotlinMultiplatformExtension> {
                 androidLibrary {
                     namespace = "com.bz.movies" + target.project.path.replace(':', '.')
-                    compileSdk = 35
-                    buildToolsVersion = "35.0.0"
+                    compileSdk = 36
+                    buildToolsVersion = "36.0.0"
                     minSdk = 27
 
                     lint {
                         baseline = project.file("lint-baseline.xml")
-                        disable +=
-                            listOf(
-                                "NewerVersionAvailable",
-                                "GradleDependency",
-                                "ObsoleteLintCustomCheck",
-                            )
+                        disable += listOf("GradleDependency",)
                         abortOnError = true
                         checkAllWarnings = true
                         warningsAsErrors = true
