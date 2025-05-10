@@ -59,8 +59,8 @@ fun <
     AR : AndroidResources,
     IN : Installation,
 > CommonExtension<BF, BT, DC, PF, AR, IN>.defaultBaseConfig() {
-    compileSdk = 35
-    buildToolsVersion = "35.0.0"
+    compileSdk = 36
+    buildToolsVersion = "36.0.0"
 
     defaultConfig {
         minSdk = 27
