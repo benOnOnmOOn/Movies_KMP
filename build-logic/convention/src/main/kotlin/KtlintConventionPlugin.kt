@@ -13,7 +13,7 @@ class KtlintConventionPlugin : Plugin<Project> {
             pluginManager.apply("org.jlleitschuh.gradle.ktlint")
 
             extensions.configure<KtlintExtension> {
-                version.set("1.5.0")
+                version.set("1.6.0")
             }
         }
     }

@@ -15,7 +15,9 @@ import com.bz.movies.kmp.database.entity.PopularMovieEntity
 internal const val DATABASE_NAME = "MoviesDB"
 
 @Suppress("EXPECT_ACTUAL_CLASSIFIERS_ARE_IN_BETA_WARNING")
-internal expect object MyDatabaseCtor : RoomDatabaseConstructor<MoviesDatabase>
+internal expect object MyDatabaseCtor : RoomDatabaseConstructor<MoviesDatabase> {
+    override fun initialize(): MoviesDatabase
+}
 
 @Database(
     entities = [MovieEntity::class, PlayingNowMovieEntity::class, PopularMovieEntity::class],
