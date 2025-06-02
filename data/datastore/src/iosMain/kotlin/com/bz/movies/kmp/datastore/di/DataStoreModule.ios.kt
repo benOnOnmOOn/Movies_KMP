@@ -26,7 +26,7 @@ actual val datastoreModule =
                     create = false,
                     error = null,
                 )
-            val path = requireNotNull(documentDirectory).path + "/$USER_PREFERENCES"
+            val path = requireNotNull(documentDirectory).path + "/$USER_PREFERENCES.preferences_pb"
 
             PreferenceDataStoreFactory.createWithPath(
                 corruptionHandler =

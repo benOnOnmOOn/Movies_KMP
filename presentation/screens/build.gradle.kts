@@ -84,6 +84,7 @@ kotlin {
 
             implementation(libs.kotlinx.compose.material3)
             implementation(libs.kotlinx.compose.navigation)
+            implementation(libs.kotlinx.compose.lifecycle.runtime.compose)
         }
 
         commonTest.dependencies {
