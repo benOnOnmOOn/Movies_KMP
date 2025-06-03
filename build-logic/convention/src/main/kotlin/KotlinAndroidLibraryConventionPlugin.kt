@@ -21,7 +21,7 @@ class KotlinAndroidLibraryConventionPlugin : Plugin<Project> {
 
                     lint {
                         baseline = project.file("lint-baseline.xml")
-                        disable += listOf("GradleDependency",)
+                        disable += listOf("GradleDependency")
                         abortOnError = true
                         checkAllWarnings = true
                         warningsAsErrors = true
