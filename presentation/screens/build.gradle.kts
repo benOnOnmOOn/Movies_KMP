@@ -45,7 +45,8 @@ kotlin {
             releaseImplementation(libs.kermit.core)
             testImplementation(libs.junit.jupiter.api)
 
-        }
+          implementation(libs.androidx.savedstate)
+}
     }
 
     iosX64()
