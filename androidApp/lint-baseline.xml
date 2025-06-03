@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<issues format="6" by="lint 8.10.0" type="baseline" client="gradle" dependencies="false" name="AGP (8.10.0)" variant="all" version="8.10.0">
+<issues format="6" by="lint 8.10.1" type="baseline" client="gradle" dependencies="false" name="AGP (8.10.1)" variant="all" version="8.10.1">
 
     <issue
         id="InvalidPackage"
@@ -9,14 +9,69 @@
     </issue>
 
     <issue
+        id="AndroidGradlePluginVersion"
+        message="A newer version of Gradle than 8.14 is available: 8.14.1"
+        errorLine1="distributionUrl=https\://services.gradle.org/distributions/gradle-8.14-bin.zip"
+        errorLine2="                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="$HOME/work/Movies_KMP/Movies_KMP/gradle/wrapper/gradle-wrapper.properties"
+            line="3"
+            column="17"/>
+    </issue>
+
+    <issue
         id="NewerVersionAvailable"
-        message="A newer version of io.mockk:mockk than 1.13.17 is available: 1.14.2"
-        errorLine1="mockk = &quot;1.13.17&quot;"
-        errorLine2="        ~~~~~~~~~">
+        message="A newer version of app.cash.sqldelight than 2.0.2 is available: 2.1.0"
+        errorLine1="sqldelight = &quot;2.0.2&quot;"
+        errorLine2="             ~~~~~~~">
         <location
             file="$HOME/work/Movies_KMP/Movies_KMP/gradle/libs.versions.toml"
-            line="39"
-            column="9"/>
+            line="43"
+            column="14"/>
+    </issue>
+
+    <issue
+        id="NewerVersionAvailable"
+        message="A newer version of app.cash.sqldelight:android-driver than 2.0.2 is available: 2.1.0"
+        errorLine1="sqldelight = &quot;2.0.2&quot;"
+        errorLine2="             ~~~~~~~">
+        <location
+            file="$HOME/work/Movies_KMP/Movies_KMP/gradle/libs.versions.toml"
+            line="43"
+            column="14"/>
+    </issue>
+
+    <issue
+        id="NewerVersionAvailable"
+        message="A newer version of app.cash.sqldelight:coroutines-extensions than 2.0.2 is available: 2.1.0"
+        errorLine1="sqldelight = &quot;2.0.2&quot;"
+        errorLine2="             ~~~~~~~">
+        <location
+            file="$HOME/work/Movies_KMP/Movies_KMP/gradle/libs.versions.toml"
+            line="43"
+            column="14"/>
+    </issue>
+
+    <issue
+        id="NewerVersionAvailable"
+        message="A newer version of app.cash.sqldelight:native-driver than 2.0.2 is available: 2.1.0"
+        errorLine1="sqldelight = &quot;2.0.2&quot;"
+        errorLine2="             ~~~~~~~">
+        <location
+            file="$HOME/work/Movies_KMP/Movies_KMP/gradle/libs.versions.toml"
+            line="43"
+            column="14"/>
+    </issue>
+
+    <issue
+        id="NewerVersionAvailable"
+        message="A newer version of com.osacky.doctor than 0.10.0 is available: 0.11.0"
+        errorLine1="gradle_doctor = { id = &quot;com.osacky.doctor&quot;, version = &quot;0.10.0&quot; }"
+        errorLine2="                                                      ~~~~~~~~">
+        <location
+            file="$HOME/work/Movies_KMP/Movies_KMP/gradle/libs.versions.toml"
+            line="168"
+            column="55"/>
     </issue>
 
 </issues>

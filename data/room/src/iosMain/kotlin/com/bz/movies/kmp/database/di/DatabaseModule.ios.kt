@@ -17,9 +17,10 @@ import platform.Foundation.NSUserDomainMask
 
 private fun getDatabaseBuilder(): RoomDatabase.Builder<MoviesDatabase> {
     val dbFilePath = "${documentDirectory()}/$DATABASE_NAME"
-    return Room.databaseBuilder<MoviesDatabase>(
-        name = dbFilePath,
-    ).setDriver(NativeSQLiteDriver())
+    return Room
+        .databaseBuilder<MoviesDatabase>(
+            name = dbFilePath,
+        ).setDriver(NativeSQLiteDriver())
 }
 
 @OptIn(ExperimentalForeignApi::class)
