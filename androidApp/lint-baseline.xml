@@ -10,13 +10,101 @@
 
     <issue
         id="AndroidGradlePluginVersion"
-        message="A newer version of Gradle than 8.14 is available: 8.14.1"
+        message="A newer version of Gradle than 8.14 is available: 8.14.2"
         errorLine1="distributionUrl=https\://services.gradle.org/distributions/gradle-8.14-bin.zip"
         errorLine2="                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="$HOME/work/Movies_KMP/Movies_KMP/gradle/wrapper/gradle-wrapper.properties"
             line="3"
             column="17"/>
+    </issue>
+
+    <issue
+        id="GradleDependency"
+        message="A newer version of androidx.lifecycle:lifecycle-common than 2.9.0 is available: 2.9.1"
+        errorLine1="androidx-lifecycle = &quot;2.9.0&quot;"
+        errorLine2="                     ~~~~~~~">
+        <location
+            file="$HOME/work/Movies_KMP/Movies_KMP/gradle/libs.versions.toml"
+            line="9"
+            column="22"/>
+    </issue>
+
+    <issue
+        id="GradleDependency"
+        message="A newer version of androidx.lifecycle:lifecycle-runtime than 2.9.0 is available: 2.9.1"
+        errorLine1="androidx-lifecycle = &quot;2.9.0&quot;"
+        errorLine2="                     ~~~~~~~">
+        <location
+            file="$HOME/work/Movies_KMP/Movies_KMP/gradle/libs.versions.toml"
+            line="9"
+            column="22"/>
+    </issue>
+
+    <issue
+        id="GradleDependency"
+        message="A newer version of androidx.lifecycle:lifecycle-runtime-compose than 2.9.0 is available: 2.9.1"
+        errorLine1="androidx-lifecycle = &quot;2.9.0&quot;"
+        errorLine2="                     ~~~~~~~">
+        <location
+            file="$HOME/work/Movies_KMP/Movies_KMP/gradle/libs.versions.toml"
+            line="9"
+            column="22"/>
+    </issue>
+
+    <issue
+        id="GradleDependency"
+        message="A newer version of androidx.lifecycle:lifecycle-viewmodel than 2.9.0 is available: 2.9.1"
+        errorLine1="androidx-lifecycle = &quot;2.9.0&quot;"
+        errorLine2="                     ~~~~~~~">
+        <location
+            file="$HOME/work/Movies_KMP/Movies_KMP/gradle/libs.versions.toml"
+            line="9"
+            column="22"/>
+    </issue>
+
+    <issue
+        id="GradleDependency"
+        message="A newer version of androidx.lifecycle:lifecycle-viewmodel-compose than 2.9.0 is available: 2.9.1"
+        errorLine1="androidx-lifecycle = &quot;2.9.0&quot;"
+        errorLine2="                     ~~~~~~~">
+        <location
+            file="$HOME/work/Movies_KMP/Movies_KMP/gradle/libs.versions.toml"
+            line="9"
+            column="22"/>
+    </issue>
+
+    <issue
+        id="GradleDependency"
+        message="A newer version of com.google.firebase:firebase-crashlytics-ktx than 19.4.3 is available: 19.4.4"
+        errorLine1="firebase-crashlytics = &quot;19.4.3&quot;"
+        errorLine2="                       ~~~~~~~~">
+        <location
+            file="$HOME/work/Movies_KMP/Movies_KMP/gradle/libs.versions.toml"
+            line="19"
+            column="24"/>
+    </issue>
+
+    <issue
+        id="GradleDependency"
+        message="A newer version of com.google.firebase.crashlytics than 3.0.3 is available: 3.0.4"
+        errorLine1="firebase-gradle-crashlytics = &quot;3.0.3&quot;"
+        errorLine2="                              ~~~~~~~">
+        <location
+            file="$HOME/work/Movies_KMP/Movies_KMP/gradle/libs.versions.toml"
+            line="21"
+            column="31"/>
+    </issue>
+
+    <issue
+        id="GradleDependency"
+        message="A newer version of com.google.firebase:firebase-crashlytics-gradle than 3.0.3 is available: 3.0.4"
+        errorLine1="firebase-gradle-crashlytics = &quot;3.0.3&quot;"
+        errorLine2="                              ~~~~~~~">
+        <location
+            file="$HOME/work/Movies_KMP/Movies_KMP/gradle/libs.versions.toml"
+            line="21"
+            column="31"/>
     </issue>
 
     <issue
