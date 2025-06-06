@@ -16,9 +16,6 @@ import com.bz.movies.presentation.screens.common.MovieDetailState
 import com.bz.movies.presentation.screens.common.MovieEffect
 import com.bz.movies.presentation.screens.common.NoInternetDialog
 import com.bz.movies.presentation.utils.collectInLaunchedEffectWithLifecycle
-import movies_kmp.presentation.screens.generated.resources.Res
-import movies_kmp.presentation.screens.generated.resources.details_screen_title
-import org.jetbrains.compose.resources.stringResource
 import org.koin.compose.viewmodel.koinViewModel
 
 @Suppress("ComposeViewModelForwarding")
@@ -70,8 +67,6 @@ internal fun MovieDetailsScreen(
         horizontalAlignment = Alignment.CenterHorizontally,
         modifier = Modifier.fillMaxSize(),
     ) {
-        Text(text = stringResource(Res.string.details_screen_title))
-
         state.movieDetails?.let {
             Text(text = it.title)
             Text(text = it.releaseDate)

@@ -22,12 +22,11 @@ internal fun <T> Flow<T>.collectInLaunchedEffectWithLifecycle(
     minActiveState: Lifecycle.State = Lifecycle.State.STARTED,
     collector: suspend CoroutineScope.(T) -> Unit,
 ) {
-    val flow = this
     val currentCollector by rememberUpdatedState(collector)
-    LaunchedEffect(flow, lifecycle, minActiveState, *keys) {
+    LaunchedEffect(this, lifecycle, minActiveState, *keys) {
         withContext(Dispatchers.Main.immediate) {
             lifecycle.repeatOnLifecycle(minActiveState) {
-                flow.collect { currentCollector(it) }
+                this@collectInLaunchedEffectWithLifecycle.collect { currentCollector(it) }
             }
         }
     }

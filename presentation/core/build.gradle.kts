@@ -51,7 +51,7 @@ kotlin {
             isStatic = true
             export(projects.presentation.screens)
             export(projects.data.network)
-            export(projects.data.database)
+            export(projects.data.room)
             export(projects.data.datastore)
             export(projects.data.dto)
         }

@@ -2,6 +2,7 @@ package com.bz.movies.kmp.database.di
 
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import androidx.sqlite.driver.NativeSQLiteDriver
 import com.bz.movies.kmp.database.DATABASE_NAME
 import com.bz.movies.kmp.database.MoviesDatabase
 import com.bz.movies.kmp.database.dao.MovieDAO
@@ -16,9 +17,10 @@ import platform.Foundation.NSUserDomainMask
 
 private fun getDatabaseBuilder(): RoomDatabase.Builder<MoviesDatabase> {
     val dbFilePath = "${documentDirectory()}/$DATABASE_NAME"
-    return Room.databaseBuilder<MoviesDatabase>(
-        name = dbFilePath,
-    )
+    return Room
+        .databaseBuilder<MoviesDatabase>(
+            name = dbFilePath,
+        ).setDriver(NativeSQLiteDriver())
 }
 
 @OptIn(ExperimentalForeignApi::class)

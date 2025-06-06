@@ -11,6 +11,7 @@ import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.navArgument
+import androidx.savedstate.read
 import com.bz.movies.presentation.screens.details.MovieDetailsScreen
 import com.bz.movies.presentation.screens.empty.Greeting
 import com.bz.movies.presentation.screens.favorite.FavoriteScreen
@@ -83,7 +84,7 @@ private fun MoviesNavHostInternal(
             route = RootRoute.Details.route,
             arguments = listOf(navArgument("id") { type = NavType.IntType }),
         ) { backStackEntry ->
-            MovieDetailsScreen(backStackEntry.arguments?.getInt("id"))
+            MovieDetailsScreen(backStackEntry.arguments?.read { getInt("id")})
         }
     }
 }

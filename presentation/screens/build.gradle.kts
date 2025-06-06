@@ -44,7 +44,9 @@ kotlin {
             debugImplementation(libs.kotlinx.compose.ui.tooling.preview)
             releaseImplementation(libs.kermit.core)
             testImplementation(libs.junit.jupiter.api)
-        }
+
+          implementation(libs.androidx.savedstate)
+}
     }
 
     iosX64()
@@ -84,6 +86,9 @@ kotlin {
 
             implementation(libs.kotlinx.compose.material3)
             implementation(libs.kotlinx.compose.navigation)
+            implementation(libs.kotlinx.lifecycle.viewmodel.savedstate)
+            implementation(libs.kotlinx.savedstate)
+            implementation(libs.kotlinx.compose.lifecycle.runtime.compose)
         }
 
         commonTest.dependencies {
