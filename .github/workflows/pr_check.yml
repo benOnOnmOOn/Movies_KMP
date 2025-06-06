@@ -52,6 +52,9 @@ jobs:
       - name: Check build-logic
         run: ./gradlew :build-logic:convention:check
 
+      - name: Check presentation syncFramework
+        run: ./gradlew :presentation:core:syncFramework -Pkotlin.native.cocoapods.configuration="Debug" -Pkotlin.native.cocoapods.platform="iphonesimulator" -Pkotlin.native.cocoapods.archs="arm64"'
+
 #      - name: Upload coverage reports
 #        id: kover
 #        uses: mi-kas/kover-report@v1
