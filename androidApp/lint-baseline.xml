@@ -1,11 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<issues format="6" by="lint 8.10.1" type="baseline" client="gradle" dependencies="false" name="AGP (8.10.1)" variant="all" version="8.10.1">
+<issues format="6" by="lint 8.10.1" type="baseline" client="gradle" dependencies="true" name="AGP (8.10.1)" variant="all" version="8.10.1">
+
+    <issue
+        id="InvalidPackage"
+        message="Invalid package reference in io.ktor:ktor-utils-jvm; not included in Android: `java.lang.management`. Referenced from `io.ktor.util.debug.IntellijIdeaDebugDetector`.">
+        <location
+            file="../../../../../.gradle/caches/modules-2/files-2.1/io.ktor/ktor-utils-jvm/3.1.3/d2e56dca809c965fa498df86a570fc9ed5b9551f/ktor-utils-jvm-3.1.3.jar"/>
+    </issue>
+
+    <issue
+        id="InvalidPackage"
+        message="Invalid package reference in io.ktor:ktor-utils-jvm; not included in Android: `java.lang.management`. Referenced from `io.ktor.util.debug.IntellijIdeaDebugDetector`.">
+        <location
+            file="../../../../../.gradle/caches/modules-2/files-2.1/io.ktor/ktor-utils-jvm/3.1.3/d2e56dca809c965fa498df86a570fc9ed5b9551f/ktor-utils-jvm-3.1.3.jar"/>
+    </issue>
+
+    <issue
+        id="InvalidPackage"
+        message="Invalid package reference in io.ktor:ktor-utils-jvm; not included in Android: `java.lang.management`. Referenced from `io.ktor.util.debug.IntellijIdeaDebugDetector`.">
+        <location
+            file="../../../../../.gradle/caches/modules-2/files-2.1/io.ktor/ktor-utils-jvm/3.1.3/d2e56dca809c965fa498df86a570fc9ed5b9551f/ktor-utils-jvm-3.1.3.jar"/>
+    </issue>
 
     <issue
         id="InvalidPackage"
         message="Invalid package reference in library; not included in Android: `java.lang.management`. Referenced from `io.ktor.util.debug.IntellijIdeaDebugDetector`.">
         <location
-            file="$GRADLE_USER_HOME/caches/modules-2/files-2.1/io.ktor/ktor-utils-jvm/3.1.3/d2e56dca809c965fa498df86a570fc9ed5b9551f/ktor-utils-jvm-3.1.3.jar"/>
+            file="../../../../.gradle/caches/modules-2/files-2.1/io.ktor/ktor-utils-jvm/3.1.3/d2e56dca809c965fa498df86a570fc9ed5b9551f/ktor-utils-jvm-3.1.3.jar"/>
     </issue>
 
     <issue
@@ -14,7 +35,7 @@
         errorLine1="distributionUrl=https\://services.gradle.org/distributions/gradle-8.14-bin.zip"
         errorLine2="                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
-            file="$HOME/work/Movies_KMP/Movies_KMP/gradle/wrapper/gradle-wrapper.properties"
+            file="../gradle/wrapper/gradle-wrapper.properties"
             line="3"
             column="17"/>
     </issue>
@@ -25,7 +46,7 @@
         errorLine1="androidx-lifecycle = &quot;2.9.0&quot;"
         errorLine2="                     ~~~~~~~">
         <location
-            file="$HOME/work/Movies_KMP/Movies_KMP/gradle/libs.versions.toml"
+            file="../gradle/libs.versions.toml"
             line="9"
             column="22"/>
     </issue>
@@ -36,7 +57,7 @@
         errorLine1="androidx-lifecycle = &quot;2.9.0&quot;"
         errorLine2="                     ~~~~~~~">
         <location
-            file="$HOME/work/Movies_KMP/Movies_KMP/gradle/libs.versions.toml"
+            file="../gradle/libs.versions.toml"
             line="9"
             column="22"/>
     </issue>
@@ -47,7 +68,7 @@
         errorLine1="androidx-lifecycle = &quot;2.9.0&quot;"
         errorLine2="                     ~~~~~~~">
         <location
-            file="$HOME/work/Movies_KMP/Movies_KMP/gradle/libs.versions.toml"
+            file="../gradle/libs.versions.toml"
             line="9"
             column="22"/>
     </issue>
@@ -58,7 +79,7 @@
         errorLine1="androidx-lifecycle = &quot;2.9.0&quot;"
         errorLine2="                     ~~~~~~~">
         <location
-            file="$HOME/work/Movies_KMP/Movies_KMP/gradle/libs.versions.toml"
+            file="../gradle/libs.versions.toml"
             line="9"
             column="22"/>
     </issue>
@@ -69,7 +90,7 @@
         errorLine1="androidx-lifecycle = &quot;2.9.0&quot;"
         errorLine2="                     ~~~~~~~">
         <location
-            file="$HOME/work/Movies_KMP/Movies_KMP/gradle/libs.versions.toml"
+            file="../gradle/libs.versions.toml"
             line="9"
             column="22"/>
     </issue>
@@ -80,7 +101,7 @@
         errorLine1="firebase-crashlytics = &quot;19.4.3&quot;"
         errorLine2="                       ~~~~~~~~">
         <location
-            file="$HOME/work/Movies_KMP/Movies_KMP/gradle/libs.versions.toml"
+            file="../gradle/libs.versions.toml"
             line="19"
             column="24"/>
     </issue>
@@ -91,7 +112,7 @@
         errorLine1="firebase-gradle-crashlytics = &quot;3.0.3&quot;"
         errorLine2="                              ~~~~~~~">
         <location
-            file="$HOME/work/Movies_KMP/Movies_KMP/gradle/libs.versions.toml"
+            file="../gradle/libs.versions.toml"
             line="21"
             column="31"/>
     </issue>
@@ -102,7 +123,7 @@
         errorLine1="firebase-gradle-crashlytics = &quot;3.0.3&quot;"
         errorLine2="                              ~~~~~~~">
         <location
-            file="$HOME/work/Movies_KMP/Movies_KMP/gradle/libs.versions.toml"
+            file="../gradle/libs.versions.toml"
             line="21"
             column="31"/>
     </issue>
@@ -113,7 +134,7 @@
         errorLine1="sqldelight = &quot;2.0.2&quot;"
         errorLine2="             ~~~~~~~">
         <location
-            file="$HOME/work/Movies_KMP/Movies_KMP/gradle/libs.versions.toml"
+            file="../gradle/libs.versions.toml"
             line="43"
             column="14"/>
     </issue>
@@ -124,7 +145,7 @@
         errorLine1="sqldelight = &quot;2.0.2&quot;"
         errorLine2="             ~~~~~~~">
         <location
-            file="$HOME/work/Movies_KMP/Movies_KMP/gradle/libs.versions.toml"
+            file="../gradle/libs.versions.toml"
             line="43"
             column="14"/>
     </issue>
@@ -135,7 +156,7 @@
         errorLine1="sqldelight = &quot;2.0.2&quot;"
         errorLine2="             ~~~~~~~">
         <location
-            file="$HOME/work/Movies_KMP/Movies_KMP/gradle/libs.versions.toml"
+            file="../gradle/libs.versions.toml"
             line="43"
             column="14"/>
     </issue>
@@ -146,7 +167,7 @@
         errorLine1="sqldelight = &quot;2.0.2&quot;"
         errorLine2="             ~~~~~~~">
         <location
-            file="$HOME/work/Movies_KMP/Movies_KMP/gradle/libs.versions.toml"
+            file="../gradle/libs.versions.toml"
             line="43"
             column="14"/>
     </issue>
@@ -157,7 +178,7 @@
         errorLine1="gradle_doctor = { id = &quot;com.osacky.doctor&quot;, version = &quot;0.10.0&quot; }"
         errorLine2="                                                      ~~~~~~~~">
         <location
-            file="$HOME/work/Movies_KMP/Movies_KMP/gradle/libs.versions.toml"
+            file="../gradle/libs.versions.toml"
             line="168"
             column="55"/>
     </issue>
