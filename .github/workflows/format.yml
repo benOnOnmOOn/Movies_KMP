@@ -48,6 +48,9 @@ jobs:
       - name: Run detekt baseline
         run: ./gradlew detektGenerateBaseline
 
+      - name: Run api dump
+        run: ./gradlew apiDump
+
       # Commit all changed files back to the repository
       - uses: stefanzweifel/git-auto-commit-action@v5
 
