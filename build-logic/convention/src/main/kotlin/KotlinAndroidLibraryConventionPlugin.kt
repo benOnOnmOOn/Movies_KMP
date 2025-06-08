@@ -30,10 +30,6 @@ class KotlinAndroidLibraryConventionPlugin : Plugin<Project> {
                         checkGeneratedSources = false
                     }
 
-                    compilations.configureEach {
-                        compilerOptions.configure { jvmTarget.set(JvmTarget.JVM_21) }
-                    }
-
                     packaging.resources.excludes +=
                         setOf(
                             "kotlin/**",
