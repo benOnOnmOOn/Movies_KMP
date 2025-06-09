@@ -1,11 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<issues format="6" by="lint 8.10.0" type="baseline" client="gradle" dependencies="false" name="AGP (8.10.0)" variant="all" version="8.10.0">
+<issues format="6" by="lint 8.10.1" type="baseline" client="gradle" dependencies="true" name="AGP (8.10.1)" variant="all" version="8.10.1">
 
     <issue
         id="InvalidPackage"
         message="Invalid package reference in io.ktor:ktor-utils-jvm; not included in Android: `java.lang.management`. Referenced from `io.ktor.util.debug.IntellijIdeaDebugDetector`.">
         <location
-            file="$GRADLE_USER_HOME/caches/modules-2/files-2.1/io.ktor/ktor-utils-jvm/3.1.3/d2e56dca809c965fa498df86a570fc9ed5b9551f/ktor-utils-jvm-3.1.3.jar"/>
+            file="../../../../../.gradle/caches/modules-2/files-2.1/io.ktor/ktor-utils-jvm/3.1.3/d2e56dca809c965fa498df86a570fc9ed5b9551f/ktor-utils-jvm-3.1.3.jar"/>
+    </issue>
+
+    <issue
+        id="InvalidPackage"
+        message="Invalid package reference in io.ktor:ktor-utils-jvm; not included in Android: `java.lang.management`. Referenced from `io.ktor.util.debug.IntellijIdeaDebugDetector`.">
+        <location
+            file="../../../../../.gradle/caches/modules-2/files-2.1/io.ktor/ktor-utils-jvm/3.1.3/d2e56dca809c965fa498df86a570fc9ed5b9551f/ktor-utils-jvm-3.1.3.jar"/>
+    </issue>
+
+    <issue
+        id="InvalidPackage"
+        message="Invalid package reference in io.ktor:ktor-utils-jvm; not included in Android: `java.lang.management`. Referenced from `io.ktor.util.debug.IntellijIdeaDebugDetector`.">
+        <location
+            file="../../../../../.gradle/caches/modules-2/files-2.1/io.ktor/ktor-utils-jvm/3.1.3/d2e56dca809c965fa498df86a570fc9ed5b9551f/ktor-utils-jvm-3.1.3.jar"/>
     </issue>
 
 </issues>

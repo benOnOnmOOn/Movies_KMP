@@ -17,12 +17,12 @@ java {
 kotlin {
     compilerOptions {
         jvmTarget = JvmTarget.JVM_21
-        allWarningsAsErrors = false
+        allWarningsAsErrors = true
     }
 }
 
 ktlint {
-    version.set("1.4.0")
+    version.set("1.6.0")
 }
 
 dependencies {

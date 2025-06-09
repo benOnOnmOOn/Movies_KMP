@@ -2,7 +2,6 @@ import com.android.build.api.dsl.androidLibrary
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.configure
-import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 import org.jetbrains.kotlin.gradle.dsl.KotlinMultiplatformExtension
 
 @Suppress("UnstableApiUsage")
@@ -28,10 +27,6 @@ class KotlinAndroidLibraryConventionPlugin : Plugin<Project> {
                         checkReleaseBuilds = false
                         checkDependencies = false
                         checkGeneratedSources = false
-                    }
-
-                    compilations.configureEach {
-                        compilerOptions.configure { jvmTarget.set(JvmTarget.JVM_21) }
                     }
 
                     packaging.resources.excludes +=

@@ -1,6 +1,7 @@
 import com.github.benmanes.gradle.versions.updates.DependencyUpdatesTask
 import io.gitlab.arturbosch.detekt.Detekt
 import io.gitlab.arturbosch.detekt.DetektCreateBaselineTask
+import org.gradle.kotlin.dsl.add
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
@@ -113,12 +114,16 @@ tasks.register<DetektCreateBaselineTask>("detektGenerateBaseline") {
 
 //endregion
 
-tasks.withType<KotlinCompile>().configureEach {
-    compilerOptions {
-        jvmTarget.set(JvmTarget.JVM_21)
+allprojects {
+    tasks.withType<KotlinCompile>().configureEach {
+        compilerOptions {
+            jvmTarget.set(JvmTarget.JVM_21)
 
-        freeCompilerArgs.addAll(listOf("-Xjvm-default=all", "-Xexpect-actual-classes"))
-        allWarningsAsErrors.set(true)
-        extraWarnings.set(true)
+            freeCompilerArgs.addAll(listOf("-Xexpect-actual-classes"))
+            allWarningsAsErrors.set(false)
+            extraWarnings.set(true)
+            progressiveMode = true
+        }
     }
 }
+

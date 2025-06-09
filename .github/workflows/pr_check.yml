@@ -13,7 +13,7 @@ jobs:
     uses: ./.github/workflows/format.yml
   gradle:
     needs: [format]
-    runs-on: macos-latest
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
         with:
@@ -51,6 +51,9 @@ jobs:
 
       - name: Check build-logic
         run: ./gradlew :build-logic:convention:check
+
+#      - name: Check presentation syncFramework
+#        run: ./gradlew :presentation:core:syncFramework -Pkotlin.native.cocoapods.configuration="Debug" -Pkotlin.native.cocoapods.platform="iphonesimulator" -Pkotlin.native.cocoapods.archs="arm64"
 
 #      - name: Upload coverage reports
 #        id: kover

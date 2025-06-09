@@ -31,6 +31,6 @@ private fun Lint.configure(project: Project) {
     checkAllWarnings = true
     warningsAsErrors = true
     checkReleaseBuilds = false
-    checkDependencies = false
+    checkDependencies = true
     checkGeneratedSources = false
 }
