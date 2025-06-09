@@ -30,6 +30,10 @@ jobs:
         run: ./gradlew ktlintFormat
         continue-on-error: true
 
+      - name: Format  build logic sources with ktlint
+        run: ./gradlew :build-logic:convention:ktlintFormat
+        continue-on-error: true
+
       - name: Update ktlint baseline
         run: ./gradlew ktlintGenerateBaseline
 

@@ -11,8 +11,16 @@ class DependencyAnalysisConventionPlugin : Plugin<Project> {
             if (!enablePlugin) return
 
             pluginManager.apply("com.autonomousapps.dependency-analysis")
-            extensions.findByType<DependencyAnalysisExtension>()?.issues {
+            val dependencyAnalysisExtension = extensions.findByType<DependencyAnalysisExtension>() ?: return
+            dependencyAnalysisExtension.issues {
                 all { onAny { severity("fail") } }
+            }
+
+            dependencyAnalysisExtension.abi {
+                exclusions {
+                    ignoreGeneratedCode()
+                    ignoreInternalPackages()
+                }
             }
         }
     }

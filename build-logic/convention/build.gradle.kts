@@ -22,7 +22,7 @@ kotlin {
 }
 
 ktlint {
-    version.set("1.4.0")
+    version.set("1.6.0")
 }
 
 dependencies {
