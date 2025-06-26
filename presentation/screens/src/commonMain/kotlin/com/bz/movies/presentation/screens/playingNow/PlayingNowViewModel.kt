@@ -29,7 +29,7 @@ import kotlinx.coroutines.flow.onEmpty
 import kotlinx.coroutines.flow.receiveAsFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
-import kotlinx.datetime.Clock
+import kotlin.time.Clock
 
 internal class PlayingNowViewModel(
     private val movieRepository: MovieRepository,

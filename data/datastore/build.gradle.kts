@@ -14,6 +14,9 @@ kotlin {
     iosSimulatorArm64()
 
     sourceSets {
+        all {
+            languageSettings.optIn("kotlin.time.ExperimentalTime")
+        }
         commonMain {
             dependencies {
                 implementation(projects.data.dto)

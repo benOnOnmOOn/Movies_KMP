@@ -15,13 +15,6 @@ class DependencyAnalysisConventionPlugin : Plugin<Project> {
             dependencyAnalysisExtension.issues {
                 all { onAny { severity("fail") } }
             }
-
-            dependencyAnalysisExtension.abi {
-                exclusions {
-                    ignoreGeneratedCode()
-                    ignoreInternalPackages()
-                }
-            }
         }
     }
 }

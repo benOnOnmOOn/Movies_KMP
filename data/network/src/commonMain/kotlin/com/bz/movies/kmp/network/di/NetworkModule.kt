@@ -8,7 +8,7 @@ import org.koin.dsl.lazyModule
 
 val commonNetworkModule: LazyModule =
     lazyModule {
-        factory<MovieService> { MovieService() }
+        single<MovieService> { MovieService() }
         factory<MovieRepository> { MovieRepositoryImpl(get(), get()) }
     }
 

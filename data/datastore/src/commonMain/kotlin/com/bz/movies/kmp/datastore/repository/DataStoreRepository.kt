@@ -1,6 +1,6 @@
 package com.bz.movies.kmp.datastore.repository
 
-import kotlinx.datetime.Instant
+import kotlin.time.Instant
 
 interface DataStoreRepository {
     suspend fun insertPlayingNowRefreshDate(data: Instant): Result<Unit>
