@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<issues format="6" by="lint 8.10.1" type="baseline" client="gradle" dependencies="true" name="AGP (8.10.1)" variant="all" version="8.10.1">
+<issues format="6" by="lint 8.10.0" type="baseline" client="gradle" dependencies="true" name="AGP (8.10.0)" variant="all" version="8.10.0">
 
     <issue
         id="InvalidPackage"
@@ -30,91 +30,190 @@
     </issue>
 
     <issue
-        id="GradleDependency"
-        message="A newer version of androidx.lifecycle:lifecycle-common than 2.9.0 is available: 2.9.1"
-        errorLine1="androidx-lifecycle = &quot;2.9.0&quot;"
-        errorLine2="                     ~~~~~~~">
+        id="AndroidGradlePluginVersion"
+        message="A newer version of com.android.application than 8.10.0 is available: 8.11.0. (There is also a newer version of 8.10.𝑥 available, if upgrading to 8.11.0 is difficult: 8.10.1)"
+        errorLine1="android-gradle-plugin = &quot;8.10.0&quot;"
+        errorLine2="                        ~~~~~~~~">
         <location
             file="../gradle/libs.versions.toml"
-            line="9"
-            column="22"/>
+            line="2"
+            column="25"/>
+    </issue>
+
+    <issue
+        id="AndroidGradlePluginVersion"
+        message="A newer version of com.android.library than 8.10.0 is available: 8.11.0. (There is also a newer version of 8.10.𝑥 available, if upgrading to 8.11.0 is difficult: 8.10.1)"
+        errorLine1="android-gradle-plugin = &quot;8.10.0&quot;"
+        errorLine2="                        ~~~~~~~~">
+        <location
+            file="../gradle/libs.versions.toml"
+            line="2"
+            column="25"/>
+    </issue>
+
+    <issue
+        id="AndroidGradlePluginVersion"
+        message="A newer version of com.android.tools.build:gradle than 8.10.0 is available: 8.11.0. (There is also a newer version of 8.10.𝑥 available, if upgrading to 8.11.0 is difficult: 8.10.1)"
+        errorLine1="android-gradle-plugin = &quot;8.10.0&quot;"
+        errorLine2="                        ~~~~~~~~">
+        <location
+            file="../gradle/libs.versions.toml"
+            line="2"
+            column="25"/>
     </issue>
 
     <issue
         id="GradleDependency"
-        message="A newer version of androidx.lifecycle:lifecycle-runtime than 2.9.0 is available: 2.9.1"
-        errorLine1="androidx-lifecycle = &quot;2.9.0&quot;"
-        errorLine2="                     ~~~~~~~">
+        message="A newer version of com.android.kotlin.multiplatform.library than 8.10.0 is available: 8.11.0"
+        errorLine1="android-gradle-plugin = &quot;8.10.0&quot;"
+        errorLine2="                        ~~~~~~~~">
         <location
             file="../gradle/libs.versions.toml"
-            line="9"
-            column="22"/>
+            line="2"
+            column="25"/>
     </issue>
 
     <issue
         id="GradleDependency"
-        message="A newer version of androidx.lifecycle:lifecycle-runtime-compose than 2.9.0 is available: 2.9.1"
-        errorLine1="androidx-lifecycle = &quot;2.9.0&quot;"
-        errorLine2="                     ~~~~~~~">
+        message="A newer version of com.android.lint than 8.10.0 is available: 8.11.0"
+        errorLine1="android-gradle-plugin = &quot;8.10.0&quot;"
+        errorLine2="                        ~~~~~~~~">
         <location
             file="../gradle/libs.versions.toml"
-            line="9"
-            column="22"/>
+            line="2"
+            column="25"/>
     </issue>
 
     <issue
-        id="GradleDependency"
-        message="A newer version of androidx.lifecycle:lifecycle-viewmodel than 2.9.0 is available: 2.9.1"
-        errorLine1="androidx-lifecycle = &quot;2.9.0&quot;"
-        errorLine2="                     ~~~~~~~">
+        id="NewerVersionAvailable"
+        message="A newer version of io.ktor.plugin than 3.1.3 is available: 3.2.0"
+        errorLine1="ktor = &quot;3.1.3&quot;"
+        errorLine2="       ~~~~~~~">
         <location
             file="../gradle/libs.versions.toml"
-            line="9"
-            column="22"/>
+            line="36"
+            column="8"/>
     </issue>
 
     <issue
-        id="GradleDependency"
-        message="A newer version of androidx.lifecycle:lifecycle-viewmodel-compose than 2.9.0 is available: 2.9.1"
-        errorLine1="androidx-lifecycle = &quot;2.9.0&quot;"
-        errorLine2="                     ~~~~~~~">
+        id="NewerVersionAvailable"
+        message="A newer version of io.ktor:ktor-client-android than 3.1.3 is available: 3.2.0"
+        errorLine1="ktor = &quot;3.1.3&quot;"
+        errorLine2="       ~~~~~~~">
         <location
             file="../gradle/libs.versions.toml"
-            line="9"
-            column="22"/>
+            line="36"
+            column="8"/>
     </issue>
 
     <issue
-        id="GradleDependency"
-        message="A newer version of com.google.firebase:firebase-crashlytics-ktx than 19.4.3 is available: 19.4.4"
-        errorLine1="firebase-crashlytics = &quot;19.4.3&quot;"
-        errorLine2="                       ~~~~~~~~">
+        id="NewerVersionAvailable"
+        message="A newer version of io.ktor:ktor-client-content-negotiation than 3.1.3 is available: 3.2.0"
+        errorLine1="ktor = &quot;3.1.3&quot;"
+        errorLine2="       ~~~~~~~">
         <location
             file="../gradle/libs.versions.toml"
-            line="19"
-            column="24"/>
+            line="36"
+            column="8"/>
     </issue>
 
     <issue
-        id="GradleDependency"
-        message="A newer version of com.google.firebase.crashlytics than 3.0.3 is available: 3.0.4"
-        errorLine1="firebase-gradle-crashlytics = &quot;3.0.3&quot;"
-        errorLine2="                              ~~~~~~~">
+        id="NewerVersionAvailable"
+        message="A newer version of io.ktor:ktor-client-core than 3.1.3 is available: 3.2.0"
+        errorLine1="ktor = &quot;3.1.3&quot;"
+        errorLine2="       ~~~~~~~">
         <location
             file="../gradle/libs.versions.toml"
-            line="21"
-            column="31"/>
+            line="36"
+            column="8"/>
     </issue>
 
     <issue
-        id="GradleDependency"
-        message="A newer version of com.google.firebase:firebase-crashlytics-gradle than 3.0.3 is available: 3.0.4"
-        errorLine1="firebase-gradle-crashlytics = &quot;3.0.3&quot;"
-        errorLine2="                              ~~~~~~~">
+        id="NewerVersionAvailable"
+        message="A newer version of io.ktor:ktor-client-ios than 3.1.3 is available: 3.2.0"
+        errorLine1="ktor = &quot;3.1.3&quot;"
+        errorLine2="       ~~~~~~~">
         <location
             file="../gradle/libs.versions.toml"
-            line="21"
-            column="31"/>
+            line="36"
+            column="8"/>
+    </issue>
+
+    <issue
+        id="NewerVersionAvailable"
+        message="A newer version of io.ktor:ktor-client-logging than 3.1.3 is available: 3.2.0"
+        errorLine1="ktor = &quot;3.1.3&quot;"
+        errorLine2="       ~~~~~~~">
+        <location
+            file="../gradle/libs.versions.toml"
+            line="36"
+            column="8"/>
+    </issue>
+
+    <issue
+        id="NewerVersionAvailable"
+        message="A newer version of io.ktor:ktor-http than 3.1.3 is available: 3.2.0"
+        errorLine1="ktor = &quot;3.1.3&quot;"
+        errorLine2="       ~~~~~~~">
+        <location
+            file="../gradle/libs.versions.toml"
+            line="36"
+            column="8"/>
+    </issue>
+
+    <issue
+        id="NewerVersionAvailable"
+        message="A newer version of io.ktor:ktor-serialization than 3.1.3 is available: 3.2.0"
+        errorLine1="ktor = &quot;3.1.3&quot;"
+        errorLine2="       ~~~~~~~">
+        <location
+            file="../gradle/libs.versions.toml"
+            line="36"
+            column="8"/>
+    </issue>
+
+    <issue
+        id="NewerVersionAvailable"
+        message="A newer version of io.ktor:ktor-serialization-kotlinx-json than 3.1.3 is available: 3.2.0"
+        errorLine1="ktor = &quot;3.1.3&quot;"
+        errorLine2="       ~~~~~~~">
+        <location
+            file="../gradle/libs.versions.toml"
+            line="36"
+            column="8"/>
+    </issue>
+
+    <issue
+        id="NewerVersionAvailable"
+        message="A newer version of io.ktor:ktor-server-cio than 3.1.3 is available: 3.2.0"
+        errorLine1="ktor = &quot;3.1.3&quot;"
+        errorLine2="       ~~~~~~~">
+        <location
+            file="../gradle/libs.versions.toml"
+            line="36"
+            column="8"/>
+    </issue>
+
+    <issue
+        id="NewerVersionAvailable"
+        message="A newer version of io.ktor:ktor-server-content-negotiation than 3.1.3 is available: 3.2.0"
+        errorLine1="ktor = &quot;3.1.3&quot;"
+        errorLine2="       ~~~~~~~">
+        <location
+            file="../gradle/libs.versions.toml"
+            line="36"
+            column="8"/>
+    </issue>
+
+    <issue
+        id="NewerVersionAvailable"
+        message="A newer version of io.ktor:ktor-utils than 3.1.3 is available: 3.2.0"
+        errorLine1="ktor = &quot;3.1.3&quot;"
+        errorLine2="       ~~~~~~~">
+        <location
+            file="../gradle/libs.versions.toml"
+            line="36"
+            column="8"/>
     </issue>
 
     <issue
@@ -163,13 +262,24 @@
 
     <issue
         id="NewerVersionAvailable"
-        message="A newer version of com.osacky.doctor than 0.10.0 is available: 0.11.0"
-        errorLine1="gradle_doctor = { id = &quot;com.osacky.doctor&quot;, version = &quot;0.10.0&quot; }"
-        errorLine2="                                                      ~~~~~~~~">
+        message="A newer version of org.jetbrains.kotlinx.binary-compatibility-validator than 0.17.0 is available: 0.18.0"
+        errorLine1="binary-compatibility-gradlePlugin = { group = &quot;org.jetbrains.kotlinx.binary-compatibility-validator&quot;, name = &quot;org.jetbrains.kotlinx.binary-compatibility-validator.gradle.plugin&quot;, version = &quot;0.17.0&quot; }"
+        errorLine2="                                                                                                                                                                                             ~~~~~~~~">
         <location
             file="../gradle/libs.versions.toml"
-            line="168"
-            column="55"/>
+            line="139"
+            column="190"/>
+    </issue>
+
+    <issue
+        id="NewerVersionAvailable"
+        message="A newer version of org.jetbrains.kotlinx.binary-compatibility-validator than 0.17.0 is available: 0.18.0"
+        errorLine1="binary-compatibility = { id = &quot;org.jetbrains.kotlinx.binary-compatibility-validator&quot;, version = &quot;0.17.0&quot; }"
+        errorLine2="                                                                                                ~~~~~~~~">
+        <location
+            file="../gradle/libs.versions.toml"
+            line="157"
+            column="97"/>
     </issue>
 
 </issues>

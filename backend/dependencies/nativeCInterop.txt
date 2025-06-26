@@ -24,7 +24,7 @@ io.ktor:ktor-utils-linuxx64:3.1.3
 io.ktor:ktor-utils:3.1.3
 io.ktor:ktor-websockets-linuxx64:3.1.3
 io.ktor:ktor-websockets:3.1.3
-org.jetbrains.kotlin:kotlin-stdlib:2.1.21
+org.jetbrains.kotlin:kotlin-stdlib:2.2.0
 org.jetbrains.kotlinx:atomicfu-linuxx64:0.27.0
 org.jetbrains.kotlinx:atomicfu:0.27.0
 org.jetbrains.kotlinx:kotlinx-coroutines-core-linuxx64:1.10.2
