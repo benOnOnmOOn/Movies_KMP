@@ -30,7 +30,6 @@ kotlin {
                 implementation(libs.koin.core.coroutines)
 
                 implementation(libs.kotlinx.coroutines.core)
-                implementation(libs.kotlinx.datetime)
             }
         }
         commonTest {

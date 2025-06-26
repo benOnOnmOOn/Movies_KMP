@@ -1,5 +1,5 @@
 [versions]
-android-gradle-plugin = "8.10.0"
+android-gradle-plugin = "8.11.0"
 android-sqlite = "2.5.2"
 android-tools = "31.11.0"
 androidx-activity = "1.10.1"
@@ -25,10 +25,10 @@ junit = "5.13.2"
 kermit = "2.0.6"
 koin = "4.1.0"
 kotlin = "2.2.0"
+kotlinx-binary-compatibility = "0.18.0"
 kotlinx-compose-navigation = "2.9.0-beta03"
 kotlinx-compose-plugin = "1.8.2"
 kotlinx-coroutines = "1.10.2"
-kotlinx-datetime = "0.7.0"
 kotlinx-kover = "0.9.1"
 kotlinx-ksp = "2.2.0-2.0.2"
 kotlinx-serialization = "1.8.1"
@@ -109,7 +109,6 @@ kotlinx-compose-navigation = { module = "org.jetbrains.androidx.navigation:navig
 kotlinx-compose-ui-tooling-preview = { module = "org.jetbrains.compose.ui:ui-tooling-preview", version.ref = "kotlinx-compose-plugin" }
 kotlinx-coroutines-android = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-android", version.ref = "kotlinx-coroutines" }
 kotlinx-coroutines-core = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-core", version.ref = "kotlinx-coroutines" }
-kotlinx-datetime = { module = "org.jetbrains.kotlinx:kotlinx-datetime", version.ref = "kotlinx-datetime" }
 kotlinx-lifecycle-viewmodel-savedstate = { module = "org.jetbrains.androidx.lifecycle:lifecycle-viewmodel-savedstate", version.ref = "androidx-lifecycle" }
 kotlinx-savedstate = { module = "org.jetbrains.androidx.savedstate:savedstate", version.ref = "savedstate-version" }
 kotlinx-serialization-core = { module = "org.jetbrains.kotlinx:kotlinx-serialization-core", version.ref = "kotlinx-serialization" }
@@ -136,7 +135,7 @@ sqldelight-native-driver = { group = "app.cash.sqldelight", name = "native-drive
 # Dependencies of the included build-logic
 android-gradlePlugin = { group = "com.android.tools.build", name = "gradle", version.ref = "android-gradle-plugin" }
 android-tools-common = { group = "com.android.tools", name = "common", version.ref = "android-tools" }
-binary-compatibility-gradlePlugin = { group = "org.jetbrains.kotlinx.binary-compatibility-validator", name = "org.jetbrains.kotlinx.binary-compatibility-validator.gradle.plugin", version = "0.17.0" }
+binary-compatibility-gradlePlugin = { group = "org.jetbrains.kotlinx.binary-compatibility-validator", name = "org.jetbrains.kotlinx.binary-compatibility-validator.gradle.plugin", version.ref = "kotlinx-binary-compatibility" }
 compose-gradlePlugin = { module = "org.jetbrains.kotlin:compose-compiler-gradle-plugin", version.ref = "kotlin" }
 dependency-analysis-gradlePlugin = { group = "com.autonomousapps.dependency-analysis", name = "com.autonomousapps.dependency-analysis.gradle.plugin", version.ref = "dependency-analysis" }
 firebase-crashlytics-gradlePlugin = { group = "com.google.firebase", name = "firebase-crashlytics-gradle",  version.ref = "firebase-gradle-crashlytics" }
@@ -154,8 +153,6 @@ android-cache-fix = { id = "org.gradle.android.cache-fix", version = "3.0.1" }
 android-library = { id = "com.android.library", version.ref = "android-gradle-plugin" }
 android-lint = { id = "com.android.lint", version.ref = "android-gradle-plugin" }
 androidx-room = { id = "androidx.room", version.ref = "androidx-room" }
-binary-compatibility = { id = "org.jetbrains.kotlinx.binary-compatibility-validator", version = "0.17.0" }
-compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 dependency-analysis = { id = "com.autonomousapps.dependency-analysis", version.ref = "dependency-analysis" }
 dependency-guard = { id = "com.dropbox.dependency-guard", version = "0.5.0" }
 dependency-updates = { id = "com.github.ben-manes.versions", version = "0.52.0" }
@@ -168,10 +165,12 @@ google-services = { id = "com.google.gms.google-services", version.ref = "fireba
 jetbrains-compose = { id = "org.jetbrains.compose", version.ref = "kotlinx-compose-plugin" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 kotlin-cocoapods = { id = "org.jetbrains.kotlin.native.cocoapods", version.ref = "kotlin" }
+kotlin-compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
 kotlin-multiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
 kotlin-multiplatform-android-library = { id = "com.android.kotlin.multiplatform.library", version.ref = "android-gradle-plugin" }
 kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
+kotlinx-binary-compatibility = { id = "org.jetbrains.kotlinx.binary-compatibility-validator", version.ref = "kotlinx-binary-compatibility" }
 kotlinx-kover = { id = "org.jetbrains.kotlinx.kover", version.ref = "kotlinx-kover" }
 ksp = { id = "com.google.devtools.ksp", version.ref = "kotlinx-ksp" }
 ktlint = { id = "org.jlleitschuh.gradle.ktlint", version.ref = "ktlint-gradle-plugin" }

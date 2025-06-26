@@ -88,7 +88,6 @@ kotlin {
             implementation(libs.koin.core.viewmodel)
 
             implementation(libs.kotlinx.coroutines.core)
-            implementation(libs.kotlinx.datetime)
 
             implementation(libs.kotlinx.compose.material3)
             implementation(libs.kotlinx.compose.navigation)
