@@ -45,8 +45,8 @@ kotlin {
             releaseImplementation(libs.kermit.core)
             testImplementation(libs.junit.jupiter.api)
 
-          implementation(libs.androidx.savedstate)
-}
+            implementation(libs.androidx.savedstate)
+        }
     }
 
     iosX64()
@@ -55,8 +55,14 @@ kotlin {
 
     sourceSets {
         all {
-            languageSettings.optIn("org.koin.core.annotation.KoinExperimentalAPI")
+            languageSettings.optIn(
+                "org.koin.core.annotation.KoinExperimentalAPI",
+            )
+            languageSettings.optIn(
+                "kotlin.time.ExperimentalTime",
+            )
         }
+
         commonMain.dependencies {
             implementation(projects.data.network)
             implementation(projects.data.room)
@@ -82,7 +88,6 @@ kotlin {
             implementation(libs.koin.core.viewmodel)
 
             implementation(libs.kotlinx.coroutines.core)
-            implementation(libs.kotlinx.datetime)
 
             implementation(libs.kotlinx.compose.material3)
             implementation(libs.kotlinx.compose.navigation)

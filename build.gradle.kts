@@ -1,7 +1,7 @@
 import com.github.benmanes.gradle.versions.updates.DependencyUpdatesTask
 import io.gitlab.arturbosch.detekt.Detekt
 import io.gitlab.arturbosch.detekt.DetektCreateBaselineTask
-import org.gradle.kotlin.dsl.add
+import org.jetbrains.kotlin.gradle.dsl.JvmDefaultMode
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
@@ -9,8 +9,8 @@ plugins {
     alias(libs.plugins.android.application) apply false
     alias(libs.plugins.android.library) apply false
     alias(libs.plugins.androidx.room) apply false
-    alias(libs.plugins.binary.compatibility) apply false
-    alias(libs.plugins.compose.compiler) apply false
+    alias(libs.plugins.kotlinx.binary.compatibility) apply false
+    alias(libs.plugins.kotlin.compose.compiler) apply false
     alias(libs.plugins.dependency.analysis) apply false
     alias(libs.plugins.dependency.guard) apply false
     alias(libs.plugins.firebase.crashlytics) apply false
@@ -118,7 +118,7 @@ allprojects {
     tasks.withType<KotlinCompile>().configureEach {
         compilerOptions {
             jvmTarget.set(JvmTarget.JVM_21)
-
+            jvmDefault = JvmDefaultMode.NO_COMPATIBILITY
             freeCompilerArgs.addAll(listOf("-Xexpect-actual-classes"))
             allWarningsAsErrors.set(false)
             extraWarnings.set(true)
