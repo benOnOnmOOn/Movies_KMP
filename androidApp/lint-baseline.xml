@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<issues format="6" by="lint 8.10.0" type="baseline" client="gradle" dependencies="true" name="AGP (8.10.0)" variant="all" version="8.10.0">
+<issues format="6" by="lint 8.11.0" type="baseline" client="gradle" dependencies="true" name="AGP (8.11.0)" variant="all" version="8.11.0">
 
     <issue
         id="InvalidPackage"
@@ -27,61 +27,6 @@
         message="Invalid package reference in library; not included in Android: `java.lang.management`. Referenced from `io.ktor.util.debug.IntellijIdeaDebugDetector`.">
         <location
             file="../../../../.gradle/caches/modules-2/files-2.1/io.ktor/ktor-utils-jvm/3.1.3/d2e56dca809c965fa498df86a570fc9ed5b9551f/ktor-utils-jvm-3.1.3.jar"/>
-    </issue>
-
-    <issue
-        id="AndroidGradlePluginVersion"
-        message="A newer version of com.android.application than 8.10.0 is available: 8.11.0. (There is also a newer version of 8.10.𝑥 available, if upgrading to 8.11.0 is difficult: 8.10.1)"
-        errorLine1="android-gradle-plugin = &quot;8.10.0&quot;"
-        errorLine2="                        ~~~~~~~~">
-        <location
-            file="../gradle/libs.versions.toml"
-            line="2"
-            column="25"/>
-    </issue>
-
-    <issue
-        id="AndroidGradlePluginVersion"
-        message="A newer version of com.android.library than 8.10.0 is available: 8.11.0. (There is also a newer version of 8.10.𝑥 available, if upgrading to 8.11.0 is difficult: 8.10.1)"
-        errorLine1="android-gradle-plugin = &quot;8.10.0&quot;"
-        errorLine2="                        ~~~~~~~~">
-        <location
-            file="../gradle/libs.versions.toml"
-            line="2"
-            column="25"/>
-    </issue>
-
-    <issue
-        id="AndroidGradlePluginVersion"
-        message="A newer version of com.android.tools.build:gradle than 8.10.0 is available: 8.11.0. (There is also a newer version of 8.10.𝑥 available, if upgrading to 8.11.0 is difficult: 8.10.1)"
-        errorLine1="android-gradle-plugin = &quot;8.10.0&quot;"
-        errorLine2="                        ~~~~~~~~">
-        <location
-            file="../gradle/libs.versions.toml"
-            line="2"
-            column="25"/>
-    </issue>
-
-    <issue
-        id="GradleDependency"
-        message="A newer version of com.android.kotlin.multiplatform.library than 8.10.0 is available: 8.11.0"
-        errorLine1="android-gradle-plugin = &quot;8.10.0&quot;"
-        errorLine2="                        ~~~~~~~~">
-        <location
-            file="../gradle/libs.versions.toml"
-            line="2"
-            column="25"/>
-    </issue>
-
-    <issue
-        id="GradleDependency"
-        message="A newer version of com.android.lint than 8.10.0 is available: 8.11.0"
-        errorLine1="android-gradle-plugin = &quot;8.10.0&quot;"
-        errorLine2="                        ~~~~~~~~">
-        <location
-            file="../gradle/libs.versions.toml"
-            line="2"
-            column="25"/>
     </issue>
 
     <issue
@@ -258,28 +203,6 @@
             file="../gradle/libs.versions.toml"
             line="43"
             column="14"/>
-    </issue>
-
-    <issue
-        id="NewerVersionAvailable"
-        message="A newer version of org.jetbrains.kotlinx.binary-compatibility-validator than 0.17.0 is available: 0.18.0"
-        errorLine1="binary-compatibility-gradlePlugin = { group = &quot;org.jetbrains.kotlinx.binary-compatibility-validator&quot;, name = &quot;org.jetbrains.kotlinx.binary-compatibility-validator.gradle.plugin&quot;, version = &quot;0.17.0&quot; }"
-        errorLine2="                                                                                                                                                                                             ~~~~~~~~">
-        <location
-            file="../gradle/libs.versions.toml"
-            line="139"
-            column="190"/>
-    </issue>
-
-    <issue
-        id="NewerVersionAvailable"
-        message="A newer version of org.jetbrains.kotlinx.binary-compatibility-validator than 0.17.0 is available: 0.18.0"
-        errorLine1="binary-compatibility = { id = &quot;org.jetbrains.kotlinx.binary-compatibility-validator&quot;, version = &quot;0.17.0&quot; }"
-        errorLine2="                                                                                                ~~~~~~~~">
-        <location
-            file="../gradle/libs.versions.toml"
-            line="157"
-            column="97"/>
     </issue>
 
 </issues>
