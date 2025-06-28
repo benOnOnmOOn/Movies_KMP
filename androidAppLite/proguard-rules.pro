@@ -2,7 +2,6 @@
 -assumenosideeffects class android.util.Log { *; }
 
 -assumenosideeffects class java.util.logging.** { *; }
--assumenosideeffects class org.slf4j.** { *; }
 -assumenosideeffects class kotlin.DeprecationLevel { *; }
 -assumenosideeffects class kotlin.Deprecated { *; }
 -assumenosideeffects class kotlin.ReplaceWith { *; }
@@ -54,6 +53,4 @@
 # It was removed by excluding androidx.vectordrawable dep in main build gradle
 -dontwarn androidx.vectordrawable.graphics.drawable.AnimatedVectorDrawableCompat
 -dontwarn androidx.vectordrawable.graphics.drawable.VectorDrawableCompat
--dontwarn org.slf4j.Logger
--dontwarn org.slf4j.LoggerFactory
 -dontwarn androidx.test.platform.app.InstrumentationRegistry

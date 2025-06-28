@@ -5,76 +5,21 @@
         id="InvalidPackage"
         message="Invalid package reference in io.ktor:ktor-utils-jvm; not included in Android: `java.lang.management`. Referenced from `io.ktor.util.debug.IntellijIdeaDebugDetector`.">
         <location
-            file="../../../../../.gradle/caches/modules-2/files-2.1/io.ktor/ktor-utils-jvm/3.1.3/d2e56dca809c965fa498df86a570fc9ed5b9551f/ktor-utils-jvm-3.1.3.jar"/>
+            file="../../../../.gradle/caches/modules-2/files-2.1/io.ktor/ktor-utils-jvm/3.1.3/d2e56dca809c965fa498df86a570fc9ed5b9551f/ktor-utils-jvm-3.1.3.jar"/>
     </issue>
 
     <issue
         id="InvalidPackage"
         message="Invalid package reference in io.ktor:ktor-utils-jvm; not included in Android: `java.lang.management`. Referenced from `io.ktor.util.debug.IntellijIdeaDebugDetector`.">
         <location
-            file="../../../../../.gradle/caches/modules-2/files-2.1/io.ktor/ktor-utils-jvm/3.1.3/d2e56dca809c965fa498df86a570fc9ed5b9551f/ktor-utils-jvm-3.1.3.jar"/>
+            file="../../../../.gradle/caches/modules-2/files-2.1/io.ktor/ktor-utils-jvm/3.1.3/d2e56dca809c965fa498df86a570fc9ed5b9551f/ktor-utils-jvm-3.1.3.jar"/>
     </issue>
 
     <issue
         id="InvalidPackage"
         message="Invalid package reference in library; not included in Android: `java.lang.management`. Referenced from `io.ktor.util.debug.IntellijIdeaDebugDetector`.">
         <location
-            file="../../../../.gradle/caches/modules-2/files-2.1/io.ktor/ktor-utils-jvm/3.1.3/d2e56dca809c965fa498df86a570fc9ed5b9551f/ktor-utils-jvm-3.1.3.jar"/>
-    </issue>
-
-    <issue
-        id="GradleDependency"
-        message="A newer version of com.google.firebase:firebase-analytics-ktx than 22.4.0 is available: 22.5.0"
-        errorLine1="firebase-analytics = &quot;22.4.0&quot;"
-        errorLine2="                     ~~~~~~~~">
-        <location
-            file="../gradle/libs.versions.toml"
-            line="18"
-            column="22"/>
-    </issue>
-
-    <issue
-        id="GradleDependency"
-        message="A newer version of com.google.gms.google-services than 4.4.2 is available: 4.4.3"
-        errorLine1="firebase-google-services = &quot;4.4.2&quot;"
-        errorLine2="                           ~~~~~~~">
-        <location
-            file="../gradle/libs.versions.toml"
-            line="20"
-            column="28"/>
-    </issue>
-
-    <issue
-        id="GradleDependency"
-        message="A newer version of com.google.gms:google-services than 4.4.2 is available: 4.4.3"
-        errorLine1="firebase-google-services = &quot;4.4.2&quot;"
-        errorLine2="                           ~~~~~~~">
-        <location
-            file="../gradle/libs.versions.toml"
-            line="20"
-            column="28"/>
-    </issue>
-
-    <issue
-        id="NewerVersionAvailable"
-        message="A newer version of org.jetbrains.kotlinx:kotlinx-serialization-core than 1.8.1 is available: 1.9.0"
-        errorLine1="kotlinx-serialization = &quot;1.8.1&quot;"
-        errorLine2="                        ~~~~~~~">
-        <location
-            file="../gradle/libs.versions.toml"
-            line="34"
-            column="25"/>
-    </issue>
-
-    <issue
-        id="NewerVersionAvailable"
-        message="A newer version of org.jetbrains.kotlinx:kotlinx-serialization-json than 1.8.1 is available: 1.9.0"
-        errorLine1="kotlinx-serialization = &quot;1.8.1&quot;"
-        errorLine2="                        ~~~~~~~">
-        <location
-            file="../gradle/libs.versions.toml"
-            line="34"
-            column="25"/>
+            file="../../../.gradle/caches/modules-2/files-2.1/io.ktor/ktor-utils-jvm/3.1.3/d2e56dca809c965fa498df86a570fc9ed5b9551f/ktor-utils-jvm-3.1.3.jar"/>
     </issue>
 
     <issue

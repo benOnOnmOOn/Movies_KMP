@@ -9,5 +9,5 @@ internal actual fun httpClient(config: HttpClientConfig<*>.() -> Unit): HttpClie
     HttpClient(Android) {
         config(this)
 
-        install(Logging)
+//        install(Logging)
     }

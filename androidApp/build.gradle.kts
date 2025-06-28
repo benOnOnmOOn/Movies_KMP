@@ -65,12 +65,12 @@ dependencies {
     androidTestRuntimeOnly(libs.junit.jupiter.engine)
 }
 
-// configurations.releaseImplementation {
-//    exclude("org.slf4j", "slf4j-api")
-//    exclude("org.slf4j", "slf4j-android")
-//    exclude("io.ktor", "ktor-client-logging-jvm")
-//    exclude("io.ktor", "ktor-client-logging")
-// }
+configurations.releaseImplementation {
+    exclude("io.ktor", "ktor-websocket-serialization-jvm")
+    exclude("io.ktor", "ktor-websocket-serialization")
+    exclude("io.ktor", "ktor-websockets-jvm")
+    exclude("io.ktor", "ktor-websockets")
+}
 
 dependencyGuard {
     // All dependencies included in Production Release APK
