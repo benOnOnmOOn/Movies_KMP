@@ -1,10 +1,10 @@
 plugins {
     alias(libs.plugins.kotlin.cocoapods)
     alias(libs.plugins.kotlin.multiplatform)
+    alias(libs.plugins.kotlin.compose.compiler)
     alias(libs.plugins.jetbrains.compose)
 
-    alias(libs.plugins.movies.android.library)
-    alias(libs.plugins.movies.android.library.compose)
+    alias(libs.plugins.movies.kotlin.android.library)
     alias(libs.plugins.movies.android.lint)
     alias(libs.plugins.movies.binary.compatibility)
     alias(libs.plugins.movies.dependency.analysis)
@@ -14,26 +14,11 @@ plugins {
 }
 
 kotlin {
-    androidTarget {
-        dependencies {
-            implementation(projects.presentation.screens)
 
-            lintChecks(libs.lint.slack.checks)
-
-            api(libs.androidx.activity)
-            api(libs.kotlin.stdlib)
-
-            implementation(libs.kermit)
-            debugImplementation(libs.kermit.android.debug)
-            debugImplementation(libs.kermit.core.android.debug)
-            releaseImplementation(libs.kermit.core)
-
-            implementation(libs.androidx.activity.compose)
-            implementation(libs.androidx.navigation.common)
-            implementation(libs.androidx.navigation.compose)
-            implementation(libs.androidx.navigation.runtime)
-        }
+    androidLibrary {
+        experimentalProperties["android.experimental.kmp.enableAndroidResources"] = true
     }
+
     iosX64()
     iosArm64()
     iosSimulatorArm64()

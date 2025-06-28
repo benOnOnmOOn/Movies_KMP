@@ -149,8 +149,7 @@ room-gradlePlugin = { group = "androidx.room", name = "room-gradle-plugin", vers
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "android-gradle-plugin" }
-android-cache-fix = { id = "org.gradle.android.cache-fix", version = "3.0.1" }
-android-library = { id = "com.android.library", version.ref = "android-gradle-plugin" }
+#android-cache-fix = { id = "org.gradle.android.cache-fix", version = "3.0.1" }
 android-lint = { id = "com.android.lint", version.ref = "android-gradle-plugin" }
 androidx-room = { id = "androidx.room", version.ref = "androidx-room" }
 dependency-analysis = { id = "com.autonomousapps.dependency-analysis", version.ref = "dependency-analysis" }
@@ -167,25 +166,22 @@ kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 kotlin-cocoapods = { id = "org.jetbrains.kotlin.native.cocoapods", version.ref = "kotlin" }
 kotlin-compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
+kotlin-ksp = { id = "com.google.devtools.ksp", version.ref = "kotlinx-ksp" }
 kotlin-multiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
 kotlin-multiplatform-android-library = { id = "com.android.kotlin.multiplatform.library", version.ref = "android-gradle-plugin" }
 kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
 kotlinx-binary-compatibility = { id = "org.jetbrains.kotlinx.binary-compatibility-validator", version.ref = "kotlinx-binary-compatibility" }
 kotlinx-kover = { id = "org.jetbrains.kotlinx.kover", version.ref = "kotlinx-kover" }
-ksp = { id = "com.google.devtools.ksp", version.ref = "kotlinx-ksp" }
 ktlint = { id = "org.jlleitschuh.gradle.ktlint", version.ref = "ktlint-gradle-plugin" }
-ktor = { id = "io.ktor.plugin", version.ref = "ktor" }
+#ktor = { id = "io.ktor.plugin", version.ref = "ktor" }
 sqldelight = { id = "app.cash.sqldelight", version.ref = "sqldelight" }
 
 # Plugins defined by this project
 movies-android-application = { id = "movies.android.application" }
 movies-android-application-compose = { id = "movies.android.application.compose" }
 movies-android-application-firebase = { id = "movies.android.application.firebase" }
-movies-android-library = { id = "movies.android.library" }
-movies-android-library-compose = { id = "movies.android.library.compose" }
 movies-android-lint = { id = "movies.android.lint" }
 movies-android-room = { id = "movies.android.room" }
-movies-android-test = { id = "movies.android.test" }
 movies-binary-compatibility = { id = "movies.binary.compatibility" }
 movies-dependency-analysis = { id = "movies.dependency.analysis" }
 movies-jvm-library = { id = "movies.jvm.library" }

@@ -2,7 +2,7 @@ plugins {
     alias(libs.plugins.kotlin.multiplatform)
     alias(libs.plugins.kotlin.serialization)
 
-    alias(libs.plugins.movies.android.library)
+    alias(libs.plugins.movies.kotlin.android.library)
     alias(libs.plugins.movies.android.lint)
     alias(libs.plugins.movies.binary.compatibility)
     alias(libs.plugins.movies.dependency.analysis)
@@ -12,19 +12,6 @@ plugins {
 }
 
 kotlin {
-    androidTarget {
-        dependencies {
-            lintChecks(libs.lint.slack.checks)
-
-            api(projects.data.dto)
-            api(libs.kotlin.stdlib)
-
-            implementation(libs.androidx.core)
-            implementation(libs.androidx.core.ktx)
-            implementation(libs.koin.android)
-            testImplementation(libs.junit.jupiter.api)
-        }
-    }
 
     iosX64()
     iosArm64()
@@ -64,11 +51,6 @@ kotlin {
             implementation(libs.ktor.utils)
 
             implementation(libs.slf4j.android)
-        }
-
-        androidUnitTest.dependencies {
-            implementation(libs.kotlin.test)
-            implementation(libs.junit.jupiter.api)
         }
 
         iosMain.dependencies {

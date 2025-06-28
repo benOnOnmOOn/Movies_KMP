@@ -7,7 +7,6 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
     alias(libs.plugins.android.application) apply false
-    alias(libs.plugins.android.library) apply false
     alias(libs.plugins.androidx.room) apply false
     alias(libs.plugins.kotlinx.binary.compatibility) apply false
     alias(libs.plugins.kotlin.compose.compiler) apply false
@@ -23,7 +22,7 @@ plugins {
     alias(libs.plugins.kotlin.multiplatform) apply false
     alias(libs.plugins.kotlin.serialization) apply false
     alias(libs.plugins.kotlinx.kover) apply false
-    alias(libs.plugins.ksp) apply false
+    alias(libs.plugins.kotlin.ksp) apply false
     alias(libs.plugins.ktlint) apply false
     alias(libs.plugins.sqldelight) apply false
     alias(libs.plugins.kotlin.multiplatform.android.library) apply false
