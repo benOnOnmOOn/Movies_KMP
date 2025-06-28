@@ -66,28 +66,6 @@ gradlePlugin {
                     .pluginId
             implementationClass = "AndroidApplicationConventionPlugin"
         }
-        register("androidLibraryCompose") {
-            id =
-                libs.plugins.movies.android.library.compose
-                    .get()
-                    .pluginId
-            implementationClass = "AndroidLibraryComposeConventionPlugin"
-        }
-        register("androidLibrary") {
-            id =
-                libs.plugins.movies.android.library
-                    .asProvider()
-                    .get()
-                    .pluginId
-            implementationClass = "AndroidLibraryConventionPlugin"
-        }
-        register("androidTest") {
-            id =
-                libs.plugins.movies.android.test
-                    .get()
-                    .pluginId
-            implementationClass = "AndroidTestConventionPlugin"
-        }
         register("androidRoom") {
             id =
                 libs.plugins.movies.android.room
