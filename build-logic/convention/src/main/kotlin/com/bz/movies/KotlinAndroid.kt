@@ -10,9 +10,13 @@ import com.android.build.api.dsl.Installation
 import com.android.build.api.dsl.ProductFlavor
 import org.gradle.api.JavaVersion
 import org.gradle.api.Project
-import org.gradle.api.plugins.JavaPluginExtension
+import org.gradle.kotlin.dsl.assign
 import org.gradle.kotlin.dsl.configure
+import org.jetbrains.kotlin.gradle.dsl.JvmDefaultMode
+import org.jetbrains.kotlin.gradle.dsl.JvmTarget
+import org.jetbrains.kotlin.gradle.dsl.KotlinAndroidProjectExtension
 import org.jetbrains.kotlin.gradle.dsl.KotlinBaseExtension
+import org.jetbrains.kotlin.gradle.dsl.KotlinJvmProjectExtension
 
 fun ApplicationExtension.baseConfig() {
     defaultBaseConfig()
@@ -105,8 +109,7 @@ fun <
  */
 internal fun Project.configureKotlinAndroidApp(commonExtension: ApplicationExtension) {
     commonExtension.baseConfig()
-    this.configure<KotlinBaseExtension> {
-    }
+    this.configureKotlin<KotlinBaseExtension>()
 }
 
 /**
@@ -114,19 +117,24 @@ internal fun Project.configureKotlinAndroidApp(commonExtension: ApplicationExten
  */
 internal fun Project.configureKotlinAndroid(commonExtension: CommonExtension<*, *, *, *, *, *>) {
     commonExtension.defaultBaseConfig()
-    this.configure<KotlinBaseExtension> {
-    }
+    this.configureKotlin<KotlinBaseExtension>()
 }
 
-/**
- * Configure base Kotlin options for JVM (non-Android)
- */
-internal fun Project.configureKotlinJvm() {
-    extensions.configure<JavaPluginExtension> {
-        sourceCompatibility = JavaVersion.VERSION_21
-        targetCompatibility = JavaVersion.VERSION_21
-    }
 
-    this.configure<KotlinBaseExtension> {
+/**
+ * Configure base Kotlin options
+ */
+private inline fun <reified T : KotlinBaseExtension> Project.configureKotlin() = configure<T> {
+    when (this) {
+        is KotlinAndroidProjectExtension -> compilerOptions
+        is KotlinJvmProjectExtension -> compilerOptions
+        else -> TODO("Unsupported project extension $this ${T::class}")
+    }.apply {
+        jvmTarget = JvmTarget.JVM_21
+        jvmDefault = JvmDefaultMode.NO_COMPATIBILITY
+        freeCompilerArgs.addAll(listOf("-Xexpect-actual-classes"))
+        allWarningsAsErrors = false
+        extraWarnings = true
+        progressiveMode = true
     }
 }

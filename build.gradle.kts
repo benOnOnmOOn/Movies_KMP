@@ -1,9 +1,6 @@
 import com.github.benmanes.gradle.versions.updates.DependencyUpdatesTask
 import io.gitlab.arturbosch.detekt.Detekt
 import io.gitlab.arturbosch.detekt.DetektCreateBaselineTask
-import org.jetbrains.kotlin.gradle.dsl.JvmDefaultMode
-import org.jetbrains.kotlin.gradle.dsl.JvmTarget
-import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
     alias(libs.plugins.android.application) apply false
@@ -113,16 +110,4 @@ tasks.register<DetektCreateBaselineTask>("detektGenerateBaseline") {
 
 //endregion
 
-allprojects {
-    tasks.withType<KotlinCompile>().configureEach {
-        compilerOptions {
-            jvmTarget.set(JvmTarget.JVM_21)
-            jvmDefault = JvmDefaultMode.NO_COMPATIBILITY
-            freeCompilerArgs.addAll(listOf("-Xexpect-actual-classes"))
-            allWarningsAsErrors.set(false)
-            extraWarnings.set(true)
-            progressiveMode = true
-        }
-    }
-}
 
