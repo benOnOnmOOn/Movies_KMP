@@ -90,9 +90,3 @@ kotlin {
     }
 }
 
-afterEvaluate {
-    tasks.findByName("explodeCodeSourceDebug")
-        ?.dependsOn("generateActualResourceCollectorsForAndroidMain")
-    tasks.findByName("explodeCodeSourceRelease")
-        ?.dependsOn("generateActualResourceCollectorsForAndroidMain")
-}
