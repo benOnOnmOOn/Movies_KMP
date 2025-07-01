@@ -183,6 +183,7 @@ movies-android-lint = { id = "movies.android.lint" }
 movies-android-room = { id = "movies.android.room" }
 movies-binary-compatibility = { id = "movies.binary.compatibility" }
 movies-dependency-analysis = { id = "movies.dependency.analysis" }
+movies-jvm-library = { id = "movies.jvm.library" }
 movies-kmp-library = { id = "movies.kmpLibrary" }
 movies-kover = { id = "movies.kover" }
 movies-ktlint = { id = "movies.ktlint" }

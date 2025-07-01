@@ -12,7 +12,6 @@ class KmpLibraryConventionPlugin : Plugin<Project> {
             pluginManager.apply("com.android.kotlin.multiplatform.library")
 
             extensions.configure<KotlinMultiplatformExtension> {
-                jvmToolchain(21)
 
                 compilerOptions {
                     freeCompilerArgs.addAll(listOf("-Xexpect-actual-classes"))
@@ -25,6 +24,7 @@ class KmpLibraryConventionPlugin : Plugin<Project> {
                 iosSimulatorArm64()
 
                 androidLibrary {
+                    withJava()
                     namespace = "com.bz.movies" + target.project.path.replace(':', '.')
                     compileSdk = 36
                     buildToolsVersion = "36.0.0"

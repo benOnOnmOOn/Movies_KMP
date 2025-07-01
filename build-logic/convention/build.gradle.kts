@@ -80,6 +80,13 @@ gradlePlugin {
                     .pluginId
             implementationClass = "AndroidLintConventionPlugin"
         }
+        register("jvmLibrary") {
+            id =
+                libs.plugins.movies.jvm.library
+                    .get()
+                    .pluginId
+            implementationClass = "JvmLibraryConventionPlugin"
+        }
         register("kover") {
             id =
                 libs.plugins.movies.kover

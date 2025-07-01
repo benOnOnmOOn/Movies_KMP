@@ -10,6 +10,7 @@ import com.android.build.api.dsl.Installation
 import com.android.build.api.dsl.ProductFlavor
 import org.gradle.api.JavaVersion
 import org.gradle.api.Project
+import org.gradle.api.plugins.JavaPluginExtension
 import org.gradle.kotlin.dsl.assign
 import org.gradle.kotlin.dsl.configure
 import org.jetbrains.kotlin.gradle.dsl.JvmDefaultMode
@@ -113,7 +114,7 @@ fun <
  */
 internal fun Project.configureKotlinAndroidApp(commonExtension: ApplicationExtension) {
     commonExtension.baseConfig()
-    this.configureKotlin<KotlinBaseExtension>()
+    configureKotlin<KotlinBaseExtension>()
 }
 
 /**
@@ -121,24 +122,36 @@ internal fun Project.configureKotlinAndroidApp(commonExtension: ApplicationExten
  */
 internal fun Project.configureKotlinAndroid(commonExtension: CommonExtension<*, *, *, *, *, *>) {
     commonExtension.defaultBaseConfig()
-    this.configureKotlin<KotlinBaseExtension>()
+    configureKotlin<KotlinBaseExtension>()
 }
 
-
 /**
- * Configure base Kotlin options
+ * Configure base Kotlin options for JVM (non-Android)
  */
-inline fun <reified T : KotlinBaseExtension> Project.configureKotlin() = configure<T> {
+private inline fun <reified T : KotlinBaseExtension> Project.configureKotlin() = configure<T> {
     when (this) {
         is KotlinAndroidProjectExtension -> compilerOptions
         is KotlinJvmProjectExtension -> compilerOptions
         else -> TODO("Unsupported project extension $this ${T::class}")
     }.apply {
-        jvmTarget = JvmTarget.JVM_21
+        jvmTarget.set(JvmTarget.JVM_21)
         jvmDefault = JvmDefaultMode.NO_COMPATIBILITY
         freeCompilerArgs.addAll(listOf("-Xexpect-actual-classes"))
-        allWarningsAsErrors = false
-        extraWarnings = true
+        allWarningsAsErrors.set(false)
+        extraWarnings.set(true)
         progressiveMode = true
+    }
+}
+
+/**
+ * Configure base Kotlin options for JVM (non-Android)
+ */
+internal fun Project.configureKotlinJvm() {
+    extensions.configure<JavaPluginExtension> {
+        sourceCompatibility = JavaVersion.VERSION_21
+        targetCompatibility = JavaVersion.VERSION_21
+    }
+
+    this.configure<KotlinBaseExtension> {
     }
 }
