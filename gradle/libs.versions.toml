@@ -178,13 +178,12 @@ sqldelight = { id = "app.cash.sqldelight", version.ref = "sqldelight" }
 
 # Plugins defined by this project
 movies-android-application = { id = "movies.android.application" }
-movies-android-application-compose = { id = "movies.android.application.compose" }
 movies-android-application-firebase = { id = "movies.android.application.firebase" }
 movies-android-lint = { id = "movies.android.lint" }
 movies-android-room = { id = "movies.android.room" }
 movies-binary-compatibility = { id = "movies.binary.compatibility" }
 movies-dependency-analysis = { id = "movies.dependency.analysis" }
-movies-kotlin-android-library = { id = "movies.kotlinAndroidLibrary" }
+movies-kmp-library = { id = "movies.kmpLibrary" }
 movies-kover = { id = "movies.kover" }
 movies-ktlint = { id = "movies.ktlint" }
 movies-strict-dependencies = { id = "movies.strict.dependencies" }

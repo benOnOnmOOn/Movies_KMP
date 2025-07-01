@@ -5,13 +5,25 @@ import org.gradle.kotlin.dsl.configure
 import org.jetbrains.kotlin.gradle.dsl.KotlinMultiplatformExtension
 
 @Suppress("UnstableApiUsage")
-class KotlinAndroidLibraryConventionPlugin : Plugin<Project> {
+class KmpLibraryConventionPlugin : Plugin<Project> {
     override fun apply(target: Project) {
         with(target) {
             pluginManager.apply("org.jetbrains.kotlin.multiplatform")
             pluginManager.apply("com.android.kotlin.multiplatform.library")
 
             extensions.configure<KotlinMultiplatformExtension> {
+                jvmToolchain(21)
+
+                compilerOptions {
+                    freeCompilerArgs.addAll(listOf("-Xexpect-actual-classes"))
+                    allWarningsAsErrors.set(false)
+                    extraWarnings.set(true)
+                }
+
+                iosX64()
+                iosArm64()
+                iosSimulatorArm64()
+
                 androidLibrary {
                     namespace = "com.bz.movies" + target.project.path.replace(':', '.')
                     compileSdk = 36

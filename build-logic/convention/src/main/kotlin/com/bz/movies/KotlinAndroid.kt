@@ -51,6 +51,10 @@ fun ApplicationExtension.baseConfig() {
         }
     }
 
+    buildFeatures {
+        compose = true
+    }
+
     compileOptions.isCoreLibraryDesugaringEnabled = false
 }
 
@@ -124,7 +128,7 @@ internal fun Project.configureKotlinAndroid(commonExtension: CommonExtension<*, 
 /**
  * Configure base Kotlin options
  */
-private inline fun <reified T : KotlinBaseExtension> Project.configureKotlin() = configure<T> {
+inline fun <reified T : KotlinBaseExtension> Project.configureKotlin() = configure<T> {
     when (this) {
         is KotlinAndroidProjectExtension -> compilerOptions
         is KotlinJvmProjectExtension -> compilerOptions

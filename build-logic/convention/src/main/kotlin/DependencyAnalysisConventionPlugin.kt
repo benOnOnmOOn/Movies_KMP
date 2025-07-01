@@ -7,10 +7,10 @@ class DependencyAnalysisConventionPlugin : Plugin<Project> {
     override fun apply(target: Project) {
         with(target) {
             val enablePlugin =
-                providers.gradleProperty("movies.enableDependencyAnalysis").getOrElse("true").toBoolean()
+                target.findProperty("movies.enableDependencyAnalysis")?.toString().toBoolean()
             if (!enablePlugin) return
 
-            pluginManager.apply("com.autonomousapps.dependency-analysis")
+            target.pluginManager.apply("com.autonomousapps.dependency-analysis")
             val dependencyAnalysisExtension = extensions.findByType<DependencyAnalysisExtension>() ?: return
             dependencyAnalysisExtension.issues {
                 all { onAny { severity("fail") } }

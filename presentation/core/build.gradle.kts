@@ -1,10 +1,9 @@
 plugins {
     alias(libs.plugins.kotlin.cocoapods)
-    alias(libs.plugins.kotlin.multiplatform)
     alias(libs.plugins.kotlin.compose.compiler)
     alias(libs.plugins.jetbrains.compose)
 
-    alias(libs.plugins.movies.kotlin.android.library)
+    alias(libs.plugins.movies.kmp.library)
     alias(libs.plugins.movies.android.lint)
     alias(libs.plugins.movies.binary.compatibility)
     alias(libs.plugins.movies.dependency.analysis)
@@ -14,14 +13,6 @@ plugins {
 }
 
 kotlin {
-
-    androidLibrary {
-        experimentalProperties["android.experimental.kmp.enableAndroidResources"] = true
-    }
-
-    iosX64()
-    iosArm64()
-    iosSimulatorArm64()
 
     cocoapods {
         summary = "Some description for the Shared Module"

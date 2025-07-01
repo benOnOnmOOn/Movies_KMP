@@ -51,13 +51,6 @@ tasks {
 
 gradlePlugin {
     plugins {
-        register("androidApplicationCompose") {
-            id =
-                libs.plugins.movies.android.application.compose
-                    .get()
-                    .pluginId
-            implementationClass = "AndroidApplicationComposeConventionPlugin"
-        }
         register("androidApplication") {
             id =
                 libs.plugins.movies.android.application
@@ -122,12 +115,12 @@ gradlePlugin {
                     .pluginId
             implementationClass = "KtlintConventionPlugin"
         }
-        register("kotlinAndroidLibraryConventionPlugin") {
+        register("KmpLibraryConventionPlugin") {
             id =
-                libs.plugins.movies.kotlin.android.library
+                libs.plugins.movies.kmp.library
                     .get()
                     .pluginId
-            implementationClass = "KotlinAndroidLibraryConventionPlugin"
+            implementationClass = "KmpLibraryConventionPlugin"
         }
     }
 }

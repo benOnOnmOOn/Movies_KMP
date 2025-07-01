@@ -109,5 +109,3 @@ tasks.register<DetektCreateBaselineTask>("detektGenerateBaseline") {
 }
 
 //endregion
-
-

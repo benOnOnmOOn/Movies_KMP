@@ -2,10 +2,10 @@ plugins {
     alias(libs.plugins.dexcount)
 
     alias(libs.plugins.movies.android.application)
-    alias(libs.plugins.movies.android.application.compose)
     alias(libs.plugins.movies.android.application.firebase)
     alias(libs.plugins.movies.android.lint)
     alias(libs.plugins.movies.binary.compatibility)
+    alias(libs.plugins.movies.ktlint)
     alias(libs.plugins.movies.dependency.analysis)
     alias(libs.plugins.movies.kover)
     alias(libs.plugins.movies.strict.dependencies)
@@ -19,7 +19,7 @@ dependencies {
     implementation(projects.presentation.core)
     implementation(projects.presentation.screens)
     val enableKover =
-        providers.gradleProperty("movies.enableKover").getOrElse("false").toBoolean()
+        project.findProperty("movies.enableKover")?.toString().toBoolean()
 
     if (enableKover) {
         add("kover", projects.presentation.core)
