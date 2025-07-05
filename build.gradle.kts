@@ -15,7 +15,6 @@ plugins {
     alias(libs.plugins.jetbrains.compose) apply false
     alias(libs.plugins.kotlin.android) apply false
     alias(libs.plugins.kotlin.cocoapods) apply false
-    alias(libs.plugins.kotlin.jvm) apply false
     alias(libs.plugins.kotlin.multiplatform) apply false
     alias(libs.plugins.kotlin.serialization) apply false
     alias(libs.plugins.kotlinx.kover) apply false
