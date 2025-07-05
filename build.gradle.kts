@@ -1,9 +1,6 @@
 import com.github.benmanes.gradle.versions.updates.DependencyUpdatesTask
 import io.gitlab.arturbosch.detekt.Detekt
 import io.gitlab.arturbosch.detekt.DetektCreateBaselineTask
-import org.jetbrains.kotlin.gradle.dsl.JvmDefaultMode
-import org.jetbrains.kotlin.gradle.dsl.JvmTarget
-import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
     alias(libs.plugins.android.application) apply false
@@ -18,7 +15,6 @@ plugins {
     alias(libs.plugins.jetbrains.compose) apply false
     alias(libs.plugins.kotlin.android) apply false
     alias(libs.plugins.kotlin.cocoapods) apply false
-    alias(libs.plugins.kotlin.jvm) apply false
     alias(libs.plugins.kotlin.multiplatform) apply false
     alias(libs.plugins.kotlin.serialization) apply false
     alias(libs.plugins.kotlinx.kover) apply false
@@ -112,17 +108,4 @@ tasks.register<DetektCreateBaselineTask>("detektGenerateBaseline") {
 }
 
 //endregion
-
-allprojects {
-    tasks.withType<KotlinCompile>().configureEach {
-        compilerOptions {
-            jvmTarget.set(JvmTarget.JVM_21)
-            jvmDefault = JvmDefaultMode.NO_COMPATIBILITY
-            freeCompilerArgs.addAll(listOf("-Xexpect-actual-classes"))
-            allWarningsAsErrors.set(false)
-            extraWarnings.set(true)
-            progressiveMode = true
-        }
-    }
-}
 

@@ -1,8 +1,7 @@
 plugins {
-    alias(libs.plugins.kotlin.multiplatform)
     alias(libs.plugins.kotlin.serialization)
 
-    alias(libs.plugins.movies.kotlin.android.library)
+    alias(libs.plugins.movies.kmp.library)
     alias(libs.plugins.movies.android.lint)
     alias(libs.plugins.movies.binary.compatibility)
     alias(libs.plugins.movies.dependency.analysis)
@@ -12,10 +11,6 @@ plugins {
 }
 
 kotlin {
-
-    iosX64()
-    iosArm64()
-    iosSimulatorArm64()
 
     sourceSets {
         commonMain.dependencies {

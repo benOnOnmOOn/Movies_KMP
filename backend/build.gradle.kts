@@ -1,14 +1,23 @@
+import org.jetbrains.kotlin.gradle.dsl.abi.ExperimentalAbiValidation
+
 plugins {
     alias(libs.plugins.dependency.guard)
     alias(libs.plugins.kotlin.multiplatform)
     alias(libs.plugins.kotlin.serialization)
 
+    alias(libs.plugins.movies.binary.compatibility)
     alias(libs.plugins.movies.dependency.analysis)
     alias(libs.plugins.movies.strict.dependencies)
 //    alias(libs.plugins.ktor)
 }
 
+
 kotlin {
+    @OptIn(ExperimentalAbiValidation::class)
+    abiValidation {
+        enabled.set(true)
+    }
+
     val hostOs = System.getProperty("os.name")
     val arch = System.getProperty("os.arch")
     val nativeTarget =
