@@ -7,8 +7,8 @@ import org.gradle.kotlin.dsl.configure
 class AndroidRoomConventionPlugin : Plugin<Project> {
     override fun apply(target: Project) {
         with(target) {
-            target.pluginManager.apply("androidx.room")
-            target.pluginManager.apply("com.google.devtools.ksp")
+            pluginManager.apply("androidx.room")
+            pluginManager.apply("com.google.devtools.ksp")
 
             extensions.configure<KspExtension> {
                 arg("room.generateKotlin", "true")

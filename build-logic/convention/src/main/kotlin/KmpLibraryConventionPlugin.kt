@@ -29,7 +29,6 @@ class KmpLibraryConventionPlugin : Plugin<Project> {
                 iosSimulatorArm64()
 
                 androidLibrary {
-                    withJava()
                     namespace = "com.bz.movies" + target.project.path.replace(':', '.')
                     compileSdk = 36
                     buildToolsVersion = "36.0.0"

@@ -165,7 +165,6 @@ jetbrains-compose = { id = "org.jetbrains.compose", version.ref = "kotlinx-compo
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 kotlin-cocoapods = { id = "org.jetbrains.kotlin.native.cocoapods", version.ref = "kotlin" }
 kotlin-compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
-kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
 kotlin-ksp = { id = "com.google.devtools.ksp", version.ref = "kotlinx-ksp" }
 kotlin-multiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
 kotlin-multiplatform-android-library = { id = "com.android.kotlin.multiplatform.library", version.ref = "android-gradle-plugin" }
@@ -183,7 +182,6 @@ movies-android-lint = { id = "movies.android.lint" }
 movies-android-room = { id = "movies.android.room" }
 movies-binary-compatibility = { id = "movies.binary.compatibility" }
 movies-dependency-analysis = { id = "movies.dependency.analysis" }
-movies-jvm-library = { id = "movies.jvm.library" }
 movies-kmp-library = { id = "movies.kmpLibrary" }
 movies-kover = { id = "movies.kover" }
 movies-ktlint = { id = "movies.ktlint" }

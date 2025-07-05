@@ -8,7 +8,7 @@ class StrictDependenciesConventionPlugin : Plugin<Project> {
     override fun apply(target: Project) {
         with(target) {
             val enablePlugin =
-                target.findBooleanProperty("movies.enableStrictDependency", true)
+                findBooleanProperty("movies.enableStrictDependency", true)
             if (!enablePlugin) return
 
             target.configurations.configureEach {

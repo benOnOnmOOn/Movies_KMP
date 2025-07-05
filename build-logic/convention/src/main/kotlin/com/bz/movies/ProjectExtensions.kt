@@ -10,4 +10,3 @@ val Project.libs
 
 fun Project.findBooleanProperty(name: String, default: Boolean): Boolean =
     findProperty(name)?.toString()?.toBoolean() ?: default
-

@@ -8,7 +8,7 @@ class BinaryCompatibilityConventionPlugin : Plugin<Project> {
     override fun apply(target: Project) {
         with(target) {
             val enablePlugin =
-                target.findBooleanProperty("movies.enableApiDump", true)
+                findBooleanProperty("movies.enableApiDump", true)
             if (!enablePlugin) return
 
             pluginManager.apply("org.jetbrains.kotlinx.binary-compatibility-validator")
