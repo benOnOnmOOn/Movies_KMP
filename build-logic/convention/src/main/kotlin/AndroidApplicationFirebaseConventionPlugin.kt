@@ -1,4 +1,5 @@
 import com.android.build.api.dsl.ApplicationExtension
+import com.bz.movies.findBooleanProperty
 import com.google.firebase.crashlytics.buildtools.gradle.CrashlyticsExtension
 import org.gradle.api.Plugin
 import org.gradle.api.Project
@@ -8,7 +9,7 @@ class AndroidApplicationFirebaseConventionPlugin : Plugin<Project> {
     override fun apply(target: Project) {
         with(target) {
             val enablePlugin =
-                providers.gradleProperty("movies.enableFirebase").getOrElse("true").toBoolean()
+                findBooleanProperty("movies.enableFirebase", default = true)
             if (!enablePlugin) return
 
             extensions.configure<ApplicationExtension> {

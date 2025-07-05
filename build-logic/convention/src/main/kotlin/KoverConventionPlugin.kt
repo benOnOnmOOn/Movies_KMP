@@ -1,3 +1,4 @@
+import com.bz.movies.findBooleanProperty
 import kotlinx.kover.gradle.plugin.dsl.KoverProjectExtension
 import org.gradle.api.Plugin
 import org.gradle.api.Project
@@ -8,7 +9,7 @@ class KoverConventionPlugin : Plugin<Project> {
         with(target) {
             // TODO enable kover later
             val enablePlugin =
-                providers.gradleProperty("movies.enableKover").getOrElse("false").toBoolean()
+                findBooleanProperty("movies.enableKover", false)
             if (!enablePlugin) return
 
             pluginManager.apply("org.jetbrains.kotlinx.kover")
