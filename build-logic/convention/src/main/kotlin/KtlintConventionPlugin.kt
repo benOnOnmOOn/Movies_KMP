@@ -1,4 +1,4 @@
-import com.bz.movies.findBooleanProperty
+import com.bz.movies.getBooleanProperty
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.configure
@@ -8,7 +8,7 @@ class KtlintConventionPlugin : Plugin<Project> {
     override fun apply(target: Project) {
         with(target) {
             val enablePlugin =
-                findBooleanProperty("movies.enableKtlint", true)
+                getBooleanProperty("movies.enableKtlint", true)
 
             if (!enablePlugin) return
 

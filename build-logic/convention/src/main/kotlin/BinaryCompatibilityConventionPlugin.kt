@@ -1,4 +1,4 @@
-import com.bz.movies.findBooleanProperty
+import com.bz.movies.getBooleanProperty
 import kotlinx.validation.ApiValidationExtension
 import org.gradle.api.Plugin
 import org.gradle.api.Project
@@ -8,7 +8,7 @@ class BinaryCompatibilityConventionPlugin : Plugin<Project> {
     override fun apply(target: Project) {
         with(target) {
             val enablePlugin =
-                findBooleanProperty("movies.enableApiDump", true)
+                getBooleanProperty("movies.enableApiDump", true)
             if (!enablePlugin) return
 
             pluginManager.apply("org.jetbrains.kotlinx.binary-compatibility-validator")

@@ -1,4 +1,4 @@
-import com.bz.movies.findBooleanProperty
+import com.bz.movies.getBooleanProperty
 import com.bz.movies.libs
 import org.gradle.api.Plugin
 import org.gradle.api.Project
@@ -8,7 +8,7 @@ class StrictDependenciesConventionPlugin : Plugin<Project> {
     override fun apply(target: Project) {
         with(target) {
             val enablePlugin =
-                findBooleanProperty("movies.enableStrictDependency", true)
+                getBooleanProperty("movies.enableStrictDependency", true)
             if (!enablePlugin) return
 
             target.configurations.configureEach {

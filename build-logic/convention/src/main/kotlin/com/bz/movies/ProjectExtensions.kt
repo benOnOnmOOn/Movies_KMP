@@ -8,7 +8,7 @@ import org.gradle.kotlin.dsl.getByType
 val Project.libs
     get(): VersionCatalog = extensions.getByType<VersionCatalogsExtension>().named("libs")
 
-fun Project.findBooleanProperty(
+fun Project.getBooleanProperty(
     name: String,
     default: Boolean,
-): Boolean = findProperty(name)?.toString()?.toBoolean() ?: default
+): Boolean = providers.gradleProperty(name).orNull?.toBooleanStrictOrNull() ?: default
