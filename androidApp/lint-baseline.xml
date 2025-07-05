@@ -5,142 +5,54 @@
         id="InvalidPackage"
         message="Invalid package reference in io.ktor:ktor-utils-jvm; not included in Android: `java.lang.management`. Referenced from `io.ktor.util.debug.IntellijIdeaDebugDetector`.">
         <location
-            file="../../../../../.gradle/caches/modules-2/files-2.1/io.ktor/ktor-utils-jvm/3.1.3/d2e56dca809c965fa498df86a570fc9ed5b9551f/ktor-utils-jvm-3.1.3.jar"/>
+            file="../../../../../.gradle/caches/modules-2/files-2.1/io.ktor/ktor-utils-jvm/3.2.1/b7567c411afbd479b0a99256d7b6ec89239edbd0/ktor-utils-jvm-3.2.1.jar"/>
     </issue>
 
     <issue
         id="InvalidPackage"
         message="Invalid package reference in io.ktor:ktor-utils-jvm; not included in Android: `java.lang.management`. Referenced from `io.ktor.util.debug.IntellijIdeaDebugDetector`.">
         <location
-            file="../../../../../.gradle/caches/modules-2/files-2.1/io.ktor/ktor-utils-jvm/3.1.3/d2e56dca809c965fa498df86a570fc9ed5b9551f/ktor-utils-jvm-3.1.3.jar"/>
+            file="../../../../../.gradle/caches/modules-2/files-2.1/io.ktor/ktor-utils-jvm/3.2.1/b7567c411afbd479b0a99256d7b6ec89239edbd0/ktor-utils-jvm-3.2.1.jar"/>
     </issue>
 
     <issue
         id="InvalidPackage"
         message="Invalid package reference in library; not included in Android: `java.lang.management`. Referenced from `io.ktor.util.debug.IntellijIdeaDebugDetector`.">
         <location
-            file="../../../../.gradle/caches/modules-2/files-2.1/io.ktor/ktor-utils-jvm/3.1.3/d2e56dca809c965fa498df86a570fc9ed5b9551f/ktor-utils-jvm-3.1.3.jar"/>
+            file="../../../../.gradle/caches/modules-2/files-2.1/io.ktor/ktor-utils-jvm/3.2.1/b7567c411afbd479b0a99256d7b6ec89239edbd0/ktor-utils-jvm-3.2.1.jar"/>
     </issue>
 
     <issue
         id="NewerVersionAvailable"
-        message="A newer version of io.ktor:ktor-client-android than 3.1.3 is available: 3.2.0"
-        errorLine1="ktor = &quot;3.1.3&quot;"
-        errorLine2="       ~~~~~~~">
+        message="A newer version of org.junit.jupiter:junit-jupiter-api than 5.13.2 is available: 5.13.3"
+        errorLine1="junit = &quot;5.13.2&quot;"
+        errorLine2="        ~~~~~~~~">
         <location
             file="../gradle/libs.versions.toml"
-            line="36"
-            column="8"/>
+            line="24"
+            column="9"/>
     </issue>
 
     <issue
         id="NewerVersionAvailable"
-        message="A newer version of io.ktor:ktor-client-content-negotiation than 3.1.3 is available: 3.2.0"
-        errorLine1="ktor = &quot;3.1.3&quot;"
-        errorLine2="       ~~~~~~~">
+        message="A newer version of org.junit.jupiter:junit-jupiter-engine than 5.13.2 is available: 5.13.3"
+        errorLine1="junit = &quot;5.13.2&quot;"
+        errorLine2="        ~~~~~~~~">
         <location
             file="../gradle/libs.versions.toml"
-            line="36"
-            column="8"/>
+            line="24"
+            column="9"/>
     </issue>
 
     <issue
         id="NewerVersionAvailable"
-        message="A newer version of io.ktor:ktor-client-core than 3.1.3 is available: 3.2.0"
-        errorLine1="ktor = &quot;3.1.3&quot;"
-        errorLine2="       ~~~~~~~">
+        message="A newer version of com.slack.lint:slack-lint-checks than 0.9.0 is available: 0.10.0"
+        errorLine1="lint-slack-checks = &quot;0.9.0&quot;"
+        errorLine2="                    ~~~~~~~">
         <location
             file="../gradle/libs.versions.toml"
-            line="36"
-            column="8"/>
-    </issue>
-
-    <issue
-        id="NewerVersionAvailable"
-        message="A newer version of io.ktor:ktor-client-ios than 3.1.3 is available: 3.2.0"
-        errorLine1="ktor = &quot;3.1.3&quot;"
-        errorLine2="       ~~~~~~~">
-        <location
-            file="../gradle/libs.versions.toml"
-            line="36"
-            column="8"/>
-    </issue>
-
-    <issue
-        id="NewerVersionAvailable"
-        message="A newer version of io.ktor:ktor-client-logging than 3.1.3 is available: 3.2.0"
-        errorLine1="ktor = &quot;3.1.3&quot;"
-        errorLine2="       ~~~~~~~">
-        <location
-            file="../gradle/libs.versions.toml"
-            line="36"
-            column="8"/>
-    </issue>
-
-    <issue
-        id="NewerVersionAvailable"
-        message="A newer version of io.ktor:ktor-http than 3.1.3 is available: 3.2.0"
-        errorLine1="ktor = &quot;3.1.3&quot;"
-        errorLine2="       ~~~~~~~">
-        <location
-            file="../gradle/libs.versions.toml"
-            line="36"
-            column="8"/>
-    </issue>
-
-    <issue
-        id="NewerVersionAvailable"
-        message="A newer version of io.ktor:ktor-serialization than 3.1.3 is available: 3.2.0"
-        errorLine1="ktor = &quot;3.1.3&quot;"
-        errorLine2="       ~~~~~~~">
-        <location
-            file="../gradle/libs.versions.toml"
-            line="36"
-            column="8"/>
-    </issue>
-
-    <issue
-        id="NewerVersionAvailable"
-        message="A newer version of io.ktor:ktor-serialization-kotlinx-json than 3.1.3 is available: 3.2.0"
-        errorLine1="ktor = &quot;3.1.3&quot;"
-        errorLine2="       ~~~~~~~">
-        <location
-            file="../gradle/libs.versions.toml"
-            line="36"
-            column="8"/>
-    </issue>
-
-    <issue
-        id="NewerVersionAvailable"
-        message="A newer version of io.ktor:ktor-server-cio than 3.1.3 is available: 3.2.0"
-        errorLine1="ktor = &quot;3.1.3&quot;"
-        errorLine2="       ~~~~~~~">
-        <location
-            file="../gradle/libs.versions.toml"
-            line="36"
-            column="8"/>
-    </issue>
-
-    <issue
-        id="NewerVersionAvailable"
-        message="A newer version of io.ktor:ktor-server-content-negotiation than 3.1.3 is available: 3.2.0"
-        errorLine1="ktor = &quot;3.1.3&quot;"
-        errorLine2="       ~~~~~~~">
-        <location
-            file="../gradle/libs.versions.toml"
-            line="36"
-            column="8"/>
-    </issue>
-
-    <issue
-        id="NewerVersionAvailable"
-        message="A newer version of io.ktor:ktor-utils than 3.1.3 is available: 3.2.0"
-        errorLine1="ktor = &quot;3.1.3&quot;"
-        errorLine2="       ~~~~~~~">
-        <location
-            file="../gradle/libs.versions.toml"
-            line="36"
-            column="8"/>
+            line="38"
+            column="21"/>
     </issue>
 
     <issue

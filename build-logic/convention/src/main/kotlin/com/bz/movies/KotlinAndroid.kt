@@ -128,20 +128,21 @@ internal fun Project.configureKotlinAndroid(commonExtension: CommonExtension<*, 
 /**
  * Configure base Kotlin options for JVM (non-Android)
  */
-private inline fun <reified T : KotlinBaseExtension> Project.configureKotlin() = configure<T> {
-    when (this) {
-        is KotlinAndroidProjectExtension -> compilerOptions
-        is KotlinJvmProjectExtension -> compilerOptions
-        else -> TODO("Unsupported project extension $this ${T::class}")
-    }.apply {
-        jvmTarget.set(JvmTarget.JVM_21)
-        jvmDefault = JvmDefaultMode.NO_COMPATIBILITY
-        freeCompilerArgs.addAll(listOf("-Xexpect-actual-classes"))
-        allWarningsAsErrors.set(false)
-        extraWarnings.set(true)
-        progressiveMode = true
+private inline fun <reified T : KotlinBaseExtension> Project.configureKotlin() =
+    configure<T> {
+        when (this) {
+            is KotlinAndroidProjectExtension -> compilerOptions
+            is KotlinJvmProjectExtension -> compilerOptions
+            else -> TODO("Unsupported project extension $this ${T::class}")
+        }.apply {
+            jvmTarget.set(JvmTarget.JVM_21)
+            jvmDefault = JvmDefaultMode.NO_COMPATIBILITY
+            freeCompilerArgs.addAll(listOf("-Xexpect-actual-classes"))
+            allWarningsAsErrors.set(false)
+            extraWarnings.set(true)
+            progressiveMode = true
+        }
     }
-}
 
 /**
  * Configure base Kotlin options for JVM (non-Android)
