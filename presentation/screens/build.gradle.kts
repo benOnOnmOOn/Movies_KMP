@@ -79,6 +79,10 @@ kotlin {
             api(libs.androidx.navigation.runtime)
             api(libs.kotlin.stdlib)
 
+            implementation(libs.androidx.compose.ui.tooling)
+            implementation(libs.androidx.compose.ui.tooling.preview)
+            implementation(libs.kotlinx.compose.ui.tooling.preview)
+
             implementation(libs.androidx.lifecycle.common)
             implementation(libs.androidx.lifecycle.runtime.compose)
             implementation(libs.androidx.navigation.compose)
