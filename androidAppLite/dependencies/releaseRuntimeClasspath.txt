@@ -20,10 +20,8 @@ androidx.compose.foundation:foundation-layout:1.9.0-beta03
 androidx.compose.foundation:foundation:1.9.0-beta03
 androidx.compose.material3:material3-android:1.4.0-alpha18
 androidx.compose.material3:material3:1.4.0-alpha18
-androidx.compose.material:material-icons-core:1.0.0
 androidx.compose.material:material-ripple-android:1.8.1
 androidx.compose.material:material-ripple:1.8.1
-androidx.compose.material:material:1.0.0
 androidx.compose.runtime:runtime-android:1.9.0-beta03
 androidx.compose.runtime:runtime-annotation-android:1.9.0-beta03
 androidx.compose.runtime:runtime-annotation:1.9.0-beta03
@@ -37,12 +35,7 @@ androidx.compose.ui:ui-graphics-android:1.9.0-beta03
 androidx.compose.ui:ui-graphics:1.9.0-beta03
 androidx.compose.ui:ui-text-android:1.9.0-beta03
 androidx.compose.ui:ui-text:1.9.0-beta03
-androidx.compose.ui:ui-tooling-android:1.9.0-beta03
-androidx.compose.ui:ui-tooling-data-android:1.9.0-beta03
-androidx.compose.ui:ui-tooling-data:1.9.0-beta03
 androidx.compose.ui:ui-tooling-preview-android:1.9.0-beta03
-androidx.compose.ui:ui-tooling-preview:1.9.0-beta03
-androidx.compose.ui:ui-tooling:1.9.0-beta03
 androidx.compose.ui:ui-unit-android:1.9.0-beta03
 androidx.compose.ui:ui-unit:1.9.0-beta03
 androidx.compose.ui:ui-util-android:1.9.0-beta03
@@ -198,7 +191,6 @@ org.jetbrains.compose.ui:ui-backhandler:1.8.1
 org.jetbrains.compose.ui:ui-geometry:1.9.0-beta01
 org.jetbrains.compose.ui:ui-graphics:1.9.0-beta01
 org.jetbrains.compose.ui:ui-text:1.9.0-beta01
-org.jetbrains.compose.ui:ui-tooling-preview:1.9.0-beta01
 org.jetbrains.compose.ui:ui-unit:1.9.0-beta01
 org.jetbrains.compose.ui:ui-util:1.9.0-beta01
 org.jetbrains.compose.ui:ui:1.9.0-beta01

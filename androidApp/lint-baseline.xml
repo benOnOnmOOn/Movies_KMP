@@ -79,6 +79,127 @@
 
     <issue
         id="NewerVersionAvailable"
+        message="A newer version of io.ktor:ktor-client-android than 3.2.2 is available: 3.2.3"
+        errorLine1="ktor = &quot;3.2.2&quot;"
+        errorLine2="       ~~~~~~~">
+        <location
+            file="../gradle/libs.versions.toml"
+            line="36"
+            column="8"/>
+    </issue>
+
+    <issue
+        id="NewerVersionAvailable"
+        message="A newer version of io.ktor:ktor-client-content-negotiation than 3.2.2 is available: 3.2.3"
+        errorLine1="ktor = &quot;3.2.2&quot;"
+        errorLine2="       ~~~~~~~">
+        <location
+            file="../gradle/libs.versions.toml"
+            line="36"
+            column="8"/>
+    </issue>
+
+    <issue
+        id="NewerVersionAvailable"
+        message="A newer version of io.ktor:ktor-client-core than 3.2.2 is available: 3.2.3"
+        errorLine1="ktor = &quot;3.2.2&quot;"
+        errorLine2="       ~~~~~~~">
+        <location
+            file="../gradle/libs.versions.toml"
+            line="36"
+            column="8"/>
+    </issue>
+
+    <issue
+        id="NewerVersionAvailable"
+        message="A newer version of io.ktor:ktor-client-ios than 3.2.2 is available: 3.2.3"
+        errorLine1="ktor = &quot;3.2.2&quot;"
+        errorLine2="       ~~~~~~~">
+        <location
+            file="../gradle/libs.versions.toml"
+            line="36"
+            column="8"/>
+    </issue>
+
+    <issue
+        id="NewerVersionAvailable"
+        message="A newer version of io.ktor:ktor-client-logging than 3.2.2 is available: 3.2.3"
+        errorLine1="ktor = &quot;3.2.2&quot;"
+        errorLine2="       ~~~~~~~">
+        <location
+            file="../gradle/libs.versions.toml"
+            line="36"
+            column="8"/>
+    </issue>
+
+    <issue
+        id="NewerVersionAvailable"
+        message="A newer version of io.ktor:ktor-http than 3.2.2 is available: 3.2.3"
+        errorLine1="ktor = &quot;3.2.2&quot;"
+        errorLine2="       ~~~~~~~">
+        <location
+            file="../gradle/libs.versions.toml"
+            line="36"
+            column="8"/>
+    </issue>
+
+    <issue
+        id="NewerVersionAvailable"
+        message="A newer version of io.ktor:ktor-serialization than 3.2.2 is available: 3.2.3"
+        errorLine1="ktor = &quot;3.2.2&quot;"
+        errorLine2="       ~~~~~~~">
+        <location
+            file="../gradle/libs.versions.toml"
+            line="36"
+            column="8"/>
+    </issue>
+
+    <issue
+        id="NewerVersionAvailable"
+        message="A newer version of io.ktor:ktor-serialization-kotlinx-json than 3.2.2 is available: 3.2.3"
+        errorLine1="ktor = &quot;3.2.2&quot;"
+        errorLine2="       ~~~~~~~">
+        <location
+            file="../gradle/libs.versions.toml"
+            line="36"
+            column="8"/>
+    </issue>
+
+    <issue
+        id="NewerVersionAvailable"
+        message="A newer version of io.ktor:ktor-server-cio than 3.2.2 is available: 3.2.3"
+        errorLine1="ktor = &quot;3.2.2&quot;"
+        errorLine2="       ~~~~~~~">
+        <location
+            file="../gradle/libs.versions.toml"
+            line="36"
+            column="8"/>
+    </issue>
+
+    <issue
+        id="NewerVersionAvailable"
+        message="A newer version of io.ktor:ktor-server-content-negotiation than 3.2.2 is available: 3.2.3"
+        errorLine1="ktor = &quot;3.2.2&quot;"
+        errorLine2="       ~~~~~~~">
+        <location
+            file="../gradle/libs.versions.toml"
+            line="36"
+            column="8"/>
+    </issue>
+
+    <issue
+        id="NewerVersionAvailable"
+        message="A newer version of io.ktor:ktor-utils than 3.2.2 is available: 3.2.3"
+        errorLine1="ktor = &quot;3.2.2&quot;"
+        errorLine2="       ~~~~~~~">
+        <location
+            file="../gradle/libs.versions.toml"
+            line="36"
+            column="8"/>
+    </issue>
+
+    <issue
+        id="NewerVersionAvailable"
         message="A newer version of app.cash.sqldelight than 2.0.2 is available: 2.1.0"
         errorLine1="sqldelight = &quot;2.0.2&quot;"
         errorLine2="             ~~~~~~~">
