@@ -19,7 +19,7 @@ plugins {
     alias(libs.plugins.kotlin.serialization) apply false
     alias(libs.plugins.kotlinx.kover) apply false
     alias(libs.plugins.kotlin.ksp) apply false
-    alias(libs.plugins.ktlint) apply false
+    alias(libs.plugins.ktlint) apply true
     alias(libs.plugins.sqldelight) apply false
     alias(libs.plugins.kotlin.multiplatform.android.library) apply false
 
@@ -108,4 +108,3 @@ tasks.register<DetektCreateBaselineTask>("detektGenerateBaseline") {
 }
 
 //endregion
-
