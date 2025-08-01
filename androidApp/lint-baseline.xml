@@ -23,6 +23,61 @@
     </issue>
 
     <issue
+        id="AndroidGradlePluginVersion"
+        message="A newer version of com.android.application than 8.11.1 is available: 8.12.0"
+        errorLine1="android-gradle-plugin = &quot;8.11.1&quot;"
+        errorLine2="                        ~~~~~~~~">
+        <location
+            file="../gradle/libs.versions.toml"
+            line="2"
+            column="25"/>
+    </issue>
+
+    <issue
+        id="AndroidGradlePluginVersion"
+        message="A newer version of com.android.kotlin.multiplatform.library than 8.11.1 is available: 8.12.0"
+        errorLine1="android-gradle-plugin = &quot;8.11.1&quot;"
+        errorLine2="                        ~~~~~~~~">
+        <location
+            file="../gradle/libs.versions.toml"
+            line="2"
+            column="25"/>
+    </issue>
+
+    <issue
+        id="AndroidGradlePluginVersion"
+        message="A newer version of com.android.lint than 8.11.1 is available: 8.12.0"
+        errorLine1="android-gradle-plugin = &quot;8.11.1&quot;"
+        errorLine2="                        ~~~~~~~~">
+        <location
+            file="../gradle/libs.versions.toml"
+            line="2"
+            column="25"/>
+    </issue>
+
+    <issue
+        id="AndroidGradlePluginVersion"
+        message="A newer version of com.android.tools.build:gradle than 8.11.1 is available: 8.12.0"
+        errorLine1="android-gradle-plugin = &quot;8.11.1&quot;"
+        errorLine2="                        ~~~~~~~~">
+        <location
+            file="../gradle/libs.versions.toml"
+            line="2"
+            column="25"/>
+    </issue>
+
+    <issue
+        id="GradleDependency"
+        message="A newer version of com.android.tools:common than 31.11.1 is available: 31.12.0"
+        errorLine1="android-tools = &quot;31.11.1&quot;"
+        errorLine2="                ~~~~~~~~~">
+        <location
+            file="../gradle/libs.versions.toml"
+            line="4"
+            column="17"/>
+    </issue>
+
+    <issue
         id="GradleDependency"
         message="A newer version of androidx.lifecycle:lifecycle-common than 2.9.1 is available: 2.9.2"
         errorLine1="androidx-lifecycle = &quot;2.9.1&quot;"
