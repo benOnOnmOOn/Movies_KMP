@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<issues format="6" by="lint 8.11.1" type="baseline" client="gradle" dependencies="true" name="AGP (8.11.1)" variant="all" version="8.11.1">
+<issues format="6" by="lint 8.12.0" type="baseline" client="gradle" dependencies="true" name="AGP (8.12.0)" variant="all" version="8.12.0">
 
     <issue
         id="InvalidPackage"
@@ -20,61 +20,6 @@
         message="Invalid package reference in library; not included in Android: `java.lang.management`. Referenced from `io.ktor.util.debug.IntellijIdeaDebugDetector`.">
         <location
             file="../../../../.gradle/caches/modules-2/files-2.1/io.ktor/ktor-utils-jvm/3.2.3/5cc6a940a5ca98f7f0c36e0b699c6fbd2f594598/ktor-utils-jvm-3.2.3.jar"/>
-    </issue>
-
-    <issue
-        id="AndroidGradlePluginVersion"
-        message="A newer version of com.android.application than 8.11.1 is available: 8.12.0"
-        errorLine1="android-gradle-plugin = &quot;8.11.1&quot;"
-        errorLine2="                        ~~~~~~~~">
-        <location
-            file="../gradle/libs.versions.toml"
-            line="2"
-            column="25"/>
-    </issue>
-
-    <issue
-        id="AndroidGradlePluginVersion"
-        message="A newer version of com.android.kotlin.multiplatform.library than 8.11.1 is available: 8.12.0"
-        errorLine1="android-gradle-plugin = &quot;8.11.1&quot;"
-        errorLine2="                        ~~~~~~~~">
-        <location
-            file="../gradle/libs.versions.toml"
-            line="2"
-            column="25"/>
-    </issue>
-
-    <issue
-        id="AndroidGradlePluginVersion"
-        message="A newer version of com.android.lint than 8.11.1 is available: 8.12.0"
-        errorLine1="android-gradle-plugin = &quot;8.11.1&quot;"
-        errorLine2="                        ~~~~~~~~">
-        <location
-            file="../gradle/libs.versions.toml"
-            line="2"
-            column="25"/>
-    </issue>
-
-    <issue
-        id="AndroidGradlePluginVersion"
-        message="A newer version of com.android.tools.build:gradle than 8.11.1 is available: 8.12.0"
-        errorLine1="android-gradle-plugin = &quot;8.11.1&quot;"
-        errorLine2="                        ~~~~~~~~">
-        <location
-            file="../gradle/libs.versions.toml"
-            line="2"
-            column="25"/>
-    </issue>
-
-    <issue
-        id="GradleDependency"
-        message="A newer version of com.android.tools:common than 31.11.1 is available: 31.12.0"
-        errorLine1="android-tools = &quot;31.11.1&quot;"
-        errorLine2="                ~~~~~~~~~">
-        <location
-            file="../gradle/libs.versions.toml"
-            line="4"
-            column="17"/>
     </issue>
 
     <issue
