@@ -23,61 +23,6 @@
     </issue>
 
     <issue
-        id="GradleDependency"
-        message="A newer version of androidx.lifecycle:lifecycle-common than 2.9.1 is available: 2.9.2"
-        errorLine1="androidx-lifecycle = &quot;2.9.1&quot;"
-        errorLine2="                     ~~~~~~~">
-        <location
-            file="../gradle/libs.versions.toml"
-            line="9"
-            column="22"/>
-    </issue>
-
-    <issue
-        id="GradleDependency"
-        message="A newer version of androidx.lifecycle:lifecycle-runtime than 2.9.1 is available: 2.9.2"
-        errorLine1="androidx-lifecycle = &quot;2.9.1&quot;"
-        errorLine2="                     ~~~~~~~">
-        <location
-            file="../gradle/libs.versions.toml"
-            line="9"
-            column="22"/>
-    </issue>
-
-    <issue
-        id="GradleDependency"
-        message="A newer version of androidx.lifecycle:lifecycle-runtime-compose than 2.9.1 is available: 2.9.2"
-        errorLine1="androidx-lifecycle = &quot;2.9.1&quot;"
-        errorLine2="                     ~~~~~~~">
-        <location
-            file="../gradle/libs.versions.toml"
-            line="9"
-            column="22"/>
-    </issue>
-
-    <issue
-        id="GradleDependency"
-        message="A newer version of androidx.lifecycle:lifecycle-viewmodel than 2.9.1 is available: 2.9.2"
-        errorLine1="androidx-lifecycle = &quot;2.9.1&quot;"
-        errorLine2="                     ~~~~~~~">
-        <location
-            file="../gradle/libs.versions.toml"
-            line="9"
-            column="22"/>
-    </issue>
-
-    <issue
-        id="GradleDependency"
-        message="A newer version of androidx.lifecycle:lifecycle-viewmodel-compose than 2.9.1 is available: 2.9.2"
-        errorLine1="androidx-lifecycle = &quot;2.9.1&quot;"
-        errorLine2="                     ~~~~~~~">
-        <location
-            file="../gradle/libs.versions.toml"
-            line="9"
-            column="22"/>
-    </issue>
-
-    <issue
         id="NewerVersionAvailable"
         message="A newer version of app.cash.sqldelight than 2.0.2 is available: 2.1.0"
         errorLine1="sqldelight = &quot;2.0.2&quot;"
