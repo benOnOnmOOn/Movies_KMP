@@ -7,9 +7,7 @@ import org.koin.compose.KoinContext
 
 @Composable
 internal fun MainScreen() {
-    KoinContext {
-        val navController = rememberNavController()
+    val navController = rememberNavController()
 
-        MainMoviesScreen(navController = navController)
-    }
+    MainMoviesScreen(navController = navController)
 }

@@ -1,3 +1,7 @@
+@file:OptIn(ExperimentalKotlinGradlePluginApi::class)
+
+import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
+
 plugins {
     alias(libs.plugins.movies.android.room)
     alias(libs.plugins.movies.binary.compatibility)
@@ -10,17 +14,17 @@ plugins {
 
 kotlin {
 
+    dependencies {
+        api(projects.data.dto)
+        implementation(libs.koin.core)
+        implementation(libs.koin.core.coroutines)
+        implementation(libs.kotlinx.coroutines.core)
+        implementation(libs.androidx.room.common)
+        implementation(libs.androidx.room.runtime)
+    }
+
     sourceSets {
-        commonMain {
-            dependencies {
-                api(projects.data.dto)
-                implementation(libs.koin.core)
-                implementation(libs.koin.core.coroutines)
-                implementation(libs.kotlinx.coroutines.core)
-                implementation(libs.androidx.room.common)
-                implementation(libs.androidx.room.runtime)
-            }
-        }
+
         commonTest {
             dependencies {
                 implementation(kotlin("test"))
