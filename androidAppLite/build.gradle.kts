@@ -45,7 +45,7 @@ android {
                         "androidx.compose.ui:ui-unit",
                         "androidx.compose.ui:ui-util-android",
                         "androidx.compose.ui:ui-util",
-                        "androidx.compose.ui:ui"
+                        "androidx.compose.ui:ui",
                     )
                 }
             }

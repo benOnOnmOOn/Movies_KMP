@@ -5,7 +5,7 @@
         id="InvalidPackage"
         message="Invalid package reference in io.ktor:ktor-utils-jvm; not included in Android: `java.lang.management`. Referenced from `io.ktor.util.debug.IntellijIdeaDebugDetector`.">
         <location
-            file="$GRADLE_USER_HOME/caches/modules-2/files-2.1/io.ktor/ktor-utils-jvm/3.2.3/5cc6a940a5ca98f7f0c36e0b699c6fbd2f594598/ktor-utils-jvm-3.2.3.jar"/>
+            file="$GRADLE_USER_HOME/caches/modules-2/files-2.1/io.ktor/ktor-utils-jvm/3.3.0/2e8d26ef0c392e07b63460009776df0e7fea653e/ktor-utils-jvm-3.3.0.jar"/>
     </issue>
 
 </issues>
