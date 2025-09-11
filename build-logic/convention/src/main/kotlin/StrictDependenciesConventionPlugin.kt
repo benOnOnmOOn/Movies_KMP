@@ -12,6 +12,7 @@ class StrictDependenciesConventionPlugin : Plugin<Project> {
             if (!enablePlugin) return
 
             target.configurations.configureEach {
+                exclude("androidx.activity", "activity-ktx")
                 exclude("androidx.appcompat", "appcompat")
                 exclude("androidx.collection", "collection-ktx")
                 exclude("androidx.cursoradapter", "cursoradapter")
