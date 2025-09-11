@@ -18,7 +18,6 @@ plugins {
 
 kotlin {
 
-
     cocoapods {
         summary = "Some description for the Shared Module"
         homepage = "Link to the Shared Module homepage"
