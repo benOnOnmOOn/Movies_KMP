@@ -12,6 +12,7 @@ class StrictDependenciesConventionPlugin : Plugin<Project> {
             if (!enablePlugin) return
 
             target.configurations.configureEach {
+                exclude("androidx.activity", "activity-ktx")
                 exclude("androidx.appcompat", "appcompat")
                 exclude("androidx.collection", "collection-ktx")
                 exclude("androidx.cursoradapter", "cursoradapter")
@@ -40,7 +41,6 @@ class StrictDependenciesConventionPlugin : Plugin<Project> {
 
                 exclude("org.jetbrains.kotlin", "kotlin-stdlib-jdk7")
                 exclude("org.jetbrains.kotlin", "kotlin-stdlib-jdk8")
-                exclude("org.jetbrains.kotlin", "kotlin-reflect")
 
                 // force deps
                 resolutionStrategy {

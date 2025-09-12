@@ -1,3 +1,7 @@
+@file:OptIn(ExperimentalKotlinGradlePluginApi::class)
+
+import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
+
 plugins {
     alias(libs.plugins.kotlin.cocoapods)
     alias(libs.plugins.kotlin.compose.compiler)
@@ -33,30 +37,30 @@ kotlin {
         }
     }
 
+    dependencies {
+        api(projects.presentation.screens)
+        api(projects.data.dto)
+
+        implementation(libs.androidx.lifecycle.viewmodel)
+
+        implementation(libs.coil)
+        implementation(libs.coil.compose.core)
+        implementation(libs.coil.core)
+        implementation(libs.coil.network.ktor)
+
+        implementation(libs.koin.compose)
+        implementation(libs.koin.compose.viemodel)
+        implementation(libs.koin.core)
+        implementation(libs.koin.core.coroutines)
+
+        implementation(libs.kotlinx.coroutines.core)
+
+        implementation(libs.kotlinx.compose.material3)
+        implementation(libs.kotlinx.compose.navigation)
+    }
+
     sourceSets {
-        commonMain.dependencies {
-            api(projects.presentation.screens)
-            api(projects.data.dto)
-
-            implementation(compose.components.resources)
-
-            implementation(libs.androidx.lifecycle.viewmodel)
-
-            implementation(libs.coil)
-            implementation(libs.coil.compose.core)
-            implementation(libs.coil.core)
-            implementation(libs.coil.network.ktor)
-
-            implementation(libs.koin.compose)
-            implementation(libs.koin.compose.viemodel)
-            implementation(libs.koin.core)
-            implementation(libs.koin.core.coroutines)
-
-            implementation(libs.kotlinx.coroutines.core)
-
-            implementation(libs.kotlinx.compose.material3)
-            implementation(libs.kotlinx.compose.navigation)
-        }
+        commonMain.dependencies { implementation(compose.components.resources) }
 
         androidMain.dependencies {
             implementation(projects.presentation.screens)

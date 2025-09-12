@@ -1,3 +1,7 @@
+@file:OptIn(ExperimentalKotlinGradlePluginApi::class)
+
+import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
+
 plugins {
     alias(libs.plugins.sqldelight)
 
@@ -11,15 +15,14 @@ plugins {
 
 kotlin {
 
+    dependencies {
+        api(projects.data.dto)
+        implementation(libs.koin.core)
+        implementation(libs.kotlinx.coroutines.core)
+        implementation(libs.sqldelight.coroutines.extensions)
+    }
+
     sourceSets {
-        commonMain {
-            dependencies {
-                api(projects.data.dto)
-                implementation(libs.koin.core)
-                implementation(libs.kotlinx.coroutines.core)
-                implementation(libs.sqldelight.coroutines.extensions)
-            }
-        }
         commonTest {
             dependencies {
                 implementation(kotlin("test"))

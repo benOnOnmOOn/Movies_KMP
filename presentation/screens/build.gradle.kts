@@ -1,4 +1,7 @@
+@file:OptIn(ExperimentalKotlinGradlePluginApi::class)
+
 import com.autonomousapps.DependencyAnalysisSubExtension
+import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
 
 plugins {
     alias(libs.plugins.kotlin.compose.compiler)
@@ -22,6 +25,37 @@ kotlin {
         experimentalProperties["android.experimental.kmp.enableAndroidResources"] = true
     }
 
+    dependencies {
+        implementation(projects.data.network)
+        implementation(projects.data.room)
+        implementation(projects.data.datastore)
+        implementation(projects.data.dto)
+
+        implementation(libs.androidx.lifecycle.runtime)
+        implementation(libs.androidx.lifecycle.viewmodel)
+
+        implementation(libs.coil)
+        implementation(libs.coil.compose.core)
+        implementation(libs.coil.core)
+        implementation(libs.coil.network.ktor)
+
+        implementation(libs.kermit)
+
+        implementation(libs.koin.compose)
+        implementation(libs.koin.compose.viemodel)
+        implementation(libs.koin.core)
+        implementation(libs.koin.core.coroutines)
+        implementation(libs.koin.core.viewmodel)
+
+        implementation(libs.kotlinx.coroutines.core)
+
+        implementation(libs.kotlinx.compose.material3)
+        implementation(libs.kotlinx.compose.navigation)
+        implementation(libs.kotlinx.lifecycle.viewmodel.savedstate)
+        implementation(libs.kotlinx.savedstate)
+        implementation(libs.kotlinx.compose.lifecycle.runtime.compose)
+    }
+
     sourceSets {
         all {
             languageSettings.optIn(
@@ -32,38 +66,7 @@ kotlin {
             )
         }
 
-        commonMain.dependencies {
-            implementation(projects.data.network)
-            implementation(projects.data.room)
-            implementation(projects.data.datastore)
-            implementation(projects.data.dto)
-
-            implementation(compose.components.resources)
-
-            implementation(libs.androidx.lifecycle.runtime)
-            implementation(libs.androidx.lifecycle.viewmodel)
-
-            implementation(libs.coil)
-            implementation(libs.coil.compose.core)
-            implementation(libs.coil.core)
-            implementation(libs.coil.network.ktor)
-
-            implementation(libs.kermit)
-
-            implementation(libs.koin.compose)
-            implementation(libs.koin.compose.viemodel)
-            implementation(libs.koin.core)
-            implementation(libs.koin.core.coroutines)
-            implementation(libs.koin.core.viewmodel)
-
-            implementation(libs.kotlinx.coroutines.core)
-
-            implementation(libs.kotlinx.compose.material3)
-            implementation(libs.kotlinx.compose.navigation)
-            implementation(libs.kotlinx.lifecycle.viewmodel.savedstate)
-            implementation(libs.kotlinx.savedstate)
-            implementation(libs.kotlinx.compose.lifecycle.runtime.compose)
-        }
+        commonMain.dependencies { implementation(compose.components.resources) }
 
         commonTest.dependencies {
             implementation(kotlin("test"))

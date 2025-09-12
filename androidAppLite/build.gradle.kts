@@ -11,6 +11,47 @@ plugins {
 
 android {
     namespace = "com.bz.movies.kmp.android"
+    buildTypes {
+        release {
+            optimization {
+                keepRules {
+                    ignoreFrom(
+                        "androidx.compose.animation:animation-android",
+                        "androidx.compose.animation:animation-core-android",
+                        "androidx.compose.animation:animation-core",
+                        "androidx.compose.animation:animation",
+                        "androidx.compose.foundation:foundation-android",
+                        "androidx.compose.foundation:foundation-layout-android",
+                        "androidx.compose.foundation:foundation-layout",
+                        "androidx.compose.foundation:foundation",
+                        "androidx.compose.material3:material3-android",
+                        "androidx.compose.material3:material3",
+                        "androidx.compose.material:material-ripple",
+                        "androidx.compose.material:material",
+                        "androidx.compose.runtime:runtime-android",
+                        "androidx.compose.runtime:runtime-annotation-android",
+                        "androidx.compose.runtime:runtime-annotation",
+                        "androidx.compose.runtime:runtime-saveable-android",
+                        "androidx.compose.runtime:runtime-saveable",
+                        "androidx.compose.runtime:runtime",
+                        "androidx.compose.ui:ui-android",
+                        "androidx.compose.ui:ui-geometry-android",
+                        "androidx.compose.ui:ui-geometry",
+                        "androidx.compose.ui:ui-graphics-android",
+                        "androidx.compose.ui:ui-graphics",
+                        "androidx.compose.ui:ui-text-android",
+                        "androidx.compose.ui:ui-text",
+                        "androidx.compose.ui:ui-unit-android",
+                        "androidx.compose.ui:ui-unit",
+                        "androidx.compose.ui:ui-util-android",
+                        "androidx.compose.ui:ui-util",
+                        "androidx.compose.ui:ui",
+                    )
+                }
+            }
+            proguardFiles("proguard-rules-compose.pro")
+        }
+    }
 }
 
 dependencies {

@@ -1,3 +1,7 @@
+@file:OptIn(ExperimentalKotlinGradlePluginApi::class)
+
+import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
+
 plugins {
     alias(libs.plugins.kotlin.serialization)
 
@@ -11,17 +15,16 @@ plugins {
 }
 
 kotlin {
-
+    dependencies {
+        api(projects.data.dto)
+        implementation(libs.ktor.client.core)
+        implementation(libs.ktor.serialization.content.negotiation)
+        implementation(libs.ktor.serialization.kotlinx.json)
+        implementation(libs.kotlinx.coroutines.core)
+        implementation(libs.koin.core)
+        implementation(libs.koin.core.coroutines)
+    }
     sourceSets {
-        commonMain.dependencies {
-            api(projects.data.dto)
-            implementation(libs.ktor.client.core)
-            implementation(libs.ktor.serialization.content.negotiation)
-            implementation(libs.ktor.serialization.kotlinx.json)
-            implementation(libs.kotlinx.coroutines.core)
-            implementation(libs.koin.core)
-            implementation(libs.koin.core.coroutines)
-        }
 
         commonTest.dependencies {
             implementation(kotlin("test"))
