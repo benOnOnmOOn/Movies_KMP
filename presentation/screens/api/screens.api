@@ -74,7 +74,3 @@ public final class com/bz/movies/presentation/screens/main/MainScreenKt {
 	public static final fun MainMoviesScreen (Landroidx/navigation/NavHostController;Landroidx/compose/ui/Modifier;Landroidx/compose/runtime/Composer;II)V
 }
 
-public final class com/bz/movies/presentation/theme/ThemeKt {
-	public static final fun MoviesTheme (ZLkotlin/jvm/functions/Function2;Landroidx/compose/runtime/Composer;II)V
-}
-

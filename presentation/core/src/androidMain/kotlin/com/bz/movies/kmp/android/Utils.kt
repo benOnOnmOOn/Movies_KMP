@@ -5,7 +5,7 @@ import android.os.StrictMode
 import co.touchlab.kermit.Logger
 import java.util.concurrent.Executors
 
-fun enableStrictMode() {
+public fun enableStrictMode() {
     StrictMode.setThreadPolicy(
         StrictMode.ThreadPolicy
             .Builder()

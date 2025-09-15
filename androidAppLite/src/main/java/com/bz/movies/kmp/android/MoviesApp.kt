@@ -7,7 +7,7 @@ import org.koin.android.ext.koin.androidLogger
 import org.koin.core.context.GlobalContext.startKoin
 import org.koin.core.lazyModules
 
-class MoviesApp : Application() {
+internal class MoviesApp : Application() {
     override fun onCreate() {
         super.onCreate()
         startKoin {

@@ -4,7 +4,7 @@ import com.bz.movies.kmp.database.repository.LocalMovieRepository
 import com.bz.movies.kmp.database.repository.LocalMovieRepositoryImpl
 import org.koin.dsl.module
 
-val repositoryModule =
+internal val repositoryModule =
     module {
         factory<LocalMovieRepository> { LocalMovieRepositoryImpl(get()) }
     }

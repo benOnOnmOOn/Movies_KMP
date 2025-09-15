@@ -3,7 +3,7 @@ import org.koin.core.context.startKoin
 import org.koin.core.lazyModules
 
 @Suppress("FunctionName")
-fun InitKoin() {
+internal fun InitKoin() {
     startKoin {
         lazyModules(presentationModule)
     }

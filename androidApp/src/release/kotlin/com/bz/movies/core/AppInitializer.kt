@@ -6,7 +6,7 @@ import co.touchlab.kermit.ExperimentalKermitApi
 import co.touchlab.kermit.Logger
 import co.touchlab.kermit.crashlytics.CrashlyticsLogWriter
 
-class AppInitializer : Initializer<Unit> {
+internal class AppInitializer : Initializer<Unit> {
     @OptIn(ExperimentalKermitApi::class)
     override fun create(context: Context) {
         Logger.setLogWriters(listOf(CrashlyticsLogWriter()))

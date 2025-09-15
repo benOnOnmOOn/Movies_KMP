@@ -17,7 +17,7 @@ import org.koin.core.module.Module
 import org.koin.core.module.dsl.viewModel
 import org.koin.dsl.lazyModule
 
-val screensModule: List<Lazy<Module>> =
+public val screensModule: List<Lazy<Module>> =
     listOf(
         lazyModule {
             viewModel { PlayingNowViewModel(get(), get(), get()) }
