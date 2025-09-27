@@ -1,7 +1,7 @@
 import kotlin.coroutines.cancellation.CancellationException
 
 @Suppress("TooGenericExceptionCaught")
-public inline fun <R> runCoCatching(block: () -> R): Result<R> =
+public inline fun <R> runSuspendCatching(block: () -> R): Result<R> =
     try {
         Result.success(block())
     } catch (c: CancellationException) {

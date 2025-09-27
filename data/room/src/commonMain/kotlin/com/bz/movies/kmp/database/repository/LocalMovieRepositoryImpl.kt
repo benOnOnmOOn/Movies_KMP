@@ -17,7 +17,7 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.withContext
-import runCoCatching
+import runSuspendCatching
 
 internal class LocalMovieRepositoryImpl(
     private val movieDAO: MovieDAO,
@@ -47,42 +47,42 @@ internal class LocalMovieRepositoryImpl(
 
     override suspend fun insertFavoriteMovie(movieDto: MovieDto): Result<Unit> =
         withContext(Dispatchers.IO) {
-            runCoCatching {
+            runSuspendCatching {
                 movieDAO.insert(movieDto.toMovieEntity())
             }
         }
 
     override suspend fun deleteFavoriteMovie(movieDto: MovieDto): Result<Unit> =
         withContext(Dispatchers.IO) {
-            runCoCatching {
+            runSuspendCatching {
                 movieDAO.delete(movieDto.toMovieEntity())
             }
         }
 
     override suspend fun insertPlayingNowMovies(movieDto: List<MovieDto>): Result<Unit> =
         withContext(Dispatchers.IO) {
-            runCoCatching {
+            runSuspendCatching {
                 playingNowMovieDAO.insert(movieDto.map { it.toPlayingNowMovieEntity() })
             }
         }
 
     override suspend fun clearPlayingNowMovies(): Result<Unit> =
         withContext(Dispatchers.IO) {
-            runCoCatching {
+            runSuspendCatching {
                 playingNowMovieDAO.clearTable()
             }
         }
 
     override suspend fun insertPopularMovies(movieDto: List<MovieDto>): Result<Unit> =
         withContext(Dispatchers.IO) {
-            runCoCatching {
+            runSuspendCatching {
                 popularMovieDAO.insert(movieDto.map { it.toPopularMovieEntity() })
             }
         }
 
     override suspend fun clearPopularMovies(): Result<Unit> =
         withContext(Dispatchers.IO) {
-            runCoCatching {
+            runSuspendCatching {
                 popularMovieDAO.clearTable()
             }
         }

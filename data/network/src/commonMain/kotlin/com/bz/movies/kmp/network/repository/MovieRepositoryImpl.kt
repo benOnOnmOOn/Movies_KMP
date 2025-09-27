@@ -13,7 +13,7 @@ import com.bz.movies.kmp.network.utils.InternetConnection
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.IO
 import kotlinx.coroutines.withContext
-import runCoCatching
+import runSuspendCatching
 
 private const val AUTH_KEY = "55957fcf3ba81b137f8fc01ac5a31fb5"
 private const val LANGUAGE = "en-US"
@@ -58,7 +58,7 @@ internal class MovieRepositoryImpl(
         }
 
         return withContext(Dispatchers.IO) {
-            runCoCatching {
+            runSuspendCatching {
                 val response = apiCall()
                 mapper(response)
             }
