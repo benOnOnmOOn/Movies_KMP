@@ -41,7 +41,7 @@ lint-compose-checks = "1.4.2"
 lint-slack-checks = "0.11.0"
 mockk = "1.14.5"
 slf4j-android = "1.7.36"
-sqldelight = "2.1.0"
+sqldelight = "2.0.2"
 
 [libraries]
 androidx-activity = { module = "androidx.activity:activity", version.ref = "androidx-activity" }
