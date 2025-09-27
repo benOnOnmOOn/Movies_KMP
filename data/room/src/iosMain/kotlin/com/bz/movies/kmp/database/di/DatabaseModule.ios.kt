@@ -36,7 +36,7 @@ private fun documentDirectory(): String {
     return requireNotNull(documentDirectory?.path)
 }
 
-actual val databaseModule: LazyModule =
+public actual val databaseModule: LazyModule =
     lazyModule {
         single<MoviesDatabase> { getDatabaseBuilder().build() }
         single<MovieDAO> { get<MoviesDatabase>().movieDAO() }

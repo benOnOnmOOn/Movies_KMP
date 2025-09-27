@@ -8,7 +8,7 @@ import org.koin.android.ext.koin.androidApplication
 import org.koin.core.module.LazyModule
 import org.koin.dsl.lazyModule
 
-actual val platformNetworkModule: LazyModule =
+public actual val platformNetworkModule: LazyModule =
     lazyModule {
         factory<ConnectivityManager?> { androidApplication().getSystemService<ConnectivityManager>() }
         factory<InternetConnection> { InternetConnectionImpl(get()) }

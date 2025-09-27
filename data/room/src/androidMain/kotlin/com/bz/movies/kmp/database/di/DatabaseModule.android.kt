@@ -21,7 +21,7 @@ private fun getDatabaseBuilder(ctx: Context): RoomDatabase.Builder<MoviesDatabas
     )
 }
 
-actual val databaseModule: LazyModule =
+public actual val databaseModule: LazyModule =
     lazyModule {
         single<MoviesDatabase> { getDatabaseBuilder(androidApplication()).build() }
         single<MovieDAO> { get<MoviesDatabase>().movieDAO() }
