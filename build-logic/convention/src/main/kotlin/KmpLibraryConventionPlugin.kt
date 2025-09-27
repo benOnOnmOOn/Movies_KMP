@@ -30,7 +30,6 @@ class KmpLibraryConventionPlugin : Plugin<Project> {
                 iosArm64()
                 iosSimulatorArm64()
 
-
                 androidLibrary {
                     namespace = "com.bz.movies" + target.project.path.replace(':', '.')
                     compileSdk = 36
