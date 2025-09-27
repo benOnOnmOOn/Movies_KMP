@@ -5,7 +5,7 @@ import com.bz.movies.kmp.datastore.repository.DataStoreRepositoryImpl
 import org.koin.core.module.LazyModule
 import org.koin.dsl.lazyModule
 
-val datastoreRepositoryModule: LazyModule =
+public val datastoreRepositoryModule: LazyModule =
     lazyModule {
         single<DataStoreRepository> { DataStoreRepositoryImpl(get()) }
     }

@@ -6,10 +6,10 @@ import com.bz.movies.kmp.network.repository.MovieRepositoryImpl
 import org.koin.core.module.LazyModule
 import org.koin.dsl.lazyModule
 
-val commonNetworkModule: LazyModule =
+public val commonNetworkModule: LazyModule =
     lazyModule {
         single<MovieService> { MovieService() }
         factory<MovieRepository> { MovieRepositoryImpl(get(), get()) }
     }
 
-expect val platformNetworkModule: LazyModule
+public expect val platformNetworkModule: LazyModule

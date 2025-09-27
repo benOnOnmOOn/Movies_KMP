@@ -5,7 +5,7 @@ import androidx.startup.Initializer
 import co.touchlab.kermit.ExperimentalKermitApi
 import co.touchlab.kermit.Logger
 
-class AppInitializer : Initializer<Unit> {
+internal class AppInitializer : Initializer<Unit> {
     @OptIn(ExperimentalKermitApi::class)
     override fun create(context: Context) {
         Logger.setLogWriters(emptyList())

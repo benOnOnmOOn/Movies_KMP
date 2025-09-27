@@ -12,7 +12,7 @@ import org.koin.android.ext.koin.androidApplication
 import org.koin.core.module.LazyModule
 import org.koin.dsl.lazyModule
 
-actual val datastoreModule: LazyModule =
+public actual val datastoreModule: LazyModule =
     lazyModule {
         single<DataStore<Preferences>> {
             PreferenceDataStoreFactory.create(

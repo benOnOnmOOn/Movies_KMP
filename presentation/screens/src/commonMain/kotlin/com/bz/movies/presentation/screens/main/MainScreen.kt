@@ -14,7 +14,7 @@ import com.bz.movies.presentation.navigation.TopNavigationBar
 import com.bz.movies.presentation.theme.MoviesTheme
 
 @Composable
-fun MainMoviesScreen(
+public fun MainMoviesScreen(
     navController: NavHostController,
     modifier: Modifier = Modifier,
 ) {

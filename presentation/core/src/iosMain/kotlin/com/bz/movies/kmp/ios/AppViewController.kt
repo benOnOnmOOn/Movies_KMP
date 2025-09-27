@@ -4,7 +4,7 @@ import androidx.compose.ui.window.ComposeUIViewController
 import com.bz.movies.kmp.main.MainScreen
 
 @Suppress("unused", "FunctionNaming")
-fun AppViewController() =
+internal fun AppViewController() =
     ComposeUIViewController {
         MainScreen()
     }

@@ -21,7 +21,7 @@ private val LightColorScheme =
     )
 
 @Composable
-fun MoviesTheme(
+internal fun MoviesTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
     content: @Composable () -> Unit,
 ) {

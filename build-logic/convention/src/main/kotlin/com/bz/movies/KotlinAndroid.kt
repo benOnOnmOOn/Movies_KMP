@@ -13,6 +13,7 @@ import org.gradle.api.Project
 import org.gradle.api.plugins.JavaPluginExtension
 import org.gradle.kotlin.dsl.assign
 import org.gradle.kotlin.dsl.configure
+import org.jetbrains.kotlin.gradle.dsl.ExplicitApiMode
 import org.jetbrains.kotlin.gradle.dsl.JvmDefaultMode
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 import org.jetbrains.kotlin.gradle.dsl.KotlinAndroidProjectExtension
@@ -138,6 +139,7 @@ private inline fun <reified T : KotlinBaseExtension> Project.configureKotlin() =
             jvmTarget.set(JvmTarget.JVM_21)
             jvmDefault = JvmDefaultMode.NO_COMPATIBILITY
             freeCompilerArgs.addAll(listOf("-Xexpect-actual-classes"))
+            explicitApi = ExplicitApiMode.Strict
             allWarningsAsErrors.set(false)
             extraWarnings.set(true)
             progressiveMode = true

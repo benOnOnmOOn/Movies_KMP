@@ -1,11 +1,11 @@
 package com.bz.movies.kmp.network.repository.model
 
-class MoveDetailDto(
-    val id: Int,
-    val posterUrl: String,
-    val publicationDate: String,
-    val language: String,
-    val title: String,
-    val genre: Set<String>,
-    val overview: String,
+public class MoveDetailDto(
+    public val id: Int,
+    public val posterUrl: String,
+    public val publicationDate: String,
+    public val language: String,
+    public val title: String,
+    public val genre: Set<String>,
+    public val overview: String,
 )

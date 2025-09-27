@@ -34,7 +34,7 @@ internal data class Range(
 
 }
 
-typealias Card = Int
+internal typealias Card = Int
 
 internal sealed class Suitedness {
     data object Suited : Suitedness()
