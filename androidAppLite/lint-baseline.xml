@@ -5,21 +5,21 @@
         id="InvalidPackage"
         message="Invalid package reference in io.ktor:ktor-utils-jvm; not included in Android: `java.lang.management`. Referenced from `io.ktor.util.debug.IntellijIdeaDebugDetector`.">
         <location
-            file="../../../../.gradle/caches/modules-2/files-2.1/io.ktor/ktor-utils-jvm/3.3.0/2e8d26ef0c392e07b63460009776df0e7fea653e/ktor-utils-jvm-3.3.0.jar"/>
+            file="../../../../../.gradle/caches/modules-2/files-2.1/io.ktor/ktor-utils-jvm/3.3.0/2e8d26ef0c392e07b63460009776df0e7fea653e/ktor-utils-jvm-3.3.0.jar"/>
     </issue>
 
     <issue
         id="InvalidPackage"
         message="Invalid package reference in io.ktor:ktor-utils-jvm; not included in Android: `java.lang.management`. Referenced from `io.ktor.util.debug.IntellijIdeaDebugDetector`.">
         <location
-            file="../../../../.gradle/caches/modules-2/files-2.1/io.ktor/ktor-utils-jvm/3.3.0/2e8d26ef0c392e07b63460009776df0e7fea653e/ktor-utils-jvm-3.3.0.jar"/>
+            file="../../../../../.gradle/caches/modules-2/files-2.1/io.ktor/ktor-utils-jvm/3.3.0/2e8d26ef0c392e07b63460009776df0e7fea653e/ktor-utils-jvm-3.3.0.jar"/>
     </issue>
 
     <issue
         id="InvalidPackage"
         message="Invalid package reference in library; not included in Android: `java.lang.management`. Referenced from `io.ktor.util.debug.IntellijIdeaDebugDetector`.">
         <location
-            file="../../../.gradle/caches/modules-2/files-2.1/io.ktor/ktor-utils-jvm/3.3.0/2e8d26ef0c392e07b63460009776df0e7fea653e/ktor-utils-jvm-3.3.0.jar"/>
+            file="../../../../.gradle/caches/modules-2/files-2.1/io.ktor/ktor-utils-jvm/3.3.0/2e8d26ef0c392e07b63460009776df0e7fea653e/ktor-utils-jvm-3.3.0.jar"/>
     </issue>
 
 </issues>
