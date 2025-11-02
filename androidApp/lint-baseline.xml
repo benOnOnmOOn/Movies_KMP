@@ -24,28 +24,6 @@
 
     <issue
         id="NewerVersionAvailable"
-        message="A newer version of org.jetbrains.androidx.lifecycle:lifecycle-runtime-compose than 2.9.4 is available: 2.9.5"
-        errorLine1="androidx-lifecycle = &quot;2.9.4&quot;"
-        errorLine2="                     ~~~~~~~">
-        <location
-            file="../gradle/libs.versions.toml"
-            line="9"
-            column="22"/>
-    </issue>
-
-    <issue
-        id="NewerVersionAvailable"
-        message="A newer version of org.jetbrains.androidx.lifecycle:lifecycle-viewmodel-savedstate than 2.9.4 is available: 2.9.5"
-        errorLine1="androidx-lifecycle = &quot;2.9.4&quot;"
-        errorLine2="                     ~~~~~~~">
-        <location
-            file="../gradle/libs.versions.toml"
-            line="9"
-            column="22"/>
-    </issue>
-
-    <issue
-        id="NewerVersionAvailable"
         message="A newer version of app.cash.sqldelight than 2.0.2 is available: 2.1.0"
         errorLine1="sqldelight = &quot;2.0.2&quot;"
         errorLine2="             ~~~~~~~">

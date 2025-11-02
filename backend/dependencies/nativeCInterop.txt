@@ -25,7 +25,7 @@ io.ktor:ktor-utils:3.3.1
 io.ktor:ktor-websockets-macosarm64:3.3.1
 io.ktor:ktor-websockets:3.3.1
 org.jetbrains.kotlin:kotlin-reflect:2.2.20
-org.jetbrains.kotlin:kotlin-stdlib:2.3.0-Beta1
+org.jetbrains.kotlin:kotlin-stdlib:2.3.0-Beta2
 org.jetbrains.kotlinx:atomicfu-macosarm64:0.29.0
 org.jetbrains.kotlinx:atomicfu:0.29.0
 org.jetbrains.kotlinx:kotlinx-coroutines-core-macosarm64:1.10.2
