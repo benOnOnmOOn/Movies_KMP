@@ -9,9 +9,9 @@
 /* Begin PBXAggregateTarget section */
 		7CD70490E0026CA907EE51D8FB6C42F0 /* presentationCore */ = {
 			isa = PBXAggregateTarget;
-			buildConfigurationList = 0C42DDA00529713463839023FEC08471 /* Build configuration list for PBXAggregateTarget "presentationCore" */;
+			buildConfigurationList = 9423B774BC452CAFCC20E6E8B241D782 /* Build configuration list for PBXAggregateTarget "presentationCore" */;
 			buildPhases = (
-				E4501DC7D10DFCA4AE83887144232614 /* [CP-User] Build presentationCore */,
+				C863EA3EECEA0DFA8B901E901DDA490E /* [CP-User] Build presentationCore */,
 			);
 			dependencies = (
 			);
@@ -247,7 +247,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		E4501DC7D10DFCA4AE83887144232614 /* [CP-User] Build presentationCore */ = {
+		C863EA3EECEA0DFA8B901E901DDA490E /* [CP-User] Build presentationCore */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -255,7 +255,7 @@
 			name = "[CP-User] Build presentationCore";
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "                if [ \"YES\" = \"$OVERRIDE_KOTLIN_BUILD_IDE_SUPPORTED\" ]; then\n                  echo \"Skipping Gradle build task invocation due to OVERRIDE_KOTLIN_BUILD_IDE_SUPPORTED environment variable set to \"YES\"\"\n                  exit 0\n                fi\n                set -ev\n                REPO_ROOT=\"$PODS_TARGET_SRCROOT\"\n                \"$REPO_ROOT/../../gradlew\" -p \"$REPO_ROOT\" $KOTLIN_PROJECT_PATH:syncFramework                     -Pkotlin.native.cocoapods.platform=$PLATFORM_NAME                     -Pkotlin.native.cocoapods.archs=\"$ARCHS\"                     -Pkotlin.native.cocoapods.configuration=\"$CONFIGURATION\"\n";
+			shellScript = "                if [ \"YES\" = \"$OVERRIDE_KOTLIN_BUILD_IDE_SUPPORTED\" ]; then\n                    echo \"Skipping Gradle build task invocation due to OVERRIDE_KOTLIN_BUILD_IDE_SUPPORTED environment variable set to \"YES\"\"\n                    exit 0\n                fi\n                set -ev\n                REPO_ROOT=\"$PODS_TARGET_SRCROOT\"\n                \"$REPO_ROOT/../../gradlew\" -p \"$REPO_ROOT\" $KOTLIN_PROJECT_PATH:syncFramework                     -Pkotlin.native.cocoapods.platform=$PLATFORM_NAME                     -Pkotlin.native.cocoapods.archs=\"$ARCHS\"                     -Pkotlin.native.cocoapods.configuration=\"$CONFIGURATION\"\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -280,7 +280,7 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		123EDCD469CAE361E092B6CB1072A703 /* Debug */ = {
+		0E12C1E71E3B4C86440E67415A4BB747 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = FB1D3AAA691EFCEA57ABA454DCF5CAA8 /* presentationCore.debug.xcconfig */;
 			buildSettings = {
@@ -360,7 +360,7 @@
 			};
 			name = Release;
 		};
-		7B8828AC5710BD051847020FC763EFF1 /* Release */ = {
+		31E2D13C903147E29BB1544BBE66127F /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = C105DB74BA9DEE9670BFB4A3A58E598B /* presentationCore.release.xcconfig */;
 			buildSettings = {
@@ -527,20 +527,20 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		0C42DDA00529713463839023FEC08471 /* Build configuration list for PBXAggregateTarget "presentationCore" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				123EDCD469CAE361E092B6CB1072A703 /* Debug */,
-				7B8828AC5710BD051847020FC763EFF1 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				F4FF6A0D1970CA9705974E3CB2134802 /* Debug */,
 				30E0B9EFD9A5C45D0D351231E81B30B3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9423B774BC452CAFCC20E6E8B241D782 /* Build configuration list for PBXAggregateTarget "presentationCore" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0E12C1E71E3B4C86440E67415A4BB747 /* Debug */,
+				31E2D13C903147E29BB1544BBE66127F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
