@@ -9,7 +9,7 @@ EXTERNAL SOURCES:
     :path: "../presentation/core"
 
 SPEC CHECKSUMS:
-  presentationCore: d656b37806a124c74eeb36d9fa76db94d1ef02a7
+  presentationCore: 20062e6b7193125a3c99761f7ae658a0636826aa
 
 PODFILE CHECKSUM: 9d0ee1110232386ff80de516a8435093ac2ee49a
 
