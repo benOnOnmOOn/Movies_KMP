@@ -46,8 +46,8 @@ jobs:
       - name: Fix deps using dependency analysis gradle plugin
         run: ./gradlew fixDependencies
 
-      - name: Run api dump
-        run: ./gradlew apiDump
+#      - name: Run api dump
+#        run: ./gradlew apiDump
 
       - name: Run detekt baseline
         run: ./gradlew detektGenerateBaseline

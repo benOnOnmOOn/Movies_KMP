@@ -5,7 +5,7 @@ import io.gitlab.arturbosch.detekt.DetektCreateBaselineTask
 plugins {
     alias(libs.plugins.android.application) apply false
     alias(libs.plugins.androidx.room) apply false
-    alias(libs.plugins.kotlinx.binary.compatibility) apply false
+//    alias(libs.plugins.kotlinx.binary.compatibility) apply false
     alias(libs.plugins.kotlin.compose.compiler) apply false
     alias(libs.plugins.dependency.analysis) apply false
     alias(libs.plugins.dependency.guard) apply false

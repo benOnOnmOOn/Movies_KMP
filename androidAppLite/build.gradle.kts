@@ -1,5 +1,5 @@
 plugins {
-    alias(libs.plugins.dexcount)
+//    alias(libs.plugins.dexcount)
 
     alias(libs.plugins.movies.android.application)
     alias(libs.plugins.movies.android.lint)
