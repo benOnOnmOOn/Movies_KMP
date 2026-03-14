@@ -3,7 +3,7 @@ import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 plugins {
     `kotlin-dsl`
     alias(libs.plugins.android.lint)
-    alias(libs.plugins.dependency.analysis) apply true
+//    alias(libs.plugins.dependency.analysis) apply true
     alias(libs.plugins.ktlint) apply true
 }
 
@@ -24,13 +24,13 @@ kotlin {
 }
 
 ktlint {
-    version.set("1.6.0")
+    version.set("1.8.0")
 }
 
 dependencies {
     compileOnly(libs.android.gradlePlugin)
     compileOnly(libs.android.tools.common)
-    compileOnly(libs.binary.compatibility.gradlePlugin)
+//    compileOnly(libs.binary.compatibility.gradlePlugin)
     compileOnly(libs.compose.gradlePlugin)
     compileOnly(libs.dependency.analysis.gradlePlugin)
     compileOnly(libs.firebase.crashlytics.gradlePlugin)
